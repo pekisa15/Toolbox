@@ -27,6 +27,7 @@ import 'package:toolbox/pages/passwordgenerator_page.dart';
 import 'package:toolbox/pages/pastebin_page.dart';
 import 'package:toolbox/pages/percentagecalculator_page.dart';
 import 'package:toolbox/pages/ping_page.dart';
+import 'package:toolbox/pages/portscanner_page.dart';
 import 'package:toolbox/pages/qrcreator_page.dart';
 import 'package:toolbox/pages/qrreader_page.dart';
 import 'package:toolbox/pages/randomcolor_page.dart';
@@ -81,6 +82,7 @@ class Hierarchy {
     "pastebin": Tool(t.tools.pastebin.title, "assets/images/tools/pastebin.png", const PastebinPage()),
     "percentagecalculator": Tool(t.tools.percentagecalculator.title, "assets/images/tools/percentagecalculator.png", const PercentageCalculatorPage()),
     "ping": Tool(t.tools.ping.title, "assets/images/tools/ping.png", const PingPage()),
+    "portscanner": Tool(t.tools.portscanner.title, "assets/images/tools/portscanner.png", const PortScanner()),
     "qrcreator": Tool(t.tools.qrcreator.title, "assets/images/tools/qrcreator.png", const QrCreatorPage()),
     "qrreader": Tool(t.tools.qrreader.title, "assets/images/tools/qrreader.png", const QrReaderPage()),
     "randomcolor": Tool(t.tools.randomcolor.title, "assets/images/tools/randomcolor.png", const RandomColorPage()),
@@ -148,6 +150,7 @@ class Hierarchy {
       toolMap["networkinfo"],
       toolMap["nslookup"],
       toolMap["ping"],
+      toolMap["portscanner"],
       toolMap["sshclient"],
       toolMap["whoisdomain"],
     ]),
