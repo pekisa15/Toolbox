@@ -154,6 +154,7 @@ class _TranslationsToolsFr implements TranslationsToolsEn {
 	@override late final _TranslationsToolsPercentagecalculatorFr percentagecalculator = _TranslationsToolsPercentagecalculatorFr._(_root);
 	@override late final _TranslationsToolsPasswordgeneratorFr passwordgenerator = _TranslationsToolsPasswordgeneratorFr._(_root);
 	@override late final _TranslationsToolsPortscannerFr portscanner = _TranslationsToolsPortscannerFr._(_root);
+	@override late final _TranslationsToolsCommonsFr commons = _TranslationsToolsCommonsFr._(_root);
 }
 
 // Path: credits
@@ -1054,6 +1055,44 @@ class _TranslationsToolsPortscannerFr implements TranslationsToolsPortscannerEn 
 	@override late final _TranslationsToolsPortscannerErrorFr error = _TranslationsToolsPortscannerErrorFr._(_root);
 }
 
+// Path: tools.commons
+class _TranslationsToolsCommonsFr implements TranslationsToolsCommonsEn {
+	_TranslationsToolsCommonsFr._(this._root);
+
+	final TranslationsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Commons';
+	@override String get data_source_and_licensing => 'Source des données et licences';
+	@override String get data_source_and_licensing_description => 'Tous les fichiers multimédias proviennent de Wikimedia Commons et sont soumis à leurs licences respectives. Veuillez vous assurer de respecter les conditions de chaque licence lorsque vous utilisez et téléchargez les fichiers multimédias.';
+	@override String get open_wikimedia_commons => 'Ouvrir Wikimedia Commons';
+	@override String get search_files => 'Rechercher des fichiers';
+	@override String get enter_search_query_to_find_files => 'Entrez un terme de recherche pour trouver des fichiers sur Wikimedia Commons';
+	@override String get view_on_wikimedia => 'Voir sur Wikimedia Commons';
+	@override String get previous => 'Précédent';
+	@override String get next => 'Suivant';
+	@override String get bytes => 'octets';
+	@override String get kilobytes => 'Ko';
+	@override String get megabytes => 'Mo';
+	@override String get gigabytes => 'Go';
+	@override String get no_files_found => 'Aucun fichier trouvé';
+	@override String get close_preview => 'Fermer l\'aperçu';
+	@override String get view_license_details => 'Voir les détails de la licence';
+	@override String get download_media => 'Télécharger le média';
+	@override String get close => 'Fermer';
+	@override String get file_information => 'Informations sur le fichier';
+	@override String get unknown_license => 'Licence inconnue';
+	@override String get mime_type => 'Type MIME';
+	@override String get file_size => 'Taille';
+	@override String get dimensions => 'Dimensions';
+	@override String get duration => 'Durée';
+	@override String get file_license => 'Licence';
+	@override String get file_by => 'Fichier par';
+	@override String get file_downloaded_successfully => 'Fichier téléchargé avec succès';
+	@override String get downloading => 'Téléchargement...';
+	@override late final _TranslationsToolsCommonsErrorFr error = _TranslationsToolsCommonsErrorFr._(_root);
+}
+
 // Path: credits.translations
 class _TranslationsCreditsTranslationsFr implements TranslationsCreditsTranslationsEn {
 	_TranslationsCreditsTranslationsFr._(this._root);
@@ -1523,6 +1562,17 @@ class _TranslationsToolsPortscannerErrorFr implements TranslationsToolsPortscann
 	// Translations
 	@override String get please_enter_a_valid_host => 'Veuillez entrer un hôte valide';
 	@override String get please_enter_a_valid_port_number => 'Veuillez saisir un numéro de port valide (1-65535) dans les deux champs';
+}
+
+// Path: tools.commons.error
+class _TranslationsToolsCommonsErrorFr implements TranslationsToolsCommonsErrorEn {
+	_TranslationsToolsCommonsErrorFr._(this._root);
+
+	final TranslationsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String error_downloading_file({required Object errorCode}) => 'Erreur lors du téléchargement du fichier (${errorCode})';
+	@override String get error_download_file_check_internet => 'Erreur lors du téléchargement du fichier. Veuillez vérifier votre connexion Internet et réessayer.';
 }
 
 /// The flat map containing all translations for locale <fr>.
@@ -2107,6 +2157,36 @@ extension on TranslationsFr {
 			case 'tools.portscanner.port': return 'Port';
 			case 'tools.portscanner.error.please_enter_a_valid_host': return 'Veuillez entrer un hôte valide';
 			case 'tools.portscanner.error.please_enter_a_valid_port_number': return 'Veuillez saisir un numéro de port valide (1-65535) dans les deux champs';
+			case 'tools.commons.title': return 'Commons';
+			case 'tools.commons.data_source_and_licensing': return 'Source des données et licences';
+			case 'tools.commons.data_source_and_licensing_description': return 'Tous les fichiers multimédias proviennent de Wikimedia Commons et sont soumis à leurs licences respectives. Veuillez vous assurer de respecter les conditions de chaque licence lorsque vous utilisez et téléchargez les fichiers multimédias.';
+			case 'tools.commons.open_wikimedia_commons': return 'Ouvrir Wikimedia Commons';
+			case 'tools.commons.search_files': return 'Rechercher des fichiers';
+			case 'tools.commons.enter_search_query_to_find_files': return 'Entrez un terme de recherche pour trouver des fichiers sur Wikimedia Commons';
+			case 'tools.commons.view_on_wikimedia': return 'Voir sur Wikimedia Commons';
+			case 'tools.commons.previous': return 'Précédent';
+			case 'tools.commons.next': return 'Suivant';
+			case 'tools.commons.bytes': return 'octets';
+			case 'tools.commons.kilobytes': return 'Ko';
+			case 'tools.commons.megabytes': return 'Mo';
+			case 'tools.commons.gigabytes': return 'Go';
+			case 'tools.commons.no_files_found': return 'Aucun fichier trouvé';
+			case 'tools.commons.close_preview': return 'Fermer l\'aperçu';
+			case 'tools.commons.view_license_details': return 'Voir les détails de la licence';
+			case 'tools.commons.download_media': return 'Télécharger le média';
+			case 'tools.commons.close': return 'Fermer';
+			case 'tools.commons.file_information': return 'Informations sur le fichier';
+			case 'tools.commons.unknown_license': return 'Licence inconnue';
+			case 'tools.commons.mime_type': return 'Type MIME';
+			case 'tools.commons.file_size': return 'Taille';
+			case 'tools.commons.dimensions': return 'Dimensions';
+			case 'tools.commons.duration': return 'Durée';
+			case 'tools.commons.file_license': return 'Licence';
+			case 'tools.commons.file_by': return 'Fichier par';
+			case 'tools.commons.file_downloaded_successfully': return 'Fichier téléchargé avec succès';
+			case 'tools.commons.downloading': return 'Téléchargement...';
+			case 'tools.commons.error.error_downloading_file': return ({required Object errorCode}) => 'Erreur lors du téléchargement du fichier (${errorCode})';
+			case 'tools.commons.error.error_download_file_check_internet': return 'Erreur lors du téléchargement du fichier. Veuillez vérifier votre connexion Internet et réessayer.';
 			case 'credits.title': return 'Crédits';
 			case 'credits.app_icon': return ({required Object author}) => 'Icône de l\'application par ${author}';
 			case 'credits.app_license': return ({required Object license}) => 'Application sous licence ${license}';

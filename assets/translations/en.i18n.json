@@ -739,6 +739,40 @@
         "please_enter_a_valid_host": "Please enter a valid host",
         "please_enter_a_valid_port_number": "Please enter a valid port number (1-65535) for both fields"
       }
+    },
+    "commons": {
+      "title": "Commons",
+      "data_source_and_licensing": "Data source and licensing",
+      "data_source_and_licensing_description": "All media files are sourced from Wikimedia Commons and are subject to their respective licenses. Please ensure compliance with the terms of each license when using and downloading the media files.",
+      "open_wikimedia_commons": "Open Wikimedia Commons",
+      "search_files": "Search files",
+      "enter_search_query_to_find_files": "Enter a search query to find media files on Wikimedia Commons",
+      "view_on_wikimedia": "View on Wikimedia Commons",
+      "previous": "Previous",
+      "next": "Next",
+      "bytes": "B",
+      "kilobytes": "KB",
+      "megabytes": "MB",
+      "gigabytes": "GB",
+      "no_files_found": "No files found",
+      "close_preview": "Close preview",
+      "view_license_details": "View license details",
+      "download_media": "Download media",
+      "close": "Close",
+      "file_information": "File information",
+      "unknown_license": "Unknown license",
+      "mime_type": "MIME type",
+      "file_size": "File size",
+      "dimensions": "Dimensions",
+      "duration": "Duration",
+      "file_license": "File license",
+      "file_by": "File by",
+      "file_downloaded_successfully": "File downloaded successfully",
+      "downloading": "Downloading...",
+      "error": {
+        "error_downloading_file": "Error downloading file ($errorCode)",
+        "error_download_file_check_internet": "Error downloading file. Please check your internet connection and try again."
+      }
     }
   },
   "credits": {

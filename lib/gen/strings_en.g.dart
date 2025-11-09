@@ -215,6 +215,7 @@ class TranslationsToolsEn {
 	late final TranslationsToolsPercentagecalculatorEn percentagecalculator = TranslationsToolsPercentagecalculatorEn._(_root);
 	late final TranslationsToolsPasswordgeneratorEn passwordgenerator = TranslationsToolsPasswordgeneratorEn._(_root);
 	late final TranslationsToolsPortscannerEn portscanner = TranslationsToolsPortscannerEn._(_root);
+	late final TranslationsToolsCommonsEn commons = TranslationsToolsCommonsEn._(_root);
 }
 
 // Path: credits
@@ -1989,6 +1990,101 @@ class TranslationsToolsPortscannerEn {
 	late final TranslationsToolsPortscannerErrorEn error = TranslationsToolsPortscannerErrorEn._(_root);
 }
 
+// Path: tools.commons
+class TranslationsToolsCommonsEn {
+	TranslationsToolsCommonsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Commons'
+	String get title => 'Commons';
+
+	/// en: 'Data source and licensing'
+	String get data_source_and_licensing => 'Data source and licensing';
+
+	/// en: 'All media files are sourced from Wikimedia Commons and are subject to their respective licenses. Please ensure compliance with the terms of each license when using and downloading the media files.'
+	String get data_source_and_licensing_description => 'All media files are sourced from Wikimedia Commons and are subject to their respective licenses. Please ensure compliance with the terms of each license when using and downloading the media files.';
+
+	/// en: 'Open Wikimedia Commons'
+	String get open_wikimedia_commons => 'Open Wikimedia Commons';
+
+	/// en: 'Search files'
+	String get search_files => 'Search files';
+
+	/// en: 'Enter a search query to find media files on Wikimedia Commons'
+	String get enter_search_query_to_find_files => 'Enter a search query to find media files on Wikimedia Commons';
+
+	/// en: 'View on Wikimedia Commons'
+	String get view_on_wikimedia => 'View on Wikimedia Commons';
+
+	/// en: 'Previous'
+	String get previous => 'Previous';
+
+	/// en: 'Next'
+	String get next => 'Next';
+
+	/// en: 'B'
+	String get bytes => 'B';
+
+	/// en: 'KB'
+	String get kilobytes => 'KB';
+
+	/// en: 'MB'
+	String get megabytes => 'MB';
+
+	/// en: 'GB'
+	String get gigabytes => 'GB';
+
+	/// en: 'No files found'
+	String get no_files_found => 'No files found';
+
+	/// en: 'Close preview'
+	String get close_preview => 'Close preview';
+
+	/// en: 'View license details'
+	String get view_license_details => 'View license details';
+
+	/// en: 'Download media'
+	String get download_media => 'Download media';
+
+	/// en: 'Close'
+	String get close => 'Close';
+
+	/// en: 'File information'
+	String get file_information => 'File information';
+
+	/// en: 'Unknown license'
+	String get unknown_license => 'Unknown license';
+
+	/// en: 'MIME type'
+	String get mime_type => 'MIME type';
+
+	/// en: 'File size'
+	String get file_size => 'File size';
+
+	/// en: 'Dimensions'
+	String get dimensions => 'Dimensions';
+
+	/// en: 'Duration'
+	String get duration => 'Duration';
+
+	/// en: 'File license'
+	String get file_license => 'File license';
+
+	/// en: 'File by'
+	String get file_by => 'File by';
+
+	/// en: 'File downloaded successfully'
+	String get file_downloaded_successfully => 'File downloaded successfully';
+
+	/// en: 'Downloading...'
+	String get downloading => 'Downloading...';
+
+	late final TranslationsToolsCommonsErrorEn error = TranslationsToolsCommonsErrorEn._(_root);
+}
+
 // Path: credits.translations
 class TranslationsCreditsTranslationsEn {
 	TranslationsCreditsTranslationsEn._(this._root);
@@ -2718,6 +2814,21 @@ class TranslationsToolsPortscannerErrorEn {
 	String get please_enter_a_valid_port_number => 'Please enter a valid port number (1-65535) for both fields';
 }
 
+// Path: tools.commons.error
+class TranslationsToolsCommonsErrorEn {
+	TranslationsToolsCommonsErrorEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Error downloading file ($errorCode)'
+	String error_downloading_file({required Object errorCode}) => 'Error downloading file (${errorCode})';
+
+	/// en: 'Error downloading file. Please check your internet connection and try again.'
+	String get error_download_file_check_internet => 'Error downloading file. Please check your internet connection and try again.';
+}
+
 /// The flat map containing all translations for locale <en>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -3300,6 +3411,36 @@ extension on Translations {
 			case 'tools.portscanner.port': return 'Port';
 			case 'tools.portscanner.error.please_enter_a_valid_host': return 'Please enter a valid host';
 			case 'tools.portscanner.error.please_enter_a_valid_port_number': return 'Please enter a valid port number (1-65535) for both fields';
+			case 'tools.commons.title': return 'Commons';
+			case 'tools.commons.data_source_and_licensing': return 'Data source and licensing';
+			case 'tools.commons.data_source_and_licensing_description': return 'All media files are sourced from Wikimedia Commons and are subject to their respective licenses. Please ensure compliance with the terms of each license when using and downloading the media files.';
+			case 'tools.commons.open_wikimedia_commons': return 'Open Wikimedia Commons';
+			case 'tools.commons.search_files': return 'Search files';
+			case 'tools.commons.enter_search_query_to_find_files': return 'Enter a search query to find media files on Wikimedia Commons';
+			case 'tools.commons.view_on_wikimedia': return 'View on Wikimedia Commons';
+			case 'tools.commons.previous': return 'Previous';
+			case 'tools.commons.next': return 'Next';
+			case 'tools.commons.bytes': return 'B';
+			case 'tools.commons.kilobytes': return 'KB';
+			case 'tools.commons.megabytes': return 'MB';
+			case 'tools.commons.gigabytes': return 'GB';
+			case 'tools.commons.no_files_found': return 'No files found';
+			case 'tools.commons.close_preview': return 'Close preview';
+			case 'tools.commons.view_license_details': return 'View license details';
+			case 'tools.commons.download_media': return 'Download media';
+			case 'tools.commons.close': return 'Close';
+			case 'tools.commons.file_information': return 'File information';
+			case 'tools.commons.unknown_license': return 'Unknown license';
+			case 'tools.commons.mime_type': return 'MIME type';
+			case 'tools.commons.file_size': return 'File size';
+			case 'tools.commons.dimensions': return 'Dimensions';
+			case 'tools.commons.duration': return 'Duration';
+			case 'tools.commons.file_license': return 'File license';
+			case 'tools.commons.file_by': return 'File by';
+			case 'tools.commons.file_downloaded_successfully': return 'File downloaded successfully';
+			case 'tools.commons.downloading': return 'Downloading...';
+			case 'tools.commons.error.error_downloading_file': return ({required Object errorCode}) => 'Error downloading file (${errorCode})';
+			case 'tools.commons.error.error_download_file_check_internet': return 'Error downloading file. Please check your internet connection and try again.';
 			case 'credits.title': return 'Credits';
 			case 'credits.app_icon': return ({required Object author}) => 'App icon by ${author}';
 			case 'credits.app_license': return ({required Object license}) => 'The app is licensed under the ${license} license';

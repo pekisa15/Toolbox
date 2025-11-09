@@ -6,6 +6,7 @@ import 'package:toolbox/pages/baseconverter_page.dart';
 import 'package:toolbox/pages/bitwisecalculator_page.dart';
 import 'package:toolbox/pages/characterscopy_page.dart';
 import 'package:toolbox/pages/clock_page.dart';
+import 'package:toolbox/pages/commons_page.dart';
 import 'package:toolbox/pages/compass_page.dart';
 import 'package:toolbox/pages/counter_page.dart';
 import 'package:toolbox/pages/fileencryption_page.dart';
@@ -60,6 +61,7 @@ class Hierarchy {
     "bitwisecalculator": Tool(t.tools.bitwisecalculator.title, "assets/images/tools/bitwisecalculator.png", const BitwiseCalculatorPage()),
     "characterscopy": Tool(t.tools.characterscopy.title, "assets/images/tools/characterscopy.png", const CharactersCopyPage()),
     "clock": Tool(t.tools.clock.title, "assets/images/tools/clock.png", const ClockPage()),
+    "commons": Tool("Commons", "assets/images/tools/commons.png", const CommonsPage()),
     "compass": Tool(t.tools.compass.title, "assets/images/tools/compass.png", const CompassPage()),
     "counter": Tool(t.tools.counter.title, "assets/images/tools/counter.png", const CounterPage()),
     "fileencryption": Tool(t.tools.fileencryption.title, "assets/images/tools/fileencryption.png", const FileEncryptionPage()),
@@ -169,6 +171,7 @@ class Hierarchy {
       toolMap["timestampconverter"],
     ]),
     Folder(t.folders.web, "assets/images/folders/folder.png", [
+      toolMap["commons"],
       toolMap["pastebin"],
       toolMap["httprequest"],
       toolMap["urlshortener"],

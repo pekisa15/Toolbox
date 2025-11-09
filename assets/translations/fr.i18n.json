@@ -739,6 +739,40 @@
         "please_enter_a_valid_host": "Veuillez entrer un hôte valide",
         "please_enter_a_valid_port_number": "Veuillez saisir un numéro de port valide (1-65535) dans les deux champs"
       }
+    },
+    "commons": {
+      "title": "Commons",
+      "data_source_and_licensing": "Source des données et licences",
+      "data_source_and_licensing_description": "Tous les fichiers multimédias proviennent de Wikimedia Commons et sont soumis à leurs licences respectives. Veuillez vous assurer de respecter les conditions de chaque licence lorsque vous utilisez et téléchargez les fichiers multimédias.",
+      "open_wikimedia_commons": "Ouvrir Wikimedia Commons",
+      "search_files": "Rechercher des fichiers",
+      "enter_search_query_to_find_files": "Entrez un terme de recherche pour trouver des fichiers sur Wikimedia Commons",
+      "view_on_wikimedia": "Voir sur Wikimedia Commons",
+      "previous": "Précédent",
+      "next": "Suivant",
+      "bytes": "octets",
+      "kilobytes": "Ko",
+      "megabytes": "Mo",
+      "gigabytes": "Go",
+      "no_files_found": "Aucun fichier trouvé",
+      "close_preview": "Fermer l'aperçu",
+      "view_license_details": "Voir les détails de la licence",
+      "download_media": "Télécharger le média",
+      "close": "Fermer",
+      "file_information": "Informations sur le fichier",
+      "unknown_license": "Licence inconnue",
+      "mime_type": "Type MIME",
+      "file_size": "Taille",
+      "dimensions": "Dimensions",
+      "duration": "Durée",
+      "file_license": "Licence",
+      "file_by": "Fichier par",
+      "file_downloaded_successfully": "Fichier téléchargé avec succès",
+      "downloading": "Téléchargement...",
+      "error": {
+        "error_downloading_file": "Erreur lors du téléchargement du fichier ($errorCode)",
+        "error_download_file_check_internet": "Erreur lors du téléchargement du fichier. Veuillez vérifier votre connexion Internet et réessayer."
+      }
     }
   },
   "credits": {
