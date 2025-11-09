@@ -53,8 +53,8 @@ Please respect the code style of the project (see below).
 
 ### Translate the app
 **It's very easy to translate the app and you don't need to know how to code.** \
-If you want to translate the app in a new language, you can do it by adding a file called `strings_{language_code}.i18n.json` in the `assets/translations` folder (e.g. `strings_fr.i18n.json` for French).\
-You can copy/paste the content of the `assets/translations/strings.i18n.json` file to start.\
+If you want to translate the app in a new language, you can do it by adding a file called `{language_code}.i18n.json` in the `assets/translations` folder (e.g. `fr.i18n.json` for French).\
+You can copy/paste the content of the `assets/translations/en.i18n.json` file to start.\
 Then you can translate the strings in the file.\
 Once you have finished, you need to run this command in the terminal (in the project folder):
 ```bash
