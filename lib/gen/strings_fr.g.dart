@@ -155,6 +155,7 @@ class _TranslationsToolsFr implements TranslationsToolsEn {
 	@override late final _TranslationsToolsPasswordgeneratorFr passwordgenerator = _TranslationsToolsPasswordgeneratorFr._(_root);
 	@override late final _TranslationsToolsPortscannerFr portscanner = _TranslationsToolsPortscannerFr._(_root);
 	@override late final _TranslationsToolsCommonsFr commons = _TranslationsToolsCommonsFr._(_root);
+	@override late final _TranslationsToolsCrdeckFr crdeck = _TranslationsToolsCrdeckFr._(_root);
 }
 
 // Path: credits
@@ -1093,6 +1094,34 @@ class _TranslationsToolsCommonsFr implements TranslationsToolsCommonsEn {
 	@override late final _TranslationsToolsCommonsErrorFr error = _TranslationsToolsCommonsErrorFr._(_root);
 }
 
+// Path: tools.crdeck
+class _TranslationsToolsCrdeckFr implements TranslationsToolsCrdeckEn {
+	_TranslationsToolsCrdeckFr._(this._root);
+
+	final TranslationsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Deck Clash Royale';
+	@override String get clear_unlocked_deck_cards => 'Effacer les cartes non épinglées du deck';
+	@override String get about_and_credits => 'À propos et crédits';
+	@override String get about_and_credits_description => 'Cet outil utilise l\'API officielle Clash Royale fournie par Supercell (via un serveur backend Koizeay). Cet outil n\'est en aucun cas affilié à ou approuvé par Supercell. Tout le contenu Clash Royale, y compris, mais sans s\'y limiter, les images, les noms et les marques commerciales, sont la propriété de Supercell.';
+	@override String get supercell_website => 'Site de Supercell';
+	@override String get no_deck => 'Aucun deck';
+	@override String get generate_new_deck => 'Générer un nouveau deck';
+	@override String get open_deck_in_clash_royale => 'Ouvrir le deck dans Clash Royale';
+	@override String get share_deck => 'Partager le deck';
+	@override String get search_cards => 'Rechercher des cartes';
+	@override String get import_cards_from_player_profile => 'Importer des cartes depuis le profil d\'un joueur';
+	@override String get deselect_all_cards => 'Désélectionner toutes les cartes';
+	@override String get select_all_cards => 'Sélectionner toutes les cartes';
+	@override String x_elixirs({required Object elixirs}) => '${elixirs} élixirs';
+	@override String get player_tag => 'Identifiant du joueur';
+	@override String get import => 'Importer';
+	@override String get importing_cards => 'Importation des cartes...';
+	@override String share_deck_text_message({required Object url}) => 'Regarde mon deck Clash Royale créé avec Toolbox !\nOuvre-le dans Clash Royale en utilisant ce lien : ${url}';
+	@override late final _TranslationsToolsCrdeckErrorFr error = _TranslationsToolsCrdeckErrorFr._(_root);
+}
+
 // Path: credits.translations
 class _TranslationsCreditsTranslationsFr implements TranslationsCreditsTranslationsEn {
 	_TranslationsCreditsTranslationsFr._(this._root);
@@ -1573,6 +1602,31 @@ class _TranslationsToolsCommonsErrorFr implements TranslationsToolsCommonsErrorE
 	// Translations
 	@override String error_downloading_file({required Object errorCode}) => 'Erreur lors du téléchargement du fichier (${errorCode})';
 	@override String get error_download_file_check_internet => 'Erreur lors du téléchargement du fichier. Veuillez vérifier votre connexion Internet et réessayer.';
+}
+
+// Path: tools.crdeck.error
+class _TranslationsToolsCrdeckErrorFr implements TranslationsToolsCrdeckErrorEn {
+	_TranslationsToolsCrdeckErrorFr._(this._root);
+
+	final TranslationsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get please_check_your_internet_connection => 'Veuillez vérifier votre connexion internet et réessayer';
+	@override String get error_while_loading_cards_from_server => 'Une erreur s\'est produite lors du chargement des cartes de Clash Royale depuis le serveur.\nVeuillez vérifier votre connexion réseau et réessayer.';
+	@override String failed_to_load_cards_from_server({required Object errorCode}) => 'Échec du chargement des cartes de Clash Royale depuis le serveur (${errorCode})';
+	@override String get invalid_tag => 'Identifiant invalide';
+	@override String get please_enter_a_valid_player_tag => 'Veuillez saisir un identifiant de joueur valide';
+	@override String failed_to_import_cards_from_player_profile({required Object errorCode}) => 'Échec de l\'importation des cartes depuis le profil du joueur (${errorCode}), vous pouvez toujours importer les cartes manuellement';
+	@override String get an_error_occurred_while_importing_cards => 'Une erreur s\'est produite lors de l\'importation des cartes, mais vous pouvez toujours les importer manuellement';
+	@override String get not_enough_cards_selected => 'Pas assez de cartes sélectionnées';
+	@override String please_select_at_least_x_more_cards({required Object numberOfCards}) => 'Veuillez sélectionner au moins ${numberOfCards} cartes supplémentaires pour créer un deck valide';
+	@override String get deck_is_full => 'Deck plein';
+	@override String you_can_only_add_up_to_x_cards_to_the_deck({required Object numberOfCards}) => 'Vous ne pouvez ajouter que ${numberOfCards} cartes au deck';
+	@override String get card_already_in_deck => 'Carte déjà dans le deck';
+	@override String get this_card_is_already_in_the_deck => 'Cette carte est déjà dans le deck';
+	@override String get incomplete_deck => 'Deck incomplet';
+	@override String please_add_x_more_cards_to_the_deck_before_opening_it_in_clash_royale({required Object numberOfCards}) => 'Veuillez ajouter ${numberOfCards} cartes supplémentaires au deck avant de l\'ouvrir dans Clash Royale';
+	@override String please_add_x_more_cards_to_the_deck_before_sharing_it({required Object numberOfCards}) => 'Veuillez ajouter ${numberOfCards} cartes supplémentaires au deck avant de le partager';
 }
 
 /// The flat map containing all translations for locale <fr>.
@@ -2187,6 +2241,40 @@ extension on TranslationsFr {
 			case 'tools.commons.downloading': return 'Téléchargement...';
 			case 'tools.commons.error.error_downloading_file': return ({required Object errorCode}) => 'Erreur lors du téléchargement du fichier (${errorCode})';
 			case 'tools.commons.error.error_download_file_check_internet': return 'Erreur lors du téléchargement du fichier. Veuillez vérifier votre connexion Internet et réessayer.';
+			case 'tools.crdeck.title': return 'Deck Clash Royale';
+			case 'tools.crdeck.clear_unlocked_deck_cards': return 'Effacer les cartes non épinglées du deck';
+			case 'tools.crdeck.about_and_credits': return 'À propos et crédits';
+			case 'tools.crdeck.about_and_credits_description': return 'Cet outil utilise l\'API officielle Clash Royale fournie par Supercell (via un serveur backend Koizeay). Cet outil n\'est en aucun cas affilié à ou approuvé par Supercell. Tout le contenu Clash Royale, y compris, mais sans s\'y limiter, les images, les noms et les marques commerciales, sont la propriété de Supercell.';
+			case 'tools.crdeck.supercell_website': return 'Site de Supercell';
+			case 'tools.crdeck.no_deck': return 'Aucun deck';
+			case 'tools.crdeck.generate_new_deck': return 'Générer un nouveau deck';
+			case 'tools.crdeck.open_deck_in_clash_royale': return 'Ouvrir le deck dans Clash Royale';
+			case 'tools.crdeck.share_deck': return 'Partager le deck';
+			case 'tools.crdeck.search_cards': return 'Rechercher des cartes';
+			case 'tools.crdeck.import_cards_from_player_profile': return 'Importer des cartes depuis le profil d\'un joueur';
+			case 'tools.crdeck.deselect_all_cards': return 'Désélectionner toutes les cartes';
+			case 'tools.crdeck.select_all_cards': return 'Sélectionner toutes les cartes';
+			case 'tools.crdeck.x_elixirs': return ({required Object elixirs}) => '${elixirs} élixirs';
+			case 'tools.crdeck.player_tag': return 'Identifiant du joueur';
+			case 'tools.crdeck.import': return 'Importer';
+			case 'tools.crdeck.importing_cards': return 'Importation des cartes...';
+			case 'tools.crdeck.share_deck_text_message': return ({required Object url}) => 'Regarde mon deck Clash Royale créé avec Toolbox !\nOuvre-le dans Clash Royale en utilisant ce lien : ${url}';
+			case 'tools.crdeck.error.please_check_your_internet_connection': return 'Veuillez vérifier votre connexion internet et réessayer';
+			case 'tools.crdeck.error.error_while_loading_cards_from_server': return 'Une erreur s\'est produite lors du chargement des cartes de Clash Royale depuis le serveur.\nVeuillez vérifier votre connexion réseau et réessayer.';
+			case 'tools.crdeck.error.failed_to_load_cards_from_server': return ({required Object errorCode}) => 'Échec du chargement des cartes de Clash Royale depuis le serveur (${errorCode})';
+			case 'tools.crdeck.error.invalid_tag': return 'Identifiant invalide';
+			case 'tools.crdeck.error.please_enter_a_valid_player_tag': return 'Veuillez saisir un identifiant de joueur valide';
+			case 'tools.crdeck.error.failed_to_import_cards_from_player_profile': return ({required Object errorCode}) => 'Échec de l\'importation des cartes depuis le profil du joueur (${errorCode}), vous pouvez toujours importer les cartes manuellement';
+			case 'tools.crdeck.error.an_error_occurred_while_importing_cards': return 'Une erreur s\'est produite lors de l\'importation des cartes, mais vous pouvez toujours les importer manuellement';
+			case 'tools.crdeck.error.not_enough_cards_selected': return 'Pas assez de cartes sélectionnées';
+			case 'tools.crdeck.error.please_select_at_least_x_more_cards': return ({required Object numberOfCards}) => 'Veuillez sélectionner au moins ${numberOfCards} cartes supplémentaires pour créer un deck valide';
+			case 'tools.crdeck.error.deck_is_full': return 'Deck plein';
+			case 'tools.crdeck.error.you_can_only_add_up_to_x_cards_to_the_deck': return ({required Object numberOfCards}) => 'Vous ne pouvez ajouter que ${numberOfCards} cartes au deck';
+			case 'tools.crdeck.error.card_already_in_deck': return 'Carte déjà dans le deck';
+			case 'tools.crdeck.error.this_card_is_already_in_the_deck': return 'Cette carte est déjà dans le deck';
+			case 'tools.crdeck.error.incomplete_deck': return 'Deck incomplet';
+			case 'tools.crdeck.error.please_add_x_more_cards_to_the_deck_before_opening_it_in_clash_royale': return ({required Object numberOfCards}) => 'Veuillez ajouter ${numberOfCards} cartes supplémentaires au deck avant de l\'ouvrir dans Clash Royale';
+			case 'tools.crdeck.error.please_add_x_more_cards_to_the_deck_before_sharing_it': return ({required Object numberOfCards}) => 'Veuillez ajouter ${numberOfCards} cartes supplémentaires au deck avant de le partager';
 			case 'credits.title': return 'Crédits';
 			case 'credits.app_icon': return ({required Object author}) => 'Icône de l\'application par ${author}';
 			case 'credits.app_license': return ({required Object license}) => 'Application sous licence ${license}';

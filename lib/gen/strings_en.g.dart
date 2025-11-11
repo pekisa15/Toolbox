@@ -216,6 +216,7 @@ class TranslationsToolsEn {
 	late final TranslationsToolsPasswordgeneratorEn passwordgenerator = TranslationsToolsPasswordgeneratorEn._(_root);
 	late final TranslationsToolsPortscannerEn portscanner = TranslationsToolsPortscannerEn._(_root);
 	late final TranslationsToolsCommonsEn commons = TranslationsToolsCommonsEn._(_root);
+	late final TranslationsToolsCrdeckEn crdeck = TranslationsToolsCrdeckEn._(_root);
 }
 
 // Path: credits
@@ -2085,6 +2086,71 @@ class TranslationsToolsCommonsEn {
 	late final TranslationsToolsCommonsErrorEn error = TranslationsToolsCommonsErrorEn._(_root);
 }
 
+// Path: tools.crdeck
+class TranslationsToolsCrdeckEn {
+	TranslationsToolsCrdeckEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Clash Royale deck'
+	String get title => 'Clash Royale deck';
+
+	/// en: 'Clear unlocked deck cards'
+	String get clear_unlocked_deck_cards => 'Clear unlocked deck cards';
+
+	/// en: 'About and credits'
+	String get about_and_credits => 'About and credits';
+
+	/// en: 'This tool uses the official Clash Royale API provided by Supercell (via a Koizeay backend server). This tool is not affiliated with or endorsed by Supercell in any way. All Clash Royale content, including but not limited to images, names, and trademarks, are the property of Supercell.'
+	String get about_and_credits_description => 'This tool uses the official Clash Royale API provided by Supercell (via a Koizeay backend server). This tool is not affiliated with or endorsed by Supercell in any way. All Clash Royale content, including but not limited to images, names, and trademarks, are the property of Supercell.';
+
+	/// en: 'Supercell website'
+	String get supercell_website => 'Supercell website';
+
+	/// en: 'No deck'
+	String get no_deck => 'No deck';
+
+	/// en: 'Generate new deck'
+	String get generate_new_deck => 'Generate new deck';
+
+	/// en: 'Open deck in Clash Royale'
+	String get open_deck_in_clash_royale => 'Open deck in Clash Royale';
+
+	/// en: 'Share deck'
+	String get share_deck => 'Share deck';
+
+	/// en: 'Search cards'
+	String get search_cards => 'Search cards';
+
+	/// en: 'Import cards from player profile'
+	String get import_cards_from_player_profile => 'Import cards from player profile';
+
+	/// en: 'Deselect all cards'
+	String get deselect_all_cards => 'Deselect all cards';
+
+	/// en: 'Select all cards'
+	String get select_all_cards => 'Select all cards';
+
+	/// en: '$elixirs elixirs'
+	String x_elixirs({required Object elixirs}) => '${elixirs} elixirs';
+
+	/// en: 'Player tag'
+	String get player_tag => 'Player tag';
+
+	/// en: 'Import'
+	String get import => 'Import';
+
+	/// en: 'Importing cards...'
+	String get importing_cards => 'Importing cards...';
+
+	/// en: 'Check out my Clash Royale deck created with Toolbox! Open it in Clash Royale using this link: $url'
+	String share_deck_text_message({required Object url}) => 'Check out my Clash Royale deck created with Toolbox!\nOpen it in Clash Royale using this link: ${url}';
+
+	late final TranslationsToolsCrdeckErrorEn error = TranslationsToolsCrdeckErrorEn._(_root);
+}
+
 // Path: credits.translations
 class TranslationsCreditsTranslationsEn {
 	TranslationsCreditsTranslationsEn._(this._root);
@@ -2829,6 +2895,63 @@ class TranslationsToolsCommonsErrorEn {
 	String get error_download_file_check_internet => 'Error downloading file. Please check your internet connection and try again.';
 }
 
+// Path: tools.crdeck.error
+class TranslationsToolsCrdeckErrorEn {
+	TranslationsToolsCrdeckErrorEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Please check your internet connection and try again.'
+	String get please_check_your_internet_connection => 'Please check your internet connection and try again.';
+
+	/// en: 'An error occurred while loading the Clash Royale cards from the server. Please check your network connection and try again.'
+	String get error_while_loading_cards_from_server => 'An error occurred while loading the Clash Royale cards from the server.\nPlease check your network connection and try again.';
+
+	/// en: 'Failed to load Clash Royale cards from the server ($errorCode)'
+	String failed_to_load_cards_from_server({required Object errorCode}) => 'Failed to load Clash Royale cards from the server (${errorCode})';
+
+	/// en: 'Invalid tag'
+	String get invalid_tag => 'Invalid tag';
+
+	/// en: 'Please enter a valid player tag'
+	String get please_enter_a_valid_player_tag => 'Please enter a valid player tag';
+
+	/// en: 'Failed to import cards from player profile ($errorCode), you can still import cards manually'
+	String failed_to_import_cards_from_player_profile({required Object errorCode}) => 'Failed to import cards from player profile (${errorCode}), you can still import cards manually';
+
+	/// en: 'An error occurred while importing cards, you can still import cards manually'
+	String get an_error_occurred_while_importing_cards => 'An error occurred while importing cards, you can still import cards manually';
+
+	/// en: 'Not enough cards selected'
+	String get not_enough_cards_selected => 'Not enough cards selected';
+
+	/// en: 'Please select at least $numberOfCards more cards to create a valid deck'
+	String please_select_at_least_x_more_cards({required Object numberOfCards}) => 'Please select at least ${numberOfCards} more cards to create a valid deck';
+
+	/// en: 'Deck is full'
+	String get deck_is_full => 'Deck is full';
+
+	/// en: 'You can only add up to $numberOfCards cards to the deck'
+	String you_can_only_add_up_to_x_cards_to_the_deck({required Object numberOfCards}) => 'You can only add up to ${numberOfCards} cards to the deck';
+
+	/// en: 'Card already in deck'
+	String get card_already_in_deck => 'Card already in deck';
+
+	/// en: 'This card is already in the deck'
+	String get this_card_is_already_in_the_deck => 'This card is already in the deck';
+
+	/// en: 'Incomplete deck'
+	String get incomplete_deck => 'Incomplete deck';
+
+	/// en: 'Please add $numberOfCards more cards to the deck before opening it in Clash Royale'
+	String please_add_x_more_cards_to_the_deck_before_opening_it_in_clash_royale({required Object numberOfCards}) => 'Please add ${numberOfCards} more cards to the deck before opening it in Clash Royale';
+
+	/// en: 'Please add $numberOfCards more cards to the deck before sharing it'
+	String please_add_x_more_cards_to_the_deck_before_sharing_it({required Object numberOfCards}) => 'Please add ${numberOfCards} more cards to the deck before sharing it';
+}
+
 /// The flat map containing all translations for locale <en>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -3441,6 +3564,40 @@ extension on Translations {
 			case 'tools.commons.downloading': return 'Downloading...';
 			case 'tools.commons.error.error_downloading_file': return ({required Object errorCode}) => 'Error downloading file (${errorCode})';
 			case 'tools.commons.error.error_download_file_check_internet': return 'Error downloading file. Please check your internet connection and try again.';
+			case 'tools.crdeck.title': return 'Clash Royale deck';
+			case 'tools.crdeck.clear_unlocked_deck_cards': return 'Clear unlocked deck cards';
+			case 'tools.crdeck.about_and_credits': return 'About and credits';
+			case 'tools.crdeck.about_and_credits_description': return 'This tool uses the official Clash Royale API provided by Supercell (via a Koizeay backend server). This tool is not affiliated with or endorsed by Supercell in any way. All Clash Royale content, including but not limited to images, names, and trademarks, are the property of Supercell.';
+			case 'tools.crdeck.supercell_website': return 'Supercell website';
+			case 'tools.crdeck.no_deck': return 'No deck';
+			case 'tools.crdeck.generate_new_deck': return 'Generate new deck';
+			case 'tools.crdeck.open_deck_in_clash_royale': return 'Open deck in Clash Royale';
+			case 'tools.crdeck.share_deck': return 'Share deck';
+			case 'tools.crdeck.search_cards': return 'Search cards';
+			case 'tools.crdeck.import_cards_from_player_profile': return 'Import cards from player profile';
+			case 'tools.crdeck.deselect_all_cards': return 'Deselect all cards';
+			case 'tools.crdeck.select_all_cards': return 'Select all cards';
+			case 'tools.crdeck.x_elixirs': return ({required Object elixirs}) => '${elixirs} elixirs';
+			case 'tools.crdeck.player_tag': return 'Player tag';
+			case 'tools.crdeck.import': return 'Import';
+			case 'tools.crdeck.importing_cards': return 'Importing cards...';
+			case 'tools.crdeck.share_deck_text_message': return ({required Object url}) => 'Check out my Clash Royale deck created with Toolbox!\nOpen it in Clash Royale using this link: ${url}';
+			case 'tools.crdeck.error.please_check_your_internet_connection': return 'Please check your internet connection and try again.';
+			case 'tools.crdeck.error.error_while_loading_cards_from_server': return 'An error occurred while loading the Clash Royale cards from the server.\nPlease check your network connection and try again.';
+			case 'tools.crdeck.error.failed_to_load_cards_from_server': return ({required Object errorCode}) => 'Failed to load Clash Royale cards from the server (${errorCode})';
+			case 'tools.crdeck.error.invalid_tag': return 'Invalid tag';
+			case 'tools.crdeck.error.please_enter_a_valid_player_tag': return 'Please enter a valid player tag';
+			case 'tools.crdeck.error.failed_to_import_cards_from_player_profile': return ({required Object errorCode}) => 'Failed to import cards from player profile (${errorCode}), you can still import cards manually';
+			case 'tools.crdeck.error.an_error_occurred_while_importing_cards': return 'An error occurred while importing cards, you can still import cards manually';
+			case 'tools.crdeck.error.not_enough_cards_selected': return 'Not enough cards selected';
+			case 'tools.crdeck.error.please_select_at_least_x_more_cards': return ({required Object numberOfCards}) => 'Please select at least ${numberOfCards} more cards to create a valid deck';
+			case 'tools.crdeck.error.deck_is_full': return 'Deck is full';
+			case 'tools.crdeck.error.you_can_only_add_up_to_x_cards_to_the_deck': return ({required Object numberOfCards}) => 'You can only add up to ${numberOfCards} cards to the deck';
+			case 'tools.crdeck.error.card_already_in_deck': return 'Card already in deck';
+			case 'tools.crdeck.error.this_card_is_already_in_the_deck': return 'This card is already in the deck';
+			case 'tools.crdeck.error.incomplete_deck': return 'Incomplete deck';
+			case 'tools.crdeck.error.please_add_x_more_cards_to_the_deck_before_opening_it_in_clash_royale': return ({required Object numberOfCards}) => 'Please add ${numberOfCards} more cards to the deck before opening it in Clash Royale';
+			case 'tools.crdeck.error.please_add_x_more_cards_to_the_deck_before_sharing_it': return ({required Object numberOfCards}) => 'Please add ${numberOfCards} more cards to the deck before sharing it';
 			case 'credits.title': return 'Credits';
 			case 'credits.app_icon': return ({required Object author}) => 'App icon by ${author}';
 			case 'credits.app_license': return ({required Object license}) => 'The app is licensed under the ${license} license';

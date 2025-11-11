@@ -9,6 +9,7 @@ import 'package:toolbox/pages/clock_page.dart';
 import 'package:toolbox/pages/commons_page.dart';
 import 'package:toolbox/pages/compass_page.dart';
 import 'package:toolbox/pages/counter_page.dart';
+import 'package:toolbox/pages/crdeck_page.dart';
 import 'package:toolbox/pages/fileencryption_page.dart';
 import 'package:toolbox/pages/flipcoins_page.dart';
 import 'package:toolbox/pages/gameoflife_page.dart';
@@ -64,6 +65,7 @@ class Hierarchy {
     "commons": Tool("Commons", "assets/images/tools/commons.png", const CommonsPage()),
     "compass": Tool(t.tools.compass.title, "assets/images/tools/compass.png", const CompassPage()),
     "counter": Tool(t.tools.counter.title, "assets/images/tools/counter.png", const CounterPage()),
+    "crdeck": Tool(t.tools.crdeck.title, "assets/images/tools/crdeck.png", const CrDeckPage()),
     "fileencryption": Tool(t.tools.fileencryption.title, "assets/images/tools/fileencryption.png", const FileEncryptionPage()),
     "flipcoins": Tool(t.tools.flipcoins.title, "assets/images/tools/flipcoins.png", const FlipCoinsPage()),
     "gameoflife": Tool(t.tools.gameoflife.title, "assets/images/tools/gameoflife.png", const GameOfLifePage()),
@@ -127,6 +129,7 @@ class Hierarchy {
       toolMap["textcounter"],
     ]),
     Folder(t.folders.games, "assets/images/folders/folder.png", [
+      toolMap["crdeck"],
       toolMap["gameoflife"],
       toolMap["mcserverping"],
     ]),

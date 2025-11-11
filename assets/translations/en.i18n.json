@@ -773,6 +773,44 @@
         "error_downloading_file": "Error downloading file ($errorCode)",
         "error_download_file_check_internet": "Error downloading file. Please check your internet connection and try again."
       }
+    },
+    "crdeck": {
+      "title": "Clash Royale deck",
+      "clear_unlocked_deck_cards": "Clear unlocked deck cards",
+      "about_and_credits": "About and credits",
+      "about_and_credits_description": "This tool uses the official Clash Royale API provided by Supercell (via a Koizeay backend server). This tool is not affiliated with or endorsed by Supercell in any way. All Clash Royale content, including but not limited to images, names, and trademarks, are the property of Supercell.",
+      "supercell_website": "Supercell website",
+      "no_deck": "No deck",
+      "generate_new_deck": "Generate new deck",
+      "open_deck_in_clash_royale": "Open deck in Clash Royale",
+      "share_deck": "Share deck",
+      "search_cards": "Search cards",
+      "import_cards_from_player_profile": "Import cards from player profile",
+      "deselect_all_cards": "Deselect all cards",
+      "select_all_cards": "Select all cards",
+      "x_elixirs": "$elixirs elixirs",
+      "player_tag": "Player tag",
+      "import": "Import",
+      "importing_cards": "Importing cards...",
+      "share_deck_text_message": "Check out my Clash Royale deck created with Toolbox!\nOpen it in Clash Royale using this link: $url",
+      "error": {
+        "please_check_your_internet_connection": "Please check your internet connection and try again.",
+        "error_while_loading_cards_from_server": "An error occurred while loading the Clash Royale cards from the server.\nPlease check your network connection and try again.",
+        "failed_to_load_cards_from_server": "Failed to load Clash Royale cards from the server ($errorCode)",
+        "invalid_tag": "Invalid tag",
+        "please_enter_a_valid_player_tag": "Please enter a valid player tag",
+        "failed_to_import_cards_from_player_profile": "Failed to import cards from player profile ($errorCode), you can still import cards manually",
+        "an_error_occurred_while_importing_cards": "An error occurred while importing cards, you can still import cards manually",
+        "not_enough_cards_selected": "Not enough cards selected",
+        "please_select_at_least_x_more_cards": "Please select at least $numberOfCards more cards to create a valid deck",
+        "deck_is_full": "Deck is full",
+        "you_can_only_add_up_to_x_cards_to_the_deck": "You can only add up to $numberOfCards cards to the deck",
+        "card_already_in_deck": "Card already in deck",
+        "this_card_is_already_in_the_deck": "This card is already in the deck",
+        "incomplete_deck": "Incomplete deck",
+        "please_add_x_more_cards_to_the_deck_before_opening_it_in_clash_royale": "Please add $numberOfCards more cards to the deck before opening it in Clash Royale",
+        "please_add_x_more_cards_to_the_deck_before_sharing_it": "Please add $numberOfCards more cards to the deck before sharing it"
+      }
     }
   },
   "credits": {
