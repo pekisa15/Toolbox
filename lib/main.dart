@@ -1,5 +1,5 @@
 // To update translations edit json in assets/translations then run:
-// flutter pub run slang
+// dart run slang
 
 
 import 'dart:io';

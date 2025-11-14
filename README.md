@@ -58,7 +58,7 @@ You can copy/paste the content of the `assets/translations/en.i18n.json` file to
 Then you can translate the strings in the file.\
 Once you have finished, you need to run this command in the terminal (in the project folder):
 ```bash
-flutter pub run slang
+dart run slang
 ```
 Finally you need to add the `<string>{language_code}</string>` line to the `CFBundleLocalizations` list in the `ios/Runner/Info.plist` file.
 
