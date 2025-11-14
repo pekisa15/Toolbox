@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:toolbox/core/dialogs.dart';
 import 'package:toolbox/core/http_requests.dart';
 import 'package:toolbox/core/url.dart';
@@ -22,6 +23,7 @@ class _CrDeckPage extends State<CrDeckPage> {
   final int maxDeckCards = 8;
   final String apiEndpoint = "https://toolbox.koizeay.com/crdeck/cards";
   final String clashRoyaleDeckBaseUrl = "https://link.clashroyale.com/en?clashroyale://copyDeck?deck=";
+  final audioPlayer = AudioPlayer();
   bool isLoading = true;
   List<CrDeckCard> allCards = [];
   List<CrDeckCard> filteredSearchCards = [];
@@ -58,6 +60,8 @@ class _CrDeckPage extends State<CrDeckPage> {
     if (allCards.isNotEmpty) {
       await saveSelectedCards();
     }
+    await audioPlayer.stop();
+    await audioPlayer.dispose();
   }
 
   Future<void> initPage() async {
@@ -239,6 +243,7 @@ class _CrDeckPage extends State<CrDeckPage> {
     setState(() {
       showedDeckCards.add(card);
     });
+    audioPlayer.play(UrlSource("$apiEndpoint/audio/${card.id}", mimeType: "audio/mpeg")).onError((error, stackTrace) {});
   }
 
   void removeCardFromDeck(CrDeckCard card) {
