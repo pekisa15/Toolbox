@@ -22,6 +22,8 @@ class _CommonsPage extends State<CommonsPage> {
   final String apiEndpoint = "https://commons.wikimedia.org/w/api.php";
   final int pageSize = 10;
 
+  final searchTextController = TextEditingController();
+
   String searchQuery = "";
 
   int currentPage = 1;
@@ -374,6 +376,14 @@ class _CommonsPage extends State<CommonsPage> {
     Navigator.of(context).pop();
   }
 
+  void submitSearch(String searchTerm) {
+    currentPage = 1;
+    searchQuery = searchTerm.trim();
+    if (searchQuery.isNotEmpty) {
+      fetchFileInfo(searchQuery, currentPage);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -414,16 +424,20 @@ class _CommonsPage extends State<CommonsPage> {
                     Padding(
                       padding: EdgeInsets.all(8.0),
                       child: TextField(
+                        controller: searchTextController,
                         decoration: InputDecoration(
+                          suffixIcon: IconButton(
+                            icon: Icon(Icons.search_outlined),
+                            onPressed: () {
+                              submitSearch(searchTextController.text);
+                            },
+                            tooltip: t.tools.commons.search_files,
+                          ),
                           border: OutlineInputBorder(),
                           labelText: t.tools.commons.search_files,
                         ),
                         onSubmitted: (value) {
-                          currentPage = 1;
-                          searchQuery = value.trim();
-                          if (value.trim().isNotEmpty) {
-                            fetchFileInfo(value.trim(), currentPage);
-                          }
+                          submitSearch(value);
                         },
                       ),
                     ),
