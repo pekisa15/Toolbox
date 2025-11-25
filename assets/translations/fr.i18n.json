@@ -492,7 +492,7 @@
       "this_tool_uses_the_x_api": "Cet outil utilise l'API \"$service\" pour rechercher de la musique.\nLes échantillons audio sont fournis par \"$service\".",
       "go_to_x": "Aller sur $service",
       "search_for_music": "Rechercher de la musique",
-      "use_the_searchbar_to_search_music": "Utilisez la barre de recherche pour trouver de la musique.\nSi votre recherche ne donne aucun résultat, essayez un autre terme de recherche.",
+      "use_the_searchbar_to_search_music": "Utilisez la barre de recherche pour trouver de la musique.\nSi votre recherche ne donne aucun résultat, essayez un autre terme de recherche.\nSi vous n'obtenez toujours aucun résultat, vérifiez que votre connexion internet fonctionne correctement et que $service est disponible dans votre pays ou région.",
       "open_in_x": "Ouvrir dans $service",
       "play_preview": "Lire l'échantillon",
       "error": {

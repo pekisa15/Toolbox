@@ -784,7 +784,7 @@ class _TranslationsToolsMusicsearchFr implements TranslationsToolsMusicsearchEn 
 	@override String this_tool_uses_the_x_api({required Object service}) => 'Cet outil utilise l\'API "${service}" pour rechercher de la musique.\nLes échantillons audio sont fournis par "${service}".';
 	@override String go_to_x({required Object service}) => 'Aller sur ${service}';
 	@override String get search_for_music => 'Rechercher de la musique';
-	@override String get use_the_searchbar_to_search_music => 'Utilisez la barre de recherche pour trouver de la musique.\nSi votre recherche ne donne aucun résultat, essayez un autre terme de recherche.';
+	@override String use_the_searchbar_to_search_music({required Object service}) => 'Utilisez la barre de recherche pour trouver de la musique.\nSi votre recherche ne donne aucun résultat, essayez un autre terme de recherche.\nSi vous n\'obtenez toujours aucun résultat, vérifiez que votre connexion internet fonctionne correctement et que ${service} est disponible dans votre pays ou région.';
 	@override String open_in_x({required Object service}) => 'Ouvrir dans ${service}';
 	@override String get play_preview => 'Lire l\'échantillon';
 	@override late final _TranslationsToolsMusicsearchErrorFr error = _TranslationsToolsMusicsearchErrorFr._(_root);
@@ -2015,7 +2015,7 @@ extension on TranslationsFr {
 			case 'tools.musicsearch.this_tool_uses_the_x_api': return ({required Object service}) => 'Cet outil utilise l\'API "${service}" pour rechercher de la musique.\nLes échantillons audio sont fournis par "${service}".';
 			case 'tools.musicsearch.go_to_x': return ({required Object service}) => 'Aller sur ${service}';
 			case 'tools.musicsearch.search_for_music': return 'Rechercher de la musique';
-			case 'tools.musicsearch.use_the_searchbar_to_search_music': return 'Utilisez la barre de recherche pour trouver de la musique.\nSi votre recherche ne donne aucun résultat, essayez un autre terme de recherche.';
+			case 'tools.musicsearch.use_the_searchbar_to_search_music': return ({required Object service}) => 'Utilisez la barre de recherche pour trouver de la musique.\nSi votre recherche ne donne aucun résultat, essayez un autre terme de recherche.\nSi vous n\'obtenez toujours aucun résultat, vérifiez que votre connexion internet fonctionne correctement et que ${service} est disponible dans votre pays ou région.';
 			case 'tools.musicsearch.open_in_x': return ({required Object service}) => 'Ouvrir dans ${service}';
 			case 'tools.musicsearch.play_preview': return 'Lire l\'échantillon';
 			case 'tools.musicsearch.error.error_playing_audio_preview': return 'Erreur lors de la lecture de l\'échantillon audio. Veuillez réessayer plus tard.';

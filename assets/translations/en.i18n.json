@@ -492,7 +492,7 @@
       "this_tool_uses_the_x_api": "This tool uses the \"$service\" API to search for music.\nThe audio previews are provided by \"$service\".",
       "go_to_x": "Go to $service",
       "search_for_music": "Search for music",
-      "use_the_searchbar_to_search_music": "Use the search bar to find music.\nIf your search returns no results, try a different search term.",
+      "use_the_searchbar_to_search_music": "Use the search bar to find music.\nIf your search returns no results, try a different search term.\nIf you still have no results, make sure your internet connection is working properly and that $service is available in your country or region.",
       "open_in_x": "Open in $service",
       "play_preview": "Play preview",
       "error": {

@@ -1448,8 +1448,8 @@ class TranslationsToolsMusicsearchEn {
 	/// en: 'Search for music'
 	String get search_for_music => 'Search for music';
 
-	/// en: 'Use the search bar to find music. If your search returns no results, try a different search term.'
-	String get use_the_searchbar_to_search_music => 'Use the search bar to find music.\nIf your search returns no results, try a different search term.';
+	/// en: 'Use the search bar to find music. If your search returns no results, try a different search term. If you still have no results, make sure your internet connection is working properly and that $service is available in your country or region.'
+	String use_the_searchbar_to_search_music({required Object service}) => 'Use the search bar to find music.\nIf your search returns no results, try a different search term.\nIf you still have no results, make sure your internet connection is working properly and that ${service} is available in your country or region.';
 
 	/// en: 'Open in $service'
 	String open_in_x({required Object service}) => 'Open in ${service}';
@@ -3338,7 +3338,7 @@ extension on Translations {
 			case 'tools.musicsearch.this_tool_uses_the_x_api': return ({required Object service}) => 'This tool uses the "${service}" API to search for music.\nThe audio previews are provided by "${service}".';
 			case 'tools.musicsearch.go_to_x': return ({required Object service}) => 'Go to ${service}';
 			case 'tools.musicsearch.search_for_music': return 'Search for music';
-			case 'tools.musicsearch.use_the_searchbar_to_search_music': return 'Use the search bar to find music.\nIf your search returns no results, try a different search term.';
+			case 'tools.musicsearch.use_the_searchbar_to_search_music': return ({required Object service}) => 'Use the search bar to find music.\nIf your search returns no results, try a different search term.\nIf you still have no results, make sure your internet connection is working properly and that ${service} is available in your country or region.';
 			case 'tools.musicsearch.open_in_x': return ({required Object service}) => 'Open in ${service}';
 			case 'tools.musicsearch.play_preview': return 'Play preview';
 			case 'tools.musicsearch.error.error_playing_audio_preview': return 'Error playing audio preview. Please try again later.';
