@@ -38,7 +38,7 @@ class TranslationsFr implements Translations {
 	// Translations
 	@override late final _TranslationsGenericFr generic = _TranslationsGenericFr._(_root);
 	@override late final _TranslationsHomepageFr homepage = _TranslationsHomepageFr._(_root);
-	@override late final _TranslationsFoldersFr folders = _TranslationsFoldersFr._(_root);
+	@override late final _TranslationsCategoriesFr categories = _TranslationsCategoriesFr._(_root);
 	@override late final _TranslationsToolsFr tools = _TranslationsToolsFr._(_root);
 	@override late final _TranslationsCreditsFr credits = _TranslationsCreditsFr._(_root);
 }
@@ -51,6 +51,8 @@ class _TranslationsGenericFr implements TranslationsGenericEn {
 
 	// Translations
 	@override String get app_name => 'Toolbox';
+	@override String get tools => 'Outils';
+	@override String get categories => 'Catégories';
 	@override String get error => 'Erreur';
 	@override String get warning => 'Attention';
 	@override String get ok => 'OK';
@@ -60,6 +62,9 @@ class _TranslationsGenericFr implements TranslationsGenericEn {
 	@override String get reset => 'Réinitialiser';
 	@override String get yes => 'Oui';
 	@override String get no => 'Non';
+	@override String get copy => 'Copier';
+	@override String get share => 'Partager';
+	@override String get generate => 'Générer';
 }
 
 // Path: homepage
@@ -72,7 +77,7 @@ class _TranslationsHomepageFr implements TranslationsHomepageEn {
 	@override String get update_available => 'Mise à jour disponible';
 	@override String get update_available_message => 'Une nouvelle version de Toolbox est disponible. Mettez à jour dès maintenant pour bénéficier des dernières fonctionnalités et améliorations.';
 	@override String get switch_view => 'Changer de vue';
-	@override String get search_all_folders => 'Rechercher dans tous les dossiers';
+	@override String get search_all_categories => 'Rechercher dans toutes les catégories';
 	@override String get clear_search => 'Effacer la recherche';
 	@override String get add => 'Ajouter';
 	@override String get remove => 'Supprimer';
@@ -81,9 +86,9 @@ class _TranslationsHomepageFr implements TranslationsHomepageEn {
 	@override String get would_you_like_to_remove_this_tool_from_favorites => 'Voulez-vous retirer cet outils des favoris ?';
 }
 
-// Path: folders
-class _TranslationsFoldersFr implements TranslationsFoldersEn {
-	_TranslationsFoldersFr._(this._root);
+// Path: categories
+class _TranslationsCategoriesFr implements TranslationsCategoriesEn {
+	_TranslationsCategoriesFr._(this._root);
 
 	final TranslationsFr _root; // ignore: unused_field
 
@@ -187,6 +192,8 @@ class _TranslationsToolsBaseconverterFr implements TranslationsToolsBaseconverte
 
 	// Translations
 	@override String get title => 'Convertisseur de base';
+	@override String get input => 'Valeur d\'entrée';
+	@override String get results => 'Résultats';
 	@override String get enter_a_dec_number => 'Entrez un nombre décimal';
 	@override String get enter_a_hex_number => 'Entrez un nombre hexadécimal';
 	@override String get enter_a_bin_number => 'Entrez un nombre binaire';
@@ -251,6 +258,8 @@ class _TranslationsToolsNslookupFr implements TranslationsToolsNslookupEn {
 	@override String get enter_a_domain_name => 'Entrez un nom de domaine';
 	@override String get lookup => 'Rechercher';
 	@override late final _TranslationsToolsNslookupErrorFr error = _TranslationsToolsNslookupErrorFr._(_root);
+	@override String get not_supported_by_system_dns => 'Non supporté par le DNS système';
+	@override String get no_records_found => 'Aucun enregistrement trouvé';
 }
 
 // Path: tools.ping
@@ -312,6 +321,7 @@ class _TranslationsToolsTimerFr implements TranslationsToolsTimerEn {
 	@override String get pause => 'Pause';
 	@override String get please_stop_the_timer_first => 'Veuillez d\'abord arrêter le minuteur';
 	@override String get ios_warning_message => 'Pour que le minuteur sonne sur iOS, vous ne devez pas quitter l\'application ni éteindre l\'écran de votre iPhone. Sinon, iOS empêchera le minuteur de sonner lorsqu\'il atteindra zéro.';
+	@override String get adjust_time => 'Ajuster le temps';
 }
 
 // Path: tools.stopwatch
@@ -322,9 +332,11 @@ class _TranslationsToolsStopwatchFr implements TranslationsToolsStopwatchEn {
 
 	// Translations
 	@override String get title => 'Chronomètre';
+	@override String get controls => 'Contrôles';
 	@override String get start => 'Go';
 	@override String get stop => 'Stop';
 	@override String get reset => 'Effacer';
+	@override String get laps => 'Tours';
 	@override String get lap => 'Tour';
 }
 
@@ -367,6 +379,7 @@ class _TranslationsToolsRandomnumberFr implements TranslationsToolsRandomnumberE
 
 	// Translations
 	@override String get title => 'Nombre aléatoire';
+	@override String get settings => 'Paramètres';
 	@override String get min => 'Min';
 	@override String get max => 'Max';
 	@override late final _TranslationsToolsRandomnumberErrorFr error = _TranslationsToolsRandomnumberErrorFr._(_root);
@@ -396,11 +409,14 @@ class _TranslationsToolsSshclientFr implements TranslationsToolsSshclientEn {
 	@override String get backspace => 'Effacer';
 	@override String get use_password => 'Utiliser un mot de passe';
 	@override String get use_ssh_key => 'Utiliser une clé SSH';
+	@override String get connection => 'Connexion';
 	@override String get host => 'Hôte';
 	@override String get port => 'Port';
 	@override String get username => 'Nom d\'utilisateur';
 	@override String get password => 'Mot de passe';
 	@override String get connect => 'Se connecter';
+	@override String get ssh_key => 'Clé SSH';
+	@override String get authentication => 'Authentification';
 	@override String get select_private_key => 'Sélectionner une clé privée';
 	@override String get no_private_key_selected => 'Aucune clé privée sélectionnée';
 	@override String get passphrase => 'Phrase secrète (laisser vide si aucune)';
@@ -520,6 +536,8 @@ class _TranslationsToolsFileencryptionFr implements TranslationsToolsFileencrypt
 	@override String get encrypt => 'Chiffrer';
 	@override String get decrypt => 'Déchiffrer';
 	@override late final _TranslationsToolsFileencryptionErrorFr error = _TranslationsToolsFileencryptionErrorFr._(_root);
+	@override String get enter_password_hint => 'Entrez le mot de passe...';
+	@override String get file_selection => 'Sélection de fichier';
 }
 
 // Path: tools.youtubethumbnail
@@ -533,7 +551,9 @@ class _TranslationsToolsYoutubethumbnailFr implements TranslationsToolsYoutubeth
 	@override String get saved => 'Miniature enregistrée avec succès';
 	@override String get youtube_video_id => 'URL de la vidéo YouTube';
 	@override String get save_thumbnail => 'Enregistrer la miniature';
+	@override String get please_enter_a_video_url => 'Veuillez entrer l\'URL (ou l\'ID) d\'une vidéo YouTube afin de télécharger sa miniature';
 	@override late final _TranslationsToolsYoutubethumbnailErrorFr error = _TranslationsToolsYoutubethumbnailErrorFr._(_root);
+	@override String get thumbnail_preview => 'Aperçu de la miniature';
 }
 
 // Path: tools.nationalanthems
@@ -553,6 +573,7 @@ class _TranslationsToolsNationalanthemsFr implements TranslationsToolsNationalan
 	@override String get loading_audio_title => 'Chargement';
 	@override String get loading_audio_text => 'Chargement de l\'hymne en cours...';
 	@override late final _TranslationsToolsNationalanthemsErrorFr error = _TranslationsToolsNationalanthemsErrorFr._(_root);
+	@override String get no_anthems_found => 'Aucun hymne trouvé';
 }
 
 // Path: tools.httprequest
@@ -577,6 +598,8 @@ class _TranslationsToolsHttprequestFr implements TranslationsToolsHttprequestEn 
 	@override String get back_to_details => 'Retour aux détails';
 	@override String get status_code => 'Code d\'état';
 	@override late final _TranslationsToolsHttprequestErrorFr error = _TranslationsToolsHttprequestErrorFr._(_root);
+	@override String get example_headers => 'cle1: valeur1\ncle2: valeur2';
+	@override String get request_body_hint => 'Corps de la requête (JSON, XML, etc.)';
 }
 
 // Path: tools.morsecode
@@ -593,6 +616,8 @@ class _TranslationsToolsMorsecodeFr implements TranslationsToolsMorsecodeEn {
 	@override String get alphabet_to_morse => 'Alphabet vers morse';
 	@override String get morse_to_alphabet => 'Morse vers alphabet';
 	@override String get play_audio => 'Écouter l\'audio';
+	@override String get playing => 'Lecture en cours...';
+	@override String get enter_text => 'Entrez le texte ici...';
 }
 
 // Path: tools.osm
@@ -681,6 +706,8 @@ class _TranslationsToolsMcServerPingFr implements TranslationsToolsMcServerPingE
 	@override String get online_players => 'Joueur(s) en ligne';
 	@override String get online_players_description_no_players_to_show => 'Le serveur a des joueurs en ligne, mais aucun nom de joueur n\'est visible';
 	@override late final _TranslationsToolsMcServerPingErrorFr error = _TranslationsToolsMcServerPingErrorFr._(_root);
+	@override String get server_id => 'ID du serveur';
+	@override String get server_info => 'Infos du serveur';
 }
 
 // Path: tools.timestampconverter
@@ -701,6 +728,7 @@ class _TranslationsToolsTimestampconverterFr implements TranslationsToolsTimesta
 	@override String get tap_the_date_to_change_it => 'Appuyez sur la date pour la modifier';
 	@override String get select_seconds => 'Sélectionner les secondes';
 	@override late final _TranslationsToolsTimestampconverterErrorFr error = _TranslationsToolsTimestampconverterErrorFr._(_root);
+	@override String get convert => 'Convertir';
 }
 
 // Path: tools.urlshortener
@@ -733,6 +761,7 @@ class _TranslationsToolsUrlshortenerFr implements TranslationsToolsUrlshortenerE
 	@override String get more_features_message => 'Utiliser des fonctions supplémentaires telles que le partage de texte, des liens personnalisés, et plus via le site officiel JTU.ME';
 	@override String get open => 'Ouvrir';
 	@override late final _TranslationsToolsUrlshortenerErrorFr error = _TranslationsToolsUrlshortenerErrorFr._(_root);
+	@override String get management_info => 'Infos de gestion';
 }
 
 // Path: tools.counter
@@ -757,12 +786,15 @@ class _TranslationsToolsBitwisecalculatorFr implements TranslationsToolsBitwisec
 
 	// Translations
 	@override String get title => 'Calculatrice binaire';
+	@override String get binary_values => 'Valeurs binaires';
 	@override String get first_number => 'Premier nombre';
 	@override String get second_number => 'Deuxième nombre';
 	@override String get enter_a_binary_number => 'Entrez un nombre binaire';
+	@override String get operations => 'Opérations';
 	@override String get and => 'ET';
 	@override String get or => 'OU';
 	@override String get xor => 'OU exclusif';
+	@override String get result => 'Résultat';
 	@override late final _TranslationsToolsBitwisecalculatorErrorFr error = _TranslationsToolsBitwisecalculatorErrorFr._(_root);
 }
 
@@ -821,6 +853,8 @@ class _TranslationsToolsTextdifferencesFr implements TranslationsToolsTextdiffer
 	@override String get old_text => 'Ancien texte';
 	@override String get new_text => 'Nouveau texte';
 	@override String get no_text_hint => 'Entrez du texte ci-dessus pour voir les différences';
+	@override String get enter_old_text => 'Entrez l\'ancien texte...';
+	@override String get enter_new_text => 'Entrez le nouveau texte...';
 }
 
 // Path: tools.characterscopy
@@ -854,6 +888,14 @@ class _TranslationsToolsWhoisdomainFr implements TranslationsToolsWhoisdomainEn 
 	@override String get no_result => 'Aucun résultat valide trouvé';
 	@override String get view_pretty => 'Vue formatée';
 	@override String get view_raw => 'Vue brute';
+	@override String get raw_whois_data => 'Données WHOIS brutes';
+	@override String get domain => 'Domaine';
+	@override String get registrar => 'Registrar';
+	@override String get dates => 'Dates';
+	@override String get status => 'Statut';
+	@override String get name_servers => 'Serveurs de noms';
+	@override String get contact => 'Contact';
+	@override String get other => 'Autre';
 	@override late final _TranslationsToolsWhoisdomainErrorFr error = _TranslationsToolsWhoisdomainErrorFr._(_root);
 }
 
@@ -877,6 +919,7 @@ class _TranslationsToolsTextcounterFr implements TranslationsToolsTextcounterEn 
 	@override String get lines => 'Lignes';
 	@override String get empty_lines => 'Lignes vides';
 	@override String get total_lines => 'Total de lignes';
+	@override String get text_input => 'Saisie de texte';
 }
 
 // Path: tools.romannumeral
@@ -906,8 +949,9 @@ class _TranslationsToolsAreacalculatorFr implements TranslationsToolsAreacalcula
 	// Translations
 	@override String get title => 'Calculateur d\'aire';
 	@override String get select_a_shape => 'Sélectionnez une forme';
-	@override String get calculate => 'Calculer';
+	@override String get values => 'Valeurs';
 	@override String get area => 'Aire';
+	@override String get calculate => 'Calculer';
 	@override late final _TranslationsToolsAreacalculatorShapesFr shapes = _TranslationsToolsAreacalculatorShapesFr._(_root);
 	@override late final _TranslationsToolsAreacalculatorInputsFr inputs = _TranslationsToolsAreacalculatorInputsFr._(_root);
 	@override late final _TranslationsToolsAreacalculatorErrorFr error = _TranslationsToolsAreacalculatorErrorFr._(_root);
@@ -950,6 +994,7 @@ class _TranslationsToolsQrcreatorFr implements TranslationsToolsQrcreatorEn {
 
 	// Translations
 	@override String get title => 'Créateur de QR';
+	@override String get qr_code_settings => 'Détails du QR code';
 	@override String get ecc_low => 'Bas';
 	@override String get ecc_medium => 'Moyen';
 	@override String get ecc_quartile => 'Quartile';
@@ -959,6 +1004,7 @@ class _TranslationsToolsQrcreatorFr implements TranslationsToolsQrcreatorEn {
 	@override String get enter_text_or_url => 'Entrez du texte ou une URL';
 	@override String get error_correction_level => 'Niveau de correction d\'erreur';
 	@override String get create => 'Créer';
+	@override String get generated_qr_code => 'QR code généré';
 	@override String get save => 'Enregistrer';
 	@override String get share => 'Partager';
 	@override late final _TranslationsToolsQrcreatorErrorFr error = _TranslationsToolsQrcreatorErrorFr._(_root);
@@ -996,6 +1042,7 @@ class _TranslationsToolsPastebinFr implements TranslationsToolsPastebinEn {
 	@override String get more_features_message => 'Utiliser des fonctions supplémentaires telles que le raccourcissement d\'URL, des liens personnalisés, et plus via le site officiel JTU.ME';
 	@override String get open => 'Ouvrir';
 	@override late final _TranslationsToolsPastebinErrorFr error = _TranslationsToolsPastebinErrorFr._(_root);
+	@override String get management_info => 'Infos de gestion';
 }
 
 // Path: tools.percentagecalculator
@@ -1037,6 +1084,7 @@ class _TranslationsToolsPasswordgeneratorFr implements TranslationsToolsPassword
 	@override String get password_copied_to_clipboard => 'Mot de passe copié dans le presse-papiers';
 	@override String get tap_to_copy => 'Cliquez pour copier';
 	@override late final _TranslationsToolsPasswordgeneratorErrorFr error = _TranslationsToolsPasswordgeneratorErrorFr._(_root);
+	@override String get generated_password => 'Mot de passe généré';
 }
 
 // Path: tools.portscanner
@@ -1054,6 +1102,9 @@ class _TranslationsToolsPortscannerFr implements TranslationsToolsPortscannerEn 
 	@override String get stop_scan => 'Arrêter le scan';
 	@override String get port => 'Port';
 	@override late final _TranslationsToolsPortscannerErrorFr error = _TranslationsToolsPortscannerErrorFr._(_root);
+	@override String get example_domain_or_ip => 'example.com ou 192.168.1.1';
+	@override String get port_range => 'Plage de ports';
+	@override String get scan_progress => 'Progression du scan';
 }
 
 // Path: tools.commons
@@ -1286,7 +1337,7 @@ class _TranslationsToolsYoutubethumbnailErrorFr implements TranslationsToolsYout
 
 	// Translations
 	@override String get failed_to_download => 'Impossible de télécharger la miniature depuis YouTube';
-	@override String get please_enter_a_video_id => 'Veuillez saisir l\'URL d\'une vidéo YouTube valide\n\nExemples : \nhttps://www.youtube.com/watch?v=dQw4w9WgXcQ\nhttps://youtu.be/dQw4w9WgXcQ\n\nVous avez également besoin d\'une connexion internet pour télécharger la miniature à partir de YouTube';
+	@override String get please_enter_a_valid_video_id => 'Veuillez saisir l\'URL d\'une vidéo YouTube valide\nVous avez également besoin d\'une connexion internet pour télécharger la miniature à partir de YouTube';
 }
 
 // Path: tools.nationalanthems.error
@@ -1643,6 +1694,8 @@ extension on TranslationsFr {
 	dynamic _flatMapFunction$0(String path) {
 		switch (path) {
 			case 'generic.app_name': return 'Toolbox';
+			case 'generic.tools': return 'Outils';
+			case 'generic.categories': return 'Catégories';
 			case 'generic.error': return 'Erreur';
 			case 'generic.warning': return 'Attention';
 			case 'generic.ok': return 'OK';
@@ -1652,26 +1705,31 @@ extension on TranslationsFr {
 			case 'generic.reset': return 'Réinitialiser';
 			case 'generic.yes': return 'Oui';
 			case 'generic.no': return 'Non';
+			case 'generic.copy': return 'Copier';
+			case 'generic.share': return 'Partager';
+			case 'generic.generate': return 'Générer';
 			case 'homepage.update_available': return 'Mise à jour disponible';
 			case 'homepage.update_available_message': return 'Une nouvelle version de Toolbox est disponible. Mettez à jour dès maintenant pour bénéficier des dernières fonctionnalités et améliorations.';
 			case 'homepage.switch_view': return 'Changer de vue';
-			case 'homepage.search_all_folders': return 'Rechercher dans tous les dossiers';
+			case 'homepage.search_all_categories': return 'Rechercher dans toutes les catégories';
 			case 'homepage.clear_search': return 'Effacer la recherche';
 			case 'homepage.add': return 'Ajouter';
 			case 'homepage.remove': return 'Supprimer';
 			case 'homepage.favorites': return 'Favoris';
 			case 'homepage.would_you_like_to_add_this_tool_to_favorites': return 'Voulez-vous ajouter cet outil aux favoris ?';
 			case 'homepage.would_you_like_to_remove_this_tool_from_favorites': return 'Voulez-vous retirer cet outils des favoris ?';
-			case 'folders.audio': return 'Audio';
-			case 'folders.calculations': return 'Calculs';
-			case 'folders.games': return 'Jeux';
-			case 'folders.geography': return 'Géographie';
-			case 'folders.miscellaneous': return 'Divers';
-			case 'folders.network': return 'Réseau';
-			case 'folders.random': return 'Aléatoire';
-			case 'folders.time': return 'Temps';
-			case 'folders.web': return 'Web';
+			case 'categories.audio': return 'Audio';
+			case 'categories.calculations': return 'Calculs';
+			case 'categories.games': return 'Jeux';
+			case 'categories.geography': return 'Géographie';
+			case 'categories.miscellaneous': return 'Divers';
+			case 'categories.network': return 'Réseau';
+			case 'categories.random': return 'Aléatoire';
+			case 'categories.time': return 'Temps';
+			case 'categories.web': return 'Web';
 			case 'tools.baseconverter.title': return 'Convertisseur de base';
+			case 'tools.baseconverter.input': return 'Valeur d\'entrée';
+			case 'tools.baseconverter.results': return 'Résultats';
 			case 'tools.baseconverter.enter_a_dec_number': return 'Entrez un nombre décimal';
 			case 'tools.baseconverter.enter_a_hex_number': return 'Entrez un nombre hexadécimal';
 			case 'tools.baseconverter.enter_a_bin_number': return 'Entrez un nombre binaire';
@@ -1701,6 +1759,8 @@ extension on TranslationsFr {
 			case 'tools.nslookup.lookup': return 'Rechercher';
 			case 'tools.nslookup.error.please_enter_a_domain_name': return 'Veuillez entrer un nom de domaine';
 			case 'tools.nslookup.error.no_address_associated_with_domain': return 'Aucune adresse IP n\'est associée au nom d\'hôte.\nVérifiez votre saisie et votre connexion internet puis réessayez.';
+			case 'tools.nslookup.not_supported_by_system_dns': return 'Non supporté par le DNS système';
+			case 'tools.nslookup.no_records_found': return 'Aucun enregistrement trouvé';
 			case 'tools.ping.title': return 'Ping';
 			case 'tools.ping.ping': return 'Ping';
 			case 'tools.ping.enter_a_domain_name_or_ip': return 'Entrez un nom de domaine ou une adresse IP';
@@ -1732,10 +1792,13 @@ extension on TranslationsFr {
 			case 'tools.timer.pause': return 'Pause';
 			case 'tools.timer.please_stop_the_timer_first': return 'Veuillez d\'abord arrêter le minuteur';
 			case 'tools.timer.ios_warning_message': return 'Pour que le minuteur sonne sur iOS, vous ne devez pas quitter l\'application ni éteindre l\'écran de votre iPhone. Sinon, iOS empêchera le minuteur de sonner lorsqu\'il atteindra zéro.';
+			case 'tools.timer.adjust_time': return 'Ajuster le temps';
 			case 'tools.stopwatch.title': return 'Chronomètre';
+			case 'tools.stopwatch.controls': return 'Contrôles';
 			case 'tools.stopwatch.start': return 'Go';
 			case 'tools.stopwatch.stop': return 'Stop';
 			case 'tools.stopwatch.reset': return 'Effacer';
+			case 'tools.stopwatch.laps': return 'Tours';
 			case 'tools.stopwatch.lap': return 'Tour';
 			case 'tools.roulette.title': return 'Roulette';
 			case 'tools.roulette.tap_to_roll_info': return 'Touchez la roue pour la faire tourner';
@@ -1753,6 +1816,7 @@ extension on TranslationsFr {
 			case 'tools.flipcoins.title': return 'Pile ou face';
 			case 'tools.flipcoins.change_coin_currency': return 'Changer la devise de la pièce';
 			case 'tools.randomnumber.title': return 'Nombre aléatoire';
+			case 'tools.randomnumber.settings': return 'Paramètres';
 			case 'tools.randomnumber.min': return 'Min';
 			case 'tools.randomnumber.max': return 'Max';
 			case 'tools.randomnumber.error.invalid_number': return 'Nombre invalide, veuillez réessayer.';
@@ -1766,11 +1830,14 @@ extension on TranslationsFr {
 			case 'tools.sshclient.backspace': return 'Effacer';
 			case 'tools.sshclient.use_password': return 'Utiliser un mot de passe';
 			case 'tools.sshclient.use_ssh_key': return 'Utiliser une clé SSH';
+			case 'tools.sshclient.connection': return 'Connexion';
 			case 'tools.sshclient.host': return 'Hôte';
 			case 'tools.sshclient.port': return 'Port';
 			case 'tools.sshclient.username': return 'Nom d\'utilisateur';
 			case 'tools.sshclient.password': return 'Mot de passe';
 			case 'tools.sshclient.connect': return 'Se connecter';
+			case 'tools.sshclient.ssh_key': return 'Clé SSH';
+			case 'tools.sshclient.authentication': return 'Authentification';
 			case 'tools.sshclient.select_private_key': return 'Sélectionner une clé privée';
 			case 'tools.sshclient.no_private_key_selected': return 'Aucune clé privée sélectionnée';
 			case 'tools.sshclient.passphrase': return 'Phrase secrète (laisser vide si aucune)';
@@ -1849,12 +1916,16 @@ extension on TranslationsFr {
 			case 'tools.fileencryption.error.failed_to_read_file': return 'Échec de la lecture du fichier';
 			case 'tools.fileencryption.error.failed_to_decrypt_file': return 'Échec de déchiffrement du fichier, veuillez vérifier le mot de passe';
 			case 'tools.fileencryption.error.please_enter_a_password': return 'Veuillez entrer un mot de passe';
+			case 'tools.fileencryption.enter_password_hint': return 'Entrez le mot de passe...';
+			case 'tools.fileencryption.file_selection': return 'Sélection de fichier';
 			case 'tools.youtubethumbnail.title': return 'Miniature YouTube';
 			case 'tools.youtubethumbnail.saved': return 'Miniature enregistrée avec succès';
 			case 'tools.youtubethumbnail.youtube_video_id': return 'URL de la vidéo YouTube';
 			case 'tools.youtubethumbnail.save_thumbnail': return 'Enregistrer la miniature';
+			case 'tools.youtubethumbnail.please_enter_a_video_url': return 'Veuillez entrer l\'URL (ou l\'ID) d\'une vidéo YouTube afin de télécharger sa miniature';
 			case 'tools.youtubethumbnail.error.failed_to_download': return 'Impossible de télécharger la miniature depuis YouTube';
-			case 'tools.youtubethumbnail.error.please_enter_a_video_id': return 'Veuillez saisir l\'URL d\'une vidéo YouTube valide\n\nExemples : \nhttps://www.youtube.com/watch?v=dQw4w9WgXcQ\nhttps://youtu.be/dQw4w9WgXcQ\n\nVous avez également besoin d\'une connexion internet pour télécharger la miniature à partir de YouTube';
+			case 'tools.youtubethumbnail.error.please_enter_a_valid_video_id': return 'Veuillez saisir l\'URL d\'une vidéo YouTube valide\nVous avez également besoin d\'une connexion internet pour télécharger la miniature à partir de YouTube';
+			case 'tools.youtubethumbnail.thumbnail_preview': return 'Aperçu de la miniature';
 			case 'tools.nationalanthems.title': return 'Hymnes nationaux';
 			case 'tools.nationalanthems.stop': return 'Arrêter l\'hymne';
 			case 'tools.nationalanthems.search': return 'Rechercher (en anglais)';
@@ -1866,6 +1937,7 @@ extension on TranslationsFr {
 			case 'tools.nationalanthems.loading_audio_text': return 'Chargement de l\'hymne en cours...';
 			case 'tools.nationalanthems.error.failed_to_load_list': return 'Impossible de charger la liste des hymnes. Veuillez vérifier votre connexion internet et réessayer.';
 			case 'tools.nationalanthems.error.failed_to_play_anthem': return 'Impossible de jouer l\'hymne. Veuillez vérifier votre connexion internet et réessayer.';
+			case 'tools.nationalanthems.no_anthems_found': return 'Aucun hymne trouvé';
 			case 'tools.httprequest.title': return 'Requête HTTP';
 			case 'tools.httprequest.method': return 'Méthode';
 			case 'tools.httprequest.custom_method': return 'Méthode personnalisée';
@@ -1885,6 +1957,8 @@ extension on TranslationsFr {
 			case 'tools.httprequest.error.invalid_headers': return 'En-têtes invalides';
 			case 'tools.httprequest.error.timeout': return 'La requête a dépassé le temps de réponse.\nVeuillez vérifier votre saisie et votre connexion internet, puis réessayez.';
 			case 'tools.httprequest.error.other_error': return 'Une erreur s\'est produite lors de l\'envoi de la requête.\nVeuillez vérifier votre saisie et votre connexion internet, puis réessayez.';
+			case 'tools.httprequest.example_headers': return 'cle1: valeur1\ncle2: valeur2';
+			case 'tools.httprequest.request_body_hint': return 'Corps de la requête (JSON, XML, etc.)';
 			case 'tools.morsecode.title': return 'Code morse';
 			case 'tools.morsecode.alphabet_field': return 'Alphabet (A-Z, 0-9)';
 			case 'tools.morsecode.morse_field': return 'Code Morse (. and -)';
@@ -1892,6 +1966,8 @@ extension on TranslationsFr {
 			case 'tools.morsecode.alphabet_to_morse': return 'Alphabet vers morse';
 			case 'tools.morsecode.morse_to_alphabet': return 'Morse vers alphabet';
 			case 'tools.morsecode.play_audio': return 'Écouter l\'audio';
+			case 'tools.morsecode.playing': return 'Lecture en cours...';
+			case 'tools.morsecode.enter_text': return 'Entrez le texte ici...';
 			case 'tools.osm.title': return 'Plan (OSM)';
 			case 'tools.osm.go_to_my_location': return 'Aller à ma position';
 			case 'tools.osm.loading_map': return 'Chargement de la carte...';
@@ -1952,6 +2028,8 @@ extension on TranslationsFr {
 			case 'tools.mc_server_ping.error.please_enter_a_server_ip': return 'Veuillez entrer une adresse IP ou un nom de domaine valide';
 			case 'tools.mc_server_ping.error.server_offline_or_does_not_exist': return 'Le serveur est hors ligne ou n\'existe pas';
 			case 'tools.mc_server_ping.error.please_check_your_internet_connection': return 'Veuillez vérifier votre connexion internet et réessayer';
+			case 'tools.mc_server_ping.server_id': return 'ID du serveur';
+			case 'tools.mc_server_ping.server_info': return 'Infos du serveur';
 			case 'tools.timestampconverter.title': return 'Convertisseur de timestamp';
 			case 'tools.timestampconverter.now_tooltip': return 'Maintenant';
 			case 'tools.timestampconverter.utc': return 'UTC';
@@ -1963,6 +2041,7 @@ extension on TranslationsFr {
 			case 'tools.timestampconverter.tap_the_date_to_change_it': return 'Appuyez sur la date pour la modifier';
 			case 'tools.timestampconverter.select_seconds': return 'Sélectionner les secondes';
 			case 'tools.timestampconverter.error.invalid_timestamp': return 'Timestamp invalide';
+			case 'tools.timestampconverter.convert': return 'Convertir';
 			case 'tools.urlshortener.title': return 'Raccourcisseur d\'URL';
 			case 'tools.urlshortener.url': return 'L\'URL';
 			case 'tools.urlshortener.qr_code': return 'Le code QR';
@@ -1988,6 +2067,7 @@ extension on TranslationsFr {
 			case 'tools.urlshortener.error.failed_to_shorten_url': return 'Le raccourcissement de l\'URL a échoué, veuillez vérifier votre saisie et votre connexion internet.';
 			case 'tools.urlshortener.error.impossible_to_connect_to_the_server': return 'Impossible de se connecter au serveur';
 			case 'tools.urlshortener.error.impossible_to_connect_to_the_server_message': return 'Échec de la connexion au serveur, veuillez vérifier votre connexion internet et réessayer.';
+			case 'tools.urlshortener.management_info': return 'Infos de gestion';
 			case 'tools.counter.title': return 'Compteur';
 			case 'tools.counter.add_button': return 'Ajouter un bouton';
 			case 'tools.counter.remove_button': return 'Supprimer un bouton';
@@ -1997,12 +2077,15 @@ extension on TranslationsFr {
 			case 'tools.counter.error.you_must_have_at_least_one_button': return 'Vous devez avoir au moins un bouton';
 			case 'tools.counter.error.this_button_already_exists': return 'Ce bouton existe déjà';
 			case 'tools.bitwisecalculator.title': return 'Calculatrice binaire';
+			case 'tools.bitwisecalculator.binary_values': return 'Valeurs binaires';
 			case 'tools.bitwisecalculator.first_number': return 'Premier nombre';
 			case 'tools.bitwisecalculator.second_number': return 'Deuxième nombre';
 			case 'tools.bitwisecalculator.enter_a_binary_number': return 'Entrez un nombre binaire';
+			case 'tools.bitwisecalculator.operations': return 'Opérations';
 			case 'tools.bitwisecalculator.and': return 'ET';
 			case 'tools.bitwisecalculator.or': return 'OU';
 			case 'tools.bitwisecalculator.xor': return 'OU exclusif';
+			case 'tools.bitwisecalculator.result': return 'Résultat';
 			case 'tools.bitwisecalculator.error.invalid_input': return 'Saisie invalide';
 			case 'tools.musicsearch.title': return 'Recherche de musique';
 			case 'tools.musicsearch.unknown_title': return 'Titre inconnu';
@@ -2040,6 +2123,8 @@ extension on TranslationsFr {
 			case 'tools.textdifferences.old_text': return 'Ancien texte';
 			case 'tools.textdifferences.new_text': return 'Nouveau texte';
 			case 'tools.textdifferences.no_text_hint': return 'Entrez du texte ci-dessus pour voir les différences';
+			case 'tools.textdifferences.enter_old_text': return 'Entrez l\'ancien texte...';
+			case 'tools.textdifferences.enter_new_text': return 'Entrez le nouveau texte...';
 			case 'tools.characterscopy.title': return 'Copie de caractères';
 			case 'tools.characterscopy.important': return 'Important';
 			case 'tools.characterscopy.important_description': return 'Certains caractères peuvent ne pas s\'afficher correctement sur tous les appareils en fonction de votre système d\'exploitation. De même, certains caractères peuvent ne pas être pris en charge par toutes les applications et polices. Cliquez simplement sur le caractère que vous souhaitez copier et il sera copié dans votre presse-papiers.';
@@ -2055,6 +2140,14 @@ extension on TranslationsFr {
 			case 'tools.whoisdomain.no_result': return 'Aucun résultat valide trouvé';
 			case 'tools.whoisdomain.view_pretty': return 'Vue formatée';
 			case 'tools.whoisdomain.view_raw': return 'Vue brute';
+			case 'tools.whoisdomain.raw_whois_data': return 'Données WHOIS brutes';
+			case 'tools.whoisdomain.domain': return 'Domaine';
+			case 'tools.whoisdomain.registrar': return 'Registrar';
+			case 'tools.whoisdomain.dates': return 'Dates';
+			case 'tools.whoisdomain.status': return 'Statut';
+			case 'tools.whoisdomain.name_servers': return 'Serveurs de noms';
+			case 'tools.whoisdomain.contact': return 'Contact';
+			case 'tools.whoisdomain.other': return 'Autre';
 			case 'tools.whoisdomain.error.impossible_to_get_whois_information': return 'Impossible d\'obtenir les informations whois, veuillez vérifier votre saisie et votre connexion internet puis réessayez';
 			case 'tools.textcounter.title': return 'Compteur de texte';
 			case 'tools.textcounter.clear': return 'Effacer';
@@ -2069,6 +2162,7 @@ extension on TranslationsFr {
 			case 'tools.textcounter.lines': return 'Lignes';
 			case 'tools.textcounter.empty_lines': return 'Lignes vides';
 			case 'tools.textcounter.total_lines': return 'Total de lignes';
+			case 'tools.textcounter.text_input': return 'Saisie de texte';
 			case 'tools.romannumeral.title': return 'Chiffres romains';
 			case 'tools.romannumeral.change_to': return 'Passer en';
 			case 'tools.romannumeral.roman_numeral': return 'chiffre romain';
@@ -2080,8 +2174,9 @@ extension on TranslationsFr {
 			case 'tools.romannumeral.error.invalid_roman_numeral': return 'Chiffre romain invalide ou non pris en charge';
 			case 'tools.areacalculator.title': return 'Calculateur d\'aire';
 			case 'tools.areacalculator.select_a_shape': return 'Sélectionnez une forme';
-			case 'tools.areacalculator.calculate': return 'Calculer';
+			case 'tools.areacalculator.values': return 'Valeurs';
 			case 'tools.areacalculator.area': return 'Aire';
+			case 'tools.areacalculator.calculate': return 'Calculer';
 			case 'tools.areacalculator.shapes.circle': return 'Cercle';
 			case 'tools.areacalculator.shapes.ellipse': return 'Ellipse';
 			case 'tools.areacalculator.shapes.equilateral_triangle': return 'Triangle équilatéral';
@@ -2110,6 +2205,12 @@ extension on TranslationsFr {
 			case 'tools.areacalculator.inputs.side_length': return 'Longueur du côté';
 			case 'tools.areacalculator.inputs.apothem': return 'Apotème';
 			case 'tools.areacalculator.inputs.base_1': return 'Base 1';
+			default: return null;
+		}
+	}
+
+	dynamic _flatMapFunction$1(String path) {
+		switch (path) {
 			case 'tools.areacalculator.inputs.base_2': return 'Base 2';
 			case 'tools.areacalculator.error.invalid_input': return 'Entrée invalide';
 			case 'tools.areacalculator.error.please_enter_a_value_for': return 'Veuillez entrer une valeur pour';
@@ -2130,6 +2231,7 @@ extension on TranslationsFr {
 			case 'tools.compass.title': return 'Boussole';
 			case 'tools.compass.error.please_grant_location_permission': return 'Veuillez autoriser la permission de localisation pour utiliser la boussole. Cette autorisation est obligatoire pour accéder aux capteurs de l\'appareil.';
 			case 'tools.qrcreator.title': return 'Créateur de QR';
+			case 'tools.qrcreator.qr_code_settings': return 'Détails du QR code';
 			case 'tools.qrcreator.ecc_low': return 'Bas';
 			case 'tools.qrcreator.ecc_medium': return 'Moyen';
 			case 'tools.qrcreator.ecc_quartile': return 'Quartile';
@@ -2139,6 +2241,7 @@ extension on TranslationsFr {
 			case 'tools.qrcreator.enter_text_or_url': return 'Entrez du texte ou une URL';
 			case 'tools.qrcreator.error_correction_level': return 'Niveau de correction d\'erreur';
 			case 'tools.qrcreator.create': return 'Créer';
+			case 'tools.qrcreator.generated_qr_code': return 'QR code généré';
 			case 'tools.qrcreator.save': return 'Enregistrer';
 			case 'tools.qrcreator.share': return 'Partager';
 			case 'tools.qrcreator.error.failed_to_create_qr_code': return 'Échec de la création du QR code, veuillez vérifier votre saisie et réessayer';
@@ -2154,12 +2257,6 @@ extension on TranslationsFr {
 			case 'tools.pastebin.link_id_copied_to_clipboard': return 'Link ID copied to clipboard';
 			case 'tools.pastebin.the_link_password_is': return 'The link password is';
 			case 'tools.pastebin.link_password_copied_to_clipboard': return 'Link password copied to clipboard';
-			default: return null;
-		}
-	}
-
-	dynamic _flatMapFunction$1(String path) {
-		switch (path) {
 			case 'tools.pastebin.link_password_hint_text': return 'Tap the password to copy it\nYou will need it to view statistics about this link';
 			case 'tools.pastebin.paste_another_text': return 'Coller un autre texte';
 			case 'tools.pastebin.text_to_paste': return 'Texte à coller';
@@ -2175,6 +2272,7 @@ extension on TranslationsFr {
 			case 'tools.pastebin.error.failed_to_obtain_short_link': return 'Impossible d\'obtenir un lien court, veuillez vérifier votre connexion internet puis réessayer';
 			case 'tools.pastebin.error.impossible_to_connect_to_the_server': return 'Impossible de se connecter au serveur';
 			case 'tools.pastebin.error.impossible_to_connect_to_the_server_message': return 'Échec de la connexion au serveur, veuillez vérifier votre connexion internet et réessayer.';
+			case 'tools.pastebin.management_info': return 'Infos de gestion';
 			case 'tools.percentagecalculator.title': return 'Calculateur de pourcentage';
 			case 'tools.percentagecalculator.result': return 'Résultat';
 			case 'tools.percentagecalculator.percentage': return 'Pourcentage';
@@ -2202,6 +2300,7 @@ extension on TranslationsFr {
 			case 'tools.passwordgenerator.error.password_length_must_be_greater_than_0': return 'La longueur du mot de passe doit être supérieure à 0';
 			case 'tools.passwordgenerator.error.password_length_cannot_exceed_x_characters': return ({required Object maxLength}) => 'La longueur du mot de passe ne peut pas dépasser ${maxLength} caractères';
 			case 'tools.passwordgenerator.error.password_length_cannot_be_less_than_the_sum_of_digits_and_special_characters': return 'La longueur du mot de passe ne peut pas être inférieure à la somme du nombre de chiffres et de caractères spéciaux';
+			case 'tools.passwordgenerator.generated_password': return 'Mot de passe généré';
 			case 'tools.portscanner.title': return 'Scanner de ports';
 			case 'tools.portscanner.host_to_scan': return 'Hôte à scanner';
 			case 'tools.portscanner.start_port': return 'Port de départ';
@@ -2211,6 +2310,9 @@ extension on TranslationsFr {
 			case 'tools.portscanner.port': return 'Port';
 			case 'tools.portscanner.error.please_enter_a_valid_host': return 'Veuillez entrer un hôte valide';
 			case 'tools.portscanner.error.please_enter_a_valid_port_number': return 'Veuillez saisir un numéro de port valide (1-65535) dans les deux champs';
+			case 'tools.portscanner.example_domain_or_ip': return 'example.com ou 192.168.1.1';
+			case 'tools.portscanner.port_range': return 'Plage de ports';
+			case 'tools.portscanner.scan_progress': return 'Progression du scan';
 			case 'tools.commons.title': return 'Commons';
 			case 'tools.commons.data_source_and_licensing': return 'Source des données et licences';
 			case 'tools.commons.data_source_and_licensing_description': return 'Tous les fichiers multimédias proviennent de Wikimedia Commons et sont soumis à leurs licences respectives. Veuillez vous assurer de respecter les conditions de chaque licence lorsque vous utilisez et téléchargez les fichiers multimédias.';

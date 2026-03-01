@@ -43,12 +43,12 @@ Finally you can run the project on your device, on an emulator or on a simulator
 **Warning**, if you want to add a new tool, you need to have some knowledge in Flutter and Dart.\
 Be sure to respect the code style of the project (see below).\
 To add a new tool, please follow these steps:
-1. Create a new file in the `lib/pages` folder with the name of your tool finished by `_page.dart` (e.g. `my_tool_page.dart`). You can copy/paste the content of the `lib/pages/templates/tool_template_page.dart` file to start.
+1. Create a new file in the `lib/tools` folder with the name of your tool finished by `_page.dart` (e.g. `my_tool_page.dart`). You can copy/paste the content of the `lib/tools/templates/tool_template_page.dart` file to start.
 2. Code your tool in the new file, you can install packages if needed (via [pub.dev](https://pub.dev)).
 3. Add your tool to the `lib/hierarchy.dart` file by importing it and adding it to the `toolMap` map and in the correct folder (using the `hierarchy` list).
 
 ### Improve an existing tool
-If you want to improve an existing tool, you can do it by editing the corresponding file in the `lib/pages` folder.\
+If you want to improve an existing tool, you can do it by editing the corresponding file in the `lib/tools` folder.\
 Please respect the code style of the project (see below).
 
 ### Translate the app
@@ -63,7 +63,7 @@ dart run slang
 Finally you need to add the `<string>{language_code}</string>` line to the `CFBundleLocalizations` list in the `ios/Runner/Info.plist` file.
 
 ## Code style and little rules
-You can write your code as you want but please respect these rules:
+Here are some rules to follow when coding in this project:
 - Please use English for the code and the comments.
 - Please use the `camelCase` notation for the variables and the functions.
 - Please use the `PascalCase` notation for the classes.
@@ -94,6 +94,7 @@ You can write your code as you want but please respect these rules:
   - Please use the `lib/core/shared_preferences.dart` file to define the shared preferences keys.
   - Please use the `lib/core/url.dart` file to open URLs outside the app or check if an URL is valid.
 - Please avoid using custom fonts, prefer using the default ones.
+    - If you need to use a monospace font, you can use the `Roboto` font with bold weight.
 - Please do not use custom colors, a theme is already defined.
 - Please do not use custom icons, you can use the `Icons` class.
 - Please respect the assets structure.

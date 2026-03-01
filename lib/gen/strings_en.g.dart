@@ -41,7 +41,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	// Translations
 	late final TranslationsGenericEn generic = TranslationsGenericEn._(_root);
 	late final TranslationsHomepageEn homepage = TranslationsHomepageEn._(_root);
-	late final TranslationsFoldersEn folders = TranslationsFoldersEn._(_root);
+	late final TranslationsCategoriesEn categories = TranslationsCategoriesEn._(_root);
 	late final TranslationsToolsEn tools = TranslationsToolsEn._(_root);
 	late final TranslationsCreditsEn credits = TranslationsCreditsEn._(_root);
 }
@@ -56,6 +56,12 @@ class TranslationsGenericEn {
 
 	/// en: 'Toolbox'
 	String get app_name => 'Toolbox';
+
+	/// en: 'Tools'
+	String get tools => 'Tools';
+
+	/// en: 'Categories'
+	String get categories => 'Categories';
 
 	/// en: 'Error'
 	String get error => 'Error';
@@ -83,6 +89,15 @@ class TranslationsGenericEn {
 
 	/// en: 'No'
 	String get no => 'No';
+
+	/// en: 'Copy'
+	String get copy => 'Copy';
+
+	/// en: 'Share'
+	String get share => 'Share';
+
+	/// en: 'Generate'
+	String get generate => 'Generate';
 }
 
 // Path: homepage
@@ -102,8 +117,8 @@ class TranslationsHomepageEn {
 	/// en: 'Switch view'
 	String get switch_view => 'Switch view';
 
-	/// en: 'Search in all folders'
-	String get search_all_folders => 'Search in all folders';
+	/// en: 'Search in all categories'
+	String get search_all_categories => 'Search in all categories';
 
 	/// en: 'Clear search'
 	String get clear_search => 'Clear search';
@@ -124,9 +139,9 @@ class TranslationsHomepageEn {
 	String get would_you_like_to_remove_this_tool_from_favorites => 'Would you like to remove this tool from favorites?';
 }
 
-// Path: folders
-class TranslationsFoldersEn {
-	TranslationsFoldersEn._(this._root);
+// Path: categories
+class TranslationsCategoriesEn {
+	TranslationsCategoriesEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -274,6 +289,12 @@ class TranslationsToolsBaseconverterEn {
 	/// en: 'Base converter'
 	String get title => 'Base converter';
 
+	/// en: 'Input'
+	String get input => 'Input';
+
+	/// en: 'Results'
+	String get results => 'Results';
+
 	/// en: 'Enter a decimal number'
 	String get enter_a_dec_number => 'Enter a decimal number';
 
@@ -391,6 +412,12 @@ class TranslationsToolsNslookupEn {
 	String get lookup => 'Lookup';
 
 	late final TranslationsToolsNslookupErrorEn error = TranslationsToolsNslookupErrorEn._(_root);
+
+	/// en: 'Not supported by system DNS'
+	String get not_supported_by_system_dns => 'Not supported by system DNS';
+
+	/// en: 'No records found'
+	String get no_records_found => 'No records found';
 }
 
 // Path: tools.ping
@@ -499,6 +526,9 @@ class TranslationsToolsTimerEn {
 
 	/// en: 'For the timer to ring on iOS, you must not quit the application or switch off your iPhone screen. Otherwise iOS will prevent the timer from ringing when it reaches zero.'
 	String get ios_warning_message => 'For the timer to ring on iOS, you must not quit the application or switch off your iPhone screen. Otherwise iOS will prevent the timer from ringing when it reaches zero.';
+
+	/// en: 'Adjust Time'
+	String get adjust_time => 'Adjust Time';
 }
 
 // Path: tools.stopwatch
@@ -512,6 +542,9 @@ class TranslationsToolsStopwatchEn {
 	/// en: 'Stopwatch'
 	String get title => 'Stopwatch';
 
+	/// en: 'Controls'
+	String get controls => 'Controls';
+
 	/// en: 'Start'
 	String get start => 'Start';
 
@@ -520,6 +553,9 @@ class TranslationsToolsStopwatchEn {
 
 	/// en: 'Reset'
 	String get reset => 'Reset';
+
+	/// en: 'Laps'
+	String get laps => 'Laps';
 
 	/// en: 'Lap'
 	String get lap => 'Lap';
@@ -592,6 +628,9 @@ class TranslationsToolsRandomnumberEn {
 	/// en: 'Random number'
 	String get title => 'Random number';
 
+	/// en: 'Settings'
+	String get settings => 'Settings';
+
 	/// en: 'Min'
 	String get min => 'Min';
 
@@ -642,6 +681,9 @@ class TranslationsToolsSshclientEn {
 	/// en: 'Use SSH key'
 	String get use_ssh_key => 'Use SSH key';
 
+	/// en: 'Connection'
+	String get connection => 'Connection';
+
 	/// en: 'Host'
 	String get host => 'Host';
 
@@ -654,8 +696,14 @@ class TranslationsToolsSshclientEn {
 	/// en: 'Password'
 	String get password => 'Password';
 
+	/// en: 'SSH key'
+	String get ssh_key => 'SSH key';
+
 	/// en: 'Connect'
 	String get connect => 'Connect';
+
+	/// en: 'Authentication'
+	String get authentication => 'Authentication';
 
 	/// en: 'Select private key'
 	String get select_private_key => 'Select private key';
@@ -900,6 +948,12 @@ class TranslationsToolsFileencryptionEn {
 	String get decrypt => 'Decrypt';
 
 	late final TranslationsToolsFileencryptionErrorEn error = TranslationsToolsFileencryptionErrorEn._(_root);
+
+	/// en: 'Enter password...'
+	String get enter_password_hint => 'Enter password...';
+
+	/// en: 'File selection'
+	String get file_selection => 'File selection';
 }
 
 // Path: tools.youtubethumbnail
@@ -922,7 +976,13 @@ class TranslationsToolsYoutubethumbnailEn {
 	/// en: 'Save thumbnail'
 	String get save_thumbnail => 'Save thumbnail';
 
+	/// en: 'Please enter the URL (or ID) of a YouTube video to download its thumbnail'
+	String get please_enter_a_video_url => 'Please enter the URL (or ID) of a YouTube video to download its thumbnail';
+
 	late final TranslationsToolsYoutubethumbnailErrorEn error = TranslationsToolsYoutubethumbnailErrorEn._(_root);
+
+	/// en: 'Thumbnail preview'
+	String get thumbnail_preview => 'Thumbnail preview';
 }
 
 // Path: tools.nationalanthems
@@ -961,6 +1021,9 @@ class TranslationsToolsNationalanthemsEn {
 	String get loading_audio_text => 'Loading the anthem, please wait...';
 
 	late final TranslationsToolsNationalanthemsErrorEn error = TranslationsToolsNationalanthemsErrorEn._(_root);
+
+	/// en: 'No anthems found'
+	String get no_anthems_found => 'No anthems found';
 }
 
 // Path: tools.httprequest
@@ -1014,6 +1077,12 @@ class TranslationsToolsHttprequestEn {
 	String get status_code => 'Status code';
 
 	late final TranslationsToolsHttprequestErrorEn error = TranslationsToolsHttprequestErrorEn._(_root);
+
+	/// en: 'key1: value1 key2: value2'
+	String get example_headers => 'key1: value1\nkey2: value2';
+
+	/// en: 'Request body (JSON, XML, etc.)'
+	String get request_body_hint => 'Request body (JSON, XML, etc.)';
 }
 
 // Path: tools.morsecode
@@ -1044,6 +1113,12 @@ class TranslationsToolsMorsecodeEn {
 
 	/// en: 'Play audio'
 	String get play_audio => 'Play audio';
+
+	/// en: 'Playing...'
+	String get playing => 'Playing...';
+
+	/// en: 'Enter text here...'
+	String get enter_text => 'Enter text here...';
 }
 
 // Path: tools.osm
@@ -1232,6 +1307,12 @@ class TranslationsToolsMcServerPingEn {
 	String get online_players_description_no_players_to_show => 'The server has online players, but no player names are available to show';
 
 	late final TranslationsToolsMcServerPingErrorEn error = TranslationsToolsMcServerPingErrorEn._(_root);
+
+	/// en: 'Server ID'
+	String get server_id => 'Server ID';
+
+	/// en: 'Server info'
+	String get server_info => 'Server info';
 }
 
 // Path: tools.timestampconverter
@@ -1273,6 +1354,9 @@ class TranslationsToolsTimestampconverterEn {
 	String get select_seconds => 'Select seconds';
 
 	late final TranslationsToolsTimestampconverterErrorEn error = TranslationsToolsTimestampconverterErrorEn._(_root);
+
+	/// en: 'Convert'
+	String get convert => 'Convert';
 }
 
 // Path: tools.urlshortener
@@ -1350,6 +1434,9 @@ class TranslationsToolsUrlshortenerEn {
 	String get open => 'Open';
 
 	late final TranslationsToolsUrlshortenerErrorEn error = TranslationsToolsUrlshortenerErrorEn._(_root);
+
+	/// en: 'Management info'
+	String get management_info => 'Management info';
 }
 
 // Path: tools.counter
@@ -1386,6 +1473,9 @@ class TranslationsToolsBitwisecalculatorEn {
 	/// en: 'Bitwise calculator'
 	String get title => 'Bitwise calculator';
 
+	/// en: 'Binary values'
+	String get binary_values => 'Binary values';
+
 	/// en: 'First number'
 	String get first_number => 'First number';
 
@@ -1395,6 +1485,9 @@ class TranslationsToolsBitwisecalculatorEn {
 	/// en: 'Enter a binary number'
 	String get enter_a_binary_number => 'Enter a binary number';
 
+	/// en: 'Operations'
+	String get operations => 'Operations';
+
 	/// en: 'AND'
 	String get and => 'AND';
 
@@ -1403,6 +1496,9 @@ class TranslationsToolsBitwisecalculatorEn {
 
 	/// en: 'XOR'
 	String get xor => 'XOR';
+
+	/// en: 'Result'
+	String get result => 'Result';
 
 	late final TranslationsToolsBitwisecalculatorErrorEn error = TranslationsToolsBitwisecalculatorErrorEn._(_root);
 }
@@ -1520,6 +1616,12 @@ class TranslationsToolsTextdifferencesEn {
 
 	/// en: 'Enter text in the fields above to see the differences'
 	String get no_text_hint => 'Enter text in the fields above to see the differences';
+
+	/// en: 'Enter old text...'
+	String get enter_old_text => 'Enter old text...';
+
+	/// en: 'Enter new text...'
+	String get enter_new_text => 'Enter new text...';
 }
 
 // Path: tools.characterscopy
@@ -1584,6 +1686,30 @@ class TranslationsToolsWhoisdomainEn {
 	/// en: 'View raw'
 	String get view_raw => 'View raw';
 
+	/// en: 'Raw WHOIS data'
+	String get raw_whois_data => 'Raw WHOIS data';
+
+	/// en: 'Domain'
+	String get domain => 'Domain';
+
+	/// en: 'Registrar'
+	String get registrar => 'Registrar';
+
+	/// en: 'Dates'
+	String get dates => 'Dates';
+
+	/// en: 'Status'
+	String get status => 'Status';
+
+	/// en: 'Name servers'
+	String get name_servers => 'Name servers';
+
+	/// en: 'Contact'
+	String get contact => 'Contact';
+
+	/// en: 'Other'
+	String get other => 'Other';
+
 	late final TranslationsToolsWhoisdomainErrorEn error = TranslationsToolsWhoisdomainErrorEn._(_root);
 }
 
@@ -1633,6 +1759,9 @@ class TranslationsToolsTextcounterEn {
 
 	/// en: 'Total lines'
 	String get total_lines => 'Total lines';
+
+	/// en: 'Text input'
+	String get text_input => 'Text input';
 }
 
 // Path: tools.romannumeral
@@ -1683,6 +1812,9 @@ class TranslationsToolsAreacalculatorEn {
 
 	/// en: 'Select a shape'
 	String get select_a_shape => 'Select a shape';
+
+	/// en: 'Values'
+	String get values => 'Values';
 
 	/// en: 'Area'
 	String get area => 'Area';
@@ -1755,6 +1887,9 @@ class TranslationsToolsQrcreatorEn {
 	/// en: 'QR creator'
 	String get title => 'QR creator';
 
+	/// en: 'QR Code settings'
+	String get qr_code_settings => 'QR Code settings';
+
 	/// en: 'Low'
 	String get ecc_low => 'Low';
 
@@ -1781,6 +1916,9 @@ class TranslationsToolsQrcreatorEn {
 
 	/// en: 'Create'
 	String get create => 'Create';
+
+	/// en: 'Generated QR code'
+	String get generated_qr_code => 'Generated QR code';
 
 	/// en: 'Save'
 	String get save => 'Save';
@@ -1872,6 +2010,9 @@ class TranslationsToolsPastebinEn {
 	String get open => 'Open';
 
 	late final TranslationsToolsPastebinErrorEn error = TranslationsToolsPastebinErrorEn._(_root);
+
+	/// en: 'Management info'
+	String get management_info => 'Management info';
 }
 
 // Path: tools.percentagecalculator
@@ -1957,6 +2098,9 @@ class TranslationsToolsPasswordgeneratorEn {
 	String get tap_to_copy => 'Tap to copy';
 
 	late final TranslationsToolsPasswordgeneratorErrorEn error = TranslationsToolsPasswordgeneratorErrorEn._(_root);
+
+	/// en: 'Generated password'
+	String get generated_password => 'Generated password';
 }
 
 // Path: tools.portscanner
@@ -1989,6 +2133,15 @@ class TranslationsToolsPortscannerEn {
 	String get port => 'Port';
 
 	late final TranslationsToolsPortscannerErrorEn error = TranslationsToolsPortscannerErrorEn._(_root);
+
+	/// en: 'example.com or 192.168.1.1'
+	String get example_domain_or_ip => 'example.com or 192.168.1.1';
+
+	/// en: 'Port Range'
+	String get port_range => 'Port Range';
+
+	/// en: 'Scan progress'
+	String get scan_progress => 'Scan progress';
 }
 
 // Path: tools.commons
@@ -2396,8 +2549,8 @@ class TranslationsToolsYoutubethumbnailErrorEn {
 	/// en: 'Failed to download thumbnail from YouTube'
 	String get failed_to_download => 'Failed to download thumbnail from YouTube';
 
-	/// en: 'Please enter a valid YouTube video URL Examples: https://www.youtube.com/watch?v=dQw4w9WgXcQ https://youtu.be/dQw4w9WgXcQ You also need an internet connection to download the thumbnail from YouTube'
-	String get please_enter_a_video_id => 'Please enter a valid YouTube video URL\n\nExamples: \nhttps://www.youtube.com/watch?v=dQw4w9WgXcQ\nhttps://youtu.be/dQw4w9WgXcQ\n\nYou also need an internet connection to download the thumbnail from YouTube';
+	/// en: 'Please enter a valid YouTube video URL You also need an internet connection to download the thumbnail from YouTube'
+	String get please_enter_a_valid_video_id => 'Please enter a valid YouTube video URL\nYou also need an internet connection to download the thumbnail from YouTube';
 }
 
 // Path: tools.nationalanthems.error
@@ -2966,6 +3119,8 @@ extension on Translations {
 	dynamic _flatMapFunction$0(String path) {
 		switch (path) {
 			case 'generic.app_name': return 'Toolbox';
+			case 'generic.tools': return 'Tools';
+			case 'generic.categories': return 'Categories';
 			case 'generic.error': return 'Error';
 			case 'generic.warning': return 'Warning';
 			case 'generic.ok': return 'OK';
@@ -2975,26 +3130,31 @@ extension on Translations {
 			case 'generic.reset': return 'Reset';
 			case 'generic.yes': return 'Yes';
 			case 'generic.no': return 'No';
+			case 'generic.copy': return 'Copy';
+			case 'generic.share': return 'Share';
+			case 'generic.generate': return 'Generate';
 			case 'homepage.update_available': return 'Update available';
 			case 'homepage.update_available_message': return 'A new version of Toolbox is available. Update it now to get the latest features and improvements.';
 			case 'homepage.switch_view': return 'Switch view';
-			case 'homepage.search_all_folders': return 'Search in all folders';
+			case 'homepage.search_all_categories': return 'Search in all categories';
 			case 'homepage.clear_search': return 'Clear search';
 			case 'homepage.add': return 'Add';
 			case 'homepage.remove': return 'Remove';
 			case 'homepage.favorites': return 'Favorites';
 			case 'homepage.would_you_like_to_add_this_tool_to_favorites': return 'Would you like to add this tool to favorites?';
 			case 'homepage.would_you_like_to_remove_this_tool_from_favorites': return 'Would you like to remove this tool from favorites?';
-			case 'folders.audio': return 'Audio';
-			case 'folders.calculations': return 'Calculations';
-			case 'folders.games': return 'Games';
-			case 'folders.geography': return 'Geography';
-			case 'folders.miscellaneous': return 'Miscellaneous';
-			case 'folders.network': return 'Network';
-			case 'folders.random': return 'Random';
-			case 'folders.time': return 'Time';
-			case 'folders.web': return 'Web';
+			case 'categories.audio': return 'Audio';
+			case 'categories.calculations': return 'Calculations';
+			case 'categories.games': return 'Games';
+			case 'categories.geography': return 'Geography';
+			case 'categories.miscellaneous': return 'Miscellaneous';
+			case 'categories.network': return 'Network';
+			case 'categories.random': return 'Random';
+			case 'categories.time': return 'Time';
+			case 'categories.web': return 'Web';
 			case 'tools.baseconverter.title': return 'Base converter';
+			case 'tools.baseconverter.input': return 'Input';
+			case 'tools.baseconverter.results': return 'Results';
 			case 'tools.baseconverter.enter_a_dec_number': return 'Enter a decimal number';
 			case 'tools.baseconverter.enter_a_hex_number': return 'Enter a hexadecimal number';
 			case 'tools.baseconverter.enter_a_bin_number': return 'Enter a binary number';
@@ -3024,6 +3184,8 @@ extension on Translations {
 			case 'tools.nslookup.lookup': return 'Lookup';
 			case 'tools.nslookup.error.please_enter_a_domain_name': return 'Please enter a domain name';
 			case 'tools.nslookup.error.no_address_associated_with_domain': return 'There is no address associated with the host name.\nCheck your input and your internet connection then try again.';
+			case 'tools.nslookup.not_supported_by_system_dns': return 'Not supported by system DNS';
+			case 'tools.nslookup.no_records_found': return 'No records found';
 			case 'tools.ping.title': return 'Ping';
 			case 'tools.ping.ping': return 'Ping';
 			case 'tools.ping.enter_a_domain_name_or_ip': return 'Enter a domain name or IP address';
@@ -3055,10 +3217,13 @@ extension on Translations {
 			case 'tools.timer.pause': return 'Pause';
 			case 'tools.timer.please_stop_the_timer_first': return 'Please stop the timer first';
 			case 'tools.timer.ios_warning_message': return 'For the timer to ring on iOS, you must not quit the application or switch off your iPhone screen. Otherwise iOS will prevent the timer from ringing when it reaches zero.';
+			case 'tools.timer.adjust_time': return 'Adjust Time';
 			case 'tools.stopwatch.title': return 'Stopwatch';
+			case 'tools.stopwatch.controls': return 'Controls';
 			case 'tools.stopwatch.start': return 'Start';
 			case 'tools.stopwatch.stop': return 'Stop';
 			case 'tools.stopwatch.reset': return 'Reset';
+			case 'tools.stopwatch.laps': return 'Laps';
 			case 'tools.stopwatch.lap': return 'Lap';
 			case 'tools.roulette.title': return 'Roulette';
 			case 'tools.roulette.tap_to_roll_info': return 'Tap the wheel to roll it';
@@ -3076,6 +3241,7 @@ extension on Translations {
 			case 'tools.flipcoins.title': return 'Flip a coin';
 			case 'tools.flipcoins.change_coin_currency': return 'Change coin currency';
 			case 'tools.randomnumber.title': return 'Random number';
+			case 'tools.randomnumber.settings': return 'Settings';
 			case 'tools.randomnumber.min': return 'Min';
 			case 'tools.randomnumber.max': return 'Max';
 			case 'tools.randomnumber.error.invalid_number': return 'Invalid number, please try again.';
@@ -3089,11 +3255,14 @@ extension on Translations {
 			case 'tools.sshclient.backspace': return 'Backspace';
 			case 'tools.sshclient.use_password': return 'Use password';
 			case 'tools.sshclient.use_ssh_key': return 'Use SSH key';
+			case 'tools.sshclient.connection': return 'Connection';
 			case 'tools.sshclient.host': return 'Host';
 			case 'tools.sshclient.port': return 'Port';
 			case 'tools.sshclient.username': return 'Username';
 			case 'tools.sshclient.password': return 'Password';
+			case 'tools.sshclient.ssh_key': return 'SSH key';
 			case 'tools.sshclient.connect': return 'Connect';
+			case 'tools.sshclient.authentication': return 'Authentication';
 			case 'tools.sshclient.select_private_key': return 'Select private key';
 			case 'tools.sshclient.no_private_key_selected': return 'No private key selected';
 			case 'tools.sshclient.passphrase': return 'Passphrase (leave empty if none)';
@@ -3172,12 +3341,16 @@ extension on Translations {
 			case 'tools.fileencryption.error.failed_to_read_file': return 'Failed to read the file';
 			case 'tools.fileencryption.error.failed_to_decrypt_file': return 'Failed to decrypt the file, please check the password';
 			case 'tools.fileencryption.error.please_enter_a_password': return 'Please enter a password';
+			case 'tools.fileencryption.enter_password_hint': return 'Enter password...';
+			case 'tools.fileencryption.file_selection': return 'File selection';
 			case 'tools.youtubethumbnail.title': return 'YouTube thumbnail';
 			case 'tools.youtubethumbnail.saved': return 'Thumbnail saved to device';
 			case 'tools.youtubethumbnail.youtube_video_id': return 'YouTube video URL';
 			case 'tools.youtubethumbnail.save_thumbnail': return 'Save thumbnail';
+			case 'tools.youtubethumbnail.please_enter_a_video_url': return 'Please enter the URL (or ID) of a YouTube video to download its thumbnail';
 			case 'tools.youtubethumbnail.error.failed_to_download': return 'Failed to download thumbnail from YouTube';
-			case 'tools.youtubethumbnail.error.please_enter_a_video_id': return 'Please enter a valid YouTube video URL\n\nExamples: \nhttps://www.youtube.com/watch?v=dQw4w9WgXcQ\nhttps://youtu.be/dQw4w9WgXcQ\n\nYou also need an internet connection to download the thumbnail from YouTube';
+			case 'tools.youtubethumbnail.error.please_enter_a_valid_video_id': return 'Please enter a valid YouTube video URL\nYou also need an internet connection to download the thumbnail from YouTube';
+			case 'tools.youtubethumbnail.thumbnail_preview': return 'Thumbnail preview';
 			case 'tools.nationalanthems.title': return 'National anthems';
 			case 'tools.nationalanthems.stop': return 'Stop the anthem';
 			case 'tools.nationalanthems.search': return 'Search (English name)';
@@ -3189,6 +3362,7 @@ extension on Translations {
 			case 'tools.nationalanthems.loading_audio_text': return 'Loading the anthem, please wait...';
 			case 'tools.nationalanthems.error.failed_to_load_list': return 'Impossible to load the list of anthems. Please check your internet connection and try again.';
 			case 'tools.nationalanthems.error.failed_to_play_anthem': return 'Impossible to play the anthem. Please check your internet connection and try again.';
+			case 'tools.nationalanthems.no_anthems_found': return 'No anthems found';
 			case 'tools.httprequest.title': return 'HTTP request';
 			case 'tools.httprequest.method': return 'Method';
 			case 'tools.httprequest.custom_method': return 'Custom method';
@@ -3208,6 +3382,8 @@ extension on Translations {
 			case 'tools.httprequest.error.invalid_headers': return 'Invalid headers';
 			case 'tools.httprequest.error.timeout': return 'The request timed out.\nPlease check your input and your internet connection then try again.';
 			case 'tools.httprequest.error.other_error': return 'An error occurred while sending the request.\nPlease check your input and your internet connection then try again.';
+			case 'tools.httprequest.example_headers': return 'key1: value1\nkey2: value2';
+			case 'tools.httprequest.request_body_hint': return 'Request body (JSON, XML, etc.)';
 			case 'tools.morsecode.title': return 'Morse code';
 			case 'tools.morsecode.alphabet_field': return 'Alphabet (A-Z, 0-9)';
 			case 'tools.morsecode.morse_field': return 'Morse code (. and -)';
@@ -3215,6 +3391,8 @@ extension on Translations {
 			case 'tools.morsecode.alphabet_to_morse': return 'Alphabet to morse';
 			case 'tools.morsecode.morse_to_alphabet': return 'Morse to alphabet';
 			case 'tools.morsecode.play_audio': return 'Play audio';
+			case 'tools.morsecode.playing': return 'Playing...';
+			case 'tools.morsecode.enter_text': return 'Enter text here...';
 			case 'tools.osm.title': return 'Map (OSM)';
 			case 'tools.osm.go_to_my_location': return 'Go to my location';
 			case 'tools.osm.loading_map': return 'Loading map...';
@@ -3275,6 +3453,8 @@ extension on Translations {
 			case 'tools.mc_server_ping.error.please_enter_a_server_ip': return 'Please enter a server IP or domain';
 			case 'tools.mc_server_ping.error.server_offline_or_does_not_exist': return 'The server is offline or does not exist';
 			case 'tools.mc_server_ping.error.please_check_your_internet_connection': return 'Please check your internet connection and try again';
+			case 'tools.mc_server_ping.server_id': return 'Server ID';
+			case 'tools.mc_server_ping.server_info': return 'Server info';
 			case 'tools.timestampconverter.title': return 'Timestamp converter';
 			case 'tools.timestampconverter.now_tooltip': return 'Now';
 			case 'tools.timestampconverter.utc': return 'UTC';
@@ -3286,6 +3466,7 @@ extension on Translations {
 			case 'tools.timestampconverter.tap_the_date_to_change_it': return 'Tap the date to change it';
 			case 'tools.timestampconverter.select_seconds': return 'Select seconds';
 			case 'tools.timestampconverter.error.invalid_timestamp': return 'Invalid timestamp';
+			case 'tools.timestampconverter.convert': return 'Convert';
 			case 'tools.urlshortener.title': return 'URL shortener';
 			case 'tools.urlshortener.url': return 'URL';
 			case 'tools.urlshortener.qr_code': return 'QR code';
@@ -3311,6 +3492,7 @@ extension on Translations {
 			case 'tools.urlshortener.error.failed_to_shorten_url': return 'Failed to shorten the URL, please check your input and your internet connection.';
 			case 'tools.urlshortener.error.impossible_to_connect_to_the_server': return 'Impossible to connect to the server';
 			case 'tools.urlshortener.error.impossible_to_connect_to_the_server_message': return 'Failed to connect to the server, please check your internet connection and try again.';
+			case 'tools.urlshortener.management_info': return 'Management info';
 			case 'tools.counter.title': return 'Counter';
 			case 'tools.counter.add_button': return 'Add button';
 			case 'tools.counter.remove_button': return 'Remove button';
@@ -3320,12 +3502,15 @@ extension on Translations {
 			case 'tools.counter.error.you_must_have_at_least_one_button': return 'You must have at least one button';
 			case 'tools.counter.error.this_button_already_exists': return 'This button already exists';
 			case 'tools.bitwisecalculator.title': return 'Bitwise calculator';
+			case 'tools.bitwisecalculator.binary_values': return 'Binary values';
 			case 'tools.bitwisecalculator.first_number': return 'First number';
 			case 'tools.bitwisecalculator.second_number': return 'Second number';
 			case 'tools.bitwisecalculator.enter_a_binary_number': return 'Enter a binary number';
+			case 'tools.bitwisecalculator.operations': return 'Operations';
 			case 'tools.bitwisecalculator.and': return 'AND';
 			case 'tools.bitwisecalculator.or': return 'OR';
 			case 'tools.bitwisecalculator.xor': return 'XOR';
+			case 'tools.bitwisecalculator.result': return 'Result';
 			case 'tools.bitwisecalculator.error.invalid_input': return 'Invalid input';
 			case 'tools.musicsearch.title': return 'Music search';
 			case 'tools.musicsearch.unknown_title': return 'Unknown title';
@@ -3363,6 +3548,8 @@ extension on Translations {
 			case 'tools.textdifferences.old_text': return 'Old text';
 			case 'tools.textdifferences.new_text': return 'New text';
 			case 'tools.textdifferences.no_text_hint': return 'Enter text in the fields above to see the differences';
+			case 'tools.textdifferences.enter_old_text': return 'Enter old text...';
+			case 'tools.textdifferences.enter_new_text': return 'Enter new text...';
 			case 'tools.characterscopy.title': return 'Characters copy';
 			case 'tools.characterscopy.important': return 'Important';
 			case 'tools.characterscopy.important_description': return 'Some characters may not be displayed correctly on all devices depending on your operating system. Also, some characters may not be supported by all apps and fonts. Just click on the character you want to copy and it will be copied to your clipboard.';
@@ -3378,6 +3565,14 @@ extension on Translations {
 			case 'tools.whoisdomain.no_result': return 'No valid result found';
 			case 'tools.whoisdomain.view_pretty': return 'View pretty';
 			case 'tools.whoisdomain.view_raw': return 'View raw';
+			case 'tools.whoisdomain.raw_whois_data': return 'Raw WHOIS data';
+			case 'tools.whoisdomain.domain': return 'Domain';
+			case 'tools.whoisdomain.registrar': return 'Registrar';
+			case 'tools.whoisdomain.dates': return 'Dates';
+			case 'tools.whoisdomain.status': return 'Status';
+			case 'tools.whoisdomain.name_servers': return 'Name servers';
+			case 'tools.whoisdomain.contact': return 'Contact';
+			case 'tools.whoisdomain.other': return 'Other';
 			case 'tools.whoisdomain.error.impossible_to_get_whois_information': return 'Impossible to get the whois information, please check your input and your internet connection then try again';
 			case 'tools.textcounter.title': return 'Text counter';
 			case 'tools.textcounter.clear': return 'Clear';
@@ -3392,6 +3587,7 @@ extension on Translations {
 			case 'tools.textcounter.lines': return 'Lines';
 			case 'tools.textcounter.empty_lines': return 'Empty lines';
 			case 'tools.textcounter.total_lines': return 'Total lines';
+			case 'tools.textcounter.text_input': return 'Text input';
 			case 'tools.romannumeral.title': return 'Roman numeral';
 			case 'tools.romannumeral.change_to': return 'Change to';
 			case 'tools.romannumeral.roman_numeral': return 'roman numeral';
@@ -3403,6 +3599,7 @@ extension on Translations {
 			case 'tools.romannumeral.error.invalid_roman_numeral': return 'Invalid or unsupported roman numeral';
 			case 'tools.areacalculator.title': return 'Area calculator';
 			case 'tools.areacalculator.select_a_shape': return 'Select a shape';
+			case 'tools.areacalculator.values': return 'Values';
 			case 'tools.areacalculator.area': return 'Area';
 			case 'tools.areacalculator.calculate': return 'Calculate';
 			case 'tools.areacalculator.shapes.circle': return 'Circle';
@@ -3433,6 +3630,12 @@ extension on Translations {
 			case 'tools.areacalculator.inputs.side_length': return 'Side length';
 			case 'tools.areacalculator.inputs.apothem': return 'Apothem';
 			case 'tools.areacalculator.inputs.base_1': return 'Base 1';
+			default: return null;
+		}
+	}
+
+	dynamic _flatMapFunction$1(String path) {
+		switch (path) {
 			case 'tools.areacalculator.inputs.base_2': return 'Base 2';
 			case 'tools.areacalculator.error.invalid_input': return 'Invalid input';
 			case 'tools.areacalculator.error.please_enter_a_value_for': return 'Please enter a value for';
@@ -3453,6 +3656,7 @@ extension on Translations {
 			case 'tools.compass.title': return 'Compass';
 			case 'tools.compass.error.please_grant_location_permission': return 'Please grant location permission to use the compass. It is mandatory to access the device\'s sensors.';
 			case 'tools.qrcreator.title': return 'QR creator';
+			case 'tools.qrcreator.qr_code_settings': return 'QR Code settings';
 			case 'tools.qrcreator.ecc_low': return 'Low';
 			case 'tools.qrcreator.ecc_medium': return 'Medium';
 			case 'tools.qrcreator.ecc_quartile': return 'Quartile';
@@ -3462,6 +3666,7 @@ extension on Translations {
 			case 'tools.qrcreator.enter_text_or_url': return 'Enter text or URL';
 			case 'tools.qrcreator.error_correction_level': return 'Error correction level';
 			case 'tools.qrcreator.create': return 'Create';
+			case 'tools.qrcreator.generated_qr_code': return 'Generated QR code';
 			case 'tools.qrcreator.save': return 'Save';
 			case 'tools.qrcreator.share': return 'Share';
 			case 'tools.qrcreator.error.failed_to_create_qr_code': return 'Failed to create QR code, please check your input and try again';
@@ -3477,12 +3682,6 @@ extension on Translations {
 			case 'tools.pastebin.link_id_copied_to_clipboard': return 'Link ID copied to clipboard';
 			case 'tools.pastebin.the_link_password_is': return 'The link password is';
 			case 'tools.pastebin.link_password_copied_to_clipboard': return 'Link password copied to clipboard';
-			default: return null;
-		}
-	}
-
-	dynamic _flatMapFunction$1(String path) {
-		switch (path) {
 			case 'tools.pastebin.link_password_hint_text': return 'Tap the password to copy it\nYou will need it to view statistics about this link';
 			case 'tools.pastebin.paste_another_text': return 'Paste another text';
 			case 'tools.pastebin.text_to_paste': return 'Text to paste';
@@ -3498,6 +3697,7 @@ extension on Translations {
 			case 'tools.pastebin.error.failed_to_obtain_short_link': return 'Failed to obtain short link, please check your internet connection and try again';
 			case 'tools.pastebin.error.impossible_to_connect_to_the_server': return 'Impossible to connect to the server';
 			case 'tools.pastebin.error.impossible_to_connect_to_the_server_message': return 'Failed to connect to the server, please check your internet connection and try again.';
+			case 'tools.pastebin.management_info': return 'Management info';
 			case 'tools.percentagecalculator.title': return 'Percentage calculator';
 			case 'tools.percentagecalculator.result': return 'Result';
 			case 'tools.percentagecalculator.percentage': return 'Percentage';
@@ -3525,6 +3725,7 @@ extension on Translations {
 			case 'tools.passwordgenerator.error.password_length_must_be_greater_than_0': return 'Password length must be greater than 0';
 			case 'tools.passwordgenerator.error.password_length_cannot_exceed_x_characters': return ({required Object maxLength}) => 'Password length cannot exceed ${maxLength} characters';
 			case 'tools.passwordgenerator.error.password_length_cannot_be_less_than_the_sum_of_digits_and_special_characters': return 'Password length cannot be less than the sum of digits and special characters';
+			case 'tools.passwordgenerator.generated_password': return 'Generated password';
 			case 'tools.portscanner.title': return 'Port scanner';
 			case 'tools.portscanner.host_to_scan': return 'Host to scan';
 			case 'tools.portscanner.start_port': return 'Start port';
@@ -3534,6 +3735,9 @@ extension on Translations {
 			case 'tools.portscanner.port': return 'Port';
 			case 'tools.portscanner.error.please_enter_a_valid_host': return 'Please enter a valid host';
 			case 'tools.portscanner.error.please_enter_a_valid_port_number': return 'Please enter a valid port number (1-65535) for both fields';
+			case 'tools.portscanner.example_domain_or_ip': return 'example.com or 192.168.1.1';
+			case 'tools.portscanner.port_range': return 'Port Range';
+			case 'tools.portscanner.scan_progress': return 'Scan progress';
 			case 'tools.commons.title': return 'Commons';
 			case 'tools.commons.data_source_and_licensing': return 'Data source and licensing';
 			case 'tools.commons.data_source_and_licensing_description': return 'All media files are sourced from Wikimedia Commons and are subject to their respective licenses. Please ensure compliance with the terms of each license when using and downloading the media files.';
