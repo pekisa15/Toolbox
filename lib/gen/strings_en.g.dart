@@ -263,6 +263,9 @@ class TranslationsCreditsEn {
 	/// en: 'View licenses'
 	String get view_licenses => 'View licenses';
 
+	/// en: 'Special thanks'
+	String get special_thanks => 'Special thanks';
+
 	/// en: 'Contribute on GitHub'
 	String get contribute_on_github => 'Contribute on GitHub';
 
@@ -3809,6 +3812,7 @@ extension on Translations {
 			case 'credits.ads_disclaimer': return 'Ads are there to help me pay server costs and support the development of this app.\nOnly a small banner is displayed at the bottom of the screen, nothing to block your Toolbox experience.';
 			case 'credits.more_apps_and_services': return 'More apps and services';
 			case 'credits.view_licenses': return 'View licenses';
+			case 'credits.special_thanks': return 'Special thanks';
 			case 'credits.contribute_on_github': return 'Contribute on GitHub';
 			case 'credits.email_copied_to_clipboard': return 'Email copied to clipboard';
 			case 'credits.made_with_love_in_switzerland': return 'Made with love in Switzerland';

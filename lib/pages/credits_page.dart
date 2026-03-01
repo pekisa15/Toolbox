@@ -75,7 +75,7 @@ class CreditsPage extends StatelessWidget {
               subtitle: "${t.credits.translations.english(author: "Koizeay")}"
                   "\n${t.credits.translations.french(author: "Koizeay")}",
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 12),
             Card(
               elevation: 2,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -180,9 +180,15 @@ class CreditsPage extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 12),
+            CreditsInfoCard(
+              icon: Icons.people_outline,
+              title: t.credits.special_thanks,
+              subtitle: "@TitimothyDev\n@pekisa15",
+            ),
+            const SizedBox(height: 12),
             CreditsActionCard(
-              icon: Icons.code,
+              icon: Icons.code_outlined,
               title: t.credits.contribute_on_github,
               color: colorScheme.primaryContainer,
               textColor: colorScheme.onPrimaryContainer,

@@ -177,6 +177,7 @@ class _TranslationsCreditsFr implements TranslationsCreditsEn {
 	@override String get ads_disclaimer => 'Les publicités sont là pour m\'aider à payer les coûts de serveur et à soutenir le développement de cette application. Seule une petite bannière est affichée en bas de l\'écran, rien qui ne bloque votre expérience avec Toolbox.';
 	@override String get more_apps_and_services => 'Plus d\'apps et services';
 	@override String get view_licenses => 'Voir les licences';
+	@override String get special_thanks => 'Remerciements spéciaux';
 	@override String get contribute_on_github => 'Contribuez sur GitHub';
 	@override String get email_copied_to_clipboard => 'Email copié dans le presse-papiers';
 	@override String get made_with_love_in_switzerland => 'Développé de tout cœur en Suisse';
@@ -2384,6 +2385,7 @@ extension on TranslationsFr {
 			case 'credits.ads_disclaimer': return 'Les publicités sont là pour m\'aider à payer les coûts de serveur et à soutenir le développement de cette application. Seule une petite bannière est affichée en bas de l\'écran, rien qui ne bloque votre expérience avec Toolbox.';
 			case 'credits.more_apps_and_services': return 'Plus d\'apps et services';
 			case 'credits.view_licenses': return 'Voir les licences';
+			case 'credits.special_thanks': return 'Remerciements spéciaux';
 			case 'credits.contribute_on_github': return 'Contribuez sur GitHub';
 			case 'credits.email_copied_to_clipboard': return 'Email copié dans le presse-papiers';
 			case 'credits.made_with_love_in_switzerland': return 'Développé de tout cœur en Suisse';
