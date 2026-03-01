@@ -174,7 +174,6 @@ class Hierarchy {
       toolMap["timestampconverter"],
     ]),
     HomeFolder(t.categories.web, "assets/images/folders/folder_web.png", [
-      toolMap["commons"],
       toolMap["pastebin"],
       toolMap["httprequest"],
       toolMap["urlshortener"],
