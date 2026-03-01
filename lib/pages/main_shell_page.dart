@@ -20,6 +20,7 @@ class MainShellPage extends StatefulWidget {
 
 class _MainShellPageState extends State<MainShellPage> {
   late int selectedIndex;
+  bool shouldCheckForUpdate = true;
 
   Future<void> onTabSelected(int index) async {
     setState(() {
@@ -32,17 +33,21 @@ class _MainShellPageState extends State<MainShellPage> {
   @override
   void initState() {
     selectedIndex = widget.isFolderView ? 1 : 0;
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() => shouldCheckForUpdate = false));
     super.initState();
   }
 
+
   List<HomePage> get homepages => [
     HomePage(
-        key: const Key('tools_view_homepage'),
-        content: Hierarchy.getFlatHierarchy()
+      key: const Key('tools_view_homepage'),
+      content: Hierarchy.getFlatHierarchy(),
+      checkForUpdate: shouldCheckForUpdate,
     ),
     HomePage(
-        key: const Key('folders_view_homepage'),
-        content: Hierarchy.hierarchy,
+      key: const Key('folders_view_homepage'),
+      content: Hierarchy.hierarchy,
+      checkForUpdate: shouldCheckForUpdate,
     ),
   ];
 

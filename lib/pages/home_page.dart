@@ -173,10 +173,7 @@ class _HomePageState extends State<HomePage> {
       final String latestVersion = latestVersionResponse.body;
       int? currentVersionInt = int.tryParse(currentVersion);
       int? latestVersionInt = int.tryParse(latestVersion);
-      if (currentVersionInt != null &&
-          latestVersionInt != null &&
-          currentVersionInt < latestVersionInt &&
-          mounted) {
+      if (currentVersionInt != null && latestVersionInt != null && currentVersionInt < latestVersionInt && mounted) {
         final colorScheme = Theme.of(context).colorScheme;
         showDialog(
           context: context,
