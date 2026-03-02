@@ -43,24 +43,28 @@ class HomeTileCard extends StatelessWidget {
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
-                  child: Image.asset(
-                    height: 40,
-                    themedImageAssetPath,
-                    fit: BoxFit.contain,
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 8.0, left: 4.0, right: 4.0),
+                    child: FittedBox(
+                      fit: BoxFit.contain,
+                      child: Image.asset(
+                        themedImageAssetPath,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
                   ),
                 ),
                 Expanded(
-                  child: FittedBox(
-                    fit: BoxFit.scaleDown,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 12.0, bottom: 8.0, left: 4.0, right: 4.0),
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
                       child: Text(
                         title,
-                        style: Theme.of(context).textTheme.titleMedium?.copyWith(color: colorScheme.onSurface),
+                        style: Theme.of(context).textTheme.titleMedium?.copyWith(color: colorScheme.onSurface, fontSize: 32),
                         textAlign: TextAlign.center,
                         softWrap: true,
                       ),

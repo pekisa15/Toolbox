@@ -257,10 +257,7 @@ class _HomePageState extends State<HomePage> {
                   padding:
                   const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount:
-                    MediaQuery.of(context).orientation == Orientation.portrait
-                        ? (MediaQuery.of(context).size.width < 600 ? 2 : 3)
-                        : 4,
+                    crossAxisCount: MediaQuery.of(context).orientation == Orientation.portrait ? (MediaQuery.of(context).size.width < 600 ? 2 : 3) : 4,
                     childAspectRatio: 2,
                     crossAxisSpacing: 6,
                     mainAxisSpacing: 6,
