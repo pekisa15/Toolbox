@@ -100,7 +100,7 @@ class _RandomColorPage extends State<RandomColorPage> {
                           },
                           child: Text(
                             "#${_color.toARGB32().toRadixString(16).toUpperCase().substring(2)}",
-                            style: const TextStyle(fontSize: 24, fontFamily: "Roboto", fontWeight: FontWeight.bold)
+                            style: const TextStyle(fontSize: 24, fontFamily: "Roboto Mono", fontWeight: FontWeight.bold)
                           ),
                         ),
                         const SizedBox(height: 8),
@@ -112,7 +112,7 @@ class _RandomColorPage extends State<RandomColorPage> {
                           },
                           child: Text(
                             "R: ${(_color.r * 255).toInt()}\nG: ${(_color.g * 255).toInt()}\nB: ${(_color.b * 255).toInt()}",
-                            style: const TextStyle(fontSize: 24, fontFamily: "Roboto", fontWeight: FontWeight.bold)
+                            style: const TextStyle(fontSize: 24, fontFamily: "Roboto Mono", fontWeight: FontWeight.bold)
                           ),
                         ),
                       ],

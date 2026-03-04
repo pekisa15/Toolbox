@@ -156,7 +156,7 @@ class _ClockPage extends State<ClockPage> {
                 padding: const EdgeInsets.all(100.0),
                 child: Text(formattedTime ?? "",
                     style: const TextStyle(
-                        fontFamily: 'Roboto',
+                        fontFamily: 'Roboto Mono',
                         fontWeight: FontWeight.bold,
                         fontSize: 1000)),
               ),

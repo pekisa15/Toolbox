@@ -201,7 +201,7 @@ class _TimerPage extends State<TimerPage> {
                                       .displayLarge
                                       ?.copyWith(
                                         fontWeight: FontWeight.bold,
-                                        fontFamily: "Roboto",
+                                        fontFamily: "Roboto Mono",
                                         fontSize: 64,
                                         color: isFinished
                                             ? colorScheme.onErrorContainer

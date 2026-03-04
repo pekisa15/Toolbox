@@ -126,7 +126,7 @@ class _MetronomePage extends State<MetronomePage> {
                               .textTheme
                               .displayLarge
                               ?.copyWith(
-                                fontFamily: "Roboto",
+                                fontFamily: "Roboto Mono",
                                 fontWeight: FontWeight.bold,
                                 color: colorScheme.onPrimaryContainer,
                               ),
@@ -195,7 +195,7 @@ class _MetronomePage extends State<MetronomePage> {
                               .textTheme
                               .displayMedium
                               ?.copyWith(
-                                fontFamily: "Roboto",
+                                fontFamily: "Roboto Mono",
                                 fontWeight: FontWeight.bold,
                                 color: colorScheme.onSecondaryContainer,
                               ),

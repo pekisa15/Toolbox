@@ -145,7 +145,7 @@ class _StopwatchPage extends State<StopwatchPage> {
                                       fontWeight: FontWeight.bold,
                                       fontSize: 64,
                                       color: colorScheme.onPrimaryContainer,
-                                      fontFamily: 'Roboto'),
+                                      fontFamily: 'Roboto Mono'),
                             ),
                           ),
                         ),
