@@ -162,7 +162,7 @@ class _NslookupPage extends State<NslookupPage> {
                       decoration: BoxDecoration(
                         color: hasRecords
                             ? colorScheme.primaryContainer
-                            : colorScheme.surfaceVariant,
+                            : colorScheme.surfaceContainerHighest,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Icon(
@@ -191,7 +191,7 @@ class _NslookupPage extends State<NslookupPage> {
                         decoration: BoxDecoration(
                           color: hasRecords
                               ? colorScheme.secondaryContainer
-                              : colorScheme.surfaceVariant,
+                              : colorScheme.surfaceContainerHighest,
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Text(

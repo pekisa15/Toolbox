@@ -9,7 +9,7 @@ class CreditsInfoCard extends StatelessWidget {
   final Widget? trailing;
   final VoidCallback? onTap;
 
-  const CreditsInfoCard({
+  const CreditsInfoCard({super.key, 
     required this.icon,
     required this.title,
     this.subtitle,

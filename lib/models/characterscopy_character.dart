@@ -1,5 +1,4 @@
 import 'dart:core';
-import 'package:flutter/material.dart';
 
 class CharactersCopyCharacter {
   String name;

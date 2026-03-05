@@ -30,22 +30,21 @@ class _RandomNumberPage extends State<RandomNumberPage> {
   }
 
   void generateRandomNumber() {
-    int _minNumber = minNumber;
-    int _maxNumber = maxNumber;
+    int selectedMinNumber = minNumber;
+    int selectedMaxNumber = maxNumber;
     try {
-      _minNumber = int.parse(minNumberController.text);
-      _maxNumber = int.parse(maxNumberController.text);
+      selectedMinNumber = int.parse(minNumberController.text);
+      selectedMaxNumber = int.parse(maxNumberController.text);
     } catch (e) {
       showOkTextDialog(
           context, t.generic.error, t.tools.randomnumber.error.invalid_number);
       return;
     }
-    if (_minNumber > _maxNumber) {
-      showOkTextDialog(context, t.generic.error,
-          t.tools.randomnumber.error.min_must_be_lower_than_max);
+    if (selectedMinNumber > selectedMaxNumber) {
+      showOkTextDialog(context, t.generic.error, t.tools.randomnumber.error.min_must_be_lower_than_max);
       return;
     }
-    if (_minNumber < minNumberLimit || _maxNumber > maxNumberLimit) {
+    if (selectedMinNumber < minNumberLimit || selectedMaxNumber > maxNumberLimit) {
       showOkTextDialog(
           context,
           t.generic.error,
@@ -53,8 +52,8 @@ class _RandomNumberPage extends State<RandomNumberPage> {
               minNumberLimit: minNumberLimit, maxNumberLimit: maxNumberLimit));
       return;
     }
-    minNumber = _minNumber;
-    maxNumber = _maxNumber;
+    minNumber = selectedMinNumber;
+    maxNumber = selectedMaxNumber;
     setState(() {
       randomNumber = random.nextInt(maxNumber - minNumber + 1) + minNumber;
     });

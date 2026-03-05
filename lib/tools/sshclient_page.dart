@@ -156,27 +156,27 @@ class _SshClientPage extends State<SshClientPage> {
           isConnected = true;
         });
       }
-    } on SSHAuthFailError catch (e) {
+    } on SSHAuthFailError {
       if (mounted) {
         showOkTextDialog(context, t.generic.error,
             t.tools.sshclient.error.authentication_failed);
       }
-    } on ArgumentError catch (e) {
+    } on ArgumentError {
       if (mounted) {
         showOkTextDialog(context, t.generic.error,
             t.tools.sshclient.error.invalid_passphrase);
       }
-    } on FormatException catch (e) {
+    } on FormatException {
       if (mounted) {
         showOkTextDialog(context, t.generic.error,
             t.tools.sshclient.error.invalid_private_key);
       }
-    } on SSHKeyDecryptError catch (e) {
+    } on SSHKeyDecryptError {
       if (mounted) {
         showOkTextDialog(context, t.generic.error,
             t.tools.sshclient.error.invalid_passphrase);
       }
-    } on SocketException catch (e) {
+    } on SocketException {
       if (mounted) {
         showOkTextDialog(context, t.generic.error,
             t.tools.sshclient.error.connection_failed);

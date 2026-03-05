@@ -11,7 +11,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:toolbox/core/shared_preferences.dart';
 import 'package:toolbox/gen/strings.g.dart';
-import 'package:toolbox/hierarchy.dart';
 import 'package:toolbox/pages/main_shell_page.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 

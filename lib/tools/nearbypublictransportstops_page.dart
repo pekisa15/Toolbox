@@ -17,7 +17,7 @@ import 'package:toolbox/models/nearbypublictransportstops_stop.dart';
 import 'package:http/http.dart' as http;
 
 class NearbyPublicTransportStopsPage extends StatefulWidget {
-  const NearbyPublicTransportStopsPage({Key? key}) : super(key: key);
+  const NearbyPublicTransportStopsPage({super.key});
 
   @override
   State<NearbyPublicTransportStopsPage> createState() =>
