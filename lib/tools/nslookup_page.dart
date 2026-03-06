@@ -3,16 +3,39 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:toolbox/core/dialogs.dart';
+import 'package:toolbox/core/raw_dns_lookup.dart';
 import 'package:toolbox/gen/strings.g.dart';
 
+// Map DNS type numbers to names
+final Map<int, String> typeMap = {
+  1: 'A',
+  28: 'AAAA',
+  15: 'MX',
+  16: 'TXT',
+  2: 'NS',
+  5: 'CNAME',
+  12: 'PTR',
+};
+
 enum DnsProvider {
-  google('Google DNS', 'https://dns.google/resolve'),
-  cloudflare('Cloudflare DNS', 'https://cloudflare-dns.com/dns-query'),
-  system('System DNS', '');
+  googleDoh('Google DoH', 'dns.google', 'resolve', true),
+  cloudflareDoh('Cloudflare DoH', 'cloudflare-dns.com', 'dns-query', true),
+  alidnsDoh('Alibaba Cloud DoH', 'dns.alidns.com', 'resolve', true),
+  dnssbDoh('DNS.SB DoH', 'doh.dns.sb', 'dns-query', true),
+  google('Google', '8.8.8.8', null, false),
+  cloudflare('Cloudflare', '1.1.1.1', null, false),
+  quad9('Quad9', '9.9.9.9', null, false),
+  adguard('AdGuard', '94.140.14.14', null, false),
+  adguardUnfiltered('AdGuard (unfiltered)', '94.140.14.140', null, false),
+  dns4euProtected('DNS4EU (protected)', '86.54.11.1', null, false),
+  dns4euUnfiltered('DNS4EU (unfiltered)', '86.54.11.100', null, false),
+  system('System DNS', null, null, false);
 
   final String name;
-  final String endpoint;
-  const DnsProvider(this.name, this.endpoint);
+  final String? host;
+  final String? endpoint;
+  final bool isDoh;
+  const DnsProvider(this.name, this.host, this.endpoint, this.isDoh);
 }
 
 class NslookupPage extends StatefulWidget {
@@ -25,10 +48,31 @@ class _NslookupPage extends State<NslookupPage> {
   bool loading = false;
   Map<String, List<String>> _dnsRecords = {};
   final TextEditingController _domainController = TextEditingController();
-  DnsProvider _selectedProvider = DnsProvider.google;
+  DnsProvider _selectedProvider = DnsProvider.googleDoh;
   DnsProvider? _lastSelectedProvider;
 
-  Future<Map<String, List<String>>> getDnsRecordsSystem(String domain) async {
+  Future<Map<String, List<String>>> getDnsRecordsDns(String domain, String? host) async {
+    if (host == null) {
+      return getDnsRecordsSystem(domain);
+    } else {
+      Map<String, List<String>> recordsToReturn = {};
+      for (String type in typeMap.values) {
+        try {
+          final records = await rawDnsLookup(domain, host, typeMap.entries.firstWhere((entry) => entry.value == type).key, throwError: true);
+          if (records != null && records.isNotEmpty) {
+            recordsToReturn[type] = records;
+          }
+        } catch (e) {
+          // Continue with next record type if one fails
+          debugPrint('Error resolving $domain with DNS provider $host for type $type: $e');
+        }
+      }
+      return recordsToReturn;
+    }
+  }
+
+  Future<Map<String, List<String>>> getDnsRecordsSystem(String domain) async
+  {
     Map<String, List<String>> records = {};
 
     try {
@@ -50,33 +94,22 @@ class _NslookupPage extends State<NslookupPage> {
       if (ipv6.isNotEmpty) records['AAAA'] = ipv6;
     } catch (e) {
       // Failed to resolve
+      debugPrint('Error resolving $domain with system DNS: $e');
     }
 
     return records;
   }
 
-  Future<Map<String, List<String>>> getDnsRecordsDoH(
-      String domain, String endpoint) async {
+  Future<Map<String, List<String>>> getDnsRecordsDoH(String domain, String host, String endpoint) async {
     Map<String, List<String>> records = {};
 
     // Record types to query
-    final recordTypes = ['A', 'AAAA', 'MX', 'TXT', 'NS', 'CNAME', 'SOA'];
-
-    // Map DNS type numbers to names
-    final Map<int, String> typeMap = {
-      1: 'A',
-      28: 'AAAA',
-      15: 'MX',
-      16: 'TXT',
-      2: 'NS',
-      5: 'CNAME',
-      6: 'SOA',
-    };
+    final recordTypes = typeMap.values.toList();
 
     for (String type in recordTypes) {
       try {
         final response = await http.get(
-          Uri.parse('$endpoint?name=$domain&type=$type'),
+          Uri.parse('https://$host/$endpoint?name=$domain&type=$type'),
           headers: {'accept': 'application/dns-json'},
         ).timeout(const Duration(seconds: 5));
 
@@ -102,6 +135,7 @@ class _NslookupPage extends State<NslookupPage> {
         }
       } catch (e) {
         // Continue with next record type if one fails
+        debugPrint('Error resolving $domain with DoH provider $endpoint for type $type: $e');
       }
     }
 
@@ -109,10 +143,10 @@ class _NslookupPage extends State<NslookupPage> {
   }
 
   Future<Map<String, List<String>>> getDnsRecords(String domain) async {
-    if (_selectedProvider == DnsProvider.system) {
-      return getDnsRecordsSystem(domain);
+    if (_selectedProvider.isDoh) {
+      return getDnsRecordsDoH(domain, _selectedProvider.host ?? '', _selectedProvider.endpoint ?? '');
     } else {
-      return getDnsRecordsDoH(domain, _selectedProvider.endpoint);
+      return getDnsRecordsDns(domain, _selectedProvider.host);
     }
   }
 
@@ -129,15 +163,15 @@ class _NslookupPage extends State<NslookupPage> {
         return Icons.dns_outlined;
       case 'CNAME':
         return Icons.link_outlined;
-      case 'SOA':
-        return Icons.admin_panel_settings_outlined;
+      case 'PTR':
+        return Icons.reply_outlined;
       default:
         return Icons.info_outlined;
     }
   }
 
   List<Widget> _buildDnsRecordCards(ColorScheme colorScheme) {
-    final allRecordTypes = ['A', 'AAAA', 'MX', 'TXT', 'NS', 'CNAME', 'SOA'];
+    final allRecordTypes = typeMap.values.toList();
     List<Widget> cards = [];
 
     for (String recordType in allRecordTypes) {
@@ -281,7 +315,6 @@ class _NslookupPage extends State<NslookupPage> {
       );
       cards.add(const SizedBox(height: 12));
     }
-
     return cards;
   }
 
@@ -292,8 +325,7 @@ class _NslookupPage extends State<NslookupPage> {
 
   void lookup() {
     if (_domainController.text.isEmpty) {
-      showOkTextDialog(context, t.generic.error,
-          t.tools.nslookup.error.please_enter_a_domain_name);
+      showOkTextDialog(context, t.generic.error, t.tools.nslookup.error.please_enter_a_domain_name);
       return;
     }
     setState(() {
@@ -307,15 +339,13 @@ class _NslookupPage extends State<NslookupPage> {
         loading = false;
       });
       if (_dnsRecords.isEmpty) {
-        showOkTextDialog(context, t.generic.error,
-            t.tools.nslookup.error.no_address_associated_with_domain);
+        showOkTextDialog(context, t.generic.error, t.tools.nslookup.error.no_address_associated_with_domain);
       }
     }).catchError((error) {
       setState(() {
         loading = false;
       });
-      showOkTextDialog(context, t.generic.error,
-          t.tools.nslookup.error.no_address_associated_with_domain);
+      showOkTextDialog(context, t.generic.error, t.tools.nslookup.error.no_address_associated_with_domain);
     });
   }
 
@@ -364,6 +394,7 @@ class _NslookupPage extends State<NslookupPage> {
                             Expanded(
                               child: DropdownMenu<DnsProvider>(
                                 width: MediaQuery.of(context).size.width - 64,
+                                menuHeight: 300,
                                 initialSelection: _selectedProvider,
                                 onSelected: (value) {
                                   if (value != null) {
@@ -375,6 +406,11 @@ class _NslookupPage extends State<NslookupPage> {
                                 dropdownMenuEntries: DnsProvider.values
                                     .map((provider) => DropdownMenuEntry(
                                           value: provider,
+                                          leadingIcon: provider == DnsProvider.system
+                                              ? const Icon(Icons.router_outlined)
+                                              : provider.isDoh
+                                                ? const Icon(Icons.https_outlined)
+                                                : const Icon(Icons.dns_outlined),
                                           label: provider.name,
                                         ))
                                     .toList(),
