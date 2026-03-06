@@ -267,7 +267,8 @@ class _MathTexPage extends State<MathTexPage> {
                                 const SizedBox(height: 16),
                                 Container(
                                   width: double.infinity,
-                                  padding: const EdgeInsets.all(20),
+                                  height: 90,
+                                  padding: const EdgeInsets.all(8),
                                   decoration: BoxDecoration(
                                     color: colorScheme.primaryContainer,
                                     borderRadius: BorderRadius.circular(12),
@@ -275,53 +276,46 @@ class _MathTexPage extends State<MathTexPage> {
                                   child: Center(
                                     child: Screenshot(
                                       controller: screenshotController,
-                                      child: Math.tex(
-                                        _mathTex,
-                                        textStyle:
-                                            TextStyle(color: _selectedColor),
-                                        onErrorFallback:
-                                            (FlutterMathException e) {
-                                          return Container(
-                                            padding: const EdgeInsets.all(16),
-                                            decoration: BoxDecoration(
-                                              color: colorScheme.errorContainer,
-                                              borderRadius:
-                                                  BorderRadius.circular(8),
-                                            ),
-                                            child: Column(
-                                              children: [
-                                                Icon(
-                                                  Icons.error_outline_outlined,
-                                                  color: colorScheme
-                                                      .onErrorContainer,
-                                                  size: 32,
-                                                ),
-                                                const SizedBox(height: 8),
-                                                Text(
-                                                  t.tools.mathtex.error
-                                                      .an_error_occurred_while_rendering_the_mathtex,
-                                                  style: TextStyle(
-                                                    color: colorScheme
-                                                        .onErrorContainer,
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.bold,
+                                      child: FittedBox(
+                                        fit: BoxFit.scaleDown,
+                                        child: Math.tex(
+                                          _mathTex,
+                                          textStyle: TextStyle(color: _selectedColor, fontSize: 32),
+                                          onErrorFallback: (FlutterMathException e) {
+                                            return Container(
+                                              padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+                                              decoration: BoxDecoration(
+                                                color: colorScheme.errorContainer,
+                                                borderRadius:
+                                                    BorderRadius.circular(8),
+                                              ),
+                                              child: Column(
+                                                children: [
+                                                  Icon(Icons.error_outline, color: colorScheme.onErrorContainer),
+                                                  const SizedBox(height: 4),
+                                                  Text(
+                                                    t.tools.mathtex.error.an_error_occurred_while_rendering_the_mathtex,
+                                                    style: TextStyle(
+                                                      color: colorScheme.onErrorContainer,
+                                                      fontSize: 16,
+                                                      fontWeight: FontWeight.bold,
+                                                    ),
+                                                    textAlign: TextAlign.center,
                                                   ),
-                                                  textAlign: TextAlign.center,
-                                                ),
-                                                const SizedBox(height: 4),
-                                                Text(
-                                                  e.message,
-                                                  style: TextStyle(
-                                                    color: colorScheme
-                                                        .onErrorContainer,
-                                                    fontSize: 12,
+                                                  const SizedBox(height: 4),
+                                                  Text(
+                                                    e.message,
+                                                    style: TextStyle(
+                                                      color: colorScheme.onErrorContainer,
+                                                      fontSize: 12,
+                                                    ),
+                                                    textAlign: TextAlign.center,
                                                   ),
-                                                  textAlign: TextAlign.center,
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        ),
                                       ),
                                     ),
                                   ),
