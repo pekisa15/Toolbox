@@ -383,15 +383,23 @@ class _MusicSearchPage extends State<MusicSearchPage> {
                                                   color: colorScheme
                                                       .primaryContainer,
                                                   child: Image.network(
-                                                    musicList[index]
-                                                        .albumPictureUrl,
+                                                    musicList[index].albumPictureUrl,
                                                     fit: BoxFit.cover,
-                                                    errorBuilder: (context,
-                                                        error, stackTrace) {
+                                                    loadingBuilder: (context, child, loadingProgress) {
+                                                      if (loadingProgress == null) {
+                                                        return child;
+                                                      }
+                                                      return Center(
+                                                        child: Padding(
+                                                          padding: const EdgeInsets.all(16.0),
+                                                          child: CircularProgressIndicator(),
+                                                        )
+                                                      );
+                                                    },
+                                                    errorBuilder: (context, error, stackTrace) {
                                                       return Icon(
                                                         Icons.album_outlined,
-                                                        color: colorScheme
-                                                            .onPrimaryContainer,
+                                                        color: colorScheme.onPrimaryContainer,
                                                       );
                                                     },
                                                   ),
