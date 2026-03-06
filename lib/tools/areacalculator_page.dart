@@ -357,15 +357,16 @@ class _AreaCalculatorPage extends State<AreaCalculatorPage> {
                                   ),
                             ),
                             const SizedBox(height: 8),
-                            Text(
-                              calculatedArea.toStringAsFixed(2),
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .displayMedium
-                                  ?.copyWith(
-                                    color: colorScheme.onPrimaryContainer,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                            FittedBox(
+                              fit: BoxFit.scaleDown,
+                              child: Text(
+                                calculatedArea.toStringAsFixed(2),
+                                style: Theme.of(context).textTheme.displayMedium?.copyWith(
+                                  color: colorScheme.onPrimaryContainer,
+                                  fontFamily: "Roboto Mono",
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
                             ),
                           ],
                         ),
