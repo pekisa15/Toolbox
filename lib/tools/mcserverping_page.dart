@@ -259,18 +259,38 @@ class _McServerPing extends State<McServerPingPage> {
                                   Row(
                                     children: [
                                       if (serverIconUrl != null)
-                                        Container(
-                                          width: 64,
-                                          height: 64,
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(8),
-                                            image: DecorationImage(
-                                              image:
-                                                  NetworkImage(serverIconUrl!),
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
+                                        ClipRRect(
+                                          borderRadius: BorderRadius.circular(8),
+                                          child: Image.network(
+                                            width: 64,
+                                            height: 64,
+                                            serverIconUrl ?? "",
+                                            fit: BoxFit.cover,
+                                            loadingBuilder: (context, child, loadingProgress) {
+                                              if (loadingProgress == null) {
+                                                return child;
+                                              }
+                                              return Container(
+                                                width: 64,
+                                                height: 64,
+                                                color: colorScheme.primaryContainer,
+                                                child: const Center(
+                                                  child: CircularProgressIndicator(),
+                                                ),
+                                              );
+                                            },
+                                            errorBuilder: (context, error, stackTrace) {
+                                              return Container(
+                                                width: 64,
+                                                height: 64,
+                                                color: colorScheme.primaryContainer,
+                                                child: Icon(
+                                                  Icons.question_mark_outlined,
+                                                  color: colorScheme.onPrimaryContainer,
+                                                ),
+                                              );
+                                            },
+                                          )
                                         ),
                                       const SizedBox(width: 16),
                                       Expanded(
