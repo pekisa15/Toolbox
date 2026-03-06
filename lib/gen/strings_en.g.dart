@@ -752,6 +752,9 @@ class TranslationsToolsNetworkinfoEn {
 	/// en: 'Loading...'
 	String get loading => 'Loading...';
 
+	/// en: 'Unknown'
+	String get unknown => 'Unknown';
+
 	/// en: 'Location permission is required to get some WiFi info (this is an OS limitation). You could get incorrect info if you don't grant it.'
 	String get location_permission_required => 'Location permission is required to get some WiFi info (this is an OS limitation).\nYou could get incorrect info if you don\'t grant it.';
 
@@ -3280,6 +3283,7 @@ extension on Translations {
 			case 'tools.whiteboard.save_success': return 'Your whiteboard has been saved successfully';
 			case 'tools.networkinfo.title': return 'Network info';
 			case 'tools.networkinfo.loading': return 'Loading...';
+			case 'tools.networkinfo.unknown': return 'Unknown';
 			case 'tools.networkinfo.location_permission_required': return 'Location permission is required to get some WiFi info (this is an OS limitation).\nYou could get incorrect info if you don\'t grant it.';
 			case 'tools.networkinfo.public_ip': return 'Public IP address';
 			case 'tools.networkinfo.local_ip': return 'Local IP address';
@@ -3632,13 +3636,13 @@ extension on Translations {
 			case 'tools.areacalculator.inputs.number_of_sides': return 'Number of sides';
 			case 'tools.areacalculator.inputs.side_length': return 'Side length';
 			case 'tools.areacalculator.inputs.apothem': return 'Apothem';
-			case 'tools.areacalculator.inputs.base_1': return 'Base 1';
 			default: return null;
 		}
 	}
 
 	dynamic _flatMapFunction$1(String path) {
 		switch (path) {
+			case 'tools.areacalculator.inputs.base_1': return 'Base 1';
 			case 'tools.areacalculator.inputs.base_2': return 'Base 2';
 			case 'tools.areacalculator.error.invalid_input': return 'Invalid input';
 			case 'tools.areacalculator.error.please_enter_a_value_for': return 'Please enter a value for';

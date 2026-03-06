@@ -214,6 +214,7 @@
     "networkinfo": {
       "title": "Informations réseau",
       "loading": "Chargement...",
+      "unknown": "Inconnu",
       "location_permission_required": "La permission de localisation est nécessaire pour obtenir certaines informations sur le WiFi (il s'agit d'une limitation du système d'exploitation).\nVous risquez d'obtenir des informations erronées si vous ne l'autorisez pas.",
       "public_ip": "Adresse IP publique",
       "local_ip": "Adresse IP locale",

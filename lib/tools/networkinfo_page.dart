@@ -17,13 +17,13 @@ class NetworkInfoPage extends StatefulWidget {
 class _NetworkInfoPage extends State<NetworkInfoPage> {
   final String apiEndpoint = "https://toolbox.koizeay.com/networkinfo/ip";
 
-  String publicIpAddress = "Loading...";
-  String localIpAddress = "Loading...";
-  String localSubmask = "Loading...";
-  String localGatewayIP = "Loading...";
-  String localBroadcastIP = "Loading...";
-  String wifiName = "Loading...";
-  String wifiBSSID = "Loading...";
+  String publicIpAddress = t.tools.networkinfo.loading;
+  String localIpAddress = t.tools.networkinfo.loading;
+  String localSubmask = t.tools.networkinfo.loading;
+  String localGatewayIP = t.tools.networkinfo.loading;
+  String localBroadcastIP = t.tools.networkinfo.loading;
+  String wifiName = t.tools.networkinfo.loading;
+  String wifiBSSID = t.tools.networkinfo.loading;
 
   @override
   void initState() {
@@ -56,7 +56,7 @@ class _NetworkInfoPage extends State<NetworkInfoPage> {
       var json = jsonDecode(response.body);
       publicIpAddress = json["ip"];
     } catch (e) {
-      publicIpAddress = "?";
+      publicIpAddress = t.tools.networkinfo.unknown;
     }
     if (mounted) {
       setState(() {});
@@ -65,12 +65,12 @@ class _NetworkInfoPage extends State<NetworkInfoPage> {
 
   Future<void> getWifiInfo() async {
     final NetworkInfo networkInfo = NetworkInfo();
-    localIpAddress = await networkInfo.getWifiIP() ?? "?";
-    localSubmask = await networkInfo.getWifiSubmask() ?? "?";
-    localGatewayIP = await networkInfo.getWifiGatewayIP() ?? "?";
-    localBroadcastIP = await networkInfo.getWifiBroadcast() ?? "?";
-    wifiName = await networkInfo.getWifiName() ?? "?";
-    wifiBSSID = await networkInfo.getWifiBSSID() ?? "?";
+    localIpAddress = await networkInfo.getWifiIP() ?? t.tools.networkinfo.unknown;
+    localSubmask = await networkInfo.getWifiSubmask() ?? t.tools.networkinfo.unknown;
+    localGatewayIP = await networkInfo.getWifiGatewayIP() ?? t.tools.networkinfo.unknown;
+    localBroadcastIP = await networkInfo.getWifiBroadcast() ?? t.tools.networkinfo.unknown;
+    wifiName = await networkInfo.getWifiName() ?? t.tools.networkinfo.unknown;
+    wifiBSSID = await networkInfo.getWifiBSSID() ?? t.tools.networkinfo.unknown;
     if (Platform.isIOS) {
       wifiName = t.tools.networkinfo.not_available_on_ios;
       wifiBSSID = t.tools.networkinfo.not_available_on_ios;
@@ -91,7 +91,7 @@ class _NetworkInfoPage extends State<NetworkInfoPage> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: InkWell(
         onTap: () {
-          if (value != "Loading..." && value != "?") {
+          if (value != t.tools.networkinfo.loading && value != t.tools.networkinfo.unknown && value != t.tools.networkinfo.not_available_on_ios) {
             Clipboard.setData(ClipboardData(text: value));
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(

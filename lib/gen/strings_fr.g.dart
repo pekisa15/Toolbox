@@ -445,6 +445,7 @@ class _TranslationsToolsNetworkinfoFr implements TranslationsToolsNetworkinfoEn 
 	// Translations
 	@override String get title => 'Informations réseau';
 	@override String get loading => 'Chargement...';
+	@override String get unknown => 'Inconnu';
 	@override String get location_permission_required => 'La permission de localisation est nécessaire pour obtenir certaines informations sur le WiFi (il s\'agit d\'une limitation du système d\'exploitation).\nVous risquez d\'obtenir des informations erronées si vous ne l\'autorisez pas.';
 	@override String get public_ip => 'Adresse IP publique';
 	@override String get local_ip => 'Adresse IP locale';
@@ -1853,6 +1854,7 @@ extension on TranslationsFr {
 			case 'tools.whiteboard.save_success': return 'Votre tableau blanc a été enregistré avec succès';
 			case 'tools.networkinfo.title': return 'Informations réseau';
 			case 'tools.networkinfo.loading': return 'Chargement...';
+			case 'tools.networkinfo.unknown': return 'Inconnu';
 			case 'tools.networkinfo.location_permission_required': return 'La permission de localisation est nécessaire pour obtenir certaines informations sur le WiFi (il s\'agit d\'une limitation du système d\'exploitation).\nVous risquez d\'obtenir des informations erronées si vous ne l\'autorisez pas.';
 			case 'tools.networkinfo.public_ip': return 'Adresse IP publique';
 			case 'tools.networkinfo.local_ip': return 'Adresse IP locale';
@@ -2205,13 +2207,13 @@ extension on TranslationsFr {
 			case 'tools.areacalculator.inputs.number_of_sides': return 'Nombre de côtés';
 			case 'tools.areacalculator.inputs.side_length': return 'Longueur du côté';
 			case 'tools.areacalculator.inputs.apothem': return 'Apotème';
-			case 'tools.areacalculator.inputs.base_1': return 'Base 1';
 			default: return null;
 		}
 	}
 
 	dynamic _flatMapFunction$1(String path) {
 		switch (path) {
+			case 'tools.areacalculator.inputs.base_1': return 'Base 1';
 			case 'tools.areacalculator.inputs.base_2': return 'Base 2';
 			case 'tools.areacalculator.error.invalid_input': return 'Entrée invalide';
 			case 'tools.areacalculator.error.please_enter_a_value_for': return 'Veuillez entrer une valeur pour';

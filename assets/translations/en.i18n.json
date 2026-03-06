@@ -214,6 +214,7 @@
     "networkinfo": {
       "title": "Network info",
       "loading": "Loading...",
+      "unknown": "Unknown",
       "location_permission_required": "Location permission is required to get some WiFi info (this is an OS limitation).\nYou could get incorrect info if you don't grant it.",
       "public_ip": "Public IP address",
       "local_ip": "Local IP address",
