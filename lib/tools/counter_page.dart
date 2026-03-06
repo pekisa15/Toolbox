@@ -230,16 +230,18 @@ class _CounterPage extends State<CounterPage> {
                                     ),
                               ),
                               const SizedBox(height: 16),
-                              Text(
-                                '$_counter',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .displayLarge
-                                    ?.copyWith(
-                                      color: colorScheme.onPrimaryContainer,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 72,
-                                    ),
+                              FittedBox(
+                                fit: BoxFit.scaleDown,
+                                child: Text(
+                                  '$_counter',
+                                  style: Theme.of(context).textTheme.displayLarge
+                                      ?.copyWith(
+                                        color: colorScheme.onPrimaryContainer,
+                                        fontFamily: 'Roboto Mono',
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 72,
+                                      ),
+                                ),
                               ),
                             ],
                           ),
