@@ -334,7 +334,7 @@ class _NslookupPage extends State<NslookupPage> {
       _lastSelectedProvider = _selectedProvider;
       _dnsRecords.clear();
     });
-    getDnsRecords(_domainController.text).then((value) {
+    getDnsRecords(_domainController.text.trim()).then((value) {
       setState(() {
         _dnsRecords = value;
         loading = false;
