@@ -66,7 +66,6 @@ class _RandomNumberPage extends State<RandomNumberPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.randomnumber.title),
           centerTitle: true,
@@ -111,9 +110,6 @@ class _RandomNumberPage extends State<RandomNumberPage> {
                                 keyboardType: TextInputType.number,
                                 decoration: InputDecoration(
                                   labelText: t.tools.randomnumber.min,
-                                  filled: true,
-                                  fillColor:
-                                      colorScheme.surfaceContainerHighest,
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(12),
                                     borderSide: BorderSide.none,
@@ -131,9 +127,6 @@ class _RandomNumberPage extends State<RandomNumberPage> {
                                 keyboardType: TextInputType.number,
                                 decoration: InputDecoration(
                                   labelText: t.tools.randomnumber.max,
-                                  filled: true,
-                                  fillColor:
-                                      colorScheme.surfaceContainerHighest,
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(12),
                                     borderSide: BorderSide.none,

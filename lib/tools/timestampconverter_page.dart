@@ -150,7 +150,6 @@ class _TimestampConverterPage extends State<TimestampConverterPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.timestampconverter.title),
           centerTitle: true,
@@ -205,11 +204,7 @@ class _TimestampConverterPage extends State<TimestampConverterPage> {
                                 controller: unixTimestampController,
                                 keyboardType: TextInputType.number,
                                 decoration: InputDecoration(
-                                  labelText:
-                                      t.tools.timestampconverter.unix_timestamp,
-                                  filled: true,
-                                  fillColor:
-                                      colorScheme.surfaceContainerHighest,
+                                  labelText: t.tools.timestampconverter.unix_timestamp,
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(12),
                                     borderSide: BorderSide.none,

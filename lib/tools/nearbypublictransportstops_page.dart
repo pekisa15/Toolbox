@@ -647,7 +647,10 @@ class _NearbyPublicTransportStopsPage
                               child: TextField(
                                 controller: searchTextController,
                                 decoration: InputDecoration(
-                                  border: const OutlineInputBorder(),
+                                  border: const OutlineInputBorder(
+                                      borderSide: BorderSide.none,
+                                      borderRadius: BorderRadius.all(Radius.circular(12))
+                                  ),
                                   labelText: t.generic.search,
                                 ),
                                 onChanged: (term) async {

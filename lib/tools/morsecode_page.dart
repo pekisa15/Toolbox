@@ -162,7 +162,6 @@ class _MorseCodePage extends State<MorseCodePage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.morsecode.title),
           centerTitle: true,
@@ -207,8 +206,6 @@ class _MorseCodePage extends State<MorseCodePage> {
                           readOnly: _isMorsePlayingAudio,
                           decoration: InputDecoration(
                             hintText: t.tools.morsecode.enter_text,
-                            filled: true,
-                            fillColor: colorScheme.surfaceContainerHighest,
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: BorderSide.none,
@@ -255,8 +252,6 @@ class _MorseCodePage extends State<MorseCodePage> {
                           readOnly: _isMorsePlayingAudio,
                           decoration: InputDecoration(
                             hintText: ".- -... -.-.",
-                            filled: true,
-                            fillColor: colorScheme.surfaceContainerHighest,
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: BorderSide.none,

@@ -128,7 +128,6 @@ class _QrCreatorPage extends State<QrCreatorPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.qrcreator.title),
           centerTitle: true,
@@ -170,8 +169,6 @@ class _QrCreatorPage extends State<QrCreatorPage> {
                           maxLines: 3,
                           decoration: InputDecoration(
                             labelText: t.tools.qrcreator.enter_text_or_url,
-                            filled: true,
-                            fillColor: colorScheme.surfaceContainerHighest,
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: BorderSide.none,
@@ -186,14 +183,6 @@ class _QrCreatorPage extends State<QrCreatorPage> {
                           width: MediaQuery.of(context).size.width - 64,
                           initialSelection: _codeSelectedEccLevel.index,
                           dropdownMenuEntries: codeEccLevelDropdownItems,
-                          inputDecorationTheme: InputDecorationTheme(
-                            filled: true,
-                            fillColor: colorScheme.surfaceContainerHighest,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                              borderSide: BorderSide.none,
-                            ),
-                          ),
                           onSelected: (value) {
                             if (value != null) {
                               setState(() {

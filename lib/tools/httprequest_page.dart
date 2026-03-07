@@ -340,7 +340,6 @@ class _HttpRequestPage extends State<HttpRequestPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.httprequest.title),
           centerTitle: true,
@@ -421,8 +420,7 @@ class _HttpRequestPage extends State<HttpRequestPage> {
                                   ),
                                   const SizedBox(height: 16),
                                   DropdownMenu<String>(
-                                    dropdownMenuEntries:
-                                        methods.map((String value) {
+                                    dropdownMenuEntries: methods.map((String value) {
                                       return DropdownMenuEntry<String>(
                                         value: value,
                                         label: value,
@@ -434,31 +432,17 @@ class _HttpRequestPage extends State<HttpRequestPage> {
                                       });
                                     },
                                     label: Text(t.tools.httprequest.method),
-                                    width:
-                                        MediaQuery.of(context).size.width - 64,
+                                    width: MediaQuery.of(context).size.width - 64,
                                     initialSelection: _method,
                                     enableSearch: false,
                                     enableFilter: false,
-                                    inputDecorationTheme: InputDecorationTheme(
-                                      filled: true,
-                                      fillColor:
-                                          colorScheme.surfaceContainerHighest,
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(12),
-                                        borderSide: BorderSide.none,
-                                      ),
-                                    ),
                                   ),
                                   if (_method == "...") ...[
                                     const SizedBox(height: 12),
                                     TextField(
                                       controller: methodController,
                                       decoration: InputDecoration(
-                                        labelText:
-                                            t.tools.httprequest.custom_method,
-                                        filled: true,
-                                        fillColor:
-                                            colorScheme.surfaceContainerHighest,
+                                        labelText: t.tools.httprequest.custom_method,
                                         border: OutlineInputBorder(
                                           borderRadius:
                                               BorderRadius.circular(12),
@@ -472,9 +456,6 @@ class _HttpRequestPage extends State<HttpRequestPage> {
                                     controller: urlController,
                                     decoration: InputDecoration(
                                       labelText: t.tools.httprequest.url,
-                                      filled: true,
-                                      fillColor:
-                                          colorScheme.surfaceContainerHighest,
                                       border: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(12),
                                         borderSide: BorderSide.none,
@@ -522,9 +503,6 @@ class _HttpRequestPage extends State<HttpRequestPage> {
                                     decoration: InputDecoration(
                                       hintText:
                                           t.tools.httprequest.example_headers,
-                                      filled: true,
-                                      fillColor:
-                                          colorScheme.surfaceContainerHighest,
                                       border: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(12),
                                         borderSide: BorderSide.none,
@@ -554,9 +532,7 @@ class _HttpRequestPage extends State<HttpRequestPage> {
                                       const SizedBox(width: 8),
                                       Text(
                                         t.tools.httprequest.body,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .titleMedium
+                                        style: Theme.of(context).textTheme.titleMedium
                                             ?.copyWith(
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -571,9 +547,6 @@ class _HttpRequestPage extends State<HttpRequestPage> {
                                     decoration: InputDecoration(
                                       hintText:
                                           t.tools.httprequest.request_body_hint,
-                                      filled: true,
-                                      fillColor:
-                                          colorScheme.surfaceContainerHighest,
                                       border: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(12),
                                         borderSide: BorderSide.none,
@@ -602,8 +575,7 @@ class _HttpRequestPage extends State<HttpRequestPage> {
                                     Checkbox(
                                       value: allowBadCertificates,
                                       onChanged: (bool? value) {
-                                        allowBadCertificatesChanged(
-                                            value ?? false);
+                                        allowBadCertificatesChanged(value ?? false);
                                       },
                                     ),
                                     const SizedBox(width: 8),
@@ -616,8 +588,7 @@ class _HttpRequestPage extends State<HttpRequestPage> {
                                             .bodyMedium,
                                       ),
                                     ),
-                                    Icon(Icons.warning_amber_outlined,
-                                        color: colorScheme.error),
+                                    Icon(Icons.warning_amber_outlined, color: colorScheme.error),
                                   ],
                                 ),
                               ),
@@ -631,8 +602,7 @@ class _HttpRequestPage extends State<HttpRequestPage> {
                               icon: const Icon(Icons.send),
                               label: Text(t.tools.httprequest.send_request),
                               style: FilledButton.styleFrom(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 16),
+                                padding: const EdgeInsets.symmetric(vertical: 16),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(12),
                                 ),

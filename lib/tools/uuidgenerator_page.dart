@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:toolbox/core/colors.dart';
 import 'package:toolbox/gen/strings.g.dart';
 import 'package:uuid/uuid.dart';
 
@@ -29,8 +30,6 @@ class _UuidGeneratorPage extends State<UuidGeneratorPage> {
                   TextField(
                     controller: namespaceController,
                     decoration: InputDecoration(
-                      filled: true,
-                      fillColor: colorScheme.surfaceContainerHighest,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                         borderSide: BorderSide.none,
@@ -45,8 +44,6 @@ class _UuidGeneratorPage extends State<UuidGeneratorPage> {
                   TextField(
                     controller: nameController,
                     decoration: InputDecoration(
-                      filled: true,
-                      fillColor: colorScheme.surfaceContainerHighest,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                         borderSide: BorderSide.none,
@@ -94,7 +91,6 @@ class _UuidGeneratorPage extends State<UuidGeneratorPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.uuidgenerator.title),
           centerTitle: true,

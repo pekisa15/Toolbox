@@ -187,7 +187,6 @@ class _PortScanner extends State<PortScanner> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.portscanner.title),
           centerTitle: true,
@@ -228,8 +227,6 @@ class _PortScanner extends State<PortScanner> {
                           decoration: InputDecoration(
                             labelText: t.tools.portscanner.host_to_scan,
                             hintText: t.tools.portscanner.example_domain_or_ip,
-                            filled: true,
-                            fillColor: colorScheme.surfaceContainerHighest,
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: BorderSide.none,
@@ -261,9 +258,6 @@ class _PortScanner extends State<PortScanner> {
                               child: TextField(
                                 decoration: InputDecoration(
                                   labelText: t.tools.portscanner.start_port,
-                                  filled: true,
-                                  fillColor:
-                                      colorScheme.surfaceContainerHighest,
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(12),
                                     borderSide: BorderSide.none,
@@ -283,9 +277,6 @@ class _PortScanner extends State<PortScanner> {
                               child: TextField(
                                 decoration: InputDecoration(
                                   labelText: t.tools.portscanner.end_port,
-                                  filled: true,
-                                  fillColor:
-                                      colorScheme.surfaceContainerHighest,
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(12),
                                     borderSide: BorderSide.none,

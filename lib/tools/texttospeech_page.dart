@@ -182,7 +182,6 @@ class _TextToSpeechPage extends State<TextToSpeechPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.texttospeech.title),
           centerTitle: true,
@@ -227,9 +226,6 @@ class _TextToSpeechPage extends State<TextToSpeechPage> {
                                 maxLines: 5,
                                 decoration: InputDecoration(
                                   hintText: t.tools.texttospeech.text_to_speak,
-                                  filled: true,
-                                  fillColor:
-                                      colorScheme.surfaceContainerHighest,
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(12),
                                     borderSide: BorderSide.none,
@@ -269,42 +265,19 @@ class _TextToSpeechPage extends State<TextToSpeechPage> {
                               ),
                               const SizedBox(height: 16),
                               // Language Selector
-                              Row(
-                                children: [
-                                  Icon(Icons.language_outlined,
-                                      color: colorScheme.onSurfaceVariant,
-                                      size: 20),
-                                  const SizedBox(width: 8),
-                                  Expanded(
-                                    child: DropdownMenu(
-                                      initialSelection: currentLanguage,
-                                      dropdownMenuEntries: languages,
-                                      width: double.infinity,
-                                      enableFilter: false,
-                                      enableSearch: false,
-                                      menuHeight: 300,
-                                      inputDecorationTheme:
-                                          InputDecorationTheme(
-                                        filled: true,
-                                        fillColor:
-                                            colorScheme.surfaceContainerHighest,
-                                        border: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(12),
-                                          borderSide: BorderSide.none,
-                                        ),
-                                        contentPadding:
-                                            const EdgeInsets.symmetric(
-                                                horizontal: 16, vertical: 12),
-                                      ),
-                                      onSelected: (value) {
-                                        loading = true;
-                                        changeLanguage((value ?? "").toString())
-                                            .then((value) => loading = false);
-                                      },
-                                    ),
-                                  ),
-                                ],
+                              DropdownMenu(
+                                initialSelection: currentLanguage,
+                                dropdownMenuEntries: languages,
+                                width: double.infinity,
+                                enableFilter: false,
+                                enableSearch: false,
+                                menuHeight: 300,
+                                leadingIcon: Icon(Icons.language_outlined, color: colorScheme.onSurfaceVariant),
+                                onSelected: (value) {
+                                  loading = true;
+                                  changeLanguage((value ?? "").toString())
+                                      .then((value) => loading = false);
+                                },
                               ),
                               const SizedBox(height: 16),
                               // Pitch Slider

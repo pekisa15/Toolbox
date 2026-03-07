@@ -57,7 +57,6 @@ class _MainShellPageState extends State<MainShellPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.generic.app_name),
           centerTitle: true,

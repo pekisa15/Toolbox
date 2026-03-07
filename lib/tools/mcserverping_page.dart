@@ -202,7 +202,6 @@ class _McServerPing extends State<McServerPingPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.mc_server_ping.title),
           centerTitle: true,
@@ -543,11 +542,7 @@ class _McServerPing extends State<McServerPingPage> {
                                   TextField(
                                     controller: ipController,
                                     decoration: InputDecoration(
-                                      labelText:
-                                          t.tools.mc_server_ping.server_ip,
-                                      filled: true,
-                                      fillColor:
-                                          colorScheme.surfaceContainerHighest,
+                                      labelText: t.tools.mc_server_ping.server_ip,
                                       border: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(12),
                                         borderSide: BorderSide.none,

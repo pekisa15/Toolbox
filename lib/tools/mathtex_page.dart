@@ -82,8 +82,6 @@ class _MathTexPage extends State<MathTexPage> {
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
                 labelText: t.tools.mathtex.new_pixel_ratio,
-                filled: true,
-                fillColor: colorScheme.surfaceContainerHighest,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                   borderSide: BorderSide.none,
@@ -150,7 +148,6 @@ class _MathTexPage extends State<MathTexPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.mathtex.title),
           centerTitle: true,
@@ -216,11 +213,7 @@ class _MathTexPage extends State<MathTexPage> {
                                 controller: _textFieldController,
                                 maxLines: 3,
                                 decoration: InputDecoration(
-                                  hintText: t.tools.mathtex
-                                      .enter_a_mathematical_expression_in_tex_format,
-                                  filled: true,
-                                  fillColor:
-                                      colorScheme.surfaceContainerHighest,
+                                  hintText: t.tools.mathtex.enter_a_mathematical_expression_in_tex_format,
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(12),
                                     borderSide: BorderSide.none,

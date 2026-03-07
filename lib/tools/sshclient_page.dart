@@ -214,7 +214,6 @@ class _SshClientPage extends State<SshClientPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.sshclient.title),
           centerTitle: true,
@@ -291,9 +290,6 @@ class _SshClientPage extends State<SshClientPage> {
                                     enableSuggestions: false,
                                     decoration: InputDecoration(
                                       labelText: t.tools.sshclient.host,
-                                      filled: true,
-                                      fillColor:
-                                          colorScheme.surfaceContainerHighest,
                                       border: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(12),
                                         borderSide: BorderSide.none,
@@ -314,9 +310,6 @@ class _SshClientPage extends State<SshClientPage> {
                                           decoration: InputDecoration(
                                             labelText:
                                                 t.tools.sshclient.username,
-                                            filled: true,
-                                            fillColor: colorScheme
-                                                .surfaceContainerHighest,
                                             border: OutlineInputBorder(
                                               borderRadius:
                                                   BorderRadius.circular(12),
@@ -343,9 +336,6 @@ class _SshClientPage extends State<SshClientPage> {
                                           enableSuggestions: false,
                                           decoration: InputDecoration(
                                             labelText: t.tools.sshclient.port,
-                                            filled: true,
-                                            fillColor: colorScheme
-                                                .surfaceContainerHighest,
                                             border: OutlineInputBorder(
                                               borderRadius:
                                                   BorderRadius.circular(12),
@@ -495,9 +485,6 @@ class _SshClientPage extends State<SshClientPage> {
                                       enableSuggestions: false,
                                       decoration: InputDecoration(
                                         labelText: t.tools.sshclient.passphrase,
-                                        filled: true,
-                                        fillColor:
-                                            colorScheme.surfaceContainerHighest,
                                         border: OutlineInputBorder(
                                           borderRadius:
                                               BorderRadius.circular(12),
@@ -516,9 +503,6 @@ class _SshClientPage extends State<SshClientPage> {
                                       enableSuggestions: false,
                                       decoration: InputDecoration(
                                         labelText: t.tools.sshclient.password,
-                                        filled: true,
-                                        fillColor:
-                                            colorScheme.surfaceContainerHighest,
                                         border: OutlineInputBorder(
                                           borderRadius:
                                               BorderRadius.circular(12),

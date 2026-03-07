@@ -118,7 +118,6 @@ class _CharactersCopyPage extends State<CharactersCopyPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.characterscopy.title),
           centerTitle: true,
@@ -158,8 +157,6 @@ class _CharactersCopyPage extends State<CharactersCopyPage> {
                 child: TextField(
                   decoration: InputDecoration(
                     hintText: t.generic.search,
-                    filled: true,
-                    fillColor: colorScheme.surfaceContainerHighest,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                       borderSide: BorderSide.none,

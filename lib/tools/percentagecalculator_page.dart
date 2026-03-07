@@ -101,7 +101,6 @@ class _PercentageCalculatorPage extends State<PercentageCalculatorPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.percentagecalculator.title),
           centerTitle: true,
@@ -148,11 +147,7 @@ class _PercentageCalculatorPage extends State<PercentageCalculatorPage> {
                                 decoration: InputDecoration(
                                   labelText:
                                       t.tools.percentagecalculator.percentage,
-                                  hintText:
-                                      "${t.tools.percentagecalculator.eg} 30",
-                                  filled: true,
-                                  fillColor:
-                                      colorScheme.surfaceContainerHighest,
+                                  hintText: "${t.tools.percentagecalculator.eg} 30",
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(12),
                                     borderSide: BorderSide.none,
@@ -184,11 +179,7 @@ class _PercentageCalculatorPage extends State<PercentageCalculatorPage> {
                                 controller: basicTotalController,
                                 decoration: InputDecoration(
                                   labelText: t.tools.percentagecalculator.total,
-                                  hintText:
-                                      "${t.tools.percentagecalculator.eg} 250",
-                                  filled: true,
-                                  fillColor:
-                                      colorScheme.surfaceContainerHighest,
+                                  hintText: "${t.tools.percentagecalculator.eg} 250",
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(12),
                                     borderSide: BorderSide.none,
@@ -263,11 +254,7 @@ class _PercentageCalculatorPage extends State<PercentageCalculatorPage> {
                                 decoration: InputDecoration(
                                   labelText:
                                       t.tools.percentagecalculator.result,
-                                  hintText:
-                                      "${t.tools.percentagecalculator.eg} 50",
-                                  filled: true,
-                                  fillColor:
-                                      colorScheme.surfaceContainerHighest,
+                                  hintText: "${t.tools.percentagecalculator.eg} 50",
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(12),
                                     borderSide: BorderSide.none,
@@ -291,11 +278,7 @@ class _PercentageCalculatorPage extends State<PercentageCalculatorPage> {
                                 controller: findPercentageTotalController,
                                 decoration: InputDecoration(
                                   labelText: t.tools.percentagecalculator.total,
-                                  hintText:
-                                      "${t.tools.percentagecalculator.eg} 200",
-                                  filled: true,
-                                  fillColor:
-                                      colorScheme.surfaceContainerHighest,
+                                  hintText: "${t.tools.percentagecalculator.eg} 200",
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(12),
                                     borderSide: BorderSide.none,
@@ -384,11 +367,7 @@ class _PercentageCalculatorPage extends State<PercentageCalculatorPage> {
                                     decoration: InputDecoration(
                                       labelText: t.tools.percentagecalculator
                                           .first_value,
-                                      hintText:
-                                          "${t.tools.percentagecalculator.eg} 120",
-                                      filled: true,
-                                      fillColor:
-                                          colorScheme.surfaceContainerHighest,
+                                      hintText: "${t.tools.percentagecalculator.eg} 120",
                                       border: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(12),
                                         borderSide: BorderSide.none,
@@ -429,11 +408,7 @@ class _PercentageCalculatorPage extends State<PercentageCalculatorPage> {
                                     decoration: InputDecoration(
                                       labelText: t.tools.percentagecalculator
                                           .second_value,
-                                      hintText:
-                                          "${t.tools.percentagecalculator.eg} 150",
-                                      filled: true,
-                                      fillColor:
-                                          colorScheme.surfaceContainerHighest,
+                                      hintText: "${t.tools.percentagecalculator.eg} 150",
                                       border: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(12),
                                         borderSide: BorderSide.none,

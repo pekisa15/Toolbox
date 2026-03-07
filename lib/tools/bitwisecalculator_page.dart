@@ -73,7 +73,6 @@ class _BitwiseCalculatorPage extends State<BitwiseCalculatorPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.bitwisecalculator.title),
           centerTitle: true,
@@ -119,10 +118,7 @@ class _BitwiseCalculatorPage extends State<BitwiseCalculatorPage> {
                           ],
                           decoration: InputDecoration(
                             labelText: t.tools.bitwisecalculator.first_number,
-                            hintText:
-                                t.tools.bitwisecalculator.enter_a_binary_number,
-                            filled: true,
-                            fillColor: colorScheme.surfaceContainerHighest,
+                            hintText: t.tools.bitwisecalculator.enter_a_binary_number,
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: BorderSide.none,
@@ -142,10 +138,7 @@ class _BitwiseCalculatorPage extends State<BitwiseCalculatorPage> {
                           ],
                           decoration: InputDecoration(
                             labelText: t.tools.bitwisecalculator.second_number,
-                            hintText:
-                                t.tools.bitwisecalculator.enter_a_binary_number,
-                            filled: true,
-                            fillColor: colorScheme.surfaceContainerHighest,
+                            hintText: t.tools.bitwisecalculator.enter_a_binary_number,
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: BorderSide.none,

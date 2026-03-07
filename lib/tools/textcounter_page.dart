@@ -103,7 +103,6 @@ class _TextCounterPage extends State<TextCounterPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.textcounter.title),
           centerTitle: true,
@@ -154,8 +153,6 @@ class _TextCounterPage extends State<TextCounterPage> {
                           controller: _controller,
                           decoration: InputDecoration(
                             labelText: t.tools.textcounter.enter_text_here,
-                            filled: true,
-                            fillColor: colorScheme.surfaceContainerHighest,
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: BorderSide.none,

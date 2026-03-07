@@ -90,7 +90,6 @@ class _StopwatchPage extends State<StopwatchPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.stopwatch.title),
           centerTitle: true,

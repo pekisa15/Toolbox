@@ -161,7 +161,6 @@ class _NationalAnthemsPage extends State<NationalAnthemsPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.nationalanthems.title),
           centerTitle: true,
@@ -191,8 +190,6 @@ class _NationalAnthemsPage extends State<NationalAnthemsPage> {
                       child: TextField(
                         decoration: InputDecoration(
                           hintText: t.tools.nationalanthems.search,
-                          filled: true,
-                          fillColor: colorScheme.surfaceContainerHighest,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
                             borderSide: BorderSide.none,

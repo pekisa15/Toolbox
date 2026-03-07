@@ -133,7 +133,6 @@ class _TimerPage extends State<TimerPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.timer.title),
           centerTitle: true,

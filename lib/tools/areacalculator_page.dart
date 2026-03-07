@@ -187,7 +187,6 @@ class _AreaCalculatorPage extends State<AreaCalculatorPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.areacalculator.title),
           centerTitle: true,
@@ -219,30 +218,20 @@ class _AreaCalculatorPage extends State<AreaCalculatorPage> {
                         const SizedBox(height: 12),
                         DropdownMenu<AreaCalculatorShape>(
                           initialSelection: selectedShape,
-                          dropdownMenuEntries: List<
-                                  DropdownMenuEntry<
-                                      AreaCalculatorShape>>.generate(
+                          dropdownMenuEntries: List<DropdownMenuEntry<AreaCalculatorShape>>.generate(
                               shapes.length,
                               (index) => DropdownMenuEntry(
                                   value: shapes[index],
-                                  label: shapes[index].name))
-                            ..insert(
-                                0,
-                                DropdownMenuEntry(
-                                  value: defaultShape,
-                                  label: defaultShape.name,
-                                )),
+                                  label: shapes[index].name)
+                          )..insert(
+                              0,
+                              DropdownMenuEntry(
+                                value: defaultShape,
+                                label: defaultShape.name,
+                              )),
                           width: MediaQuery.of(context).size.width - 64,
                           enableSearch: false,
                           menuHeight: 300,
-                          inputDecorationTheme: InputDecorationTheme(
-                            filled: true,
-                            fillColor: colorScheme.surfaceContainerHighest,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                              borderSide: BorderSide.none,
-                            ),
-                          ),
                           onSelected: (value) {
                             setState(() {
                               FocusManager.instance.primaryFocus?.unfocus();
@@ -292,12 +281,7 @@ class _AreaCalculatorPage extends State<AreaCalculatorPage> {
                                       .value,
                                 ),
                                 decoration: InputDecoration(
-                                  labelText: selectedShape.inputs.entries
-                                      .elementAt(i)
-                                      .key,
-                                  filled: true,
-                                  fillColor:
-                                      colorScheme.surfaceContainerHighest,
+                                  labelText: selectedShape.inputs.entries.elementAt(i).key,
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(12),
                                     borderSide: BorderSide.none,

@@ -73,7 +73,6 @@ class _RomanNumeralPage extends State<RomanNumeralPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.romannumeral.title),
           centerTitle: true,
@@ -176,11 +175,7 @@ class _RomanNumeralPage extends State<RomanNumeralPage> {
                                   ),
                                 ],
                                 decoration: InputDecoration(
-                                  labelText:
-                                      "${t.tools.romannumeral.number_input_hint} (1-9999)",
-                                  filled: true,
-                                  fillColor:
-                                      colorScheme.surfaceContainerHighest,
+                                  labelText: "${t.tools.romannumeral.number_input_hint} (1-9999)",
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(12),
                                     borderSide: BorderSide.none,
@@ -207,11 +202,7 @@ class _RomanNumeralPage extends State<RomanNumeralPage> {
                             : TextField(
                                 controller: romanController,
                                 decoration: InputDecoration(
-                                  labelText: t.tools.romannumeral
-                                      .roman_numeral_input_hint,
-                                  filled: true,
-                                  fillColor:
-                                      colorScheme.surfaceContainerHighest,
+                                  labelText: t.tools.romannumeral.roman_numeral_input_hint,
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(12),
                                     borderSide: BorderSide.none,

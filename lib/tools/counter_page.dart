@@ -115,7 +115,10 @@ class _CounterPage extends State<CounterPage> {
             keyboardType: TextInputType.number,
             controller: controller,
             decoration: InputDecoration(
-              border: const OutlineInputBorder(),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: BorderSide.none,
+              ),
               labelText: t.tools.counter.enter_number,
             ),
           ),
@@ -183,7 +186,6 @@ class _CounterPage extends State<CounterPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.counter.title),
           centerTitle: true,

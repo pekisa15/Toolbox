@@ -30,7 +30,6 @@ class _TextDifferencesPage extends State<TextDifferencesPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.textdifferences.title),
           centerTitle: true,
@@ -83,11 +82,7 @@ class _TextDifferencesPage extends State<TextDifferencesPage> {
                                   }
                                 },
                                 decoration: InputDecoration(
-                                  hintText:
-                                      t.tools.textdifferences.enter_old_text,
-                                  filled: true,
-                                  fillColor:
-                                      colorScheme.surfaceContainerHighest,
+                                  hintText: t.tools.textdifferences.enter_old_text,
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(12),
                                     borderSide: BorderSide.none,
@@ -139,11 +134,7 @@ class _TextDifferencesPage extends State<TextDifferencesPage> {
                                   }
                                 },
                                 decoration: InputDecoration(
-                                  hintText:
-                                      t.tools.textdifferences.enter_new_text,
-                                  filled: true,
-                                  fillColor:
-                                      colorScheme.surfaceContainerHighest,
+                                  hintText: t.tools.textdifferences.enter_new_text,
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(12),
                                     borderSide: BorderSide.none,

@@ -519,7 +519,10 @@ class _CrDeckPage extends State<CrDeckPage> {
                                 decoration: InputDecoration(
                                   labelText: t.tools.crdeck.search_cards,
                                   prefixIcon: Icon(Icons.search_outlined),
-                                  border: OutlineInputBorder(),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(12),
+                                    borderSide: BorderSide.none,
+                                  ),
                                 ),
                                 onChanged: (value) {
                                   setState(() {

@@ -192,7 +192,6 @@ class _FileEncryptionPage extends State<FileEncryptionPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.fileencryption.title),
           centerTitle: true,
@@ -377,9 +376,6 @@ class _FileEncryptionPage extends State<FileEncryptionPage> {
                                   controller: passwordController,
                                   obscureText: true,
                                   decoration: InputDecoration(
-                                    filled: true,
-                                    fillColor:
-                                        colorScheme.surfaceContainerHighest,
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(12),
                                       borderSide: BorderSide.none,

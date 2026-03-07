@@ -71,7 +71,6 @@ class _YouTubeThumbnailPage extends State<YouTubeThumbnailPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.youtubethumbnail.title),
           centerTitle: true,
@@ -109,8 +108,6 @@ class _YouTubeThumbnailPage extends State<YouTubeThumbnailPage> {
                         const SizedBox(height: 16),
                         TextField(
                           decoration: InputDecoration(
-                            filled: true,
-                            fillColor: colorScheme.surfaceContainerHighest,
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: BorderSide.none,

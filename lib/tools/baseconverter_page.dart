@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:toolbox/core/colors.dart';
 import 'package:toolbox/core/dialogs.dart';
 import 'package:toolbox/gen/strings.g.dart';
 import 'package:toolbox/widgets/baseconverter_keyboard.dart';
@@ -112,8 +113,7 @@ class _BaseConverterPage extends State<BaseConverterPage> {
             t.tools.baseconverter.incompatible_number,
             t.tools.baseconverter
                 .the_number_you_entered_is_not_a_valid_x_number(
-                    base: (outputLabel[base] ?? t.tools.baseconverter.decimal)
-                        .toLowerCase()), () {
+                    base: (outputLabel[base] ?? t.tools.baseconverter.decimal).toLowerCase()), () {
           if (mounted) {
             setState(() {
               _controller.text = '';
@@ -169,8 +169,6 @@ class _BaseConverterPage extends State<BaseConverterPage> {
                         ),
                     decoration: InputDecoration(
                       labelText: inputLabel[currentBase],
-                      filled: true,
-                      fillColor: colorScheme.surfaceContainerHighest,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                         borderSide: BorderSide.none,
@@ -190,14 +188,6 @@ class _BaseConverterPage extends State<BaseConverterPage> {
                   onSelected: checkInputIsValid,
                   enableFilter: false,
                   enableSearch: false,
-                  inputDecorationTheme: InputDecorationTheme(
-                    filled: true,
-                    fillColor: colorScheme.primaryContainer,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                      borderSide: BorderSide.none,
-                    ),
-                  ),
                 )
               ],
             ),
@@ -233,7 +223,7 @@ class _BaseConverterPage extends State<BaseConverterPage> {
                   child: Container(
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
-                      color: colorScheme.surfaceContainerHighest,
+                      color: getDefaultInputColor(context, colorScheme),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Row(
@@ -291,7 +281,6 @@ class _BaseConverterPage extends State<BaseConverterPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.baseconverter.title),
           centerTitle: true,

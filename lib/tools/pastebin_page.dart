@@ -160,7 +160,6 @@ class _PastebinPage extends State<PastebinPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.pastebin.title),
           centerTitle: true,
@@ -533,9 +532,6 @@ class _PastebinPage extends State<PastebinPage> {
                                         minLines: 5,
                                         maxLength: maxPasteLength,
                                         decoration: InputDecoration(
-                                          filled: true,
-                                          fillColor: colorScheme
-                                              .surfaceContainerHighest,
                                           border: OutlineInputBorder(
                                             borderRadius:
                                                 BorderRadius.circular(12),

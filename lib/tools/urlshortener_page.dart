@@ -273,8 +273,6 @@ class _UrlShortenerPage extends State<UrlShortenerPage> {
             TextField(
               controller: urlController,
               decoration: InputDecoration(
-                filled: true,
-                fillColor: colorScheme.surfaceContainerHighest,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                   borderSide: BorderSide.none,
@@ -500,7 +498,6 @@ class _UrlShortenerPage extends State<UrlShortenerPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.urlshortener.title),
           centerTitle: true,

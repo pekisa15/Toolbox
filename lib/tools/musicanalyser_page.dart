@@ -191,7 +191,6 @@ class _MusicAnalyserPage extends State<MusicAnalyserPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.musicanalyser.title),
           centerTitle: true,

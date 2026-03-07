@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:toolbox/core/colors.dart';
 import 'package:toolbox/core/dialogs.dart';
 import 'package:toolbox/core/raw_dns_lookup.dart';
 import 'package:toolbox/gen/strings.g.dart';
@@ -196,7 +197,7 @@ class _NslookupPage extends State<NslookupPage> {
                       decoration: BoxDecoration(
                         color: hasRecords
                             ? colorScheme.primaryContainer
-                            : colorScheme.surfaceContainerHighest,
+                            : getDefaultInputColor(context, colorScheme),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Icon(
@@ -225,7 +226,7 @@ class _NslookupPage extends State<NslookupPage> {
                         decoration: BoxDecoration(
                           color: hasRecords
                               ? colorScheme.secondaryContainer
-                              : colorScheme.surfaceContainerHighest,
+                              : getDefaultInputColor(context, colorScheme),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Text(
@@ -356,7 +357,6 @@ class _NslookupPage extends State<NslookupPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.nslookup.title),
           centerTitle: true,
@@ -378,8 +378,6 @@ class _NslookupPage extends State<NslookupPage> {
                           controller: _domainController,
                           decoration: InputDecoration(
                             labelText: t.tools.nslookup.enter_a_domain_name,
-                            filled: true,
-                            fillColor: colorScheme.surfaceContainerHighest,
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: BorderSide.none,

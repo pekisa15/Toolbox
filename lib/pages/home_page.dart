@@ -240,8 +240,6 @@ class _HomePageState extends State<HomePage> {
                       },
                     )
                         : null,
-                    filled: true,
-                    fillColor: colorScheme.surfaceContainerHighest,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(16),
                       borderSide: BorderSide.none,

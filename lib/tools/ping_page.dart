@@ -100,7 +100,6 @@ class _PingPage extends State<PingPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.ping.title),
           centerTitle: true,
@@ -122,8 +121,6 @@ class _PingPage extends State<PingPage> {
                           controller: _hostController,
                           decoration: InputDecoration(
                             labelText: t.tools.ping.enter_a_domain_name_or_ip,
-                            filled: true,
-                            fillColor: colorScheme.surfaceContainerHighest,
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: BorderSide.none,

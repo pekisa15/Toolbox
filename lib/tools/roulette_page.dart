@@ -169,7 +169,10 @@ class _RoulettePage extends State<RoulettePage> with TickerProviderStateMixin {
           content: TextField(
             controller: textController,
             decoration: InputDecoration(
-              border: const OutlineInputBorder(),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: BorderSide.none,
+              ),
               labelText: t.tools.roulette.item_name,
             ),
           ),

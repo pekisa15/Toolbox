@@ -94,7 +94,6 @@ class _PasswordGeneratorPage extends State<PasswordGeneratorPage> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        backgroundColor: colorScheme.surface,
         appBar: AppBar(
           title: Text(t.tools.passwordgenerator.title),
           centerTitle: true,
@@ -134,10 +133,7 @@ class _PasswordGeneratorPage extends State<PasswordGeneratorPage> {
                         TextField(
                           controller: passwordLengthController,
                           decoration: InputDecoration(
-                            labelText:
-                                t.tools.passwordgenerator.password_length,
-                            filled: true,
-                            fillColor: colorScheme.surfaceContainerHighest,
+                            labelText: t.tools.passwordgenerator.password_length,
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: BorderSide.none,
@@ -159,10 +155,7 @@ class _PasswordGeneratorPage extends State<PasswordGeneratorPage> {
                         TextField(
                           controller: digitCountController,
                           decoration: InputDecoration(
-                            labelText:
-                                t.tools.passwordgenerator.number_of_digits,
-                            filled: true,
-                            fillColor: colorScheme.surfaceContainerHighest,
+                            labelText: t.tools.passwordgenerator.number_of_digits,
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: BorderSide.none,
@@ -184,10 +177,7 @@ class _PasswordGeneratorPage extends State<PasswordGeneratorPage> {
                         TextField(
                           controller: specialCharactersCountController,
                           decoration: InputDecoration(
-                            labelText: t.tools.passwordgenerator
-                                .number_of_special_characters,
-                            filled: true,
-                            fillColor: colorScheme.surfaceContainerHighest,
+                            labelText: t.tools.passwordgenerator.number_of_special_characters,
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: BorderSide.none,

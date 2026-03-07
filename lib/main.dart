@@ -9,6 +9,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:dynamic_color/dynamic_color.dart';
+import 'package:toolbox/core/colors.dart';
 import 'package:toolbox/core/shared_preferences.dart';
 import 'package:toolbox/gen/strings.g.dart';
 import 'package:toolbox/pages/main_shell_page.dart';
@@ -62,7 +63,23 @@ class MyApp extends StatelessWidget {
           themeMode: ThemeMode.system,
           theme: ThemeData(
             useMaterial3: true,
-            colorScheme: lightColorScheme,
+            colorScheme: lightColorScheme.copyWith(
+              inverseSurface: getDefaultInputColor(context, lightColorScheme),
+            ),
+            inputDecorationTheme: InputDecorationTheme(
+              filled: true,
+              fillColor: getDefaultInputColor(context, lightColorScheme)
+            ),
+            dropdownMenuTheme: DropdownMenuThemeData(
+              inputDecorationTheme: InputDecorationTheme(
+                  filled: true,
+                  fillColor: lightColorScheme.onInverseSurface,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide.none,
+                  )
+              )
+            ),
             appBarTheme: AppBarTheme(
               backgroundColor: lightColorScheme.surface,
               foregroundColor: lightColorScheme.onSurface,
@@ -70,16 +87,40 @@ class MyApp extends StatelessWidget {
                 statusBarColor: Colors.transparent,
               ),
             ),
+            snackBarTheme: SnackBarThemeData(
+              backgroundColor: lightColorScheme.inverseSurface,
+              contentTextStyle: TextStyle(color: lightColorScheme.onInverseSurface),
+            ),
           ),
           darkTheme: ThemeData(
             useMaterial3: true,
-            colorScheme: darkColorScheme,
+            colorScheme: darkColorScheme.copyWith(
+              inverseSurface: getDefaultInputColor(context, darkColorScheme),
+            ),
+            inputDecorationTheme: InputDecorationTheme(
+                filled: true,
+                fillColor: lightColorScheme.inverseSurface
+            ),
+            dropdownMenuTheme: DropdownMenuThemeData(
+                inputDecorationTheme: InputDecorationTheme(
+                    filled: true,
+                    fillColor: getDefaultInputColor(context, darkColorScheme),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide.none,
+                    )
+                )
+            ),
             appBarTheme: AppBarTheme(
               backgroundColor: darkColorScheme.surface,
               foregroundColor: darkColorScheme.onSurface,
               systemOverlayStyle: SystemUiOverlayStyle.light.copyWith(
                 statusBarColor: Colors.transparent,
               ),
+            ),
+            snackBarTheme: SnackBarThemeData(
+              backgroundColor: darkColorScheme.inverseSurface,
+              contentTextStyle: TextStyle(color: darkColorScheme.onInverseSurface),
             ),
           ),
           builder: (_, child) {
