@@ -129,14 +129,13 @@ class _HttpRequestPage extends State<HttpRequestPage> {
       return;
     }
     Uri? url;
-    if (!urlController.text.startsWith("http://") &&
-        !urlController.text.startsWith("https://")) {
+    if (!urlController.text.startsWith("http://") && !urlController.text.startsWith("https://")) {
       setState(() {
         urlController.text = "http://${urlController.text}";
       });
     }
     try {
-      url = Uri.parse(urlController.text);
+      url = Uri.parse(urlController.text.trim());
     } catch (e) {
       showDialog(
         context: context,
