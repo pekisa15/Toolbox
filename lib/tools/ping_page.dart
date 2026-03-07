@@ -21,6 +21,7 @@ class _PingPage extends State<PingPage> {
   double? _averagePing;
 
   Future<void> pingHost(String host) async {
+    host = host.trim().toLowerCase();
     ping = Ping(host, count: 5);
     pingListener = ping?.stream.listen((event) {
       String resultString = "";
