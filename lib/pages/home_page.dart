@@ -26,6 +26,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool isLoading = true;
   List<dynamic> hierarchy = [];
   List<dynamic> hierarchyFiltered = [];
   List<String> favoriteTools = [];
@@ -35,7 +36,13 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    refreshFavoritesInContent();
+    refreshFavoritesInContent().then((_) {
+      if (mounted) {
+        setState(() {
+          isLoading = false;
+        });
+      }
+    });
     initTools();
     sortTools();
     checkForAppUpdate();
@@ -104,7 +111,7 @@ class _HomePageState extends State<HomePage> {
                   ? await Hierarchy.removeFavoriteTool(key)
                   : await Hierarchy.addFavoriteTool(key);
               if (mounted) Navigator.pop(context);
-              refreshFavoritesInContent();
+              await refreshFavoritesInContent();
             },
             child: Text(t.generic.yes),
           ),
@@ -146,11 +153,10 @@ class _HomePageState extends State<HomePage> {
 
       favoriteToolsObjects.sort((a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
       sortTools();
-      favoriteToolsObjects = favoriteToolsObjects
-          .where((tool) => widget.content.contains(tool))
-          .toList();
+      favoriteToolsObjects = favoriteToolsObjects.where((tool) => widget.content.contains(tool)).toList();
       widget.content.removeWhere((element) => favoriteToolsObjects.contains(element));
       widget.content.insertAll(0, favoriteToolsObjects);
+      hierarchy = widget.content;
     }
 
     if (mounted) {
@@ -208,7 +214,9 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         body: SafeArea(
           bottom: false,
-          child: Column(
+          child: isLoading
+              ? Center(child: CircularProgressIndicator())
+              : Column(
             children: [
               Padding(
                 padding: const EdgeInsets.all(12.0),
@@ -276,7 +284,7 @@ class _HomePageState extends State<HomePage> {
                           context,
                           MaterialPageRoute(builder: (_) => item.page),
                         );
-                        refreshFavoritesInContent();
+                        await refreshFavoritesInContent();
                       },
                       onLongPress: () {
                         if (item.runtimeType == HomeTool) showFavoriteDialog(item);
