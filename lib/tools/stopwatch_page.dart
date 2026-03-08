@@ -1,5 +1,6 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:reliable_interval_timer/reliable_interval_timer.dart';
 import 'package:toolbox/core/time.dart';
 import 'package:toolbox/gen/strings.g.dart';
 
@@ -10,10 +11,9 @@ class StopwatchPage extends StatefulWidget {
 }
 
 class _StopwatchPage extends State<StopwatchPage> {
-  bool isLoading = false;
   bool isRunning = false;
   Duration duration = const Duration();
-  ReliableIntervalTimer? timer;
+  Timer? timer;
   List<Duration> laps = [];
 
   @override
@@ -28,20 +28,19 @@ class _StopwatchPage extends State<StopwatchPage> {
   }
 
   void startTimer() {
-    if (isLoading) {
-      return;
-    }
-    isLoading = true;
     setState(() {
       isRunning = true;
     });
-    timer = ReliableIntervalTimer(
-      interval: const Duration(milliseconds: 10),
-      callback: (elapsedMilliseconds) {
-        updateDuration(Duration(milliseconds: elapsedMilliseconds));
+    timer = Timer.periodic(
+      const Duration(milliseconds: 1),
+      (timer) {
+        if (mounted) {
+          setState(() {
+            duration += const Duration(milliseconds: 1);
+          });
+        }
       },
     );
-    timer?.start().then((value) => isLoading = false);
   }
 
   void updateDuration(Duration newDuration) {
@@ -53,17 +52,13 @@ class _StopwatchPage extends State<StopwatchPage> {
   }
 
   void stopTimer({bool isDispose = false}) {
-    if (isLoading) {
-      return;
-    }
-    isLoading = true;
     if (mounted && !isDispose) {
       setState(() {
         isRunning = false;
       });
     }
-    if (timer != null) {
-      timer?.stop().then((value) => isLoading = false);
+    if (timer != null && (timer?.isActive ?? false)) {
+      timer?.cancel();
       timer = null;
     }
   }
@@ -135,8 +130,7 @@ class _StopwatchPage extends State<StopwatchPage> {
                           child: FittedBox(
                             fit: BoxFit.scaleDown,
                             child: Text(
-                              getFormattedTimeFromMilliseconds(
-                                  duration.inMilliseconds.toDouble()),
+                              getFormattedTimeFromMilliseconds(duration.inMilliseconds.toDouble()),
                               style: Theme.of(context)
                                   .textTheme
                                   .displayLarge
@@ -305,10 +299,7 @@ class _StopwatchPage extends State<StopwatchPage> {
                                           ),
                                     ),
                                     Text(
-                                      getFormattedTimeFromMilliseconds(
-                                          laps[index]
-                                              .inMilliseconds
-                                              .toDouble()),
+                                      getFormattedTimeFromMilliseconds(laps[index].inMilliseconds.toDouble()),
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyLarge

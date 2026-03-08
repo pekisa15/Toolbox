@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:numberpicker/numberpicker.dart';
-import 'package:reliable_interval_timer/reliable_interval_timer.dart';
 import 'package:toolbox/gen/strings.g.dart';
 
 class MetronomePage extends StatefulWidget {
@@ -16,7 +15,7 @@ class _MetronomePage extends State<MetronomePage> {
   bool isLoading = false;
   bool isPlaying = false;
   final player = AudioPlayer();
-  ReliableIntervalTimer? timer;
+  Timer? timer;
   int beatIndex = 0;
 
   int _currentBpm = 120;
@@ -39,9 +38,9 @@ class _MetronomePage extends State<MetronomePage> {
     if (timer != null) {
       await stopMetronome();
     }
-    timer = ReliableIntervalTimer(
-        interval: Duration(milliseconds: (60000 / _currentBpm).round()),
-        callback: (elapsedMilliseconds) async {
+    timer = Timer.periodic(
+        Duration(milliseconds: (60000 / _currentBpm).round()),
+        (timer) async {
           if (currentBpm != _currentBpm) {
             await stopMetronome();
             await startMetronome();
@@ -57,11 +56,10 @@ class _MetronomePage extends State<MetronomePage> {
     setState(() {
       isPlaying = true;
     });
-    await timer?.start();
   }
 
   Future<void> stopMetronome({isDispose = false}) async {
-    await timer?.stop();
+    timer?.cancel();
     timer = null;
     beatIndex = 0;
     if (!isDispose) {
