@@ -15,7 +15,6 @@ class _UuidGeneratorPage extends State<UuidGeneratorPage> {
   String uuidString = t.tools.uuidgenerator.default_uuid_text;
 
   void showV5UuidDialog() {
-    final colorScheme = Theme.of(context).colorScheme;
     TextEditingController nameController = TextEditingController();
     TextEditingController namespaceController = TextEditingController();
     showDialog(
@@ -147,13 +146,12 @@ class _UuidGeneratorPage extends State<UuidGeneratorPage> {
                             child: SelectableText(
                               uuidString,
                               textAlign: TextAlign.center,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyLarge
-                                  ?.copyWith(
-                                    fontWeight: FontWeight.w500,
-                                    color: colorScheme.onPrimaryContainer,
-                                  ),
+                              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                                color: colorScheme.onPrimaryContainer,
+                                fontFamily: 'Roboto Mono',
+                              ),
                             ),
                           ),
                           const SizedBox(height: 12),
