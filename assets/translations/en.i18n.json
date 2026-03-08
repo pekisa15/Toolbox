@@ -1,0 +1,890 @@
+{
+  "generic": {
+    "app_name": "Toolbox",
+    "tools": "Tools",
+    "categories": "Categories",
+    "error": "Error",
+    "warning": "Warning",
+    "ok": "OK",
+    "cancel": "Cancel",
+    "search": "Search",
+    "enable": "Enable",
+    "reset": "Reset",
+    "yes": "Yes",
+    "no": "No",
+    "copy": "Copy",
+    "share": "Share",
+    "generate": "Generate"
+  },
+  "homepage": {
+    "update_available": "Update available",
+    "update_available_message": "A new version of Toolbox is available. Update it now to get the latest features and improvements.",
+    "switch_view": "Switch view",
+    "search_all_categories": "Search in all categories",
+    "clear_search": "Clear search",
+    "add": "Add",
+    "remove": "Remove",
+    "favorites": "Favorites",
+    "would_you_like_to_add_this_tool_to_favorites": "Would you like to add this tool to favorites?",
+    "would_you_like_to_remove_this_tool_from_favorites": "Would you like to remove this tool from favorites?"
+  },
+  "categories": {
+    "audio": "Audio",
+    "calculations": "Calculations",
+    "games": "Games",
+    "geography": "Geography",
+    "miscellaneous": "Miscellaneous",
+    "network": "Network",
+    "random": "Random",
+    "time": "Time",
+    "web": "Web"
+  },
+  "tools": {
+    "baseconverter": {
+      "title": "Base converter",
+      "input": "Input",
+      "results": "Results",
+      "enter_a_dec_number": "Enter a decimal number",
+      "enter_a_hex_number": "Enter a hexadecimal number",
+      "enter_a_bin_number": "Enter a binary number",
+      "enter_a_oct_number": "Enter an octal number",
+      "hexadecimal": "Hexadecimal",
+      "binary": "Binary",
+      "octal": "Octal",
+      "decimal": "Decimal",
+      "incompatible_number": "Incompatible number",
+      "too_big_number": "Too big number",
+      "the_number_you_entered_is_not_a_valid_x_number": "The number you entered is not a valid $base number",
+      "the_number_you_entered_is_too_big_to_be_abble_to_convert_it": "The number you entered is too big to be able to convert it"
+    },
+    "clock": {
+      "title": "Clock",
+      "change_timezone": "Change timezone",
+      "timezone": "Timezone",
+      "choose_a_timezone": "Choose a timezone",
+      "select_local": "Local time"
+    },
+    "metronome": {
+      "title": "Metronome",
+      "bpm": "BPM",
+      "beats_per_measure": "Beats per measure",
+      "start": "Start",
+      "stop": "Stop"
+    },
+    "megaphone": {
+      "title": "Megaphone",
+      "error": {
+        "microphone_permission_denied": "Permission denied, please allow the application to access the microphone in your device settings"
+      }
+    },
+    "nslookup": {
+      "title": "NSLookup",
+      "enter_a_domain_name": "Enter a domain name",
+      "lookup": "Lookup",
+      "error": {
+        "please_enter_a_domain_name": "Please enter a domain name",
+        "no_address_associated_with_domain": "There is no address associated with the host name.\nCheck your input and your internet connection then try again."
+      },
+      "not_supported_by_system_dns": "Not supported by system DNS",
+      "no_records_found": "No records found"
+    },
+    "ping": {
+      "title": "Ping",
+      "ping": "Ping",
+      "enter_a_domain_name_or_ip": "Enter a domain name or IP address",
+      "reply_from_host_time_ttl": "Reply from $host: time=${time}ms TTL=$ttl",
+      "x_packets_transmitted_y": "$transmitted packets transmitted, $received packets received",
+      "error": {
+        "please_enter_a_domain_name_or_ip": "Please enter a domain name or IP address",
+        "request_timeout": "Request timeout",
+        "unkown_host": "Unknown host",
+        "no_reply": "No reply",
+        "unkown_error": "Unknown error"
+      }
+    },
+    "soundmeter": {
+      "title": "Sound meter",
+      "decibels": "dB",
+      "error": {
+        "impossible_to_start_the_sound_meter": "Impossible to start the sound meter",
+        "no_sound_detected": "No sound detected, check that the application has access to the microphone in the settings of your device."
+      }
+    },
+    "qrreader": {
+      "title": "QR reader",
+      "scanned": "Scanned",
+      "openurl": "Open link",
+      "copy_password": "Copy password",
+      "copy": "Copy",
+      "copied_to_clipboard": "Copied to clipboard",
+      "wifi": "WiFi",
+      "wifi_ssid": "SSID",
+      "wifi_password": "Password",
+      "error": {
+        "no_qr_code": "No QR code",
+        "error_no_result": "No result found"
+      }
+    },
+    "timer": {
+      "title": "Timer",
+      "start": "Start",
+      "stop": "Stop",
+      "pause": "Pause",
+      "please_stop_the_timer_first": "Please stop the timer first",
+      "ios_warning_message": "For the timer to ring on iOS, you must not quit the application or switch off your iPhone screen. Otherwise iOS will prevent the timer from ringing when it reaches zero.",
+      "adjust_time": "Adjust Time"
+    },
+    "stopwatch": {
+      "title": "Stopwatch",
+      "controls": "Controls",
+      "start": "Start",
+      "stop": "Stop",
+      "reset": "Reset",
+      "laps": "Laps",
+      "lap": "Lap"
+    },
+    "roulette": {
+      "title": "Roulette",
+      "tap_to_roll_info": "Tap the wheel to roll it",
+      "default_1": "Study",
+      "default_2": "Play",
+      "default_3": "Sleep",
+      "add": "Add",
+      "remove": "Remove",
+      "add_item": "Add an item",
+      "item_name": "Item name",
+      "remove_an_item": "Remove an item",
+      "warning": {
+        "you_cant_add_more_than_x_items": "You can't have more than $numberOfItems items in the roulette.",
+        "you_must_have_at_least_x_items": "You must have at least $numberOfItems items in the roulette.",
+        "you_must_enter_an_item_name": "You must enter an item name."
+      }
+    },
+    "flipcoins": {
+      "title": "Flip a coin",
+      "change_coin_currency": "Change coin currency"
+    },
+    "randomnumber": {
+      "title": "Random number",
+      "settings": "Settings",
+      "min": "Min",
+      "max": "Max",
+      "error": {
+        "invalid_number": "Invalid number, please try again.",
+        "min_must_be_lower_than_max": "The minimum number must be lower than the maximum number.",
+        "min_and_max_must_be_between_x_and_y": "The minimum and maximum numbers must be between $minNumberLimit and $maxNumberLimit."
+      }
+    },
+    "randomcolor": {
+      "title": "Random color",
+      "hint": "Tap the color to change it",
+      "tap_to_copy": "Tap to copy",
+      "copied_to_clipboard": "Copied to clipboard"
+    },
+    "sshclient": {
+      "title": "SSH client",
+      "backspace": "Backspace",
+      "use_password": "Use password",
+      "use_ssh_key": "Use SSH key",
+      "connection": "Connection",
+      "host": "Host",
+      "port": "Port",
+      "username": "Username",
+      "password": "Password",
+      "ssh_key": "SSH key",
+      "connect": "Connect",
+      "authentication": "Authentication",
+      "select_private_key": "Select private key",
+      "no_private_key_selected": "No private key selected",
+      "passphrase": "Passphrase (leave empty if none)",
+      "error": {
+        "invalid_port": "Invalid port",
+        "invalid_passphrase": "You may have entered a passphrase when your key is not encrypted, or vice versa",
+        "invalid_private_key": "The key you provided is not a valid private key",
+        "authentication_failed": "Authentication failed",
+        "connection_failed": "Could not connect to host",
+        "unknown_error": "An unknown error occurred. Please try again"
+      }
+    },
+    "whiteboard": {
+      "title": "Whiteboard",
+      "share_success": "Your whiteboard has been shared successfully",
+      "save_success": "Your whiteboard has been saved successfully"
+    },
+    "networkinfo": {
+      "title": "Network info",
+      "loading": "Loading...",
+      "unknown": "Unknown",
+      "location_permission_required": "Location permission is required to get some WiFi info (this is an OS limitation).\nYou could get incorrect info if you don't grant it.",
+      "public_ip": "Public IP address",
+      "local_ip": "Local IP address",
+      "local_subnet_mask": "Local network subnet mask",
+      "local_gateway_ip": "Local network gateway IP",
+      "local_broadcast_ip": "Local network broadcast IP",
+      "wifi_name": "WiFi name",
+      "wifi_bssid": "WiFi BSSID",
+      "not_available_on_ios": "Not available on iOS",
+      "note_location_permission": "Note: some information may be incorrect if you didn't grant precise location permission."
+    },
+    "uuidgenerator": {
+      "title": "UUID generator",
+      "generate": "Generate",
+      "default_uuid_text": "Press a button to generate a UUID",
+      "tap_to_copy": "Tap to copy",
+      "copied_to_clipboard": "Copied to clipboard",
+      "v1_uuid": "v1 (time-based)",
+      "v4_uuid": "v4 (random)",
+      "v5_uuid": "v5 (sha1-based)",
+      "v5_generate_title": "Generate v5 UUID",
+      "v5_namespace": "Namespace (leave blank for random)",
+      "v5_name": "Name (leave blank for none)",
+      "error": {
+        "invalid_namespace": "The namespace is not a valid UUID"
+      }
+    },
+    "texttospeech": {
+      "title": "Text to speech",
+      "choose_a_language": "Choose a language",
+      "text_to_speak": "Text to speak",
+      "pitch": "Pitch",
+      "rate": "Rate",
+      "play": "Play",
+      "stop": "Stop",
+      "error": {
+        "please_try_again": "Please try again later.\nIf it's the first time you're using this language, please wait a few seconds and try again.",
+        "please_select_a_language": "Please select a language"
+      }
+    },
+    "nearbypublictransportstops": {
+      "title": "Nearby transport stops",
+      "loading": "Loading...",
+      "refresh": "Refresh",
+      "data_source": "Data source",
+      "initial_dialog_title": "Information",
+      "initial_dialog_message": "This tool is intended to be used in Switzerland. It uses the data from \"$source\"",
+      "data_license_dialog_open": "Open",
+      "data_license_dialog_title": "Data source",
+      "data_license_dialog_message": "The data used in this tool comes from \"$source\".\n$url",
+      "no_departures": "No departures found",
+      "departure": "Departure",
+      "arrival": "Arrival",
+      "platform": "Platform",
+      "show_on_map": "Map",
+      "map_marker_title": "Stop",
+      "error": {
+        "location_permission_denied": "Location permission denied or disabled, please enable it in settings in order to see nearby stops.",
+        "check_internet_connection": "Please check your internet connection and try again.",
+        "api_empty_response": "The API returned an empty response",
+        "api_error_xxx": "The API returned an error: $errorCode",
+        "no_stops_found": "No stops found for this search",
+        "no_maps_app": "No maps app found on your device"
+      }
+    },
+    "fileencryption": {
+      "title": "File encryption",
+      "home_hint": "Pick a file to encrypt it. If you want to decrypt a file, pick an encrypted file with the .aes extension",
+      "no_file_selected": "No file selected",
+      "enter_password": "Please enter a password",
+      "file_saved_successfully": "File saved successfully",
+      "pick_a_file": "Pick a file",
+      "encryption_password": "Encryption password",
+      "encrypt": "Encrypt",
+      "decrypt": "Decrypt",
+      "error": {
+        "failed_to_read_file": "Failed to read the file",
+        "failed_to_decrypt_file": "Failed to decrypt the file, please check the password",
+        "please_enter_a_password": "Please enter a password"
+      },
+      "enter_password_hint": "Enter password...",
+      "file_selection": "File selection"
+    },
+    "youtubethumbnail": {
+      "title": "YouTube thumbnail",
+      "saved": "Thumbnail saved to device",
+      "youtube_video_id": "YouTube video URL",
+      "save_thumbnail": "Save thumbnail",
+      "please_enter_a_video_url": "Please enter the URL (or ID) of a YouTube video to download its thumbnail",
+      "error": {
+        "failed_to_download": "Failed to download thumbnail from YouTube",
+        "please_enter_a_valid_video_id": "Please enter a valid YouTube video URL\nYou also need an internet connection to download the thumbnail from YouTube"
+      },
+      "thumbnail_preview": "Thumbnail preview"
+    },
+    "nationalanthems": {
+      "title": "National anthems",
+      "stop": "Stop the anthem",
+      "search": "Search (English name)",
+      "license": "License",
+      "license_text": "The audio files are provided by \"$source\" under the $license license",
+      "open": "Open",
+      "view_license": "View license",
+      "loading_audio_title": "Loading",
+      "loading_audio_text": "Loading the anthem, please wait...",
+      "error": {
+        "failed_to_load_list": "Impossible to load the list of anthems. Please check your internet connection and try again.",
+        "failed_to_play_anthem": "Impossible to play the anthem. Please check your internet connection and try again."
+      },
+      "no_anthems_found": "No anthems found"
+    },
+    "httprequest": {
+      "title": "HTTP request",
+      "method": "Method",
+      "custom_method": "Custom method",
+      "url": "URL",
+      "headers": "Headers",
+      "body": "Body",
+      "allow_bad_certificates": "Allow bad certificates",
+      "allow_bad_certificates_description": "Enabling this option allows the \"HTTP request\" tool to send HTTPS requests to servers with invalid, expired or self-signed SSL/TLS certificates. This disables important security controls and may expose your data to interception or tampering by third parties. Only use this function if you fully understand the risks involved, and only when sending requests to servers you trust and control. It is not recommended for general use. Please consider requests made with this option enabled as unencrypted requests (such as HTTP) that can be manipulated and viewed by third parties.",
+      "i_know_what_i_am_doing": "I know what I'm doing",
+      "render_html": "Render HTML",
+      "back_to_details": "Back to details",
+      "send_request": "Send request",
+      "response": "Response",
+      "status_code": "Status code",
+      "error": {
+        "url_cannot_be_empty": "The URL cannot be empty",
+        "invalid_url": "Invalid URL",
+        "invalid_headers": "Invalid headers",
+        "timeout": "The request timed out.\nPlease check your input and your internet connection then try again.",
+        "other_error": "An error occurred while sending the request.\nPlease check your input and your internet connection then try again."
+      },
+      "example_headers": "key1: value1\nkey2: value2",
+      "request_body_hint": "Request body (JSON, XML, etc.)"
+    },
+    "morsecode": {
+      "title": "Morse code",
+      "alphabet_field": "Alphabet (A-Z, 0-9)",
+      "morse_field": "Morse code (. and -)",
+      "note_spaces": "Note: Use 1 space between letters, 3 spaces between words.",
+      "alphabet_to_morse": "Alphabet to morse",
+      "morse_to_alphabet": "Morse to alphabet",
+      "play_audio": "Play audio",
+      "playing": "Playing...",
+      "enter_text": "Enter text here..."
+    },
+    "osm": {
+      "title": "Map (OSM)",
+      "go_to_my_location": "Go to my location",
+      "loading_map": "Loading map...",
+      "error": {
+        "location_permission_denied": "You need to grant location permissions to use this feature",
+        "location_services_disabled": "Location services are disabled"
+      }
+    },
+    "gameoflife": {
+      "title": "Game of life",
+      "grid_size": "Grid size",
+      "current_size_is_x": "Current size is $size",
+      "waiting": "Waiting",
+      "stop_simulation": "Stop simulation",
+      "start_simulation": "Start simulation",
+      "randomize_grid": "Randomize grid",
+      "clear_grid": "Clear grid",
+      "error": {
+        "no_alive_cells": "No alive cells",
+        "no_alive_cells_description": "There are no alive cells.\nPlease tap on the grid to add some.",
+        "please_stop_simulation": "Please stop the simulation first"
+      }
+    },
+    "speedometer": {
+      "title": "Speedometer",
+      "reset": "Reset",
+      "about_traveled_distance_title": "About traveled distance",
+      "about_traveled_distance_description": "Traveled distance is calculated using the speed detected by the GPS.\nThis means that the distance is not 100% accurate.",
+      "kmh": "km/h",
+      "km": "km",
+      "mph": "mph",
+      "mi": "mi",
+      "change_speed_unit": "Change speed unit",
+      "change_speed_unit_description": "Choose the speed unit you want to use with the speedometer",
+      "traveled_distance": "Traveled distance",
+      "error": {
+        "location_permission_denied_title": "Location required",
+        "location_permission_denied_description": "This tool requires location permission to determine your speed.",
+        "location_services_disabled_title": "Location services disabled",
+        "location_services_disabled_description": "This tool requires location services to be enabled to determine your speed."
+      }
+    },
+    "mc_server_ping": {
+      "title": "MC server ping",
+      "java_edition": "Java Edition",
+      "information_java": "Information",
+      "information_java_description": "Check this box if the server is available for the Java Edition of Minecraft. If not, unchecked it and the tool will use the Bedrock Edition API.",
+      "server_ip": "Minecraft server IP (or domain)",
+      "ping": "Ping server",
+      "ping_another_server": "Ping another server",
+      "api_used": "API used",
+      "about_the_api": "About the API",
+      "about_the_api_description": "This tool uses the \"$source\" from \"$website\" to ping Minecraft servers",
+      "about_open": "Open",
+      "the_server_id_is": "The server ID is \"$id\"",
+      "x_y_players_online": "$playersOnline/$playersMax player(s) online",
+      "added_to_favorites": "Added to favorites",
+      "added_to_favorites_description": "The server has been added to your favorites",
+      "removed_from_favorites": "Removed from favorites",
+      "removed_from_favorites_description": "The server has been removed from your favorites",
+      "add_to_favorites": "Add to favorite",
+      "remove_from_favorites": "Remove from favorite",
+      "remove_from_favorites_description": "Are you sure you want to remove this server from your favorites?",
+      "from_favorites": "From favorites",
+      "pick_from_favorites": "Pick from favorites",
+      "no_favorites": "No favorites",
+      "no_favorites_description": "You don't have any favorite servers yet.",
+      "online_players": "Online players",
+      "online_players_description_no_players_to_show": "The server has online players, but no player names are available to show",
+      "error": {
+        "please_enter_a_server_ip": "Please enter a server IP or domain",
+        "server_offline_or_does_not_exist": "The server is offline or does not exist",
+        "please_check_your_internet_connection": "Please check your internet connection and try again"
+      },
+      "server_id": "Server ID",
+      "server_info": "Server info"
+    },
+    "timestampconverter": {
+      "title": "Timestamp converter",
+      "now_tooltip": "Now",
+      "utc": "UTC",
+      "local": "Local",
+      "local_or_utc_dialog_title": "Local or UTC",
+      "local_or_utc_dialog_message": "Do you want to pick a local or UTC date?",
+      "unix_timestamp": "Unix timestamp",
+      "convert_timestamp_to_date": "Convert timestamp to date",
+      "tap_the_date_to_change_it": "Tap the date to change it",
+      "select_seconds": "Select seconds",
+      "error": {
+        "invalid_timestamp": "Invalid timestamp"
+      },
+      "convert": "Convert"
+    },
+    "urlshortener": {
+      "title": "URL shortener",
+      "url": "URL",
+      "qr_code": "QR code",
+      "share": "Share",
+      "share_dialog_message": "What do you want to share?",
+      "your_shortened_url_is": "Your shortened URL is",
+      "copy_to_clipboard": "Copy to clipboard",
+      "the_link_id_is": "The link ID is",
+      "link_id_copied_to_clipboard": "Link ID copied to clipboard",
+      "the_link_password_is": "The link password is",
+      "link_password_copied_to_clipboard": "Link password copied to clipboard",
+      "link_password_hint_text": "Tap the password to copy it\nYou will need it to view statistics about this link",
+      "shorten_another_url": "Shorten another URL",
+      "url_to_shorten": "URL to shorten",
+      "by_clicking_you_accept": "By clicking the shorten button, you agree to the terms of service of \"$url\" available via the link below.",
+      "terms_of_service": "Terms of service",
+      "shorten": "Shorten",
+      "view_statistics_of_a_link": "View statistics of a link",
+      "view_statistics_of_a_link_message": "You can view the statistics of a link (total hits, creation date, last access date, etc.) on the statistics page from the JTU.ME website",
+      "more_features": "More features",
+      "more_features_message": "Use additional features such as text sharing, custom links, and more via the official JTU.ME website",
+      "open": "Open",
+      "error": {
+        "failed_to_shorten_url": "Failed to shorten the URL, please check your input and your internet connection.",
+        "impossible_to_connect_to_the_server": "Impossible to connect to the server",
+        "impossible_to_connect_to_the_server_message": "Failed to connect to the server, please check your internet connection and try again."
+      },
+      "management_info": "Management info"
+    },
+    "counter": {
+      "title": "Counter",
+      "add_button": "Add button",
+      "remove_button": "Remove button",
+      "enter_number": "Enter a number",
+      "error": {
+        "invalid_number": "The number you entered is invalid",
+        "the_number_must_be_between_x_and_y": "The number must be between $minNumberLimit and $maxNumberLimit",
+        "you_must_have_at_least_one_button": "You must have at least one button",
+        "this_button_already_exists": "This button already exists"
+      }
+    },
+    "bitwisecalculator": {
+      "title": "Bitwise calculator",
+      "binary_values": "Binary values",
+      "first_number": "First number",
+      "second_number": "Second number",
+      "enter_a_binary_number": "Enter a binary number",
+      "operations": "Operations",
+      "and": "AND",
+      "or": "OR",
+      "xor": "XOR",
+      "result": "Result",
+      "error": {
+        "invalid_input": "Invalid input"
+      }
+    },
+    "musicsearch": {
+      "title": "Music search",
+      "unknown_title": "Unknown title",
+      "unknown_artist": "Unknown artist",
+      "unknown_album": "Unknown album",
+      "loading": "Loading",
+      "loading_audio_preview": "Loading audio preview...",
+      "stop_audio_preview": "Stop audio preview",
+      "data_source": "Data source",
+      "this_tool_uses_the_x_api": "This tool uses the \"$service\" API to search for music.\nThe audio previews are provided by \"$service\".",
+      "go_to_x": "Go to $service",
+      "search_for_music": "Search for music",
+      "use_the_searchbar_to_search_music": "Use the search bar to find music.\nIf your search returns no results, try a different search term.\nIf you still have no results, make sure your internet connection is working properly and that $service is available in your country or region.",
+      "open_in_x": "Open in $service",
+      "play_preview": "Play preview",
+      "error": {
+        "error_playing_audio_preview": "Error playing audio preview. Please try again later.",
+        "unable_to_connect_to_the_api": "Unable to connect to the API, please check your internet connection and try again."
+      }
+    },
+    "musicanalyser": {
+      "title": "Music analyser",
+      "press_the_button_to_start_music_analysis": "Press the button to start music analysis",
+      "loading": "Loading...",
+      "analyzing_music": "Analyzing music... (${remainingSeconds}s)",
+      "getting_results": "Getting results...",
+      "unknown": "Unknown",
+      "api_used": "API used",
+      "this_tool_uses_the_x_api": "This tool uses the \"$service\" API via a Koizeay backend server. \"$service\" is a registered trademark of \"$company\" and is not affiliated with this tool.",
+      "start_analyzing_music": "Start analyzing music",
+      "clear": "Clear",
+      "error": {
+        "permission_denied": "Permission denied",
+        "permission_denied_description": "The microphone permission is required to analyze music. Please grant the permission and try again.",
+        "no_match_found": "No match found",
+        "no_match_found_description": "No music match was found. Please try again.",
+        "error_occurred": "An error occurred while analyzing the music. Please check your internet connection and try again.",
+        "please_update_the_app_and_try_again": "Please update the app and try again. If the problem persists with the latest version, please try again later."
+      }
+    },
+    "textdifferences": {
+      "title": "Text differences",
+      "old_text": "Old text",
+      "new_text": "New text",
+      "no_text_hint": "Enter text in the fields above to see the differences",
+      "enter_old_text": "Enter old text...",
+      "enter_new_text": "Enter new text..."
+    },
+    "characterscopy": {
+      "title": "Characters copy",
+      "important": "Important",
+      "important_description": "Some characters may not be displayed correctly on all devices depending on your operating system. Also, some characters may not be supported by all apps and fonts. Just click on the character you want to copy and it will be copied to your clipboard.",
+      "copied_to_clipboard": "Copied to clipboard"
+    },
+    "whoisdomain": {
+      "title": "Whois domain",
+      "domain_name": "Domain name",
+      "whois_lookup": "Whois lookup",
+      "disclaimer": "Disclaimer",
+      "disclaimer_text": "Toolbox provides WHOIS query functionality for informational purposes only. The data retrieved may not be accurate, complete, or up-to-date, and is subject to the terms and conditions of the respective domain registries. Users are prohibited from using WHOIS data for spam, unlawful purposes, or automated data collection. By using this tool, you agree to comply with applicable laws and the registry's terms of service. Toolbox and/or Koizeay assumes no responsibility for errors, omissions, or misuse of the data. Please note that some TLDs may not be supported by this tool.",
+      "loading": "Loading...",
+      "ip_address_not_supported": "IP address not supported",
+      "ip_address_not_supported_description": "This tool only supports domain names, not IP addresses",
+      "no_result": "No valid result found",
+      "view_pretty": "View pretty",
+      "view_raw": "View raw",
+      "raw_whois_data": "Raw WHOIS data",
+      "domain": "Domain",
+      "registrar": "Registrar",
+      "dates": "Dates",
+      "status": "Status",
+      "name_servers": "Name servers",
+      "contact": "Contact",
+      "other": "Other",
+      "error": {
+        "impossible_to_get_whois_information": "Impossible to get the whois information, please check your input and your internet connection then try again"
+      }
+    },
+    "textcounter": {
+      "title": "Text counter",
+      "clear": "Clear",
+      "enter_text_here": "Enter text here",
+      "length": "Length",
+      "trimmed_length": "Trimmed length",
+      "raw_length": "Raw length",
+      "letters": "Letters",
+      "words": "Words",
+      "spaces": "Spaces",
+      "digits": "Digits",
+      "lines": "Lines",
+      "empty_lines": "Empty lines",
+      "total_lines": "Total lines",
+      "text_input": "Text input"
+    },
+    "romannumeral": {
+      "title": "Roman numeral",
+      "change_to": "Change to",
+      "roman_numeral": "roman numeral",
+      "number": "number",
+      "number_input_hint": "Number",
+      "roman_numeral_input_hint": "Roman numeral",
+      "tap_to_copy": "Tap to copy",
+      "copied_to_clipboard": "Copied to clipboard",
+      "error": {
+        "invalid_roman_numeral": "Invalid or unsupported roman numeral"
+      }
+    },
+    "areacalculator": {
+      "title": "Area calculator",
+      "select_a_shape": "Select a shape",
+      "values": "Values",
+      "area": "Area",
+      "calculate": "Calculate",
+      "shapes": {
+        "circle": "Circle",
+        "ellipse": "Ellipse",
+        "equilateral_triangle": "Equilateral triangle",
+        "kite": "Kite",
+        "parallelogram": "Parallelogram",
+        "rectangle": "Rectangle",
+        "rhombus": "Rhombus",
+        "regular_hexagon": "Regular hexagon",
+        "regular_octagon": "Regular octagon",
+        "regular_pentagon": "Regular pentagon",
+        "regular_polygon": "Regular polygon",
+        "square": "Square",
+        "trapezoid": "Trapezoid",
+        "triangle": "Triangle"
+      },
+      "inputs": {
+        "radius": "Radius",
+        "major_axis": "Major axis",
+        "minor_axis": "Minor axis",
+        "side": "Side",
+        "base": "Base",
+        "height": "Height",
+        "diagonal_1": "Diagonal 1",
+        "diagonal_2": "Diagonal 2",
+        "length": "Length",
+        "width": "Width",
+        "number_of_sides": "Number of sides",
+        "side_length": "Side length",
+        "apothem": "Apothem",
+        "base_1": "Base 1",
+        "base_2": "Base 2"
+      },
+      "error": {
+        "invalid_input": "Invalid input",
+        "please_enter_a_value_for": "Please enter a value for",
+        "please_enter_a_valid_number_for": "Please enter a valid number for",
+        "please_enter_a_positive_number_for": "Please enter a positive number for",
+        "please_try_again_with_different_values": "Please try again with different values",
+        "the_area_of_the_shape_is_zero": "The area of the shape is zero"
+      }
+    },
+    "mathtex": {
+      "title": "MathTeX",
+      "enter_a_mathematical_expression_in_tex_format": "Enter a mathematical expression in TeX format",
+      "texExpression": "TeX expression",
+      "export_to_image": "Export to image",
+      "preview": "Preview",
+      "color": "Color",
+      "get_help": "Get help",
+      "open_help_website": "Open help website",
+      "help_content": "Enter a mathematical expression in TeX format to render it as a mathematical formula. For example, the TeX expression '\\\\frac{a}{b}' will be rendered as a fraction with 'a' above 'b'. You can use any supported TeX syntax to create complex mathematical expressions. Once you have entered your expression, you can preview it and export it as an SVG file.\nCompatible with MathJax's TeX format.",
+      "copied_to_clipboard": "Copied to clipboard",
+      "error": {
+        "an_error_occurred_while_rendering_the_mathtex": "An error occurred while rendering the MathTeX",
+        "please_wait_until_the_preview_is_loaded": "Please wait until the preview is loaded",
+        "an_error_occurred_while_exporting_the_image": "An error occurred while exporting the image",
+        "could_not_open_help_website": "Could not open help website, please check your configuration and try again"
+      }
+    },
+    "compass": {
+      "title": "Compass",
+      "error": {
+        "please_grant_location_permission": "Please grant location permission to use the compass. It is mandatory to access the device's sensors."
+      }
+    },
+    "qrcreator": {
+      "title": "QR creator",
+      "qr_code_settings": "QR Code settings",
+      "ecc_low": "Low",
+      "ecc_medium": "Medium",
+      "ecc_quartile": "Quartile",
+      "ecc_high": "High",
+      "saved_successfully": "QR code saved successfully",
+      "shared_successfully": "QR code shared successfully",
+      "enter_text_or_url": "Enter text or URL",
+      "error_correction_level": "Error correction level",
+      "create": "Create",
+      "generated_qr_code": "Generated QR code",
+      "save": "Save",
+      "share": "Share",
+      "error": {
+        "failed_to_create_qr_code": "Failed to create QR code, please check your input and try again"
+      }
+    },
+    "pastebin": {
+      "title": "Pastebin",
+      "url": "URL",
+      "qr_code": "QR code",
+      "share": "Share",
+      "share_dialog_message": "What do you want to share?",
+      "your_short_link_is": "Your short link is",
+      "copy_to_clipboard": "Copy to clipboard",
+      "copied_to_clipboard": "Short link copied to clipboard",
+      "the_link_id_is": "The link ID is",
+      "link_id_copied_to_clipboard": "Link ID copied to clipboard",
+      "the_link_password_is": "The link password is",
+      "link_password_copied_to_clipboard": "Link password copied to clipboard",
+      "link_password_hint_text": "Tap the password to copy it\nYou will need it to view statistics about this link",
+      "paste_another_text": "Paste another text",
+      "text_to_paste": "Text to paste",
+      "text_paste_field_hint": "Paste your text, source code or other content here",
+      "by_clicking_you_accept": "By clicking the send button, you agree to the terms of service of \"$url\" available via the link below.",
+      "terms_of_service": "Terms of service",
+      "send": "Send",
+      "view_statistics_of_a_link": "View statistics of a link",
+      "view_statistics_of_a_link_message": "You can view the statistics of a link (total hits, creation date, last access date, etc.) on the statistics page from the JTU.ME website",
+      "more_features": "More features",
+      "more_features_message": "Use additional features such as URL shortening, custom links, and more via the official JTU.ME website",
+      "open": "Open",
+      "error": {
+        "failed_to_obtain_short_link": "Failed to obtain short link, please check your internet connection and try again",
+        "impossible_to_connect_to_the_server": "Impossible to connect to the server",
+        "impossible_to_connect_to_the_server_message": "Failed to connect to the server, please check your internet connection and try again."
+      },
+      "management_info": "Management info"
+    },
+    "percentagecalculator": {
+      "title": "Percentage calculator",
+      "result": "Result",
+      "percentage": "Percentage",
+      "eg": "e.g.",
+      "total": "Total",
+      "first_value": "First value",
+      "second_value": "Second value",
+      "what_is": "What is",
+      "of": "of",
+      "is_what_percentage_of": "is what percentage of",
+      "what_is_the_percentage_difference": "What is the percentage difference",
+      "from": "from",
+      "to": "to",
+      "calculate": "Calculate",
+      "error": {
+        "please_enter_valid_numbers_for_both_fields": "Please enter valid numbers for both fields",
+        "total_cannot_be_zero": "Total cannot be zero",
+        "first_value_cannot_be_zero": "First value cannot be zero"
+      }
+    },
+    "passwordgenerator": {
+      "title": "Password generator",
+      "password_length": "Password length",
+      "number_of_digits": "Number of digits",
+      "number_of_special_characters": "Number of special characters",
+      "generate_password": "Generate password",
+      "password_copied_to_clipboard": "Password copied to clipboard",
+      "tap_to_copy": "Tap to copy",
+      "error": {
+        "password_length_must_be_greater_than_0": "Password length must be greater than 0",
+        "password_length_cannot_exceed_x_characters": "Password length cannot exceed $maxLength characters",
+        "password_length_cannot_be_less_than_the_sum_of_digits_and_special_characters": "Password length cannot be less than the sum of digits and special characters"
+      },
+      "generated_password": "Generated password"
+    },
+    "portscanner": {
+      "title": "Port scanner",
+      "host_to_scan": "Host to scan",
+      "start_port": "Start port",
+      "end_port": "End port",
+      "start_scan": "Start scan",
+      "stop_scan": "Stop scan",
+      "port": "Port",
+      "error": {
+        "please_enter_a_valid_host": "Please enter a valid host",
+        "please_enter_a_valid_port_number": "Please enter a valid port number (1-65535) for both fields"
+      },
+      "example_domain_or_ip": "example.com or 192.168.1.1",
+      "port_range": "Port Range",
+      "scan_progress": "Scan progress"
+    },
+    "commons": {
+      "title": "Commons",
+      "data_source_and_licensing": "Data source and licensing",
+      "data_source_and_licensing_description": "All media files are sourced from Wikimedia Commons and are subject to their respective licenses. Please ensure compliance with the terms of each license when using and downloading the media files.",
+      "open_wikimedia_commons": "Open Wikimedia Commons",
+      "search_files": "Search files",
+      "enter_search_query_to_find_files": "Enter a search query to find media files on Wikimedia Commons",
+      "view_on_wikimedia": "View on Wikimedia Commons",
+      "previous": "Previous",
+      "next": "Next",
+      "bytes": "B",
+      "kilobytes": "KB",
+      "megabytes": "MB",
+      "gigabytes": "GB",
+      "no_files_found": "No files found",
+      "close_preview": "Close preview",
+      "view_license_details": "View license details",
+      "download_media": "Download media",
+      "close": "Close",
+      "file_information": "File information",
+      "unknown_license": "Unknown license",
+      "mime_type": "MIME type",
+      "file_size": "File size",
+      "dimensions": "Dimensions",
+      "duration": "Duration",
+      "file_license": "File license",
+      "file_by": "File by",
+      "file_downloaded_successfully": "File downloaded successfully",
+      "downloading": "Downloading...",
+      "error": {
+        "error_downloading_file": "Error downloading file ($errorCode)",
+        "error_download_file_check_internet": "Error downloading file. Please check your internet connection and try again."
+      }
+    },
+    "crdeck": {
+      "title": "Clash Royale deck",
+      "clear_unlocked_deck_cards": "Clear unlocked deck cards",
+      "about_and_credits": "About and credits",
+      "about_and_credits_description": "This tool uses the official Clash Royale API provided by Supercell (via a Koizeay backend server). This tool is not affiliated with or endorsed by Supercell in any way. All Clash Royale content, including but not limited to images, names, and trademarks, are the property of Supercell.",
+      "supercell_website": "Supercell website",
+      "no_deck": "No deck",
+      "generate_new_deck": "Generate new deck",
+      "open_deck_in_clash_royale": "Open deck in Clash Royale",
+      "share_deck": "Share deck",
+      "search_cards": "Search cards",
+      "import_cards_from_player_profile": "Import cards from player profile",
+      "deselect_all_cards": "Deselect all cards",
+      "select_all_cards": "Select all cards",
+      "x_elixirs": "$elixirs elixirs",
+      "player_tag": "Player tag",
+      "import": "Import",
+      "importing_cards": "Importing cards...",
+      "share_deck_text_message": "Check out my Clash Royale deck created with Toolbox!\nOpen it in Clash Royale using this link: $url",
+      "error": {
+        "please_check_your_internet_connection": "Please check your internet connection and try again.",
+        "error_while_loading_cards_from_server": "An error occurred while loading the Clash Royale cards from the server.\nPlease check your network connection and try again.",
+        "failed_to_load_cards_from_server": "Failed to load Clash Royale cards from the server ($errorCode)",
+        "invalid_tag": "Invalid tag",
+        "please_enter_a_valid_player_tag": "Please enter a valid player tag",
+        "failed_to_import_cards_from_player_profile": "Failed to import cards from player profile ($errorCode), you can still import cards manually",
+        "an_error_occurred_while_importing_cards": "An error occurred while importing cards, you can still import cards manually",
+        "not_enough_cards_selected": "Not enough cards selected",
+        "please_select_at_least_x_more_cards": "Please select at least $numberOfCards more cards to create a valid deck",
+        "deck_is_full": "Deck is full",
+        "you_can_only_add_up_to_x_cards_to_the_deck": "You can only add up to $numberOfCards cards to the deck",
+        "card_already_in_deck": "Card already in deck",
+        "this_card_is_already_in_the_deck": "This card is already in the deck",
+        "incomplete_deck": "Incomplete deck",
+        "please_add_x_more_cards_to_the_deck_before_opening_it_in_clash_royale": "Please add $numberOfCards more cards to the deck before opening it in Clash Royale",
+        "please_add_x_more_cards_to_the_deck_before_sharing_it": "Please add $numberOfCards more cards to the deck before sharing it"
+      }
+    }
+  },
+  "credits": {
+    "title": "Credits",
+    "app_icon": "App icon by $author",
+    "app_license": "The app is licensed under the $license license",
+    "tools_icons": "Tools icons by $author",
+    "ads_disclaimer": "Ads are there to help me pay server costs and support the development of this app.\\nOnly a small banner is displayed at the bottom of the screen, nothing to block your Toolbox experience.",
+    "more_apps_and_services": "More apps and services",
+    "view_licenses": "View licenses",
+    "special_thanks": "Special thanks",
+    "contribute_on_github": "Contribute on GitHub",
+    "email_copied_to_clipboard": "Email copied to clipboard",
+    "made_with_love_in_switzerland": "Made with love in Switzerland",
+    "made_with_love_in_switzerland_description": "Made in Switzerland, used worldwide.\nThank you for using Toolbox.\nIf you like it, please consider leaving a review on the Play Store or App Store.\nIt helps me a lot and motivates me to keep improving the app.",
+    "translations": {
+      "title": "Translations",
+      "english": "English by $author",
+      "french": "French by $author"
+    }
+  }
+}

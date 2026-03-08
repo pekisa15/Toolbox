@@ -1,110 +1,116 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toolbox/core/shared_preferences.dart';
 import 'package:toolbox/models/home_folder.dart';
-import 'package:toolbox/pages/areacalculator_page.dart';
-import 'package:toolbox/pages/baseconverter_page.dart';
-import 'package:toolbox/pages/bitwisecalculator_page.dart';
-import 'package:toolbox/pages/characterscopy_page.dart';
-import 'package:toolbox/pages/clock_page.dart';
-import 'package:toolbox/pages/compass_page.dart';
-import 'package:toolbox/pages/counter_page.dart';
-import 'package:toolbox/pages/fileencryption_page.dart';
-import 'package:toolbox/pages/flipcoins_page.dart';
-import 'package:toolbox/pages/gameoflife_page.dart';
-import 'package:toolbox/pages/httprequest_page.dart';
-import 'package:toolbox/pages/mathtex_page.dart';
-import 'package:toolbox/pages/mcserverping_page.dart';
-import 'package:toolbox/pages/megaphone_page.dart';
-import 'package:toolbox/pages/metronome_page.dart';
-import 'package:toolbox/pages/morsecode_page.dart';
-import 'package:toolbox/pages/musicsearch_page.dart';
-import 'package:toolbox/pages/networkinfo_page.dart';
-import 'package:toolbox/pages/nationalanthems_page.dart';
-import 'package:toolbox/pages/nearbypublictransportstops_page.dart';
-import 'package:toolbox/pages/nslookup_page.dart';
-import 'package:toolbox/pages/osm_page.dart';
-import 'package:toolbox/pages/passwordgenerator_page.dart';
-import 'package:toolbox/pages/pastebin_page.dart';
-import 'package:toolbox/pages/percentagecalculator_page.dart';
-import 'package:toolbox/pages/ping_page.dart';
-import 'package:toolbox/pages/qrcreator_page.dart';
-import 'package:toolbox/pages/qrreader_page.dart';
-import 'package:toolbox/pages/randomcolor_page.dart';
-import 'package:toolbox/pages/randomnumber_page.dart';
-import 'package:toolbox/pages/romannumeral_page.dart';
-import 'package:toolbox/pages/roulette_page.dart';
-import 'package:toolbox/pages/sshclient_page.dart';
-import 'package:toolbox/pages/soundmeter_page.dart';
-import 'package:toolbox/pages/speedometer_page.dart';
-import 'package:toolbox/pages/stopwatch_page.dart';
-import 'package:toolbox/pages/musicanalyser_page.dart';
-import 'package:toolbox/pages/textcounter_page.dart';
-import 'package:toolbox/pages/textdifferences_page.dart';
-import 'package:toolbox/pages/texttospeech_page.dart';
-import 'package:toolbox/pages/timer_page.dart';
-import 'package:toolbox/pages/timestampconverter_page.dart';
-import 'package:toolbox/pages/urlshortener_page.dart';
-import 'package:toolbox/pages/uuidgenerator_page.dart';
-import 'package:toolbox/pages/whiteboard_page.dart';
-import 'package:toolbox/pages/whoisdomain_page.dart';
-import 'package:toolbox/pages/youtubethumbnail_page.dart';
+import 'package:toolbox/tools/areacalculator_page.dart';
+import 'package:toolbox/tools/baseconverter_page.dart';
+import 'package:toolbox/tools/bitwisecalculator_page.dart';
+import 'package:toolbox/tools/characterscopy_page.dart';
+import 'package:toolbox/tools/clock_page.dart';
+import 'package:toolbox/tools/commons_page.dart';
+import 'package:toolbox/tools/compass_page.dart';
+import 'package:toolbox/tools/counter_page.dart';
+import 'package:toolbox/tools/crdeck_page.dart';
+import 'package:toolbox/tools/fileencryption_page.dart';
+import 'package:toolbox/tools/flipcoins_page.dart';
+import 'package:toolbox/tools/gameoflife_page.dart';
+import 'package:toolbox/tools/httprequest_page.dart';
+import 'package:toolbox/tools/mathtex_page.dart';
+import 'package:toolbox/tools/mcserverping_page.dart';
+import 'package:toolbox/tools/megaphone_page.dart';
+import 'package:toolbox/tools/metronome_page.dart';
+import 'package:toolbox/tools/morsecode_page.dart';
+import 'package:toolbox/tools/musicsearch_page.dart';
+import 'package:toolbox/tools/networkinfo_page.dart';
+import 'package:toolbox/tools/nationalanthems_page.dart';
+import 'package:toolbox/tools/nearbypublictransportstops_page.dart';
+import 'package:toolbox/tools/nslookup_page.dart';
+import 'package:toolbox/tools/osm_page.dart';
+import 'package:toolbox/tools/passwordgenerator_page.dart';
+import 'package:toolbox/tools/pastebin_page.dart';
+import 'package:toolbox/tools/percentagecalculator_page.dart';
+import 'package:toolbox/tools/ping_page.dart';
+import 'package:toolbox/tools/portscanner_page.dart';
+import 'package:toolbox/tools/qrcreator_page.dart';
+import 'package:toolbox/tools/qrreader_page.dart';
+import 'package:toolbox/tools/randomcolor_page.dart';
+import 'package:toolbox/tools/randomnumber_page.dart';
+import 'package:toolbox/tools/romannumeral_page.dart';
+import 'package:toolbox/tools/roulette_page.dart';
+import 'package:toolbox/tools/sshclient_page.dart';
+import 'package:toolbox/tools/soundmeter_page.dart';
+import 'package:toolbox/tools/speedometer_page.dart';
+import 'package:toolbox/tools/stopwatch_page.dart';
+import 'package:toolbox/tools/musicanalyser_page.dart';
+import 'package:toolbox/tools/textcounter_page.dart';
+import 'package:toolbox/tools/textdifferences_page.dart';
+import 'package:toolbox/tools/texttospeech_page.dart';
+import 'package:toolbox/tools/timer_page.dart';
+import 'package:toolbox/tools/timestampconverter_page.dart';
+import 'package:toolbox/tools/urlshortener_page.dart';
+import 'package:toolbox/tools/uuidgenerator_page.dart';
+import 'package:toolbox/tools/whiteboard_page.dart';
+import 'package:toolbox/tools/whoisdomain_page.dart';
+import 'package:toolbox/tools/youtubethumbnail_page.dart';
 
 import 'models/home_tool.dart';
 import 'package:toolbox/gen/strings.g.dart';
 
 class Hierarchy {
-  static final Map<String, Tool> toolMap = {
-    "areacalculator": Tool(t.tools.areacalculator.title, "assets/images/tools/areacalculator.png", const AreaCalculatorPage()),
-    "baseconverter": Tool(t.tools.baseconverter.title, "assets/images/tools/baseconverter.png", const BaseConverterPage()),
-    "bitwisecalculator": Tool(t.tools.bitwisecalculator.title, "assets/images/tools/bitwisecalculator.png", const BitwiseCalculatorPage()),
-    "characterscopy": Tool(t.tools.characterscopy.title, "assets/images/tools/characterscopy.png", const CharactersCopyPage()),
-    "clock": Tool(t.tools.clock.title, "assets/images/tools/clock.png", const ClockPage()),
-    "compass": Tool(t.tools.compass.title, "assets/images/tools/compass.png", const CompassPage()),
-    "counter": Tool(t.tools.counter.title, "assets/images/tools/counter.png", const CounterPage()),
-    "fileencryption": Tool(t.tools.fileencryption.title, "assets/images/tools/fileencryption.png", const FileEncryptionPage()),
-    "flipcoins": Tool(t.tools.flipcoins.title, "assets/images/tools/flipcoins.png", const FlipCoinsPage()),
-    "gameoflife": Tool(t.tools.gameoflife.title, "assets/images/tools/gameoflife.png", const GameOfLifePage()),
-    "httprequest": Tool(t.tools.httprequest.title, "assets/images/tools/httprequest.png", const HttpRequestPage()),
-    "mathtex": Tool(t.tools.mathtex.title, "assets/images/tools/mathtex.png", const MathTexPage()),
-    "mcserverping": Tool(t.tools.mc_server_ping.title, "assets/images/tools/mcserverping.png", const McServerPingPage()),
-    "megaphone": Tool(t.tools.megaphone.title, "assets/images/tools/megaphone.png", const MegaphonePage()),
-    "metronome": Tool(t.tools.metronome.title, "assets/images/tools/metronome.png", const MetronomePage()),
-    "morsecode": Tool(t.tools.morsecode.title, "assets/images/tools/morsecode.png", const MorseCodePage()),
-    "musicanalyser": Tool(t.tools.musicanalyser.title, "assets/images/tools/musicanalyser.png", const MusicAnalyserPage()),
-    "musicsearch": Tool(t.tools.musicsearch.title, "assets/images/tools/musicsearch.png", const MusicSearchPage()),
-    "nationalanthems": Tool(t.tools.nationalanthems.title, "assets/images/tools/nationalanthems.png", const NationalAnthemsPage()),
-    "nearbypublictransportstops": Tool(t.tools.nearbypublictransportstops.title, "assets/images/tools/nearbypublictransportstops.png", const NearbyPublicTransportStopsPage()),
-    "networkinfo": Tool(t.tools.networkinfo.title, "assets/images/tools/networkinfo.png", const NetworkInfoPage()),
-    "nslookup": Tool(t.tools.nslookup.title, "assets/images/tools/nslookup.png", const NslookupPage()),
-    "osm": Tool(t.tools.osm.title, "assets/images/tools/osm.png", const OsmPage()),
-    "passwordgenerator": Tool(t.tools.passwordgenerator.title, "assets/images/tools/passwordgenerator.png", const PasswordGeneratorPage()),
-    "pastebin": Tool(t.tools.pastebin.title, "assets/images/tools/pastebin.png", const PastebinPage()),
-    "percentagecalculator": Tool(t.tools.percentagecalculator.title, "assets/images/tools/percentagecalculator.png", const PercentageCalculatorPage()),
-    "ping": Tool(t.tools.ping.title, "assets/images/tools/ping.png", const PingPage()),
-    "qrcreator": Tool(t.tools.qrcreator.title, "assets/images/tools/qrcreator.png", const QrCreatorPage()),
-    "qrreader": Tool(t.tools.qrreader.title, "assets/images/tools/qrreader.png", const QrReaderPage()),
-    "randomcolor": Tool(t.tools.randomcolor.title, "assets/images/tools/randomcolor.png", const RandomColorPage()),
-    "randomnumber": Tool(t.tools.randomnumber.title, "assets/images/tools/randomnumber.png", const RandomNumberPage()),
-    "romannumeral": Tool(t.tools.romannumeral.title, "assets/images/tools/romannumeral.png", const RomanNumeralPage()),
-    "roulette": Tool(t.tools.roulette.title, "assets/images/tools/roulette.png", const RoulettePage()),
-    "soundmeter": Tool(t.tools.soundmeter.title, "assets/images/tools/soundmeter.png", const SoundMeterPage()),
-    "speedometer": Tool(t.tools.speedometer.title, "assets/images/tools/speedometer.png", const SpeedometerPage()),
-    "sshclient": Tool(t.tools.sshclient.title, "assets/images/tools/sshclient.png", const SshClientPage()),
-    "stopwatch": Tool(t.tools.stopwatch.title, "assets/images/tools/stopwatch.png", const StopwatchPage()),
-    "textcounter": Tool(t.tools.textcounter.title, "assets/images/tools/textcounter.png", const TextCounterPage()),
-    "textdifferences": Tool(t.tools.textdifferences.title, "assets/images/tools/textdifferences.png", const TextDifferencesPage()),
-    "texttospeech": Tool(t.tools.texttospeech.title, "assets/images/tools/texttospeech.png", const TextToSpeechPage()),
-    "timer": Tool(t.tools.timer.title, "assets/images/tools/timer.png", const TimerPage()),
-    "timestampconverter": Tool(t.tools.timestampconverter.title, "assets/images/tools/timestampconverter.png", const TimestampConverterPage()),
-    "urlshortener": Tool(t.tools.urlshortener.title, "assets/images/tools/urlshortener.png", const UrlShortenerPage()),
-    "uuidgenerator": Tool(t.tools.uuidgenerator.title, "assets/images/tools/uuidgenerator.png", const UuidGeneratorPage()),
-    "whiteboard": Tool(t.tools.whiteboard.title, "assets/images/tools/whiteboard.png", const WhiteBoardPage()),
-    "whoisdomain": Tool(t.tools.whoisdomain.title, "assets/images/tools/whoisdomain.png", const WhoisDomainPage()),
-    "youtubethumbnail": Tool(t.tools.youtubethumbnail.title, "assets/images/tools/youtubethumbnail.png", const YouTubeThumbnailPage())
+  static final Map<String, HomeTool> toolMap = {
+    "areacalculator": HomeTool(t.tools.areacalculator.title, "assets/images/tools/areacalculator.png", const AreaCalculatorPage()),
+    "baseconverter": HomeTool(t.tools.baseconverter.title, "assets/images/tools/baseconverter.png", const BaseConverterPage()),
+    "bitwisecalculator": HomeTool(t.tools.bitwisecalculator.title, "assets/images/tools/bitwisecalculator.png", const BitwiseCalculatorPage()),
+    "characterscopy": HomeTool(t.tools.characterscopy.title, "assets/images/tools/characterscopy.png", const CharactersCopyPage()),
+    "clock": HomeTool(t.tools.clock.title, "assets/images/tools/clock.png", const ClockPage()),
+    "commons": HomeTool("Commons", "assets/images/tools/commons.png", const CommonsPage()),
+    "compass": HomeTool(t.tools.compass.title, "assets/images/tools/compass.png", const CompassPage()),
+    "counter": HomeTool(t.tools.counter.title, "assets/images/tools/counter.png", const CounterPage()),
+    "crdeck": HomeTool(t.tools.crdeck.title, "assets/images/tools/crdeck.png", const CrDeckPage()),
+    "fileencryption": HomeTool(t.tools.fileencryption.title, "assets/images/tools/fileencryption.png", const FileEncryptionPage()),
+    "flipcoins": HomeTool(t.tools.flipcoins.title, "assets/images/tools/flipcoins.png", const FlipCoinsPage()),
+    "gameoflife": HomeTool(t.tools.gameoflife.title, "assets/images/tools/gameoflife.png", const GameOfLifePage()),
+    "httprequest": HomeTool(t.tools.httprequest.title, "assets/images/tools/httprequest.png", const HttpRequestPage()),
+    "mathtex": HomeTool(t.tools.mathtex.title, "assets/images/tools/mathtex.png", const MathTexPage()),
+    "mcserverping": HomeTool(t.tools.mc_server_ping.title, "assets/images/tools/mcserverping.png", const McServerPingPage()),
+    "megaphone": HomeTool(t.tools.megaphone.title, "assets/images/tools/megaphone.png", const MegaphonePage()),
+    "metronome": HomeTool(t.tools.metronome.title, "assets/images/tools/metronome.png", const MetronomePage()),
+    "morsecode": HomeTool(t.tools.morsecode.title, "assets/images/tools/morsecode.png", const MorseCodePage()),
+    "musicanalyser": HomeTool(t.tools.musicanalyser.title, "assets/images/tools/musicanalyser.png", const MusicAnalyserPage()),
+    "musicsearch": HomeTool(t.tools.musicsearch.title, "assets/images/tools/musicsearch.png", const MusicSearchPage()),
+    "nationalanthems": HomeTool(t.tools.nationalanthems.title, "assets/images/tools/nationalanthems.png", const NationalAnthemsPage()),
+    "nearbypublictransportstops": HomeTool(t.tools.nearbypublictransportstops.title, "assets/images/tools/nearbypublictransportstops.png", const NearbyPublicTransportStopsPage()),
+    "networkinfo": HomeTool(t.tools.networkinfo.title, "assets/images/tools/networkinfo.png", const NetworkInfoPage()),
+    "nslookup": HomeTool(t.tools.nslookup.title, "assets/images/tools/nslookup.png", const NslookupPage()),
+    "osm": HomeTool(t.tools.osm.title, "assets/images/tools/osm.png", const OsmPage()),
+    "passwordgenerator": HomeTool(t.tools.passwordgenerator.title, "assets/images/tools/passwordgenerator.png", const PasswordGeneratorPage()),
+    "pastebin": HomeTool(t.tools.pastebin.title, "assets/images/tools/pastebin.png", const PastebinPage()),
+    "percentagecalculator": HomeTool(t.tools.percentagecalculator.title, "assets/images/tools/percentagecalculator.png", const PercentageCalculatorPage()),
+    "ping": HomeTool(t.tools.ping.title, "assets/images/tools/ping.png", const PingPage()),
+    "portscanner": HomeTool(t.tools.portscanner.title, "assets/images/tools/portscanner.png", const PortScanner()),
+    "qrcreator": HomeTool(t.tools.qrcreator.title, "assets/images/tools/qrcreator.png", const QrCreatorPage()),
+    "qrreader": HomeTool(t.tools.qrreader.title, "assets/images/tools/qrreader.png", const QrReaderPage()),
+    "randomcolor": HomeTool(t.tools.randomcolor.title, "assets/images/tools/randomcolor.png", const RandomColorPage()),
+    "randomnumber": HomeTool(t.tools.randomnumber.title, "assets/images/tools/randomnumber.png", const RandomNumberPage()),
+    "romannumeral": HomeTool(t.tools.romannumeral.title, "assets/images/tools/romannumeral.png", const RomanNumeralPage()),
+    "roulette": HomeTool(t.tools.roulette.title, "assets/images/tools/roulette.png", const RoulettePage()),
+    "soundmeter": HomeTool(t.tools.soundmeter.title, "assets/images/tools/soundmeter.png", const SoundMeterPage()),
+    "speedometer": HomeTool(t.tools.speedometer.title, "assets/images/tools/speedometer.png", const SpeedometerPage()),
+    "sshclient": HomeTool(t.tools.sshclient.title, "assets/images/tools/sshclient.png", const SshClientPage()),
+    "stopwatch": HomeTool(t.tools.stopwatch.title, "assets/images/tools/stopwatch.png", const StopwatchPage()),
+    "textcounter": HomeTool(t.tools.textcounter.title, "assets/images/tools/textcounter.png", const TextCounterPage()),
+    "textdifferences": HomeTool(t.tools.textdifferences.title, "assets/images/tools/textdifferences.png", const TextDifferencesPage()),
+    "texttospeech": HomeTool(t.tools.texttospeech.title, "assets/images/tools/texttospeech.png", const TextToSpeechPage()),
+    "timer": HomeTool(t.tools.timer.title, "assets/images/tools/timer.png", const TimerPage()),
+    "timestampconverter": HomeTool(t.tools.timestampconverter.title, "assets/images/tools/timestampconverter.png", const TimestampConverterPage()),
+    "urlshortener": HomeTool(t.tools.urlshortener.title, "assets/images/tools/urlshortener.png", const UrlShortenerPage()),
+    "uuidgenerator": HomeTool(t.tools.uuidgenerator.title, "assets/images/tools/uuidgenerator.png", const UuidGeneratorPage()),
+    "whiteboard": HomeTool(t.tools.whiteboard.title, "assets/images/tools/whiteboard.png", const WhiteBoardPage()),
+    "whoisdomain": HomeTool(t.tools.whoisdomain.title, "assets/images/tools/whoisdomain.png", const WhoisDomainPage()),
+    "youtubethumbnail": HomeTool(t.tools.youtubethumbnail.title, "assets/images/tools/youtubethumbnail.png", const YouTubeThumbnailPage())
   };
 
   static final List<dynamic> hierarchy = [
-    Folder(t.folders.audio, "assets/images/folders/folder.png", [
+    HomeFolder(t.categories.audio, "assets/images/folders/folder_audio.png", [
       toolMap["metronome"],
       toolMap["morsecode"],
       toolMap["musicanalyser"],
@@ -113,7 +119,7 @@ class Hierarchy {
       toolMap["soundmeter"],
       toolMap["texttospeech"],
     ]),
-    Folder(t.folders.calculations, "assets/images/folders/folder.png", [
+    HomeFolder(t.categories.calculations, "assets/images/folders/folder_calculations.png", [
       toolMap["areacalculator"],
       toolMap["baseconverter"],
       toolMap["bitwisecalculator"],
@@ -122,18 +128,19 @@ class Hierarchy {
       toolMap["romannumeral"],
       toolMap["textcounter"],
     ]),
-    Folder(t.folders.games, "assets/images/folders/folder.png", [
+    HomeFolder(t.categories.games, "assets/images/folders/folder_games.png", [
+      toolMap["crdeck"],
       toolMap["gameoflife"],
       toolMap["mcserverping"],
     ]),
-    Folder(t.folders.geography, "assets/images/folders/folder.png", [
+    HomeFolder(t.categories.geography, "assets/images/folders/folder_geography.png", [
       toolMap["compass"],
       toolMap["osm"],
       toolMap["nearbypublictransportstops"],
       toolMap["nationalanthems"],
       toolMap["speedometer"],
     ]),
-    Folder(t.folders.miscellaneous, "assets/images/folders/folder.png", [
+    HomeFolder(t.categories.miscellaneous, "assets/images/folders/folder_miscellaneous.png", [
       toolMap["characterscopy"],
       toolMap["counter"],
       toolMap["fileencryption"],
@@ -142,16 +149,17 @@ class Hierarchy {
       toolMap["textdifferences"],
       toolMap["whiteboard"],
     ]),
-    Folder(t.folders.network, "assets/images/folders/folder.png", [
+    HomeFolder(t.categories.network, "assets/images/folders/folder_network.png", [
       toolMap["httprequest"],
       toolMap["mcserverping"],
       toolMap["networkinfo"],
       toolMap["nslookup"],
       toolMap["ping"],
+      toolMap["portscanner"],
       toolMap["sshclient"],
       toolMap["whoisdomain"],
     ]),
-    Folder(t.folders.random, "assets/images/folders/folder.png", [
+    HomeFolder(t.categories.random, "assets/images/folders/folder_random.png", [
       toolMap["flipcoins"],
       toolMap["passwordgenerator"],
       toolMap["randomcolor"],
@@ -159,13 +167,13 @@ class Hierarchy {
       toolMap["roulette"],
       toolMap["uuidgenerator"],
     ]),
-    Folder(t.folders.time, "assets/images/folders/folder.png", [
+    HomeFolder(t.categories.time, "assets/images/folders/folder_time.png", [
       toolMap["clock"],
       toolMap["stopwatch"],
       toolMap["timer"],
       toolMap["timestampconverter"],
     ]),
-    Folder(t.folders.web, "assets/images/folders/folder.png", [
+    HomeFolder(t.categories.web, "assets/images/folders/folder_web.png", [
       toolMap["pastebin"],
       toolMap["httprequest"],
       toolMap["urlshortener"],
@@ -173,12 +181,12 @@ class Hierarchy {
     ]),
   ];
 
-  static List<Tool> getFlatHierarchy() {
-    List<Tool> uniqueItems = [];
+  static List<HomeTool> getFlatHierarchy() {
+    List<HomeTool> uniqueItems = [];
     Set<String> uniqueNames = {};
 
     List<dynamic> flatten(dynamic item) {
-      if (item is Folder) {
+      if (item is HomeFolder) {
         return item.content.expand(flatten).toList();
       } else {
         return [item];
@@ -188,7 +196,7 @@ class Hierarchy {
     List<dynamic> flat = hierarchy.expand(flatten).toList();
 
     for (var item in flat) {
-      if (item is Tool && !uniqueNames.contains(item.name)) {
+      if (item is HomeTool && !uniqueNames.contains(item.name)) {
         uniqueItems.add(item);
         uniqueNames.add(item.name);
       }
@@ -196,7 +204,7 @@ class Hierarchy {
     return uniqueItems;
   }
 
-  static String findToolIdByInstance(Tool tool) {
+  static String findToolIdByInstance(HomeTool tool) {
     return Hierarchy.toolMap.entries
         .firstWhere((entry) => entry.value == tool)
         .key;

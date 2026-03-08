@@ -1,29 +1,18 @@
-
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:toolbox/core/dialogs.dart';
 import 'package:toolbox/core/url.dart';
 import 'package:toolbox/gen/strings.g.dart';
+import 'package:toolbox/widgets/credits_action_card.dart';
+import 'package:toolbox/widgets/credits_info_card.dart';
 
-class CreditsPage extends StatefulWidget {
-  const CreditsPage({ super.key });
-  @override
-  State<CreditsPage> createState() => _CreditsPage();
-}
-
-class _CreditsPage extends State<CreditsPage> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
+class CreditsPage extends StatelessWidget {
+  const CreditsPage({super.key});
+  final _appLicense = "Mozilla Public License 2.0";
 
   void showSwissDialog(BuildContext context) {
     showOkTextDialog(
@@ -33,306 +22,266 @@ class _CreditsPage extends State<CreditsPage> {
     );
   }
 
+  Future<String> getAppVersionString() async {
+    try {
+      final packageInfo = await PackageInfo.fromPlatform();
+      return "${packageInfo.version} (${packageInfo.buildNumber})";
+    } catch (e) {
+      return "-";
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Scaffold(
+      backgroundColor: colorScheme.surface,
       appBar: AppBar(
         title: Text(t.credits.title),
+        centerTitle: true,
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(
-            children: [
-              SizedBox(
-                width: double.infinity,
-                child: Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Text(
-                      t.credits.app_license(license: "Mozilla Public License 2.0"),
-                      style: const TextStyle(fontSize: 20),
-                      textAlign: TextAlign.center,
+        child: ListView(
+          padding: const EdgeInsets.all(16),
+          children: [
+            CreditsInfoCard(
+              icon: Icons.gavel_outlined,
+              title: t.credits.app_license(license: _appLicense),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () {
+                showLicensePage(
+                  context: context,
+                  applicationName: t.generic.app_name,
+                  applicationLegalese: t.credits.app_license(license: _appLicense),
+                  applicationIcon: const Padding(
+                    padding: EdgeInsets.all(4.0),
+                    child: Image(
+                      image: AssetImage("assets/images/icons/icon_rounded.png"),
+                      width: 50,
+                      height: 50,
                     ),
                   ),
-                ),
-              ),
-              SizedBox(
-                width: double.infinity,
-                child: Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Text(
-                      t.credits.app_icon(author: "Koizeay + Icons8"),
-                      style: const TextStyle(fontSize: 20),
-                      textAlign: TextAlign.center,
+                );
+              },
+            ),
+            const SizedBox(height: 12),
+            CreditsInfoCard(
+              icon: Icons.palette_outlined,
+              title: t.credits.app_icon(author: "Koizeay + Icons8"),
+            ),
+            const SizedBox(height: 12),
+            CreditsInfoCard(
+              icon: Icons.image_outlined,
+              title: t.credits.tools_icons(author: "Icons8"),
+              subtitle: "www.icons8.com",
+              trailing: const Icon(Icons.open_in_new),
+              onTap: () => launchUrlInBrowser("https://www.icons8.com/"),
+            ),
+            const SizedBox(height: 12),
+            CreditsInfoCard(
+              icon: Icons.translate,
+              title: t.credits.translations.title,
+              subtitle: "${t.credits.translations.english(author: "Koizeay")}"
+                  "\n${t.credits.translations.french(author: "Koizeay")}",
+            ),
+            const SizedBox(height: 12),
+            Card(
+              elevation: 2,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  children: [
+                    const ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(32)),
+                      child: Image(
+                        image: AssetImage("assets/images/specific/credits_koizeay_avatar.png"),
+                        width: 64,
+                        height: 64,
+                      ),
                     ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: double.infinity,
-                child: Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Column(
-                      children: [
-                        Text(
-                          t.credits.tools_icons(author: "Icons8"),
-                          style: const TextStyle(fontSize: 20),
-                          textAlign: TextAlign.center,
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            launchUrlInBrowser("https://www.icons8.com/");
-                          },
-                          child: const Text(
-                            "https://www.icons8.com/",
-                            style: TextStyle(fontSize: 15),
-                            textAlign: TextAlign.center,
+                    const SizedBox(height: 12),
+                    Text(
+                      "Koizeay",
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    InkWell(
+                      onTap: () => launchUrlInBrowser("https://koizeay.com"),
+                      borderRadius: BorderRadius.circular(8),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                        child: Text(
+                          "koizeay.com",
+                          style: TextStyle(
+                            color: colorScheme.primary,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
-                      ],
+                      ),
                     ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: double.infinity,
-                child: Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Column(
-                      children: [
-                        Text(
-                          t.credits.translations.title,
-                          style: const TextStyle(fontSize: 20),
-                          textAlign: TextAlign.center,
-                        ),
-                        Text(
-                          t.credits.translations.english(author: "Koizeay"),
-                          style: const TextStyle(fontSize: 16),
-                          textAlign: TextAlign.center,
-                        ),
-                        Text(
-                          t.credits.translations.french(author: "Koizeay"),
-                          style: const TextStyle(fontSize: 16),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: double.infinity,
-                child: Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Row(
+                    const SizedBox(height: 16),
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         IconButton(
+                          tooltip: "Email",
                           onPressed: () {
                             Clipboard.setData(const ClipboardData(text: "me@koizeay.com"));
                             ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text(t.credits.email_copied_to_clipboard))
+                              SnackBar(content: Text(t.credits.email_copied_to_clipboard)),
                             );
                           },
                           icon: SvgPicture.asset(
                             "assets/images/specific/credits_email.svg",
                             colorFilter: ColorFilter.mode(
-                                Theme.of(context).brightness == Brightness.dark
-                                    ? Colors.white
-                                    : Colors.black,
-                                BlendMode.srcIn
+                              colorScheme.onSurface,
+                              BlendMode.srcIn,
                             ),
-                            width: 25,
-                            height: 25,
-                          )
+                            width: 24,
+                            height: 24,
+                          ),
                         ),
                         IconButton(
-                          onPressed: () {
-                            launchUrlInBrowser("https://instagram.com/koizeay.dev");
-                          },
+                          tooltip: "Instagram",
+                          onPressed: () => launchUrlInBrowser("https://instagram.com/koizeay.dev"),
                           icon: SvgPicture.asset(
                             "assets/images/specific/credits_instagram.svg",
                             colorFilter: ColorFilter.mode(
-                                Theme.of(context).brightness == Brightness.dark
-                                    ? Colors.white
-                                    : Colors.black,
-                                BlendMode.srcIn
+                              colorScheme.onSurface,
+                              BlendMode.srcIn,
                             ),
-                            width: 25,
-                            height: 25,
-                          )
+                            width: 24,
+                            height: 24,
+                          ),
                         ),
                         IconButton(
-                          onPressed: () {
-                            launchUrlInBrowser("https://bsky.app/profile/koizeay.dev");
-                          },
+                          tooltip: "Bluesky",
+                          onPressed: () => launchUrlInBrowser("https://bsky.app/profile/koizeay.dev"),
                           icon: SvgPicture.asset(
                             "assets/images/specific/credits_bluesky.svg",
                             colorFilter: ColorFilter.mode(
-                                Theme.of(context).brightness == Brightness.dark
-                                    ? Colors.white
-                                    : Colors.black,
-                                BlendMode.srcIn
+                              colorScheme.onSurface,
+                              BlendMode.srcIn,
                             ),
-                            width: 25,
-                            height: 25,
-                          )
+                            width: 24,
+                            height: 24,
+                          ),
                         ),
                         IconButton(
-                          onPressed: () {
-                            launchUrlInBrowser("https://jtu.me/discord");
-                          },
+                          tooltip: "Discord",
+                          onPressed: () => launchUrlInBrowser("https://jtu.me/discord"),
                           icon: SvgPicture.asset(
                             "assets/images/specific/credits_discord.svg",
                             colorFilter: ColorFilter.mode(
-                                Theme.of(context).brightness == Brightness.dark
-                                    ? Colors.white
-                                    : Colors.black,
-                                BlendMode.srcIn
+                              colorScheme.onSurface,
+                              BlendMode.srcIn,
                             ),
-                            width: 25,
-                            height: 25,
-                          )
+                            width: 24,
+                            height: 24,
+                          ),
                         ),
                       ],
-                    )
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 12),
+            CreditsInfoCard(
+              icon: Icons.people_outline,
+              title: t.credits.special_thanks,
+              subtitle: "@TitimothyDev\n@pekisa15",
+            ),
+            const SizedBox(height: 12),
+            CreditsActionCard(
+              icon: Icons.code_outlined,
+              title: t.credits.contribute_on_github,
+              color: colorScheme.primaryContainer,
+              textColor: colorScheme.onPrimaryContainer,
+              onTap: () => launchUrlInBrowser("https://github.com/Koizeay/Toolbox"),
+            ),
+            const SizedBox(height: 12),
+            CreditsActionCard(
+              icon: Icons.favorite,
+              title: t.credits.made_with_love_in_switzerland,
+              customContent: Padding(
+                padding: const EdgeInsets.only(top: 8),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(4),
+                  child: Image.asset(
+                    "assets/images/specific/credits_swiss_flag.png",
+                    width: 32,
+                    height: 32,
                   ),
                 ),
               ),
-              SizedBox(
-                width: double.infinity,
-                child: Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: GestureDetector(
-                      onTap: () {
-                        launchUrlInBrowser("https://koizeay.com");
-                      },
-                      child: const Text(
-                        "https://koizeay.com",
-                        style: TextStyle(fontSize: 14, fontStyle: FontStyle.italic),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
+              onTap: () => showSwissDialog(context),
+            ),
+            const SizedBox(height: 12),
+            CreditsActionCard(
+              icon: Icons.apps,
+              title: t.credits.more_apps_and_services,
+              color: colorScheme.primary,
+              textColor: colorScheme.onPrimary,
+              onTap: () => launchUrlInBrowser("https://jtu.me/projects"),
+            ),
+            if (Platform.isAndroid) ...[
+              const SizedBox(height: 12),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: Text(
+                  t.credits.ads_disclaimer,
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    color: colorScheme.onSurfaceVariant,
+                    fontStyle: FontStyle.italic,
                   ),
-                ),
-              ),
-              if (Platform.isAndroid)
-              SizedBox(
-                width: double.infinity,
-                child: Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Text(
-                      t.credits.ads_disclaimer,
-                      style: const TextStyle(fontSize: 12, fontStyle: FontStyle.italic),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  showLicensePage(
-                    context: context,
-                    applicationName: t.generic.app_name,
-                    applicationLegalese: t.credits.app_license(license: "Mozilla Public License 2.0"),
-                    applicationIcon: const Padding(
-                      padding: EdgeInsets.all(4.0),
-                      child: Image(image: AssetImage("assets/images/icons/icon_rounded.png"), width: 50, height: 50),
-                    )
-                  );
-                },
-                child: SizedBox(
-                  width: double.infinity,
-                  child: Card(
-                    child: Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Text(
-                        t.credits.view_licenses,
-                        style: TextStyle(fontSize: 14, color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.bold),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  launchUrlInBrowser("https://github.com/Koizeay/Toolbox");
-                },
-                child: SizedBox(
-                  width: double.infinity,
-                  child: Card(
-                    child: Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Text(
-                        t.credits.contribute_on_github,
-                        style: TextStyle(fontSize: 20, color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.bold),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  showSwissDialog(context);
-                },
-                child: SizedBox(
-                  width: double.infinity,
-                  child: Card(
-                    child: Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Column(
-                        children: [
-                          Text(
-                            t.credits.made_with_love_in_switzerland,
-                            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                            textAlign: TextAlign.center,
-                          ),
-                          const SizedBox(height: 8,),
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(5),
-                            child: Image.asset(
-                              "assets/images/specific/credits_swiss_flag.png",
-                              width: 25,
-                              height: 25,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  launchUrlInBrowser("https://jtu.me/projects");
-                },
-                child: SizedBox(
-                  width: double.infinity,
-                  child: Card(
-                    color: Theme.of(context).colorScheme.primary,
-                    child: Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Text(
-                        t.credits.more_apps_and_services,
-                        style: const TextStyle(fontSize: 18, color: Colors.white, fontWeight: FontWeight.bold),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
+                  textAlign: TextAlign.center,
                 ),
               ),
             ],
-          ),
+            const SizedBox(height: 12),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: FutureBuilder(
+                future: getAppVersionString(),
+                builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return Text(
+                      "...",
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        color: colorScheme.onSurfaceVariant,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    );
+                  } else if (snapshot.hasError) {
+                    return Text(
+                      "-",
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        color: colorScheme.onSurfaceVariant,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    );
+                  } else {
+                    return Text(
+                      "${snapshot.data}",
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        color: colorScheme.onSurfaceVariant,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    );
+                  }
+                },
+              ),
+            ),
+            const SizedBox(height: 16),
+          ],
         ),
       ),
     );

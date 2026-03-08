@@ -149,6 +149,21 @@ class _MusicSearchPage extends State<MusicSearchPage> {
                                 StackTrace? stackTrace) {
                               return const Icon(Icons.person, size: 40);
                             },
+                            loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
+                              if (loadingProgress == null) {
+                                return child;
+                              }
+                              return SizedBox(
+                                width: 40,
+                                height: 40,
+                                child: Center(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: CircularProgressIndicator(),
+                                  ),
+                                ),
+                              );
+                            },
                           ),
                         ),
                       ),
@@ -178,6 +193,21 @@ class _MusicSearchPage extends State<MusicSearchPage> {
                             errorBuilder: (BuildContext context, Object error,
                                 StackTrace? stackTrace) {
                               return const Icon(Icons.album, size: 40);
+                            },
+                            loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
+                              if (loadingProgress == null) {
+                                return child;
+                              }
+                              return SizedBox(
+                                width: 40,
+                                height: 40,
+                                child: Center(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: CircularProgressIndicator(),
+                                  ),
+                                ),
+                              );
                             },
                           ),
                         ),
@@ -243,8 +273,7 @@ class _MusicSearchPage extends State<MusicSearchPage> {
                       [
                         TextButton(
                           onPressed: () {
-                            launchUrlInBrowser(
-                                "https://developers.deezer.com/api");
+                            launchUrlInBrowser("https://developers.deezer.com/api");
                             Navigator.of(context).pop();
                           },
                           child: Text(t.tools.musicsearch.go_to_x(service: serviceName)),
@@ -287,7 +316,7 @@ class _MusicSearchPage extends State<MusicSearchPage> {
                       textAlign: TextAlign.center,))
                         : musicList.isEmpty
                         ? Center(child: Text(
-                      t.tools.musicsearch.use_the_searchbar_to_search_music,
+                      t.tools.musicsearch.use_the_searchbar_to_search_music(service: "Deezer"),
                       style: const TextStyle(fontSize: 16),
                       textAlign: TextAlign.center,))
                         : ListView.builder(
@@ -312,14 +341,29 @@ class _MusicSearchPage extends State<MusicSearchPage> {
                               leading: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
                                 child: Image(
-                                  width: 60,
-                                  height: 60,
+                                  width: 50,
+                                  height: 50,
                                   image: NetworkImage(
-                                      musicList[index].albumPictureUrl
+                                      musicList[index].albumPictureUrl,
                                   ),
-                                  errorBuilder: (BuildContext context, Object error,
-                                      StackTrace? stackTrace) {
-                                    return const Icon(Icons.error);
+                                  loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
+                                    if (loadingProgress == null) {
+                                      return child;
+                                    }
+                                    return SizedBox(
+                                      width: 60,
+                                      height: 60,
+                                      child: Center(
+                                        child: CircularProgressIndicator(),
+                                      ),
+                                    );
+                                  },
+                                  errorBuilder: (BuildContext context, Object error, StackTrace? stackTrace) {
+                                    return SizedBox(
+                                        width: 60,
+                                        height: 60,
+                                        child: const Icon(Icons.error)
+                                    );
                                   },
                                 ),
                               ),

@@ -43,27 +43,27 @@ Finally you can run the project on your device, on an emulator or on a simulator
 **Warning**, if you want to add a new tool, you need to have some knowledge in Flutter and Dart.\
 Be sure to respect the code style of the project (see below).\
 To add a new tool, please follow these steps:
-1. Create a new file in the `lib/pages` folder with the name of your tool finished by `_page.dart` (e.g. `my_tool_page.dart`). You can copy/paste the content of the `lib/pages/templates/tool_template_page.dart` file to start.
+1. Create a new file in the `lib/tools` folder with the name of your tool finished by `_page.dart` (e.g. `my_tool_page.dart`). You can copy/paste the content of the `lib/tools/templates/tool_template_page.dart` file to start.
 2. Code your tool in the new file, you can install packages if needed (via [pub.dev](https://pub.dev)).
 3. Add your tool to the `lib/hierarchy.dart` file by importing it and adding it to the `toolMap` map and in the correct folder (using the `hierarchy` list).
 
 ### Improve an existing tool
-If you want to improve an existing tool, you can do it by editing the corresponding file in the `lib/pages` folder.\
+If you want to improve an existing tool, you can do it by editing the corresponding file in the `lib/tools` folder.\
 Please respect the code style of the project (see below).
 
 ### Translate the app
 **It's very easy to translate the app and you don't need to know how to code.** \
-If you want to translate the app in a new language, you can do it by adding a file called `strings_{language_code}.i18n.json` in the `assets/translations` folder (e.g. `strings_fr.i18n.json` for French).\
-You can copy/paste the content of the `assets/translations/strings.i18n.json` file to start.\
+If you want to translate the app in a new language, you can do it by adding a file called `{language_code}.i18n.json` in the `assets/translations` folder (e.g. `fr.i18n.json` for French).\
+You can copy/paste the content of the `assets/translations/en.i18n.json` file to start.\
 Then you can translate the strings in the file.\
 Once you have finished, you need to run this command in the terminal (in the project folder):
 ```bash
-flutter pub run slang
+dart run slang
 ```
 Finally you need to add the `<string>{language_code}</string>` line to the `CFBundleLocalizations` list in the `ios/Runner/Info.plist` file.
 
 ## Code style and little rules
-You can write your code as you want but please respect these rules:
+Here are some rules to follow when coding in this project:
 - Please use English for the code and the comments.
 - Please use the `camelCase` notation for the variables and the functions.
 - Please use the `PascalCase` notation for the classes.
@@ -94,7 +94,8 @@ You can write your code as you want but please respect these rules:
   - Please use the `lib/core/shared_preferences.dart` file to define the shared preferences keys.
   - Please use the `lib/core/url.dart` file to open URLs outside the app or check if an URL is valid.
 - Please avoid using custom fonts, prefer using the default ones.
-- Please do not use custom colors, a theme is already defined.
+    - If you need to use a monospace font, you can use the `Roboto Mono` font with bold weight.
+- Please avoid using custom colors, a theme is already defined.
 - Please do not use custom icons, you can use the `Icons` class.
 - Please respect the assets structure.
 - **Have fun**.
@@ -113,7 +114,7 @@ If you have any question, you can contact me by email at [me@koizeay.com](mailto
   <img src="https://raw.githubusercontent.com/Koizeay/Toolbox/main/.github/screenshot07.png" alt="Screenshot 07" height="400">
   <img src="https://raw.githubusercontent.com/Koizeay/Toolbox/main/.github/screenshot08.png" alt="Screenshot 08" height="400">
   <img src="https://raw.githubusercontent.com/Koizeay/Toolbox/main/.github/screenshot09.png" alt="Screenshot 09" height="400">
-  <img src="https://raw.githubusercontent.com/Koizeay/Toolbox/main/.github/screenshot10.png" alt="Screenshot 19" height="400">
+  <img src="https://raw.githubusercontent.com/Koizeay/Toolbox/main/.github/screenshot10.png" alt="Screenshot 10" height="400">
 </p>
 
 ## License
@@ -125,5 +126,15 @@ _This project was (up to and including version 1.18.0) under the [GNU General Pu
 _You can read the declaration of the license change [here](https://koizeay.com/static/toolbox/license_change_from_gpl-3.0_to_mpl-2.0.pdf)._
 
 ## Credits
-- [Koizeay](https://koizeay.com) - Main developer
-- [Icons8](https://www.icons8.com/) - Tools icons + App icon
+- [Jérémy Turin (Koizeay)](https://koizeay.com) - Main developer
+
+### Special thanks
+- [TitimothyDev (@TitimothyDev)](https://github.com/TitimothyDev) 
+- [Petar Nikolić (@pekisa15)](https://github.com/pekisa15)
+
+### Data sources and licenses
+- [Icons8](https://www.icons8.com/) - Thanks to Icons8 for providing all tools icons (and app icon) for free
+- [OpenStreetMap](https://www.openstreetmap.org/) - Thanks to OpenStreetMap for providing the map data used in the "Map (OSM)" tool
+- [Minecraft Server Status (Anders G. Jørgensen)](https://mcsrvstat.us/) - Thanks to Anders G. Jørgensen for providing the Minecraft Server Status API used in the "MC server ping" tool
+- [nationalanthems.info](https://nationalanthems.info/) - Thanks to nationalanthems.info for providing the national anthems audio files used in the "National anthem" tool
+- [Opendata.ch (Transport)](https://transport.opendata.ch/) - Thanks to Opendata.ch for providing the public transport data used in the "Nearby transport stops" tool
