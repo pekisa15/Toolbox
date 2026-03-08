@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:toolbox/core/dialogs.dart';
 import 'package:toolbox/core/url.dart';
 import 'package:toolbox/gen/strings.g.dart';
@@ -19,6 +20,15 @@ class CreditsPage extends StatelessWidget {
       t.credits.made_with_love_in_switzerland,
       t.credits.made_with_love_in_switzerland_description
     );
+  }
+
+  Future<String> getAppVersionString() async {
+    try {
+      final packageInfo = await PackageInfo.fromPlatform();
+      return "${packageInfo.version} (${packageInfo.buildNumber})";
+    } catch (e) {
+      return "-";
+    }
   }
 
   @override
@@ -233,6 +243,43 @@ class CreditsPage extends StatelessWidget {
                 ),
               ),
             ],
+            const SizedBox(height: 12),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: FutureBuilder(
+                future: getAppVersionString(),
+                builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return Text(
+                      "...",
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        color: colorScheme.onSurfaceVariant,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    );
+                  } else if (snapshot.hasError) {
+                    return Text(
+                      "-",
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        color: colorScheme.onSurfaceVariant,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    );
+                  } else {
+                    return Text(
+                      "${snapshot.data}",
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        color: colorScheme.onSurfaceVariant,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    );
+                  }
+                },
+              ),
+            ),
             const SizedBox(height: 16),
           ],
         ),
