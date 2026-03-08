@@ -182,8 +182,7 @@ class _TimestampConverterPage extends State<TimestampConverterPage> {
                       children: [
                         Row(
                           children: [
-                            Icon(Icons.schedule_outlined,
-                                color: colorScheme.primary),
+                            Icon(Icons.schedule_outlined, color: colorScheme.primary),
                             const SizedBox(width: 8),
                             Text(
                               t.tools.timestampconverter.unix_timestamp,
@@ -225,26 +224,15 @@ class _TimestampConverterPage extends State<TimestampConverterPage> {
                               ),
                               onPressed: () {
                                 if (unixTimestampController.text.isNotEmpty) {
-                                  int? timestamp = int.tryParse(
-                                      unixTimestampController.text);
-                                  if (timestamp != null &&
-                                      timestamp < 8640000000000 &&
-                                      timestamp > -8640000000000) {
+                                  int? timestamp = int.tryParse(unixTimestampController.text);
+                                  if (timestamp != null && timestamp < 8640000000000 && timestamp > -8640000000000) {
                                     setState(() {
                                       updateTime(timestamp);
                                     });
                                   } else {
                                     setState(() {
-                                      humanReadableDateUtc = t
-                                          .tools
-                                          .timestampconverter
-                                          .error
-                                          .invalid_timestamp;
-                                      humanReadableDateLocal = t
-                                          .tools
-                                          .timestampconverter
-                                          .error
-                                          .invalid_timestamp;
+                                      humanReadableDateUtc = t.tools.timestampconverter.error.invalid_timestamp;
+                                      humanReadableDateLocal = t.tools.timestampconverter.error.invalid_timestamp;
                                     });
                                   }
                                 }
@@ -305,27 +293,19 @@ class _TimestampConverterPage extends State<TimestampConverterPage> {
                               children: [
                                 Text(
                                   "UTC",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodySmall
-                                      ?.copyWith(
-                                        color: colorScheme.onPrimaryContainer,
-                                        fontWeight: FontWeight.w600,
-                                      ),
+                                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                    color: colorScheme.onPrimaryContainer,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
                                 const SizedBox(height: 4),
                                 Text(
-                                  humanReadableDateUtc.replaceAll(
-                                      " (${t.tools.timestampconverter.utc})",
-                                      ""),
+                                  humanReadableDateUtc.replaceAll(" (${t.tools.timestampconverter.utc})", ""),
                                   textAlign: TextAlign.center,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleLarge
-                                      ?.copyWith(
-                                        color: colorScheme.onPrimaryContainer,
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                                    color: colorScheme.onPrimaryContainer,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ],
                             ),
@@ -336,34 +316,26 @@ class _TimestampConverterPage extends State<TimestampConverterPage> {
                             width: double.infinity,
                             padding: const EdgeInsets.all(16),
                             decoration: BoxDecoration(
-                              color: colorScheme.secondaryContainer,
+                              color: colorScheme.primaryContainer,
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Column(
                               children: [
                                 Text(
                                   t.tools.timestampconverter.local,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodySmall
-                                      ?.copyWith(
-                                        color: colorScheme.onSecondaryContainer,
-                                        fontWeight: FontWeight.w600,
-                                      ),
+                                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                    color: colorScheme.onPrimaryContainer,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
                                 const SizedBox(height: 4),
                                 Text(
-                                  humanReadableDateLocal.replaceAll(
-                                      " (${t.tools.timestampconverter.local})",
-                                      ""),
+                                  humanReadableDateLocal.replaceAll(" (${t.tools.timestampconverter.local})", ""),
                                   textAlign: TextAlign.center,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleLarge
-                                      ?.copyWith(
-                                        color: colorScheme.onSecondaryContainer,
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                                    color: colorScheme.onPrimaryContainer,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ],
                             ),
@@ -372,19 +344,13 @@ class _TimestampConverterPage extends State<TimestampConverterPage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(Icons.touch_app_outlined,
-                                  size: 16,
-                                  color: colorScheme.onSurfaceVariant),
+                              Icon(Icons.touch_app_outlined, size: 16, color: colorScheme.onSurfaceVariant),
                               const SizedBox(width: 4),
                               Text(
-                                t.tools.timestampconverter
-                                    .tap_the_date_to_change_it,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodySmall
-                                    ?.copyWith(
-                                      color: colorScheme.onSurfaceVariant,
-                                    ),
+                                t.tools.timestampconverter.tap_the_date_to_change_it,
+                                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                  color: colorScheme.onSurfaceVariant,
+                                ),
                               ),
                             ],
                           ),
