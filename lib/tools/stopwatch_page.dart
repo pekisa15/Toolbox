@@ -130,7 +130,7 @@ class _StopwatchPage extends State<StopwatchPage> {
                           child: FittedBox(
                             fit: BoxFit.scaleDown,
                             child: Text(
-                              getFormattedTimeFromMilliseconds(duration.inMilliseconds.toDouble()),
+                              getFormattedTimeFromMilliseconds(duration.inMilliseconds),
                               style: Theme.of(context)
                                   .textTheme
                                   .displayLarge
@@ -299,7 +299,7 @@ class _StopwatchPage extends State<StopwatchPage> {
                                           ),
                                     ),
                                     Text(
-                                      getFormattedTimeFromMilliseconds(laps[index].inMilliseconds.toDouble()),
+                                      getFormattedTimeFromMilliseconds(laps[index].inMilliseconds),
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyLarge

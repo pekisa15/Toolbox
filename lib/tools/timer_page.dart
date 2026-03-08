@@ -1,9 +1,8 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'package:timer_count_down/timer_controller.dart';
-import 'package:timer_count_down/timer_count_down.dart';
 import 'package:toolbox/core/dialogs.dart';
 import 'package:toolbox/core/time.dart';
 import 'package:toolbox/gen/strings.g.dart';
@@ -18,8 +17,9 @@ class TimerPage extends StatefulWidget {
 class _TimerPage extends State<TimerPage> {
   bool isPlayingAlarm = false;
   final audioPlayer = AudioPlayer();
-  final CountdownController controller = CountdownController(autoStart: false);
-  int _seconds = 60;
+  Timer? timer;
+  int pickedMilliseconds = 60000;
+  int currentMilliseconds = 60000;
   bool isCounting = false;
   bool isPaused = false;
   bool isFinished = false;
@@ -39,7 +39,7 @@ class _TimerPage extends State<TimerPage> {
   }
 
   void startTimer() {
-    if (_seconds == 0) {
+    if (pickedMilliseconds == 0) {
       return;
     }
     if (Platform.isIOS && !isPaused) {
@@ -47,7 +47,15 @@ class _TimerPage extends State<TimerPage> {
     }
     if (!isCounting) {
       stopAlarm();
-      controller.start();
+      timer = Timer.periodic(const Duration(milliseconds: 1), (timer) {
+        if (currentMilliseconds > 0) {
+          setState(() {
+            currentMilliseconds--;
+          });
+        } else {
+          timerFinished();
+        }
+      });
       setState(() {
         isCounting = true;
         isPaused = false;
@@ -58,8 +66,9 @@ class _TimerPage extends State<TimerPage> {
 
   void stopTimer() {
     stopAlarm();
-    controller.restart();
-    controller.pause();
+    timer?.cancel();
+    timer = null;
+    currentMilliseconds = pickedMilliseconds;
     setState(() {
       isCounting = false;
       isFinished = false;
@@ -68,7 +77,7 @@ class _TimerPage extends State<TimerPage> {
 
   void pauseTimer() {
     if (isCounting) {
-      controller.pause();
+      timer?.cancel();
       setState(() {
         isCounting = false;
         isPaused = true;
@@ -76,7 +85,7 @@ class _TimerPage extends State<TimerPage> {
     }
   }
 
-  void addTime(int seconds) {
+  void addTime(int millisecondsToAdd) {
     if (isCounting || isPaused) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -86,15 +95,17 @@ class _TimerPage extends State<TimerPage> {
       );
       return;
     }
-    if (_seconds + seconds >= 0 && _seconds + seconds < 3600) {
+    if (pickedMilliseconds + millisecondsToAdd >= 0 && pickedMilliseconds + millisecondsToAdd < 3600000) {
       setState(() {
-        _seconds += seconds;
+        pickedMilliseconds += millisecondsToAdd;
+        currentMilliseconds = pickedMilliseconds;
       });
     }
   }
 
-  void onFinish() {
-    controller.pause();
+  void timerFinished() {
+    timer?.cancel();
+    timer = null;
     setState(() {
       isFinished = true;
     });
@@ -118,7 +129,7 @@ class _TimerPage extends State<TimerPage> {
   }
 
   Future<void> startVibration() async {
-    if ((await Vibration.hasVibrator()) ?? false) {
+    if ((await Vibration.hasVibrator())) {
       while (isPlayingAlarm) {
         Vibration.vibrate();
         await Future.delayed(const Duration(seconds: 1));
@@ -185,35 +196,23 @@ class _TimerPage extends State<TimerPage> {
                                 : colorScheme.primaryContainer,
                             borderRadius: BorderRadius.circular(12),
                           ),
-                          child: Countdown(
-                            seconds: _seconds,
-                            controller: controller,
-                            build: (BuildContext context, double time) {
-                              String formattedTime =
-                                  getFormattedTimeFromSeconds(time);
-                              return FittedBox(
-                                fit: BoxFit.scaleDown,
-                                child: Text(
-                                  formattedTime,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .displayLarge
-                                      ?.copyWith(
-                                        fontWeight: FontWeight.bold,
-                                        fontFamily: "Roboto Mono",
-                                        fontSize: 64,
-                                        color: isFinished
-                                            ? colorScheme.onErrorContainer
-                                            : colorScheme.onPrimaryContainer,
-                                      ),
-                                ),
-                              );
-                            },
-                            interval: const Duration(milliseconds: 10),
-                            onFinished: () {
-                              onFinish();
-                            },
-                          ),
+                          child: FittedBox(
+                            fit: BoxFit.scaleDown,
+                            child: Text(
+                              getFormattedTimeFromMilliseconds(currentMilliseconds),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .displayLarge
+                                  ?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "Roboto Mono",
+                                fontSize: 64,
+                                color: isFinished
+                                    ? colorScheme.onErrorContainer
+                                    : colorScheme.onPrimaryContainer,
+                              ),
+                            ),
+                          )
                         ),
                       ],
                     ),
@@ -252,7 +251,7 @@ class _TimerPage extends State<TimerPage> {
                             Expanded(
                               child: FilledButton(
                                 onPressed: () {
-                                  addTime(-1);
+                                  addTime(-1000);
                                 },
                                 style: FilledButton.styleFrom(
                                   backgroundColor: colorScheme.secondary,
@@ -269,7 +268,7 @@ class _TimerPage extends State<TimerPage> {
                             Expanded(
                               child: FilledButton(
                                 onPressed: () {
-                                  addTime(1);
+                                  addTime(1000);
                                 },
                                 style: FilledButton.styleFrom(
                                   backgroundColor: colorScheme.secondary,
@@ -286,7 +285,7 @@ class _TimerPage extends State<TimerPage> {
                             Expanded(
                               child: FilledButton(
                                 onPressed: () {
-                                  addTime(-60);
+                                  addTime(-60000);
                                 },
                                 style: FilledButton.styleFrom(
                                   backgroundColor: colorScheme.secondary,
@@ -303,7 +302,7 @@ class _TimerPage extends State<TimerPage> {
                             Expanded(
                               child: FilledButton(
                                 onPressed: () {
-                                  addTime(60);
+                                  addTime(60000);
                                 },
                                 style: FilledButton.styleFrom(
                                   backgroundColor: colorScheme.secondary,
