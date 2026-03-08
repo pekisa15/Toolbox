@@ -94,8 +94,8 @@ Here are some rules to follow when coding in this project:
   - Please use the `lib/core/shared_preferences.dart` file to define the shared preferences keys.
   - Please use the `lib/core/url.dart` file to open URLs outside the app or check if an URL is valid.
 - Please avoid using custom fonts, prefer using the default ones.
-    - If you need to use a monospace font, you can use the `Roboto` font with bold weight.
-- Please do not use custom colors, a theme is already defined.
+    - If you need to use a monospace font, you can use the `Roboto Mono` font with bold weight.
+- Please avoid using custom colors, a theme is already defined.
 - Please do not use custom icons, you can use the `Icons` class.
 - Please respect the assets structure.
 - **Have fun**.
@@ -114,7 +114,7 @@ If you have any question, you can contact me by email at [me@koizeay.com](mailto
   <img src="https://raw.githubusercontent.com/Koizeay/Toolbox/main/.github/screenshot07.png" alt="Screenshot 07" height="400">
   <img src="https://raw.githubusercontent.com/Koizeay/Toolbox/main/.github/screenshot08.png" alt="Screenshot 08" height="400">
   <img src="https://raw.githubusercontent.com/Koizeay/Toolbox/main/.github/screenshot09.png" alt="Screenshot 09" height="400">
-  <img src="https://raw.githubusercontent.com/Koizeay/Toolbox/main/.github/screenshot10.png" alt="Screenshot 19" height="400">
+  <img src="https://raw.githubusercontent.com/Koizeay/Toolbox/main/.github/screenshot10.png" alt="Screenshot 10" height="400">
 </p>
 
 ## License
@@ -126,5 +126,15 @@ _This project was (up to and including version 1.18.0) under the [GNU General Pu
 _You can read the declaration of the license change [here](https://koizeay.com/static/toolbox/license_change_from_gpl-3.0_to_mpl-2.0.pdf)._
 
 ## Credits
-- [Koizeay](https://koizeay.com) - Main developer
-- [Icons8](https://www.icons8.com/) - Tools icons + App icon
+- [Jérémy Turin (Koizeay)](https://koizeay.com) - Main developer
+
+### Special thanks
+- [TitimothyDev (@TitimothyDev)](https://github.com/TitimothyDev) 
+- [Petar Nikolić (@pekisa15)](https://github.com/pekisa15)
+
+### Data sources and licenses
+- [Icons8](https://www.icons8.com/) - Thanks to Icons8 for providing all tools icons (and app icon) for free
+- [OpenStreetMap](https://www.openstreetmap.org/) - Thanks to OpenStreetMap for providing the map data used in the "Map (OSM)" tool
+- [Minecraft Server Status (Anders G. Jørgensen)](https://mcsrvstat.us/) - Thanks to Anders G. Jørgensen for providing the Minecraft Server Status API used in the "MC server ping" tool
+- [nationalanthems.info](https://nationalanthems.info/) - Thanks to nationalanthems.info for providing the national anthems audio files used in the "National anthem" tool
+- [Opendata.ch (Transport)](https://transport.opendata.ch/) - Thanks to Opendata.ch for providing the public transport data used in the "Nearby transport stops" tool
