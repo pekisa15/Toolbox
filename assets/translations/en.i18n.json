@@ -671,15 +671,19 @@
     "mathtex": {
       "title": "MathTeX",
       "enter_a_mathematical_expression_in_tex_format": "Enter a mathematical expression in TeX format",
+      "texExpression": "TeX expression",
       "export_to_image": "Export to image",
-      "edit_pixel_ratio": "Edit pixel ratio",
-      "new_pixel_ratio": "New pixel ratio",
+      "preview": "Preview",
+      "color": "Color",
       "get_help": "Get help",
-      "close_help": "Close help",
+      "open_help_website": "Open help website",
+      "help_content": "Enter a mathematical expression in TeX format to render it as a mathematical formula. For example, the TeX expression '\\\\frac{a}{b}' will be rendered as a fraction with 'a' above 'b'. You can use any supported TeX syntax to create complex mathematical expressions. Once you have entered your expression, you can preview it and export it as an SVG file.\nCompatible with MathJax's TeX format.",
       "copied_to_clipboard": "Copied to clipboard",
       "error": {
         "an_error_occurred_while_rendering_the_mathtex": "An error occurred while rendering the MathTeX",
-        "an_error_occurred_while_exporting_the_image": "An error occurred while exporting the image"
+        "please_wait_until_the_preview_is_loaded": "Please wait until the preview is loaded",
+        "an_error_occurred_while_exporting_the_image": "An error occurred while exporting the image",
+        "could_not_open_help_website": "Could not open help website, please check your configuration and try again"
       }
     },
     "compass": {

@@ -1847,20 +1847,26 @@ class TranslationsToolsMathtexEn {
 	/// en: 'Enter a mathematical expression in TeX format'
 	String get enter_a_mathematical_expression_in_tex_format => 'Enter a mathematical expression in TeX format';
 
+	/// en: 'TeX expression'
+	String get texExpression => 'TeX expression';
+
 	/// en: 'Export to image'
 	String get export_to_image => 'Export to image';
 
-	/// en: 'Edit pixel ratio'
-	String get edit_pixel_ratio => 'Edit pixel ratio';
+	/// en: 'Preview'
+	String get preview => 'Preview';
 
-	/// en: 'New pixel ratio'
-	String get new_pixel_ratio => 'New pixel ratio';
+	/// en: 'Color'
+	String get color => 'Color';
 
 	/// en: 'Get help'
 	String get get_help => 'Get help';
 
-	/// en: 'Close help'
-	String get close_help => 'Close help';
+	/// en: 'Open help website'
+	String get open_help_website => 'Open help website';
+
+	/// en: 'Enter a mathematical expression in TeX format to render it as a mathematical formula. For example, the TeX expression '\\frac{a}{b}' will be rendered as a fraction with 'a' above 'b'. You can use any supported TeX syntax to create complex mathematical expressions. Once you have entered your expression, you can preview it and export it as an SVG file. Compatible with MathJax's TeX format.'
+	String get help_content => 'Enter a mathematical expression in TeX format to render it as a mathematical formula. For example, the TeX expression \'\\frac{a}{b}\' will be rendered as a fraction with \'a\' above \'b\'. You can use any supported TeX syntax to create complex mathematical expressions. Once you have entered your expression, you can preview it and export it as an SVG file.\nCompatible with MathJax\'s TeX format.';
 
 	/// en: 'Copied to clipboard'
 	String get copied_to_clipboard => 'Copied to clipboard';
@@ -2942,8 +2948,14 @@ class TranslationsToolsMathtexErrorEn {
 	/// en: 'An error occurred while rendering the MathTeX'
 	String get an_error_occurred_while_rendering_the_mathtex => 'An error occurred while rendering the MathTeX';
 
+	/// en: 'Please wait until the preview is loaded'
+	String get please_wait_until_the_preview_is_loaded => 'Please wait until the preview is loaded';
+
 	/// en: 'An error occurred while exporting the image'
 	String get an_error_occurred_while_exporting_the_image => 'An error occurred while exporting the image';
+
+	/// en: 'Could not open help website, please check your configuration and try again'
+	String get could_not_open_help_website => 'Could not open help website, please check your configuration and try again';
 }
 
 // Path: tools.compass.error
@@ -3652,14 +3664,18 @@ extension on Translations {
 			case 'tools.areacalculator.error.the_area_of_the_shape_is_zero': return 'The area of the shape is zero';
 			case 'tools.mathtex.title': return 'MathTeX';
 			case 'tools.mathtex.enter_a_mathematical_expression_in_tex_format': return 'Enter a mathematical expression in TeX format';
+			case 'tools.mathtex.texExpression': return 'TeX expression';
 			case 'tools.mathtex.export_to_image': return 'Export to image';
-			case 'tools.mathtex.edit_pixel_ratio': return 'Edit pixel ratio';
-			case 'tools.mathtex.new_pixel_ratio': return 'New pixel ratio';
+			case 'tools.mathtex.preview': return 'Preview';
+			case 'tools.mathtex.color': return 'Color';
 			case 'tools.mathtex.get_help': return 'Get help';
-			case 'tools.mathtex.close_help': return 'Close help';
+			case 'tools.mathtex.open_help_website': return 'Open help website';
+			case 'tools.mathtex.help_content': return 'Enter a mathematical expression in TeX format to render it as a mathematical formula. For example, the TeX expression \'\\frac{a}{b}\' will be rendered as a fraction with \'a\' above \'b\'. You can use any supported TeX syntax to create complex mathematical expressions. Once you have entered your expression, you can preview it and export it as an SVG file.\nCompatible with MathJax\'s TeX format.';
 			case 'tools.mathtex.copied_to_clipboard': return 'Copied to clipboard';
 			case 'tools.mathtex.error.an_error_occurred_while_rendering_the_mathtex': return 'An error occurred while rendering the MathTeX';
+			case 'tools.mathtex.error.please_wait_until_the_preview_is_loaded': return 'Please wait until the preview is loaded';
 			case 'tools.mathtex.error.an_error_occurred_while_exporting_the_image': return 'An error occurred while exporting the image';
+			case 'tools.mathtex.error.could_not_open_help_website': return 'Could not open help website, please check your configuration and try again';
 			case 'tools.compass.title': return 'Compass';
 			case 'tools.compass.error.please_grant_location_permission': return 'Please grant location permission to use the compass. It is mandatory to access the device\'s sensors.';
 			case 'tools.qrcreator.title': return 'QR creator';

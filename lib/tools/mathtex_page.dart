@@ -2,13 +2,10 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_file_dialog/flutter_file_dialog.dart';
-import 'package:flutter_math_fork/flutter_math.dart';
-import 'package:screenshot/screenshot.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_tex/flutter_tex.dart';
 import 'package:toolbox/core/dialogs.dart';
-import 'package:toolbox/core/shared_preferences.dart';
 import 'package:toolbox/gen/strings.g.dart';
-import 'package:toolbox/widgets/mathtex_helplist.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MathTexPage extends StatefulWidget {
   const MathTexPage({super.key});
@@ -19,12 +16,12 @@ class MathTexPage extends StatefulWidget {
 
 class _MathTexPage extends State<MathTexPage> {
   final TextEditingController _textFieldController = TextEditingController();
-  final double _defaultPixelRatio = 10;
+  final String syntaxMathjaxTexHelpWebsiteUrl = "https://treeofmath.github.io/tex-commands-in-mathjax/TeXSyntax.htm#alphaList";
 
-  bool _showHelp = false;
+  bool _isLoading = true;
 
-  ScreenshotController screenshotController = ScreenshotController();
   String _mathTex = "";
+  String? _mathTexSvgData;
   Color _selectedColor = Colors.black;
 
   final List<Color> colors = [
@@ -54,6 +51,19 @@ class _MathTexPage extends State<MathTexPage> {
   @override
   void initState() {
     super.initState();
+    if (TeXRenderingServer.port != null) {
+      setState(() {
+        _isLoading = false;
+      });
+    } else {
+      TeXRenderingServer.start().then((value) {
+        if (mounted) {
+          setState(() {
+            _isLoading = false;
+          });
+        }
+      });
+    }
     Future.delayed(const Duration(milliseconds: 500), () {
       if (mounted) {
         _selectedColor = Theme.of(context).brightness == Brightness.dark
@@ -63,80 +73,24 @@ class _MathTexPage extends State<MathTexPage> {
     });
   }
 
-  Future<void> editPixelRatio() async {
-    final colorScheme = Theme.of(context).colorScheme;
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    double pixelRatio =
-        prefs.getDouble(SHARED_PREFERENCES_TOOL_MATHTEX_EXPORTPIXELRATIO) ??
-            _defaultPixelRatio;
-    if (!mounted) {
+  Future<void> exportToImage() async {
+    if (_mathTexSvgData == null) {
+      showOkTextDialog(context, t.generic.error, t.tools.mathtex.error.please_wait_until_the_preview_is_loaded);
       return;
     }
-    showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: Text(t.tools.mathtex.edit_pixel_ratio),
-            content: TextField(
-              controller: TextEditingController(text: pixelRatio.toString()),
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                labelText: t.tools.mathtex.new_pixel_ratio,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide.none,
-                ),
-              ),
-              onChanged: (value) {
-                setState(() {
-                  pixelRatio = double.tryParse(value) ?? _defaultPixelRatio;
-                });
-              },
-            ),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: Text(t.generic.cancel),
-              ),
-              FilledButton(
-                onPressed: () async {
-                  await prefs.setDouble(
-                      SHARED_PREFERENCES_TOOL_MATHTEX_EXPORTPIXELRATIO,
-                      pixelRatio);
-                  if (mounted) {
-                    Navigator.pop(context);
-                  }
-                },
-                child: Text(t.generic.ok),
-              ),
-            ],
-          );
-        });
+    Uint8List? svgFileBytes = Uint8List.fromList(_mathTexSvgData?.codeUnits ?? []);
+    String fileName = _textFieldController.text.isEmpty ? "mathtex" : _textFieldController.text;
+    fileName = "${fileName.replaceAll(RegExp(r"[^a-zA-Z0-9]"), "_")}.svg";
+    final params = SaveFileDialogParams(data: svgFileBytes, fileName: fileName, mimeTypesFilter: ["image/svg+xml"]);
+    await FlutterFileDialog.saveFile(params: params);
   }
 
-  Future<void> exportToImage() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    double pixelRatio =
-        prefs.getDouble(SHARED_PREFERENCES_TOOL_MATHTEX_EXPORTPIXELRATIO) ??
-            _defaultPixelRatio;
-    Uint8List? bytes =
-        await screenshotController.capture(pixelRatio: pixelRatio);
-    if (bytes != null) {
-      String fileName = _textFieldController.text.isEmpty
-          ? "mathtex"
-          : _textFieldController.text;
-      fileName = "${fileName.replaceAll(RegExp(r"[^a-zA-Z0-9]"), "_")}.png";
-      final params = SaveFileDialogParams(data: bytes, fileName: fileName);
-      await FlutterFileDialog.saveFile(params: params);
+  Future<void> openSyntaxHelpWebsite() async {
+    if (await canLaunchUrl(Uri.parse(syntaxMathjaxTexHelpWebsiteUrl))) {
+      await launchUrl(Uri.parse(syntaxMathjaxTexHelpWebsiteUrl), mode: LaunchMode.externalApplication);
     } else {
       if (mounted) {
-        showOkTextDialog(
-          context,
-          t.generic.error,
-          t.tools.mathtex.error.an_error_occurred_while_exporting_the_image,
-        );
+        showOkTextDialog(context, t.generic.error, t.tools.mathtex.error.could_not_open_help_website);
       }
     }
   }
@@ -152,32 +106,37 @@ class _MathTexPage extends State<MathTexPage> {
           title: Text(t.tools.mathtex.title),
           centerTitle: true,
           actions: [
-            if (!_showHelp)
-              IconButton(
-                onPressed: () async {
-                  await editPixelRatio();
-                },
-                icon: const Icon(Icons.settings_outlined),
-                tooltip: t.tools.mathtex.edit_pixel_ratio,
-              ),
             IconButton(
               onPressed: () {
-                setState(() {
-                  _showHelp = !_showHelp;
-                });
+                showCustomButtonsTextDialog(
+                  context,
+                  t.tools.mathtex.get_help,
+                  t.tools.mathtex.help_content,
+                  [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                        openSyntaxHelpWebsite();
+                      },
+                      child: Text(t.tools.mathtex.open_help_website),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Text(t.generic.ok),
+                    ),
+                  ],
+                );
               },
-              icon: Icon(_showHelp
-                  ? Icons.close_outlined
-                  : Icons.help_outline_outlined),
-              tooltip: _showHelp
-                  ? t.tools.mathtex.close_help
-                  : t.tools.mathtex.get_help,
+              icon: Icon(Icons.help_outline),
+              tooltip: t.tools.mathtex.get_help,
             ),
           ],
         ),
         body: SafeArea(
-          child: _showHelp
-              ? const MathTexHelpList()
+          child: _isLoading
+              ? Center(child: CircularProgressIndicator(color: colorScheme.primary))
               : SingleChildScrollView(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
@@ -198,7 +157,7 @@ class _MathTexPage extends State<MathTexPage> {
                                       color: colorScheme.primary),
                                   const SizedBox(width: 8),
                                   Text(
-                                    "LaTeX Expression",
+                                    t.tools.mathtex.texExpression,
                                     style: Theme.of(context)
                                         .textTheme
                                         .titleMedium
@@ -241,13 +200,11 @@ class _MathTexPage extends State<MathTexPage> {
                             child: Column(
                               children: [
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Icon(Icons.preview_outlined,
-                                        color: colorScheme.primary),
+                                    Icon(Icons.preview_outlined, color: colorScheme.primary),
                                     const SizedBox(width: 8),
                                     Text(
-                                      "Preview",
+                                      t.tools.mathtex.preview,
                                       style: Theme.of(context)
                                           .textTheme
                                           .titleMedium
@@ -267,48 +224,44 @@ class _MathTexPage extends State<MathTexPage> {
                                     borderRadius: BorderRadius.circular(12),
                                   ),
                                   child: Center(
-                                    child: Screenshot(
-                                      controller: screenshotController,
-                                      child: FittedBox(
-                                        fit: BoxFit.scaleDown,
-                                        child: Math.tex(
-                                          _mathTex,
-                                          textStyle: TextStyle(color: _selectedColor, fontSize: 32),
-                                          onErrorFallback: (FlutterMathException e) {
-                                            return Container(
-                                              padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-                                              decoration: BoxDecoration(
-                                                color: colorScheme.errorContainer,
-                                                borderRadius:
-                                                    BorderRadius.circular(8),
-                                              ),
-                                              child: Column(
-                                                children: [
-                                                  Icon(Icons.error_outline, color: colorScheme.onErrorContainer),
-                                                  const SizedBox(height: 4),
-                                                  Text(
-                                                    t.tools.mathtex.error.an_error_occurred_while_rendering_the_mathtex,
-                                                    style: TextStyle(
-                                                      color: colorScheme.onErrorContainer,
-                                                      fontSize: 16,
-                                                      fontWeight: FontWeight.bold,
-                                                    ),
-                                                    textAlign: TextAlign.center,
+                                    child: FittedBox(
+                                      fit: BoxFit.scaleDown,
+                                      child: Math2SVG(
+                                        math: _mathTex,
+                                        teXInputType: MathInputType.teX,
+                                        formulaWidgetBuilder: (context, svg) {
+                                          _mathTexSvgData = svg;
+                                          return SvgPicture.string(
+                                            _mathTexSvgData ?? "",
+                                            colorFilter: ColorFilter.mode(_selectedColor, BlendMode.srcIn),
+                                            height: 50,
+                                            alignment: Alignment.center,
+                                          );
+                                        },
+                                        errorWidgetBuilder: (context, error) {
+                                          return Container(
+                                            padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+                                            decoration: BoxDecoration(
+                                              color: colorScheme.errorContainer,
+                                              borderRadius: BorderRadius.circular(8),
+                                            ),
+                                            child: Column(
+                                              children: [
+                                                Icon(Icons.error_outline, color: colorScheme.onErrorContainer),
+                                                const SizedBox(height: 4),
+                                                Text(
+                                                  t.tools.mathtex.error.an_error_occurred_while_rendering_the_mathtex,
+                                                  style: TextStyle(
+                                                    color: colorScheme.onErrorContainer,
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.bold,
                                                   ),
-                                                  const SizedBox(height: 4),
-                                                  Text(
-                                                    e.message,
-                                                    style: TextStyle(
-                                                      color: colorScheme.onErrorContainer,
-                                                      fontSize: 12,
-                                                    ),
-                                                    textAlign: TextAlign.center,
-                                                  ),
-                                                ],
-                                              ),
-                                            );
-                                          },
-                                        ),
+                                                  textAlign: TextAlign.center,
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
                                       ),
                                     ),
                                   ),
@@ -330,11 +283,10 @@ class _MathTexPage extends State<MathTexPage> {
                               children: [
                                 Row(
                                   children: [
-                                    Icon(Icons.palette_outlined,
-                                        color: colorScheme.primary),
+                                    Icon(Icons.palette_outlined, color: colorScheme.primary),
                                     const SizedBox(width: 8),
                                     Text(
-                                      "Color",
+                                      t.tools.mathtex.color,
                                       style: Theme.of(context)
                                           .textTheme
                                           .titleMedium

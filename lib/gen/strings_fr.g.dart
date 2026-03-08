@@ -968,11 +968,13 @@ class _TranslationsToolsMathtexFr implements TranslationsToolsMathtexEn {
 	// Translations
 	@override String get title => 'MathTeX';
 	@override String get enter_a_mathematical_expression_in_tex_format => 'Entrez une expression mathématique au format TeX';
+	@override String get texExpression => 'Expression TeX';
 	@override String get export_to_image => 'Exporter en image';
-	@override String get edit_pixel_ratio => 'Modifier le ratio de pixels';
-	@override String get new_pixel_ratio => 'Nouveau ratio de pixels';
+	@override String get preview => 'Aperçu';
+	@override String get color => 'Couleur';
 	@override String get get_help => 'Obtenir de l\'aide';
-	@override String get close_help => 'Fermer l\'aide';
+	@override String get open_help_website => 'Ouvrir le site d\'aide';
+	@override String get help_content => 'Entrez une expression mathématique au format TeX pour la rendre en formule mathématique. Par exemple, l\'expression TeX \'\\frac{a}{b}\' sera rendue comme une fraction avec \'a\' au-dessus de \'b\'. Vous pouvez utiliser n\'importe quelle syntaxe TeX prise en charge pour créer des expressions mathématiques complexes. Une fois que vous avez entré votre expression, vous pouvez la prévisualiser et l\'exporter en tant que fichier SVG.\nCompatible avec le format TeX de MathJax.';
 	@override String get copied_to_clipboard => 'Copié dans le presse-papiers';
 	@override late final _TranslationsToolsMathtexErrorFr error = _TranslationsToolsMathtexErrorFr._(_root);
 }
@@ -1576,7 +1578,9 @@ class _TranslationsToolsMathtexErrorFr implements TranslationsToolsMathtexErrorE
 
 	// Translations
 	@override String get an_error_occurred_while_rendering_the_mathtex => 'Une erreur s\'est produite lors du rendu de MathTeX';
+	@override String get please_wait_until_the_preview_is_loaded => 'Veuillez attendre que l\'aperçu soit chargé';
 	@override String get an_error_occurred_while_exporting_the_image => 'Une erreur s\'est produite lors de l\'exportation de l\'image';
+	@override String get could_not_open_help_website => 'Impossible d\'ouvrir le site web d\'aide, veuillez vérifier votre configuration et réessayer';
 }
 
 // Path: tools.compass.error
@@ -2223,14 +2227,18 @@ extension on TranslationsFr {
 			case 'tools.areacalculator.error.the_area_of_the_shape_is_zero': return 'L\'aire de la forme est de zéro';
 			case 'tools.mathtex.title': return 'MathTeX';
 			case 'tools.mathtex.enter_a_mathematical_expression_in_tex_format': return 'Entrez une expression mathématique au format TeX';
+			case 'tools.mathtex.texExpression': return 'Expression TeX';
 			case 'tools.mathtex.export_to_image': return 'Exporter en image';
-			case 'tools.mathtex.edit_pixel_ratio': return 'Modifier le ratio de pixels';
-			case 'tools.mathtex.new_pixel_ratio': return 'Nouveau ratio de pixels';
+			case 'tools.mathtex.preview': return 'Aperçu';
+			case 'tools.mathtex.color': return 'Couleur';
 			case 'tools.mathtex.get_help': return 'Obtenir de l\'aide';
-			case 'tools.mathtex.close_help': return 'Fermer l\'aide';
+			case 'tools.mathtex.open_help_website': return 'Ouvrir le site d\'aide';
+			case 'tools.mathtex.help_content': return 'Entrez une expression mathématique au format TeX pour la rendre en formule mathématique. Par exemple, l\'expression TeX \'\\frac{a}{b}\' sera rendue comme une fraction avec \'a\' au-dessus de \'b\'. Vous pouvez utiliser n\'importe quelle syntaxe TeX prise en charge pour créer des expressions mathématiques complexes. Une fois que vous avez entré votre expression, vous pouvez la prévisualiser et l\'exporter en tant que fichier SVG.\nCompatible avec le format TeX de MathJax.';
 			case 'tools.mathtex.copied_to_clipboard': return 'Copié dans le presse-papiers';
 			case 'tools.mathtex.error.an_error_occurred_while_rendering_the_mathtex': return 'Une erreur s\'est produite lors du rendu de MathTeX';
+			case 'tools.mathtex.error.please_wait_until_the_preview_is_loaded': return 'Veuillez attendre que l\'aperçu soit chargé';
 			case 'tools.mathtex.error.an_error_occurred_while_exporting_the_image': return 'Une erreur s\'est produite lors de l\'exportation de l\'image';
+			case 'tools.mathtex.error.could_not_open_help_website': return 'Impossible d\'ouvrir le site web d\'aide, veuillez vérifier votre configuration et réessayer';
 			case 'tools.compass.title': return 'Boussole';
 			case 'tools.compass.error.please_grant_location_permission': return 'Veuillez autoriser la permission de localisation pour utiliser la boussole. Cette autorisation est obligatoire pour accéder aux capteurs de l\'appareil.';
 			case 'tools.qrcreator.title': return 'Créateur de QR';

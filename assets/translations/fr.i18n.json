@@ -671,15 +671,19 @@
     "mathtex": {
       "title": "MathTeX",
       "enter_a_mathematical_expression_in_tex_format": "Entrez une expression mathématique au format TeX",
+      "texExpression": "Expression TeX",
       "export_to_image": "Exporter en image",
-      "edit_pixel_ratio": "Modifier le ratio de pixels",
-      "new_pixel_ratio": "Nouveau ratio de pixels",
+      "preview": "Aperçu",
+      "color": "Couleur",
       "get_help": "Obtenir de l'aide",
-      "close_help": "Fermer l'aide",
+      "open_help_website": "Ouvrir le site d'aide",
+      "help_content": "Entrez une expression mathématique au format TeX pour la rendre en formule mathématique. Par exemple, l'expression TeX '\\\\frac{a}{b}' sera rendue comme une fraction avec 'a' au-dessus de 'b'. Vous pouvez utiliser n'importe quelle syntaxe TeX prise en charge pour créer des expressions mathématiques complexes. Une fois que vous avez entré votre expression, vous pouvez la prévisualiser et l'exporter en tant que fichier SVG.\nCompatible avec le format TeX de MathJax.",
       "copied_to_clipboard": "Copié dans le presse-papiers",
       "error": {
         "an_error_occurred_while_rendering_the_mathtex": "Une erreur s'est produite lors du rendu de MathTeX",
-        "an_error_occurred_while_exporting_the_image": "Une erreur s'est produite lors de l'exportation de l'image"
+        "please_wait_until_the_preview_is_loaded": "Veuillez attendre que l'aperçu soit chargé",
+        "an_error_occurred_while_exporting_the_image": "Une erreur s'est produite lors de l'exportation de l'image",
+        "could_not_open_help_website": "Impossible d'ouvrir le site web d'aide, veuillez vérifier votre configuration et réessayer"
       }
     },
     "compass": {
