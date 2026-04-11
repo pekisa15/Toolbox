@@ -14,6 +14,7 @@ import 'package:toolbox/tools/fileencryption_page.dart';
 import 'package:toolbox/tools/flipcoins_page.dart';
 import 'package:toolbox/tools/gameoflife_page.dart';
 import 'package:toolbox/tools/httprequest_page.dart';
+import 'package:toolbox/tools/iplocation_page.dart';
 import 'package:toolbox/tools/mathtex_page.dart';
 import 'package:toolbox/tools/mcserverping_page.dart';
 import 'package:toolbox/tools/megaphone_page.dart';
@@ -70,6 +71,7 @@ class Hierarchy {
     "flipcoins": HomeTool(t.tools.flipcoins.title, "assets/images/tools/flipcoins.png", const FlipCoinsPage()),
     "gameoflife": HomeTool(t.tools.gameoflife.title, "assets/images/tools/gameoflife.png", const GameOfLifePage()),
     "httprequest": HomeTool(t.tools.httprequest.title, "assets/images/tools/httprequest.png", const HttpRequestPage()),
+    "iplocation": HomeTool(t.tools.iplocation.title, "assets/images/tools/iplocation.png", const IpLocationPage()),
     "mathtex": HomeTool(t.tools.mathtex.title, "assets/images/tools/mathtex.png", const MathTexPage()),
     "mcserverping": HomeTool(t.tools.mc_server_ping.title, "assets/images/tools/mcserverping.png", const McServerPingPage()),
     "megaphone": HomeTool(t.tools.megaphone.title, "assets/images/tools/megaphone.png", const MegaphonePage()),
@@ -151,6 +153,7 @@ class Hierarchy {
     ]),
     HomeFolder(t.categories.network, "assets/images/folders/folder_network.png", [
       toolMap["httprequest"],
+      toolMap["iplocation"],
       toolMap["mcserverping"],
       toolMap["networkinfo"],
       toolMap["nslookup"],

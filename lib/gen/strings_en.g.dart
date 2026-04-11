@@ -232,6 +232,7 @@ class TranslationsToolsEn {
 	late final TranslationsToolsPortscannerEn portscanner = TranslationsToolsPortscannerEn._(_root);
 	late final TranslationsToolsCommonsEn commons = TranslationsToolsCommonsEn._(_root);
 	late final TranslationsToolsCrdeckEn crdeck = TranslationsToolsCrdeckEn._(_root);
+	late final TranslationsToolsIplocationEn iplocation = TranslationsToolsIplocationEn._(_root);
 }
 
 // Path: credits
@@ -2316,6 +2317,50 @@ class TranslationsToolsCrdeckEn {
 	late final TranslationsToolsCrdeckErrorEn error = TranslationsToolsCrdeckErrorEn._(_root);
 }
 
+// Path: tools.iplocation
+class TranslationsToolsIplocationEn {
+	TranslationsToolsIplocationEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'IP location'
+	String get title => 'IP location';
+
+	/// en: 'API used'
+	String get api_used => 'API used';
+
+	/// en: 'About the API'
+	String get about_the_api => 'About the API';
+
+	/// en: 'This tool uses the API provided by "$source" to fetch the location information of the given IP address'
+	String about_the_api_description({required Object source}) => 'This tool uses the API provided by "${source}" to fetch the location information of the given IP address';
+
+	/// en: 'Visit website'
+	String get visit_website => 'Visit website';
+
+	/// en: 'IP address'
+	String get ip_address => 'IP address';
+
+	/// en: 'Get IP location'
+	String get get_ip_location => 'Get IP location';
+
+	/// en: 'Location information'
+	String get location_information => 'Location information';
+
+	/// en: 'N/A'
+	String get n_a => 'N/A';
+
+	/// en: 'Country'
+	String get country => 'Country';
+
+	/// en: 'Provider'
+	String get provider => 'Provider';
+
+	late final TranslationsToolsIplocationErrorEn error = TranslationsToolsIplocationErrorEn._(_root);
+}
+
 // Path: credits.translations
 class TranslationsCreditsTranslationsEn {
 	TranslationsCreditsTranslationsEn._(this._root);
@@ -3123,6 +3168,27 @@ class TranslationsToolsCrdeckErrorEn {
 	String please_add_x_more_cards_to_the_deck_before_sharing_it({required Object numberOfCards}) => 'Please add ${numberOfCards} more cards to the deck before sharing it';
 }
 
+// Path: tools.iplocation.error
+class TranslationsToolsIplocationErrorEn {
+	TranslationsToolsIplocationErrorEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'IP required'
+	String get ip_required => 'IP required';
+
+	/// en: 'Please enter an IP address to fetch its location'
+	String get please_enter_an_ip_address => 'Please enter an IP address to fetch its location';
+
+	/// en: 'Error fetching location'
+	String get error_fetching_location => 'Error fetching location';
+
+	/// en: 'It seems there was an error fetching the location. Please check your input and your internet connection then try again'
+	String get error_fetching_location_description => 'It seems there was an error fetching the location. Please check your input and your internet connection then try again';
+}
+
 /// The flat map containing all translations for locale <en>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -3825,6 +3891,21 @@ extension on Translations {
 			case 'tools.crdeck.error.incomplete_deck': return 'Incomplete deck';
 			case 'tools.crdeck.error.please_add_x_more_cards_to_the_deck_before_opening_it_in_clash_royale': return ({required Object numberOfCards}) => 'Please add ${numberOfCards} more cards to the deck before opening it in Clash Royale';
 			case 'tools.crdeck.error.please_add_x_more_cards_to_the_deck_before_sharing_it': return ({required Object numberOfCards}) => 'Please add ${numberOfCards} more cards to the deck before sharing it';
+			case 'tools.iplocation.title': return 'IP location';
+			case 'tools.iplocation.api_used': return 'API used';
+			case 'tools.iplocation.about_the_api': return 'About the API';
+			case 'tools.iplocation.about_the_api_description': return ({required Object source}) => 'This tool uses the API provided by "${source}" to fetch the location information of the given IP address';
+			case 'tools.iplocation.visit_website': return 'Visit website';
+			case 'tools.iplocation.ip_address': return 'IP address';
+			case 'tools.iplocation.get_ip_location': return 'Get IP location';
+			case 'tools.iplocation.location_information': return 'Location information';
+			case 'tools.iplocation.n_a': return 'N/A';
+			case 'tools.iplocation.country': return 'Country';
+			case 'tools.iplocation.provider': return 'Provider';
+			case 'tools.iplocation.error.ip_required': return 'IP required';
+			case 'tools.iplocation.error.please_enter_an_ip_address': return 'Please enter an IP address to fetch its location';
+			case 'tools.iplocation.error.error_fetching_location': return 'Error fetching location';
+			case 'tools.iplocation.error.error_fetching_location_description': return 'It seems there was an error fetching the location. Please check your input and your internet connection then try again';
 			case 'credits.title': return 'Credits';
 			case 'credits.app_icon': return ({required Object author}) => 'App icon by ${author}';
 			case 'credits.app_license': return ({required Object license}) => 'The app is licensed under the ${license} license';

@@ -866,6 +866,25 @@
         "please_add_x_more_cards_to_the_deck_before_opening_it_in_clash_royale": "Please add $numberOfCards more cards to the deck before opening it in Clash Royale",
         "please_add_x_more_cards_to_the_deck_before_sharing_it": "Please add $numberOfCards more cards to the deck before sharing it"
       }
+    },
+    "iplocation": {
+      "title": "IP location",
+      "api_used": "API used",
+      "about_the_api": "About the API",
+      "about_the_api_description": "This tool uses the API provided by \"$source\" to fetch the location information of the given IP address",
+      "visit_website": "Visit website",
+      "ip_address": "IP address",
+      "get_ip_location": "Get IP location",
+      "location_information": "Location information",
+      "n_a": "N/A",
+      "country": "Country",
+      "provider": "Provider",
+      "error": {
+        "ip_required": "IP required",
+        "please_enter_an_ip_address": "Please enter an IP address to fetch its location",
+        "error_fetching_location": "Error fetching location",
+        "error_fetching_location_description": "It seems there was an error fetching the location. Please check your input and your internet connection then try again"
+      }
     }
   },
   "credits": {

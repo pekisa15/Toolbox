@@ -866,6 +866,25 @@
         "please_add_x_more_cards_to_the_deck_before_opening_it_in_clash_royale": "Veuillez ajouter $numberOfCards cartes supplémentaires au deck avant de l'ouvrir dans Clash Royale",
         "please_add_x_more_cards_to_the_deck_before_sharing_it": "Veuillez ajouter $numberOfCards cartes supplémentaires au deck avant de le partager"
       }
+    },
+    "iplocation": {
+      "title": "IP location",
+      "api_used": "API utilisée",
+      "about_the_api": "À propos de l'API",
+      "about_the_api_description": "Cet outil utilise l'API fournie par \"$source\" pour récupérer les informations de localisation de l'adresse IP indiquée",
+      "visit_website": "Voir le site",
+      "ip_address": "Adresse IP",
+      "get_ip_location": "Obtenir la localisation de l'IP",
+      "location_information": "Informations de localisation",
+      "n_a": "N/A",
+      "country": "Pays",
+      "provider": "Fournisseur",
+      "error": {
+        "ip_required": "Adresse IP requise",
+        "please_enter_an_ip_address": "Veuillez entrer une adresse IP pour obtenir sa localisation",
+        "error_fetching_location": "Impossible de récupérer la localisation",
+        "error_fetching_location_description": "Il semble qu'une erreur se soit produite lors de la récupération de la localisation. Vérifiez les informations entrées et votre connexion internet, puis réessayez"
+      }
     }
   },
   "credits": {

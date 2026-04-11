@@ -161,6 +161,7 @@ class _TranslationsToolsFr implements TranslationsToolsEn {
 	@override late final _TranslationsToolsPortscannerFr portscanner = _TranslationsToolsPortscannerFr._(_root);
 	@override late final _TranslationsToolsCommonsFr commons = _TranslationsToolsCommonsFr._(_root);
 	@override late final _TranslationsToolsCrdeckFr crdeck = _TranslationsToolsCrdeckFr._(_root);
+	@override late final _TranslationsToolsIplocationFr iplocation = _TranslationsToolsIplocationFr._(_root);
 }
 
 // Path: credits
@@ -1177,6 +1178,27 @@ class _TranslationsToolsCrdeckFr implements TranslationsToolsCrdeckEn {
 	@override late final _TranslationsToolsCrdeckErrorFr error = _TranslationsToolsCrdeckErrorFr._(_root);
 }
 
+// Path: tools.iplocation
+class _TranslationsToolsIplocationFr implements TranslationsToolsIplocationEn {
+	_TranslationsToolsIplocationFr._(this._root);
+
+	final TranslationsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'IP location';
+	@override String get api_used => 'API utilisée';
+	@override String get about_the_api => 'À propos de l\'API';
+	@override String about_the_api_description({required Object source}) => 'Cet outil utilise l\'API fournie par "${source}" pour récupérer les informations de localisation de l\'adresse IP indiquée';
+	@override String get visit_website => 'Voir le site';
+	@override String get ip_address => 'Adresse IP';
+	@override String get get_ip_location => 'Obtenir la localisation de l\'IP';
+	@override String get location_information => 'Informations de localisation';
+	@override String get n_a => 'N/A';
+	@override String get country => 'Pays';
+	@override String get provider => 'Fournisseur';
+	@override late final _TranslationsToolsIplocationErrorFr error = _TranslationsToolsIplocationErrorFr._(_root);
+}
+
 // Path: credits.translations
 class _TranslationsCreditsTranslationsFr implements TranslationsCreditsTranslationsEn {
 	_TranslationsCreditsTranslationsFr._(this._root);
@@ -1684,6 +1706,19 @@ class _TranslationsToolsCrdeckErrorFr implements TranslationsToolsCrdeckErrorEn 
 	@override String get incomplete_deck => 'Deck incomplet';
 	@override String please_add_x_more_cards_to_the_deck_before_opening_it_in_clash_royale({required Object numberOfCards}) => 'Veuillez ajouter ${numberOfCards} cartes supplémentaires au deck avant de l\'ouvrir dans Clash Royale';
 	@override String please_add_x_more_cards_to_the_deck_before_sharing_it({required Object numberOfCards}) => 'Veuillez ajouter ${numberOfCards} cartes supplémentaires au deck avant de le partager';
+}
+
+// Path: tools.iplocation.error
+class _TranslationsToolsIplocationErrorFr implements TranslationsToolsIplocationErrorEn {
+	_TranslationsToolsIplocationErrorFr._(this._root);
+
+	final TranslationsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get ip_required => 'Adresse IP requise';
+	@override String get please_enter_an_ip_address => 'Veuillez entrer une adresse IP pour obtenir sa localisation';
+	@override String get error_fetching_location => 'Impossible de récupérer la localisation';
+	@override String get error_fetching_location_description => 'Il semble qu\'une erreur se soit produite lors de la récupération de la localisation. Vérifiez les informations entrées et votre connexion internet, puis réessayez';
 }
 
 /// The flat map containing all translations for locale <fr>.
@@ -2388,6 +2423,21 @@ extension on TranslationsFr {
 			case 'tools.crdeck.error.incomplete_deck': return 'Deck incomplet';
 			case 'tools.crdeck.error.please_add_x_more_cards_to_the_deck_before_opening_it_in_clash_royale': return ({required Object numberOfCards}) => 'Veuillez ajouter ${numberOfCards} cartes supplémentaires au deck avant de l\'ouvrir dans Clash Royale';
 			case 'tools.crdeck.error.please_add_x_more_cards_to_the_deck_before_sharing_it': return ({required Object numberOfCards}) => 'Veuillez ajouter ${numberOfCards} cartes supplémentaires au deck avant de le partager';
+			case 'tools.iplocation.title': return 'IP location';
+			case 'tools.iplocation.api_used': return 'API utilisée';
+			case 'tools.iplocation.about_the_api': return 'À propos de l\'API';
+			case 'tools.iplocation.about_the_api_description': return ({required Object source}) => 'Cet outil utilise l\'API fournie par "${source}" pour récupérer les informations de localisation de l\'adresse IP indiquée';
+			case 'tools.iplocation.visit_website': return 'Voir le site';
+			case 'tools.iplocation.ip_address': return 'Adresse IP';
+			case 'tools.iplocation.get_ip_location': return 'Obtenir la localisation de l\'IP';
+			case 'tools.iplocation.location_information': return 'Informations de localisation';
+			case 'tools.iplocation.n_a': return 'N/A';
+			case 'tools.iplocation.country': return 'Pays';
+			case 'tools.iplocation.provider': return 'Fournisseur';
+			case 'tools.iplocation.error.ip_required': return 'Adresse IP requise';
+			case 'tools.iplocation.error.please_enter_an_ip_address': return 'Veuillez entrer une adresse IP pour obtenir sa localisation';
+			case 'tools.iplocation.error.error_fetching_location': return 'Impossible de récupérer la localisation';
+			case 'tools.iplocation.error.error_fetching_location_description': return 'Il semble qu\'une erreur se soit produite lors de la récupération de la localisation. Vérifiez les informations entrées et votre connexion internet, puis réessayez';
 			case 'credits.title': return 'Crédits';
 			case 'credits.app_icon': return ({required Object author}) => 'Icône de l\'application par ${author}';
 			case 'credits.app_license': return ({required Object license}) => 'Application sous licence ${license}';
