@@ -866,6 +866,25 @@
         "please_add_x_more_cards_to_the_deck_before_opening_it_in_clash_royale": "Clash Royaleで開く前にあと $numberOfCards 枚のカードをデッキに追加してください",
         "please_add_x_more_cards_to_the_deck_before_sharing_it": "共有する前にあと $numberOfCards 枚のカードをデッキに追加してください"
       }
+    },
+    "iplocation": {
+      "title": "IPアドレスの位置情報",
+      "api_used": "使用API",
+      "about_the_api": "APIについて",
+      "about_the_api_description": "このツールは指定されたIPアドレスの位置情報を取得するために \"$source\" のAPIを使用しています",
+      "visit_website": "ウェブサイトにアクセス",
+      "ip_address": "IPアドレス",
+      "get_ip_location": "位置情報を取得",
+      "location_information": "位置情報",
+      "n_a": "N/A",
+      "country": "国",
+      "provider": "プロバイダー",
+      "error": {
+        "ip_required": "IPアドレスが必要です",
+        "please_enter_an_ip_address": "位置情報を取得するIPアドレスを入力してください",
+        "error_fetching_location": "位置情報の取得エラー",
+        "error_fetching_location_description": "位置情報の取得中にエラーが発生したようです。入力内容とインターネット接続を確認して再試行してください"
+      }
     }
   },
   "credits": {
