@@ -903,7 +903,8 @@
     "translations": {
       "title": "Traductions",
       "english": "Anglais par $author",
-      "french": "Français par $author"
+      "french": "Français par $author",
+      "japanese": "Japonais par $author"
     }
   }
 }

@@ -1209,6 +1209,7 @@ class _TranslationsCreditsTranslationsJa implements TranslationsCreditsTranslati
 	@override String get title => '翻訳';
 	@override String english({required Object author}) => '英語: ${author}';
 	@override String french({required Object author}) => 'フランス語: ${author}';
+	@override String japanese({required Object author}) => '日本語: ${author}';
 }
 
 // Path: tools.megaphone.error
@@ -2453,6 +2454,7 @@ extension on TranslationsJa {
 			case 'credits.translations.title': return '翻訳';
 			case 'credits.translations.english': return ({required Object author}) => '英語: ${author}';
 			case 'credits.translations.french': return ({required Object author}) => 'フランス語: ${author}';
+			case 'credits.translations.japanese': return ({required Object author}) => '日本語: ${author}';
 			default: return null;
 		}
 	}

@@ -83,7 +83,8 @@ class CreditsPage extends StatelessWidget {
               icon: Icons.translate,
               title: t.credits.translations.title,
               subtitle: "${t.credits.translations.english(author: "Koizeay")}"
-                  "\n${t.credits.translations.french(author: "Koizeay")}",
+                  "\n${t.credits.translations.french(author: "Koizeay")}"
+                "\n${t.credits.translations.japanese(author: "monta-gh")}"
             ),
             const SizedBox(height: 12),
             Card(

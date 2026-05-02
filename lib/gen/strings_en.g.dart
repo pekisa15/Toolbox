@@ -2377,6 +2377,9 @@ class TranslationsCreditsTranslationsEn {
 
 	/// en: 'French by $author'
 	String french({required Object author}) => 'French by ${author}';
+
+	/// en: 'Japanese by $author'
+	String japanese({required Object author}) => 'Japanese by ${author}';
 }
 
 // Path: tools.megaphone.error
@@ -3921,6 +3924,7 @@ extension on Translations {
 			case 'credits.translations.title': return 'Translations';
 			case 'credits.translations.english': return ({required Object author}) => 'English by ${author}';
 			case 'credits.translations.french': return ({required Object author}) => 'French by ${author}';
+			case 'credits.translations.japanese': return ({required Object author}) => 'Japanese by ${author}';
 			default: return null;
 		}
 	}
