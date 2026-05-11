@@ -827,7 +827,9 @@
       "error": {
         "error_downloading_file": "Error downloading file ($errorCode)",
         "error_download_file_check_internet": "Error downloading file. Please check your internet connection and try again."
-      }
+      },
+      "load_preview": "Load preview",
+      "page": "Page $number"
     },
     "crdeck": {
       "title": "Clash Royale deck",

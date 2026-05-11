@@ -827,7 +827,9 @@
       "error": {
         "error_downloading_file": "ファイルのダウンロードエラー ($errorCode)",
         "error_download_file_check_internet": "ファイルのダウンロードエラー。インターネット接続を確認して再試行してください。"
-      }
+      },
+      "load_preview": "プレビューを読み込む",
+      "page": "ページ $number"
     },
     "crdeck": {
       "title": "Clash Royaleデッキ",

@@ -6,6 +6,7 @@ import 'package:flutter_file_dialog/flutter_file_dialog.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:http/http.dart' as http;
 import 'package:toolbox/core/dialogs.dart';
+import 'package:toolbox/core/http_requests.dart';
 import 'package:toolbox/core/url.dart';
 import 'package:toolbox/gen/strings.g.dart';
 import 'package:toolbox/models/commons_fileinfo.dart';
@@ -27,10 +28,22 @@ class _CommonsPage extends State<CommonsPage> {
 
   int currentPage = 1;
   List<CommonsFileInfo> mediaFiles = [];
+  final Set<String> _loadedPreviews = {};
+  String _userAgent = "";
 
   @override
   void initState() {
     super.initState();
+    _initUserAgent();
+  }
+
+  Future<void> _initUserAgent() async {
+    final ua = await getToolboxUserAgent();
+    if (mounted) {
+      setState(() {
+        _userAgent = ua;
+      });
+    }
   }
 
   @override
@@ -73,11 +86,11 @@ class _CommonsPage extends State<CommonsPage> {
   Future<void> fetchFileInfo(String fileName, int pageNumber) async {
     setState(() {
       mediaFiles = [];
+      _loadedPreviews.clear();
     });
-    final Uri url = Uri.parse(
-        "$apiEndpoint?action=query&format=json&generator=search&gsrsearch=$fileName&gsrlimit=$pageSize&gsroffset=${(pageNumber - 1) * pageSize}&gsrnamespace=6&prop=imageinfo&iiprop=url|size|mime|metadata|extmetadata");
+    final String url = "$apiEndpoint?action=query&format=json&generator=search&gsrsearch=$fileName&gsrlimit=$pageSize&gsroffset=${(pageNumber - 1) * pageSize}&gsrnamespace=6&prop=imageinfo&iiprop=url|size|mime|metadata|extmetadata";
     try {
-      final response = await http.get(url);
+      final response = await httpGet(url, {});
       if (response.statusCode == 200) {
         final Map<String, dynamic> data =
             Map<String, dynamic>.from(jsonDecode(response.body));
@@ -127,6 +140,17 @@ class _CommonsPage extends State<CommonsPage> {
 
   Widget getLeadingByMimeType(String mimeType, String fileUrl) {
     if (mimeType.startsWith('image/')) {
+      if (!_loadedPreviews.contains(fileUrl)) {
+        return IconButton(
+          icon: Icon(Icons.visibility_outlined, color: Theme.of(context).colorScheme.primary),
+          onPressed: () {
+            setState(() {
+              _loadedPreviews.add(fileUrl);
+            });
+          },
+          tooltip: t.tools.commons.load_preview,
+        );
+      }
       if (!mimeType.contains('jpeg') &&
           !mimeType.contains('png') &&
           !mimeType.contains('gif') &&
@@ -142,6 +166,7 @@ class _CommonsPage extends State<CommonsPage> {
           child: SvgPicture.network(fileUrl,
               width: 40,
               height: 40,
+              headers: {"User-Agent": _userAgent},
               placeholderBuilder: (context) => SizedBox(
                     width: 40,
                     height: 40,
@@ -161,6 +186,7 @@ class _CommonsPage extends State<CommonsPage> {
           showImagePreviewDialog(context, fileUrl);
         },
         child: Image.network(fileUrl, width: 40, height: 40, fit: BoxFit.cover,
+            headers: {"User-Agent": _userAgent},
             loadingBuilder: (context, child, loadingProgress) {
           if (loadingProgress == null) {
             return ClipRRect(
@@ -230,6 +256,7 @@ class _CommonsPage extends State<CommonsPage> {
                     child: isSvg
                         ? SvgPicture.network(imageUrl,
                             height: MediaQuery.of(context).size.width - 48,
+                            headers: {"User-Agent": _userAgent},
                             placeholderBuilder: (context) => SizedBox(
                                   width: 200,
                                   height: 200,
@@ -247,6 +274,7 @@ class _CommonsPage extends State<CommonsPage> {
                                       size: 100));
                             })
                         : Image.network(imageUrl,
+                            headers: {"User-Agent": _userAgent},
                             loadingBuilder: (context, child, loadingProgress) {
                             if (loadingProgress == null) {
                               return child;
@@ -343,7 +371,7 @@ class _CommonsPage extends State<CommonsPage> {
   Future<void> downloadMediaAsFile(CommonsFileInfo file) async {
     try {
       showDownloadingDialog(context);
-      final response = await http.get(Uri.parse(file.fileUrl));
+      final response = await httpGet(file.fileUrl, {});
       if (response.statusCode == 200) {
         await saveFile(file.fileName, response.bodyBytes);
       } else {
@@ -444,107 +472,132 @@ class _CommonsPage extends State<CommonsPage> {
             ],
           ),
           body: SafeArea(
-            child: SingleChildScrollView(
-                child: Column(
+            child: Column(
               children: [
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(16.0),
                   child: TextField(
                     controller: searchTextController,
                     decoration: InputDecoration(
+                      hintText: t.tools.commons.search_files,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: BorderSide.none,
+                      ),
+                      prefixIcon: Icon(Icons.search_outlined,
+                          color: Theme.of(context).colorScheme.onSurfaceVariant),
                       suffixIcon: IconButton(
-                        icon: Icon(Icons.search_outlined),
+                        icon: const Icon(Icons.arrow_forward),
                         onPressed: () {
                           submitSearch(searchTextController.text);
                         },
                         tooltip: t.tools.commons.search_files,
                       ),
-                      border: OutlineInputBorder(),
-                      labelText: t.tools.commons.search_files,
                     ),
                     onSubmitted: (value) {
                       submitSearch(value);
                     },
                   ),
                 ),
-                mediaFiles.isEmpty && searchQuery.isEmpty
-                    ? Padding(
-                        padding: EdgeInsets.all(16.0),
-                        child: Text(
-                          t.tools.commons.enter_search_query_to_find_files,
-                          style: TextStyle(fontSize: 16),
-                          textAlign: TextAlign.center,
-                        ),
-                      )
-                    : ListView.builder(
-                        shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
-                        itemCount: mediaFiles.length,
-                        itemBuilder: (context, index) {
-                          final file = mediaFiles[index];
-                          return Card(
-                            child: ListTile(
-                              leading: SizedBox(
-                                  width: 40,
-                                  child: Center(
-                                      child: getLeadingByMimeType(
-                                          file.mimeType, file.fileUrl))),
-                              title: Text(getContentOfHtmlTags(
-                                  file.cleanName.isNotEmpty
-                                      ? file.cleanName
-                                      : file.fileName)),
-                              subtitle: Text(
-                                  '${getFileSizeString(file.size)} - ${file.width != 0 && file.height != 0 ? "${file.width}x${file.height}" : ""}${file.duration != null ? " - ${getFileDurationString(file.duration!)}" : ""}'),
-                              trailing: IconButton(
-                                tooltip: t.tools.commons.view_on_wikimedia,
-                                icon: Icon(Icons.open_in_new_outlined),
-                                onPressed: () {
-                                  launchUrlInBrowser(file.wikimediaUrl);
-                                },
+                Expanded(
+                  child: mediaFiles.isEmpty && searchQuery.isEmpty
+                      ? Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.image_search_outlined,
+                                size: 64,
+                                color: Theme.of(context).colorScheme.onSurfaceVariant,
                               ),
-                              onTap: () {
-                                showMainDialog(file);
-                              },
-                            ),
-                          );
-                        },
-                      ),
-                // Change page buttons
+                              const SizedBox(height: 16),
+                              Text(
+                                t.tools.commons.enter_search_query_to_find_files,
+                                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                                    ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                        )
+                      : ListView.builder(
+                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                          itemCount: mediaFiles.length,
+                          itemBuilder: (context, index) {
+                            final file = mediaFiles[index];
+                            return Padding(
+                              padding: const EdgeInsets.only(bottom: 8.0),
+                              child: Card(
+                                elevation: 0,
+                                color: Theme.of(context).colorScheme.primaryContainer,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: ListTile(
+                                  leading: SizedBox(
+                                      width: 40,
+                                      child: Center(
+                                          child: getLeadingByMimeType(
+                                              file.mimeType, file.fileUrl))),
+                                  title: Text(getContentOfHtmlTags(
+                                      file.cleanName.isNotEmpty
+                                          ? file.cleanName
+                                          : file.fileName)),
+                                  subtitle: Text(
+                                      '${getFileSizeString(file.size)} - ${file.width != 0 && file.height != 0 ? "${file.width}x${file.height}" : ""}${file.duration != null ? " - ${getFileDurationString(file.duration!)}" : ""}'),
+                                  trailing: IconButton(
+                                    tooltip: t.tools.commons.view_on_wikimedia,
+                                    icon: Icon(Icons.open_in_new_outlined, color: Theme.of(context).colorScheme.primary),
+                                    onPressed: () {
+                                      launchUrlInBrowser(file.wikimediaUrl);
+                                    },
+                                  ),
+                                  onTap: () {
+                                    showMainDialog(file);
+                                  },
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                ),
                 if (searchQuery.isNotEmpty)
                   Padding(
-                    padding: EdgeInsets.symmetric(vertical: 8.0),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          FilledButton(
-                              onPressed: currentPage > 1
-                                  ? () {
-                                      setState(() {
-                                        currentPage--;
-                                      });
-                                      fetchFileInfo(searchQuery, currentPage);
-                                    }
-                                  : null,
-                              child: Text(t.tools.commons.previous)),
-                          FilledButton(
-                              onPressed: mediaFiles.isNotEmpty &&
-                                      mediaFiles.length == pageSize
-                                  ? () {
-                                      setState(() {
-                                        currentPage++;
-                                      });
-                                      fetchFileInfo(searchQuery, currentPage);
-                                    }
-                                  : null,
-                              child: Text(t.tools.commons.next)),
-                        ],
-                      ),
+                    padding: const EdgeInsets.all(16.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        FilledButton(
+                            onPressed: currentPage > 1
+                                ? () {
+                                    setState(() {
+                                      currentPage--;
+                                    });
+                                    fetchFileInfo(searchQuery, currentPage);
+                                  }
+                                : null,
+                            child: Text(t.tools.commons.previous)),
+                        Text(
+                          t.tools.commons.page(number: currentPage),
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                        FilledButton(
+                            onPressed: mediaFiles.isNotEmpty &&
+                                    mediaFiles.length == pageSize
+                                ? () {
+                                    setState(() {
+                                      currentPage++;
+                                    });
+                                    fetchFileInfo(searchQuery, currentPage);
+                                  }
+                                : null,
+                            child: Text(t.tools.commons.next)),
+                      ],
                     ),
                   ),
               ],
-            )),
+            ),
           )),
     );
   }

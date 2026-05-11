@@ -2250,6 +2250,12 @@ class TranslationsToolsCommonsEn {
 	String get downloading => 'Downloading...';
 
 	late final TranslationsToolsCommonsErrorEn error = TranslationsToolsCommonsErrorEn._(_root);
+
+	/// en: 'Load preview'
+	String get load_preview => 'Load preview';
+
+	/// en: 'Page $number'
+	String page({required Object number}) => 'Page ${number}';
 }
 
 // Path: tools.crdeck
@@ -3860,6 +3866,8 @@ extension on Translations {
 			case 'tools.commons.downloading': return 'Downloading...';
 			case 'tools.commons.error.error_downloading_file': return ({required Object errorCode}) => 'Error downloading file (${errorCode})';
 			case 'tools.commons.error.error_download_file_check_internet': return 'Error downloading file. Please check your internet connection and try again.';
+			case 'tools.commons.load_preview': return 'Load preview';
+			case 'tools.commons.page': return ({required Object number}) => 'Page ${number}';
 			case 'tools.crdeck.title': return 'Clash Royale deck';
 			case 'tools.crdeck.clear_unlocked_deck_cards': return 'Clear unlocked deck cards';
 			case 'tools.crdeck.about_and_credits': return 'About and credits';

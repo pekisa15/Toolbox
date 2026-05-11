@@ -827,7 +827,9 @@
       "error": {
         "error_downloading_file": "Erreur lors du téléchargement du fichier ($errorCode)",
         "error_download_file_check_internet": "Erreur lors du téléchargement du fichier. Veuillez vérifier votre connexion Internet et réessayer."
-      }
+      },
+      "load_preview": "Charger l'aperçu",
+      "page": "Page $number"
     },
     "crdeck": {
       "title": "Deck Clash Royale",

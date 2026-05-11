@@ -1148,6 +1148,8 @@ class _TranslationsToolsCommonsJa implements TranslationsToolsCommonsEn {
 	@override String get file_downloaded_successfully => 'ファイルをダウンロードしました';
 	@override String get downloading => 'ダウンロード中...';
 	@override late final _TranslationsToolsCommonsErrorJa error = _TranslationsToolsCommonsErrorJa._(_root);
+	@override String get load_preview => 'プレビューを読み込む';
+	@override String page({required Object number}) => 'ページ ${number}';
 }
 
 // Path: tools.crdeck
@@ -2390,6 +2392,8 @@ extension on TranslationsJa {
 			case 'tools.commons.downloading': return 'ダウンロード中...';
 			case 'tools.commons.error.error_downloading_file': return ({required Object errorCode}) => 'ファイルのダウンロードエラー (${errorCode})';
 			case 'tools.commons.error.error_download_file_check_internet': return 'ファイルのダウンロードエラー。インターネット接続を確認して再試行してください。';
+			case 'tools.commons.load_preview': return 'プレビューを読み込む';
+			case 'tools.commons.page': return ({required Object number}) => 'ページ ${number}';
 			case 'tools.crdeck.title': return 'Clash Royaleデッキ';
 			case 'tools.crdeck.clear_unlocked_deck_cards': return '未固定カードをクリア';
 			case 'tools.crdeck.about_and_credits': return '概要とクレジット';

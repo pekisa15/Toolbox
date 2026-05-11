@@ -1148,6 +1148,8 @@ class _TranslationsToolsCommonsFr implements TranslationsToolsCommonsEn {
 	@override String get file_downloaded_successfully => 'Fichier téléchargé avec succès';
 	@override String get downloading => 'Téléchargement...';
 	@override late final _TranslationsToolsCommonsErrorFr error = _TranslationsToolsCommonsErrorFr._(_root);
+	@override String get load_preview => 'Charger l\'aperçu';
+	@override String page({required Object number}) => 'Page ${number}';
 }
 
 // Path: tools.crdeck
@@ -2390,6 +2392,8 @@ extension on TranslationsFr {
 			case 'tools.commons.downloading': return 'Téléchargement...';
 			case 'tools.commons.error.error_downloading_file': return ({required Object errorCode}) => 'Erreur lors du téléchargement du fichier (${errorCode})';
 			case 'tools.commons.error.error_download_file_check_internet': return 'Erreur lors du téléchargement du fichier. Veuillez vérifier votre connexion Internet et réessayer.';
+			case 'tools.commons.load_preview': return 'Charger l\'aperçu';
+			case 'tools.commons.page': return ({required Object number}) => 'Page ${number}';
 			case 'tools.crdeck.title': return 'Deck Clash Royale';
 			case 'tools.crdeck.clear_unlocked_deck_cards': return 'Effacer les cartes non épinglées du deck';
 			case 'tools.crdeck.about_and_credits': return 'À propos et crédits';
