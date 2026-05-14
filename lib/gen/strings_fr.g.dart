@@ -763,6 +763,14 @@ class _TranslationsToolsUrlshortenerFr implements TranslationsToolsUrlshortenerE
 	@override String get more_features => 'Plus de fonctionnalités';
 	@override String get more_features_message => 'Utiliser des fonctions supplémentaires telles que le partage de texte, des liens personnalisés, et plus via le site officiel JTU.ME';
 	@override String get open => 'Ouvrir';
+	@override String get options => 'Options (optionnel)';
+	@override String get access_password => 'Mot de passe d\'accès';
+	@override String get expiration_date => 'Date d\'expiration (UTC)';
+	@override String get use_my_account => 'Utiliser mon compte';
+	@override String get email => 'Email';
+	@override String get password => 'Mot de passe';
+	@override String get no_account => 'Pas de compte ?';
+	@override String get no_account_message => 'Vous pouvez créer un compte gratuit sur le site officiel de JTU.ME';
 	@override late final _TranslationsToolsUrlshortenerErrorFr error = _TranslationsToolsUrlshortenerErrorFr._(_root);
 	@override String get management_info => 'Infos de gestion';
 }
@@ -1046,6 +1054,14 @@ class _TranslationsToolsPastebinFr implements TranslationsToolsPastebinEn {
 	@override String get more_features => 'Plus de fonctionnalités';
 	@override String get more_features_message => 'Utiliser des fonctions supplémentaires telles que le raccourcissement d\'URL, des liens personnalisés, et plus via le site officiel JTU.ME';
 	@override String get open => 'Ouvrir';
+	@override String get options => 'Options (optionnel)';
+	@override String get access_password => 'Mot de passe d\'accès';
+	@override String get expiration_date => 'Date d\'expiration (UTC)';
+	@override String get use_my_account => 'Utiliser mon compte';
+	@override String get email => 'Email';
+	@override String get password => 'Mot de passe';
+	@override String get no_account => 'Pas de compte ?';
+	@override String get no_account_message => 'Vous pouvez créer un compte gratuit sur le site officiel de JTU.ME pour gérer vos liens et vos pastes.';
 	@override late final _TranslationsToolsPastebinErrorFr error = _TranslationsToolsPastebinErrorFr._(_root);
 	@override String get management_info => 'Infos de gestion';
 }
@@ -1462,6 +1478,8 @@ class _TranslationsToolsUrlshortenerErrorFr implements TranslationsToolsUrlshort
 	@override String get failed_to_shorten_url => 'Le raccourcissement de l\'URL a échoué, veuillez vérifier votre saisie et votre connexion internet.';
 	@override String get impossible_to_connect_to_the_server => 'Impossible de se connecter au serveur';
 	@override String get impossible_to_connect_to_the_server_message => 'Échec de la connexion au serveur, veuillez vérifier votre connexion internet et réessayer.';
+	@override String get unauthorized => 'Non autorisé. Veuillez vérifier vos identifiants.';
+	@override String get invalid_expiration_date => 'La date d\'expiration doit être dans le futur.';
 }
 
 // Path: tools.counter.error
@@ -1638,6 +1656,8 @@ class _TranslationsToolsPastebinErrorFr implements TranslationsToolsPastebinErro
 	@override String get failed_to_obtain_short_link => 'Impossible d\'obtenir un lien court, veuillez vérifier votre connexion internet puis réessayer';
 	@override String get impossible_to_connect_to_the_server => 'Impossible de se connecter au serveur';
 	@override String get impossible_to_connect_to_the_server_message => 'Échec de la connexion au serveur, veuillez vérifier votre connexion internet et réessayer.';
+	@override String get unauthorized => 'Non autorisé. Veuillez vérifier vos identifiants.';
+	@override String get invalid_expiration_date => 'La date d\'expiration doit être dans le futur.';
 }
 
 // Path: tools.percentagecalculator.error
@@ -2109,9 +2129,19 @@ extension on TranslationsFr {
 			case 'tools.urlshortener.more_features': return 'Plus de fonctionnalités';
 			case 'tools.urlshortener.more_features_message': return 'Utiliser des fonctions supplémentaires telles que le partage de texte, des liens personnalisés, et plus via le site officiel JTU.ME';
 			case 'tools.urlshortener.open': return 'Ouvrir';
+			case 'tools.urlshortener.options': return 'Options (optionnel)';
+			case 'tools.urlshortener.access_password': return 'Mot de passe d\'accès';
+			case 'tools.urlshortener.expiration_date': return 'Date d\'expiration (UTC)';
+			case 'tools.urlshortener.use_my_account': return 'Utiliser mon compte';
+			case 'tools.urlshortener.email': return 'Email';
+			case 'tools.urlshortener.password': return 'Mot de passe';
+			case 'tools.urlshortener.no_account': return 'Pas de compte ?';
+			case 'tools.urlshortener.no_account_message': return 'Vous pouvez créer un compte gratuit sur le site officiel de JTU.ME';
 			case 'tools.urlshortener.error.failed_to_shorten_url': return 'Le raccourcissement de l\'URL a échoué, veuillez vérifier votre saisie et votre connexion internet.';
 			case 'tools.urlshortener.error.impossible_to_connect_to_the_server': return 'Impossible de se connecter au serveur';
 			case 'tools.urlshortener.error.impossible_to_connect_to_the_server_message': return 'Échec de la connexion au serveur, veuillez vérifier votre connexion internet et réessayer.';
+			case 'tools.urlshortener.error.unauthorized': return 'Non autorisé. Veuillez vérifier vos identifiants.';
+			case 'tools.urlshortener.error.invalid_expiration_date': return 'La date d\'expiration doit être dans le futur.';
 			case 'tools.urlshortener.management_info': return 'Infos de gestion';
 			case 'tools.counter.title': return 'Compteur';
 			case 'tools.counter.add_button': return 'Ajouter un bouton';
@@ -2239,6 +2269,12 @@ extension on TranslationsFr {
 			case 'tools.areacalculator.inputs.radius': return 'Rayon';
 			case 'tools.areacalculator.inputs.major_axis': return 'Grand axe';
 			case 'tools.areacalculator.inputs.minor_axis': return 'Petit axe';
+			default: return null;
+		}
+	}
+
+	dynamic _flatMapFunction$1(String path) {
+		switch (path) {
 			case 'tools.areacalculator.inputs.side': return 'Côté';
 			case 'tools.areacalculator.inputs.base': return 'Base';
 			case 'tools.areacalculator.inputs.height': return 'Hauteur';
@@ -2249,12 +2285,6 @@ extension on TranslationsFr {
 			case 'tools.areacalculator.inputs.number_of_sides': return 'Nombre de côtés';
 			case 'tools.areacalculator.inputs.side_length': return 'Longueur du côté';
 			case 'tools.areacalculator.inputs.apothem': return 'Apotème';
-			default: return null;
-		}
-	}
-
-	dynamic _flatMapFunction$1(String path) {
-		switch (path) {
 			case 'tools.areacalculator.inputs.base_1': return 'Base 1';
 			case 'tools.areacalculator.inputs.base_2': return 'Base 2';
 			case 'tools.areacalculator.error.invalid_input': return 'Entrée invalide';
@@ -2318,9 +2348,19 @@ extension on TranslationsFr {
 			case 'tools.pastebin.more_features': return 'Plus de fonctionnalités';
 			case 'tools.pastebin.more_features_message': return 'Utiliser des fonctions supplémentaires telles que le raccourcissement d\'URL, des liens personnalisés, et plus via le site officiel JTU.ME';
 			case 'tools.pastebin.open': return 'Ouvrir';
+			case 'tools.pastebin.options': return 'Options (optionnel)';
+			case 'tools.pastebin.access_password': return 'Mot de passe d\'accès';
+			case 'tools.pastebin.expiration_date': return 'Date d\'expiration (UTC)';
+			case 'tools.pastebin.use_my_account': return 'Utiliser mon compte';
+			case 'tools.pastebin.email': return 'Email';
+			case 'tools.pastebin.password': return 'Mot de passe';
+			case 'tools.pastebin.no_account': return 'Pas de compte ?';
+			case 'tools.pastebin.no_account_message': return 'Vous pouvez créer un compte gratuit sur le site officiel de JTU.ME pour gérer vos liens et vos pastes.';
 			case 'tools.pastebin.error.failed_to_obtain_short_link': return 'Impossible d\'obtenir un lien court, veuillez vérifier votre connexion internet puis réessayer';
 			case 'tools.pastebin.error.impossible_to_connect_to_the_server': return 'Impossible de se connecter au serveur';
 			case 'tools.pastebin.error.impossible_to_connect_to_the_server_message': return 'Échec de la connexion au serveur, veuillez vérifier votre connexion internet et réessayer.';
+			case 'tools.pastebin.error.unauthorized': return 'Non autorisé. Veuillez vérifier vos identifiants.';
+			case 'tools.pastebin.error.invalid_expiration_date': return 'La date d\'expiration doit être dans le futur.';
 			case 'tools.pastebin.management_info': return 'Infos de gestion';
 			case 'tools.percentagecalculator.title': return 'Calculateur de pourcentage';
 			case 'tools.percentagecalculator.result': return 'Résultat';

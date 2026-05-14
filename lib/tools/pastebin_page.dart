@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toolbox/core/dialogs.dart';
 import 'package:toolbox/core/http_requests.dart';
+import 'package:toolbox/core/shared_preferences.dart';
 import 'package:toolbox/core/url.dart';
 import 'package:toolbox/gen/strings.g.dart';
 import 'package:toolbox/models/pastebin_result.dart';
@@ -31,6 +33,12 @@ class _PastebinPage extends State<PastebinPage> {
   PastebinResult? result;
 
   TextEditingController textPasteController = TextEditingController();
+  
+  bool useAccount = false;
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController accessPasswordController = TextEditingController();
+  DateTime? expirationDate;
 
   @override
   void initState() {
@@ -47,7 +55,24 @@ class _PastebinPage extends State<PastebinPage> {
         });
       }
     });
+    loadAccountSettings();
     super.initState();
+  }
+
+  Future<void> loadAccountSettings() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      useAccount = prefs.getBool(SHARED_PREFERENCES_TOOL_JTUME_USE_ACCOUNT) ?? false;
+      emailController.text = prefs.getString(SHARED_PREFERENCES_TOOL_JTUME_EMAIL) ?? "";
+      passwordController.text = prefs.getString(SHARED_PREFERENCES_TOOL_JTUME_PASSWORD) ?? "";
+    });
+  }
+
+  Future<void> saveAccountSettings() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(SHARED_PREFERENCES_TOOL_JTUME_USE_ACCOUNT, useAccount);
+    await prefs.setString(SHARED_PREFERENCES_TOOL_JTUME_EMAIL, emailController.text);
+    await prefs.setString(SHARED_PREFERENCES_TOOL_JTUME_PASSWORD, passwordController.text);
   }
 
   Future<void> checkConnectionToServer() async {
@@ -58,19 +83,89 @@ class _PastebinPage extends State<PastebinPage> {
   }
 
   Future<void> sendText(String text) async {
-    var response =
-        await httpPost(serverUrl + serverPasteApiEndpoint, {"content": text})
-            .onError((error, stackTrace) {
+    String? token;
+
+    if (useAccount) {
+      await saveAccountSettings();
+
+      final tokenResponse = await httpPost(
+        "$serverUrl/_/api/getApiToken",
+        {
+          "email": emailController.text.trim(),
+          "password": passwordController.text
+        },
+      ).onError((error, stackTrace) => Response("", 500));
+
+      if (tokenResponse.statusCode == 200) {
+        final json = jsonDecode(tokenResponse.body);
+        token = json["api_token"];
+      } else if (tokenResponse.statusCode == 401) {
+        if (mounted) {
+          showOkTextDialog(
+            context,
+            t.generic.error,
+            t.tools.pastebin.error.unauthorized,
+          );
+        }
+        return;
+      } else {
+        if (mounted) {
+          showOkTextDialog(
+            context,
+            t.generic.error,
+            t.tools.pastebin.error.failed_to_obtain_short_link,
+          );
+        }
+        return;
+      }
+    }
+
+    if (expirationDate != null) {
+      final now = DateTime.now().toUtc();
+      if (!expirationDate!.isAfter(now)) {
+        if (mounted) {
+          showOkTextDialog(
+            context,
+            t.generic.error,
+            t.tools.pastebin.error.invalid_expiration_date,
+          );
+        }
+        return;
+      }
+    }
+
+    final Map<String, String> body = {"content": text};
+    if (token != null) {
+      body["api_token"] = token;
+    }
+    if (accessPasswordController.text.isNotEmpty) {
+      body["access_password"] = accessPasswordController.text;
+    }
+    if (expirationDate != null) {
+      body["expiration_timestamp"] = (expirationDate!.millisecondsSinceEpoch ~/ 1000).toString();
+    }
+
+    final response = await httpPost(serverUrl + serverPasteApiEndpoint, body).onError((error, stackTrace) {
       return Response("", 500);
     });
+
     if (response.statusCode == 200) {
-      var json = jsonDecode(response.body);
+      final json = jsonDecode(response.body);
       result = PastebinResult(
         shortUrl: json["short_url"] ?? "",
         qrBase64: json["qr_base64"] ?? "",
         shortPath: json["short_path"] ?? "",
         managementPassword: json["management_password"] ?? "",
       );
+    } else if (response.statusCode == 401) {
+      result = null;
+      if (mounted) {
+        showOkTextDialog(
+          context,
+          t.generic.error,
+          t.tools.pastebin.error.unauthorized,
+        );
+      }
     } else {
       result = null;
       if (mounted) {
@@ -151,6 +246,139 @@ class _PastebinPage extends State<PastebinPage> {
         t.tools.pastebin.view_statistics_of_a_link,
         t.tools.pastebin.view_statistics_of_a_link_message,
         actions);
+  }
+
+  Widget _optionsCard(ColorScheme colorScheme) {
+    final now = DateTime.now();
+    final tomorrow = DateTime(now.year, now.month, now.day).add(const Duration(days: 1));
+    
+    return Card(
+      elevation: 2,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Icon(Icons.settings_outlined, color: colorScheme.primary),
+                const SizedBox(width: 8),
+                Text(
+                  t.tools.pastebin.options,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            TextField(
+              controller: accessPasswordController,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide.none,
+                ),
+                hintText: t.tools.pastebin.access_password,
+                prefixIcon: Icon(Icons.lock_outlined,
+                    color: colorScheme.onSurfaceVariant),
+              ),
+            ),
+            const SizedBox(height: 12),
+            ListTile(
+              leading: Icon(Icons.calendar_today_outlined, color: colorScheme.onSurfaceVariant),
+              title: Text(expirationDate == null
+                  ? t.tools.pastebin.expiration_date
+                  : expirationDate!.toUtc().toString().substring(0, 10)),
+              trailing: expirationDate != null
+                  ? IconButton(
+                      icon: const Icon(Icons.clear),
+                      onPressed: () {
+                        setState(() => expirationDate = null);
+                      },
+                    )
+                  : null,
+              onTap: () async {
+                final date = await showDatePicker(
+                  context: context,
+                  initialDate: tomorrow,
+                  firstDate: tomorrow,
+                  lastDate: tomorrow.add(const Duration(days: 365)),
+                );
+                if (date != null) {
+                  setState(() => expirationDate = DateTime.utc(date.year, date.month, date.day));
+                }
+              },
+            ),
+            const SizedBox(height: 12),
+            SwitchListTile(
+              title: Text(t.tools.pastebin.use_my_account),
+              value: useAccount,
+              onChanged: (value) {
+                setState(() => useAccount = value);
+              },
+            ),
+            if (useAccount) ...[
+              const SizedBox(height: 12),
+              TextField(
+                controller: emailController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide.none,
+                  ),
+                  hintText: t.tools.pastebin.email,
+                  prefixIcon: Icon(Icons.email_outlined,
+                      color: colorScheme.onSurfaceVariant),
+                ),
+              ),
+              const SizedBox(height: 12),
+              TextField(
+                controller: passwordController,
+                obscureText: true,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide.none,
+                  ),
+                  hintText: t.tools.pastebin.password,
+                  prefixIcon: Icon(Icons.password_outlined,
+                      color: colorScheme.onSurfaceVariant),
+                ),
+              ),
+              const SizedBox(height: 12),
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                  onPressed: () {
+                    showCustomButtonsTextDialog(
+                      context,
+                      t.tools.pastebin.no_account,
+                      t.tools.pastebin.no_account_message,
+                      [
+                        TextButton(
+                          onPressed: () => Navigator.pop(context),
+                          child: Text(t.generic.cancel),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            launchUrlInBrowser("https://jtu.me");
+                            Navigator.pop(context);
+                          },
+                          child: Text(t.tools.pastebin.open),
+                        ),
+                      ],
+                    );
+                  },
+                  child: Text(t.tools.pastebin.no_account),
+                ),
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
   }
 
   @override
@@ -593,6 +821,8 @@ class _PastebinPage extends State<PastebinPage> {
                                   ),
                                 ),
                               ),
+                              const SizedBox(height: 16),
+                              _optionsCard(colorScheme),
                               const SizedBox(height: 16),
                               SizedBox(
                                 width: double.infinity,

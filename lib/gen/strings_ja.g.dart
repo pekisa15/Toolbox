@@ -763,6 +763,14 @@ class _TranslationsToolsUrlshortenerJa implements TranslationsToolsUrlshortenerE
 	@override String get more_features => 'さらなる機能';
 	@override String get more_features_message => '公式JTU.MEウェブサイトからテキスト共有、カスタムリンクなどの追加機能を使用してください';
 	@override String get open => '開く';
+	@override String get options => 'オプション (任意)';
+	@override String get access_password => 'アクセスパスワード';
+	@override String get expiration_date => '有効期限 (UTC)';
+	@override String get use_my_account => 'アカウントを使用する';
+	@override String get email => 'メールアドレス';
+	@override String get password => 'パスワード';
+	@override String get no_account => 'アカウントをお持ちでない場合';
+	@override String get no_account_message => '公式JTU.MEウェブサイトで無料アカウントを作成できます。';
 	@override late final _TranslationsToolsUrlshortenerErrorJa error = _TranslationsToolsUrlshortenerErrorJa._(_root);
 	@override String get management_info => '管理情報';
 }
@@ -1046,6 +1054,14 @@ class _TranslationsToolsPastebinJa implements TranslationsToolsPastebinEn {
 	@override String get more_features => 'さらなる機能';
 	@override String get more_features_message => '公式JTU.MEウェブサイトからURL短縮、カスタムリンクなどの追加機能を使用してください';
 	@override String get open => '開く';
+	@override String get options => 'オプション (任意)';
+	@override String get access_password => 'アクセスパスワード';
+	@override String get expiration_date => '有効期限 (UTC)';
+	@override String get use_my_account => 'アカウントを使用する';
+	@override String get email => 'メールアドレス';
+	@override String get password => 'パスワード';
+	@override String get no_account => 'アカウントをお持ちでない場合';
+	@override String get no_account_message => '公式JTU.MEウェブサイトで無料アカウントを作成して、リンクやペーストを管理できます。';
 	@override late final _TranslationsToolsPastebinErrorJa error = _TranslationsToolsPastebinErrorJa._(_root);
 	@override String get management_info => '管理情報';
 }
@@ -1462,6 +1478,8 @@ class _TranslationsToolsUrlshortenerErrorJa implements TranslationsToolsUrlshort
 	@override String get failed_to_shorten_url => 'URLの短縮に失敗しました。入力内容とインターネット接続を確認してください。';
 	@override String get impossible_to_connect_to_the_server => 'サーバーに接続できません';
 	@override String get impossible_to_connect_to_the_server_message => 'サーバーへの接続に失敗しました。インターネット接続を確認して再試行してください。';
+	@override String get unauthorized => '認証に失敗しました。認証情報を確認してください。';
+	@override String get invalid_expiration_date => '有効期限は未来の日付である必要があります。';
 }
 
 // Path: tools.counter.error
@@ -1638,6 +1656,8 @@ class _TranslationsToolsPastebinErrorJa implements TranslationsToolsPastebinErro
 	@override String get failed_to_obtain_short_link => '短縮リンクの取得に失敗しました。インターネット接続を確認して再試行してください';
 	@override String get impossible_to_connect_to_the_server => 'サーバーに接続できません';
 	@override String get impossible_to_connect_to_the_server_message => 'サーバーへの接続に失敗しました。インターネット接続を確認して再試行してください。';
+	@override String get unauthorized => '認証に失敗しました。認証情報を確認してください。';
+	@override String get invalid_expiration_date => '有効期限は未来の日付である必要があります。';
 }
 
 // Path: tools.percentagecalculator.error
@@ -2109,9 +2129,19 @@ extension on TranslationsJa {
 			case 'tools.urlshortener.more_features': return 'さらなる機能';
 			case 'tools.urlshortener.more_features_message': return '公式JTU.MEウェブサイトからテキスト共有、カスタムリンクなどの追加機能を使用してください';
 			case 'tools.urlshortener.open': return '開く';
+			case 'tools.urlshortener.options': return 'オプション (任意)';
+			case 'tools.urlshortener.access_password': return 'アクセスパスワード';
+			case 'tools.urlshortener.expiration_date': return '有効期限 (UTC)';
+			case 'tools.urlshortener.use_my_account': return 'アカウントを使用する';
+			case 'tools.urlshortener.email': return 'メールアドレス';
+			case 'tools.urlshortener.password': return 'パスワード';
+			case 'tools.urlshortener.no_account': return 'アカウントをお持ちでない場合';
+			case 'tools.urlshortener.no_account_message': return '公式JTU.MEウェブサイトで無料アカウントを作成できます。';
 			case 'tools.urlshortener.error.failed_to_shorten_url': return 'URLの短縮に失敗しました。入力内容とインターネット接続を確認してください。';
 			case 'tools.urlshortener.error.impossible_to_connect_to_the_server': return 'サーバーに接続できません';
 			case 'tools.urlshortener.error.impossible_to_connect_to_the_server_message': return 'サーバーへの接続に失敗しました。インターネット接続を確認して再試行してください。';
+			case 'tools.urlshortener.error.unauthorized': return '認証に失敗しました。認証情報を確認してください。';
+			case 'tools.urlshortener.error.invalid_expiration_date': return '有効期限は未来の日付である必要があります。';
 			case 'tools.urlshortener.management_info': return '管理情報';
 			case 'tools.counter.title': return 'カウンター';
 			case 'tools.counter.add_button': return 'ボタンを追加';
@@ -2239,6 +2269,12 @@ extension on TranslationsJa {
 			case 'tools.areacalculator.inputs.radius': return '半径';
 			case 'tools.areacalculator.inputs.major_axis': return '長軸';
 			case 'tools.areacalculator.inputs.minor_axis': return '短軸';
+			default: return null;
+		}
+	}
+
+	dynamic _flatMapFunction$1(String path) {
+		switch (path) {
 			case 'tools.areacalculator.inputs.side': return '辺';
 			case 'tools.areacalculator.inputs.base': return '底辺';
 			case 'tools.areacalculator.inputs.height': return '高さ';
@@ -2249,12 +2285,6 @@ extension on TranslationsJa {
 			case 'tools.areacalculator.inputs.number_of_sides': return '辺の数';
 			case 'tools.areacalculator.inputs.side_length': return '辺の長さ';
 			case 'tools.areacalculator.inputs.apothem': return 'アポテム';
-			default: return null;
-		}
-	}
-
-	dynamic _flatMapFunction$1(String path) {
-		switch (path) {
 			case 'tools.areacalculator.inputs.base_1': return '底辺1';
 			case 'tools.areacalculator.inputs.base_2': return '底辺2';
 			case 'tools.areacalculator.error.invalid_input': return '無効な入力';
@@ -2318,9 +2348,19 @@ extension on TranslationsJa {
 			case 'tools.pastebin.more_features': return 'さらなる機能';
 			case 'tools.pastebin.more_features_message': return '公式JTU.MEウェブサイトからURL短縮、カスタムリンクなどの追加機能を使用してください';
 			case 'tools.pastebin.open': return '開く';
+			case 'tools.pastebin.options': return 'オプション (任意)';
+			case 'tools.pastebin.access_password': return 'アクセスパスワード';
+			case 'tools.pastebin.expiration_date': return '有効期限 (UTC)';
+			case 'tools.pastebin.use_my_account': return 'アカウントを使用する';
+			case 'tools.pastebin.email': return 'メールアドレス';
+			case 'tools.pastebin.password': return 'パスワード';
+			case 'tools.pastebin.no_account': return 'アカウントをお持ちでない場合';
+			case 'tools.pastebin.no_account_message': return '公式JTU.MEウェブサイトで無料アカウントを作成して、リンクやペーストを管理できます。';
 			case 'tools.pastebin.error.failed_to_obtain_short_link': return '短縮リンクの取得に失敗しました。インターネット接続を確認して再試行してください';
 			case 'tools.pastebin.error.impossible_to_connect_to_the_server': return 'サーバーに接続できません';
 			case 'tools.pastebin.error.impossible_to_connect_to_the_server_message': return 'サーバーへの接続に失敗しました。インターネット接続を確認して再試行してください。';
+			case 'tools.pastebin.error.unauthorized': return '認証に失敗しました。認証情報を確認してください。';
+			case 'tools.pastebin.error.invalid_expiration_date': return '有効期限は未来の日付である必要があります。';
 			case 'tools.pastebin.management_info': return '管理情報';
 			case 'tools.percentagecalculator.title': return 'パーセント計算';
 			case 'tools.percentagecalculator.result': return '結果';

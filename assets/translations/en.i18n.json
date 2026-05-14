@@ -479,10 +479,20 @@
       "more_features": "More features",
       "more_features_message": "Use additional features such as text sharing, custom links, and more via the official JTU.ME website",
       "open": "Open",
+      "options": "Options (optional)",
+      "access_password": "Access password",
+      "expiration_date": "Expiration date (UTC)",
+      "use_my_account": "Use my account",
+      "email": "Email",
+      "password": "Password",
+      "no_account": "No account?",
+      "no_account_message": "You can create a free account on the official JTU.ME website",
       "error": {
         "failed_to_shorten_url": "Failed to shorten the URL, please check your input and your internet connection.",
         "impossible_to_connect_to_the_server": "Impossible to connect to the server",
-        "impossible_to_connect_to_the_server_message": "Failed to connect to the server, please check your internet connection and try again."
+        "impossible_to_connect_to_the_server_message": "Failed to connect to the server, please check your internet connection and try again.",
+        "unauthorized": "Unauthorized. Please check your credentials.",
+        "invalid_expiration_date": "The expiration date must be in the future."
       },
       "management_info": "Management info"
     },
@@ -736,10 +746,20 @@
       "more_features": "More features",
       "more_features_message": "Use additional features such as URL shortening, custom links, and more via the official JTU.ME website",
       "open": "Open",
+      "options": "Options (optional)",
+      "access_password": "Access password",
+      "expiration_date": "Expiration date (UTC)",
+      "use_my_account": "Use my account",
+      "email": "Email",
+      "password": "Password",
+      "no_account": "No account?",
+      "no_account_message": "You can create a free account on the official JTU.ME website to manage your links and pastes.",
       "error": {
         "failed_to_obtain_short_link": "Failed to obtain short link, please check your internet connection and try again",
         "impossible_to_connect_to_the_server": "Impossible to connect to the server",
-        "impossible_to_connect_to_the_server_message": "Failed to connect to the server, please check your internet connection and try again."
+        "impossible_to_connect_to_the_server_message": "Failed to connect to the server, please check your internet connection and try again.",
+        "unauthorized": "Unauthorized. Please check your credentials.",
+        "invalid_expiration_date": "The expiration date must be in the future."
       },
       "management_info": "Management info"
     },

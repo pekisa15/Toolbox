@@ -1440,6 +1440,30 @@ class TranslationsToolsUrlshortenerEn {
 	/// en: 'Open'
 	String get open => 'Open';
 
+	/// en: 'Options (optional)'
+	String get options => 'Options (optional)';
+
+	/// en: 'Access password'
+	String get access_password => 'Access password';
+
+	/// en: 'Expiration date (UTC)'
+	String get expiration_date => 'Expiration date (UTC)';
+
+	/// en: 'Use my account'
+	String get use_my_account => 'Use my account';
+
+	/// en: 'Email'
+	String get email => 'Email';
+
+	/// en: 'Password'
+	String get password => 'Password';
+
+	/// en: 'No account?'
+	String get no_account => 'No account?';
+
+	/// en: 'You can create a free account on the official JTU.ME website'
+	String get no_account_message => 'You can create a free account on the official JTU.ME website';
+
 	late final TranslationsToolsUrlshortenerErrorEn error = TranslationsToolsUrlshortenerErrorEn._(_root);
 
 	/// en: 'Management info'
@@ -2021,6 +2045,30 @@ class TranslationsToolsPastebinEn {
 
 	/// en: 'Open'
 	String get open => 'Open';
+
+	/// en: 'Options (optional)'
+	String get options => 'Options (optional)';
+
+	/// en: 'Access password'
+	String get access_password => 'Access password';
+
+	/// en: 'Expiration date (UTC)'
+	String get expiration_date => 'Expiration date (UTC)';
+
+	/// en: 'Use my account'
+	String get use_my_account => 'Use my account';
+
+	/// en: 'Email'
+	String get email => 'Email';
+
+	/// en: 'Password'
+	String get password => 'Password';
+
+	/// en: 'No account?'
+	String get no_account => 'No account?';
+
+	/// en: 'You can create a free account on the official JTU.ME website to manage your links and pastes.'
+	String get no_account_message => 'You can create a free account on the official JTU.ME website to manage your links and pastes.';
 
 	late final TranslationsToolsPastebinErrorEn error = TranslationsToolsPastebinErrorEn._(_root);
 
@@ -2758,6 +2806,12 @@ class TranslationsToolsUrlshortenerErrorEn {
 
 	/// en: 'Failed to connect to the server, please check your internet connection and try again.'
 	String get impossible_to_connect_to_the_server_message => 'Failed to connect to the server, please check your internet connection and try again.';
+
+	/// en: 'Unauthorized. Please check your credentials.'
+	String get unauthorized => 'Unauthorized. Please check your credentials.';
+
+	/// en: 'The expiration date must be in the future.'
+	String get invalid_expiration_date => 'The expiration date must be in the future.';
 }
 
 // Path: tools.counter.error
@@ -3052,6 +3106,12 @@ class TranslationsToolsPastebinErrorEn {
 
 	/// en: 'Failed to connect to the server, please check your internet connection and try again.'
 	String get impossible_to_connect_to_the_server_message => 'Failed to connect to the server, please check your internet connection and try again.';
+
+	/// en: 'Unauthorized. Please check your credentials.'
+	String get unauthorized => 'Unauthorized. Please check your credentials.';
+
+	/// en: 'The expiration date must be in the future.'
+	String get invalid_expiration_date => 'The expiration date must be in the future.';
 }
 
 // Path: tools.percentagecalculator.error
@@ -3583,9 +3643,19 @@ extension on Translations {
 			case 'tools.urlshortener.more_features': return 'More features';
 			case 'tools.urlshortener.more_features_message': return 'Use additional features such as text sharing, custom links, and more via the official JTU.ME website';
 			case 'tools.urlshortener.open': return 'Open';
+			case 'tools.urlshortener.options': return 'Options (optional)';
+			case 'tools.urlshortener.access_password': return 'Access password';
+			case 'tools.urlshortener.expiration_date': return 'Expiration date (UTC)';
+			case 'tools.urlshortener.use_my_account': return 'Use my account';
+			case 'tools.urlshortener.email': return 'Email';
+			case 'tools.urlshortener.password': return 'Password';
+			case 'tools.urlshortener.no_account': return 'No account?';
+			case 'tools.urlshortener.no_account_message': return 'You can create a free account on the official JTU.ME website';
 			case 'tools.urlshortener.error.failed_to_shorten_url': return 'Failed to shorten the URL, please check your input and your internet connection.';
 			case 'tools.urlshortener.error.impossible_to_connect_to_the_server': return 'Impossible to connect to the server';
 			case 'tools.urlshortener.error.impossible_to_connect_to_the_server_message': return 'Failed to connect to the server, please check your internet connection and try again.';
+			case 'tools.urlshortener.error.unauthorized': return 'Unauthorized. Please check your credentials.';
+			case 'tools.urlshortener.error.invalid_expiration_date': return 'The expiration date must be in the future.';
 			case 'tools.urlshortener.management_info': return 'Management info';
 			case 'tools.counter.title': return 'Counter';
 			case 'tools.counter.add_button': return 'Add button';
@@ -3713,6 +3783,12 @@ extension on Translations {
 			case 'tools.areacalculator.inputs.radius': return 'Radius';
 			case 'tools.areacalculator.inputs.major_axis': return 'Major axis';
 			case 'tools.areacalculator.inputs.minor_axis': return 'Minor axis';
+			default: return null;
+		}
+	}
+
+	dynamic _flatMapFunction$1(String path) {
+		switch (path) {
 			case 'tools.areacalculator.inputs.side': return 'Side';
 			case 'tools.areacalculator.inputs.base': return 'Base';
 			case 'tools.areacalculator.inputs.height': return 'Height';
@@ -3723,12 +3799,6 @@ extension on Translations {
 			case 'tools.areacalculator.inputs.number_of_sides': return 'Number of sides';
 			case 'tools.areacalculator.inputs.side_length': return 'Side length';
 			case 'tools.areacalculator.inputs.apothem': return 'Apothem';
-			default: return null;
-		}
-	}
-
-	dynamic _flatMapFunction$1(String path) {
-		switch (path) {
 			case 'tools.areacalculator.inputs.base_1': return 'Base 1';
 			case 'tools.areacalculator.inputs.base_2': return 'Base 2';
 			case 'tools.areacalculator.error.invalid_input': return 'Invalid input';
@@ -3792,9 +3862,19 @@ extension on Translations {
 			case 'tools.pastebin.more_features': return 'More features';
 			case 'tools.pastebin.more_features_message': return 'Use additional features such as URL shortening, custom links, and more via the official JTU.ME website';
 			case 'tools.pastebin.open': return 'Open';
+			case 'tools.pastebin.options': return 'Options (optional)';
+			case 'tools.pastebin.access_password': return 'Access password';
+			case 'tools.pastebin.expiration_date': return 'Expiration date (UTC)';
+			case 'tools.pastebin.use_my_account': return 'Use my account';
+			case 'tools.pastebin.email': return 'Email';
+			case 'tools.pastebin.password': return 'Password';
+			case 'tools.pastebin.no_account': return 'No account?';
+			case 'tools.pastebin.no_account_message': return 'You can create a free account on the official JTU.ME website to manage your links and pastes.';
 			case 'tools.pastebin.error.failed_to_obtain_short_link': return 'Failed to obtain short link, please check your internet connection and try again';
 			case 'tools.pastebin.error.impossible_to_connect_to_the_server': return 'Impossible to connect to the server';
 			case 'tools.pastebin.error.impossible_to_connect_to_the_server_message': return 'Failed to connect to the server, please check your internet connection and try again.';
+			case 'tools.pastebin.error.unauthorized': return 'Unauthorized. Please check your credentials.';
+			case 'tools.pastebin.error.invalid_expiration_date': return 'The expiration date must be in the future.';
 			case 'tools.pastebin.management_info': return 'Management info';
 			case 'tools.percentagecalculator.title': return 'Percentage calculator';
 			case 'tools.percentagecalculator.result': return 'Result';

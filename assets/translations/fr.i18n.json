@@ -479,10 +479,20 @@
       "more_features": "Plus de fonctionnalités",
       "more_features_message": "Utiliser des fonctions supplémentaires telles que le partage de texte, des liens personnalisés, et plus via le site officiel JTU.ME",
       "open": "Ouvrir",
+      "options": "Options (optionnel)",
+      "access_password": "Mot de passe d'accès",
+      "expiration_date": "Date d'expiration (UTC)",
+      "use_my_account": "Utiliser mon compte",
+      "email": "Email",
+      "password": "Mot de passe",
+      "no_account": "Pas de compte ?",
+      "no_account_message": "Vous pouvez créer un compte gratuit sur le site officiel de JTU.ME",
       "error": {
         "failed_to_shorten_url": "Le raccourcissement de l'URL a échoué, veuillez vérifier votre saisie et votre connexion internet.",
         "impossible_to_connect_to_the_server": "Impossible de se connecter au serveur",
-        "impossible_to_connect_to_the_server_message": "Échec de la connexion au serveur, veuillez vérifier votre connexion internet et réessayer."
+        "impossible_to_connect_to_the_server_message": "Échec de la connexion au serveur, veuillez vérifier votre connexion internet et réessayer.",
+        "unauthorized": "Non autorisé. Veuillez vérifier vos identifiants.",
+        "invalid_expiration_date": "La date d'expiration doit être dans le futur."
       },
       "management_info": "Infos de gestion"
     },
@@ -736,10 +746,20 @@
       "more_features": "Plus de fonctionnalités",
       "more_features_message": "Utiliser des fonctions supplémentaires telles que le raccourcissement d'URL, des liens personnalisés, et plus via le site officiel JTU.ME",
       "open": "Ouvrir",
+      "options": "Options (optionnel)",
+      "access_password": "Mot de passe d'accès",
+      "expiration_date": "Date d'expiration (UTC)",
+      "use_my_account": "Utiliser mon compte",
+      "email": "Email",
+      "password": "Mot de passe",
+      "no_account": "Pas de compte ?",
+      "no_account_message": "Vous pouvez créer un compte gratuit sur le site officiel de JTU.ME pour gérer vos liens et vos pastes.",
       "error": {
         "failed_to_obtain_short_link": "Impossible d'obtenir un lien court, veuillez vérifier votre connexion internet puis réessayer",
         "impossible_to_connect_to_the_server": "Impossible de se connecter au serveur",
-        "impossible_to_connect_to_the_server_message": "Échec de la connexion au serveur, veuillez vérifier votre connexion internet et réessayer."
+        "impossible_to_connect_to_the_server_message": "Échec de la connexion au serveur, veuillez vérifier votre connexion internet et réessayer.",
+        "unauthorized": "Non autorisé. Veuillez vérifier vos identifiants.",
+        "invalid_expiration_date": "La date d'expiration doit être dans le futur."
       },
       "management_info": "Infos de gestion"
     },
